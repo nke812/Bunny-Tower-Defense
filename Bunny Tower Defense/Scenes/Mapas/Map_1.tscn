@@ -1,0 +1,169 @@
+[gd_scene format=3 uid="uid://cf5i2ng5uq7i"]
+
+[ext_resource type="Script" uid="uid://deemh3xh6l078" path="res://Scripts/Maps/map_1.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://gda01hgj8bbe" path="res://Assets/Music/GraveyardGroove.ogg" id="2_etryv"]
+[ext_resource type="Script" uid="uid://cj5vuu45ii5tk" path="res://Scripts/ghostling_spawner.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://btpfuo1qi7tam" path="res://Assets/Others/Map_Assets/MapGrasslands.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://detp27r3t8fig" path="res://Assets/Others/Map_Assets/Pieces/BushPosition.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://blf41njwmhhrd" path="res://Assets/Others/Map_Assets/Bush01.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://ds673xketndkv" path="res://Assets/Others/Map_Assets/Bush02.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://dlceism21lgnt" path="res://Assets/Others/Map_Assets/Bush03.png" id="8"]
+[ext_resource type="PackedScene" uid="uid://cvtf3eidvbt76" path="res://Scenes/HUD.tscn" id="9"]
+
+[sub_resource type="Curve2D" id="Curve2D_lycfg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -541.3174, 158.0839, 0, 0, 0, 0, 43.11377, 152.09586, 0, 0, 0, 0, 138.92218, -97.00595, 0, 0, 0, 0, 1250.2996, -87.42511, 0, 0, 0, 0, 1250.2996, 324.551, 0, 0, 0, 0, 320.95813, 324.551, 0, 0, 0, 0, 330.53894, 113.77252, 0, 0, 0, 0, 589.2216, 123.35336, 0, 0, 0, 0, 589.2216, 631.1378, 0, 0, 0, 0, 1566.4672, 621.557)
+}
+point_count = 10
+
+[node name="Mapa_1" type="Node2D" unique_id=41714579]
+y_sort_enabled = true
+position = Vector2(-36.000004, -42.000004)
+scale = Vector2(0.835, 0.835)
+script = ExtResource("1")
+
+[node name="Map1Music" type="AudioStreamPlayer" parent="." unique_id=1453626938]
+process_mode = 3
+stream = ExtResource("2_etryv")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="GhostlingSpawner" type="Node2D" parent="." unique_id=2109337534 groups=["spawner"]]
+y_sort_enabled = true
+position = Vector2(-17.964067, 2.395214)
+script = ExtResource("3")
+
+[node name="Timer" type="Timer" parent="GhostlingSpawner" unique_id=1280611192]
+wait_time = 0.5
+autostart = true
+
+[node name="Map" type="Sprite2D" parent="." unique_id=2040754683]
+y_sort_enabled = true
+position = Vector2(1017.9642, -29.940002)
+scale = Vector2(0.5990241, 0.59902424)
+texture = ExtResource("4")
+offset = Vector2(292.51355, 1213.1501)
+
+[node name="MapSprites" type="Node2D" parent="Map" unique_id=1907962850]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1947152330]
+y_sort_enabled = true
+position = Vector2(450.2994, 310.17963)
+scale = Vector2(0.99999994, 0.99999994)
+curve = SubResource("Curve2D_lycfg")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1755593801]
+y_sort_enabled = true
+position = Vector2(-541.3174, 158.0839)
+rotates = false
+loop = false
+
+[node name="BushPosition" type="Sprite2D" parent="." unique_id=1478967233]
+visible = false
+y_sort_enabled = true
+position = Vector2(1114.9701, 888.62274)
+scale = Vector2(0.59924597, 0.59924597)
+texture = ExtResource("5")
+offset = Vector2(130.9253, -320.56262)
+
+[node name="Area_Path" type="Area2D" parent="." unique_id=655402903 groups=["no_place"]]
+y_sort_enabled = true
+position = Vector2(2.395214, 20.359285)
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area_Path" unique_id=2045750682 groups=["no_place"]]
+position = Vector2(-1.1976051, -16.766468)
+scale = Vector2(0.99999994, 0.99999994)
+polygon = PackedVector2Array(40.718567, 417.96408, 43.113777, 508.98203, 456.2874, 507.78442, 482.63474, 507.78442, 510.17963, 501.79642, 525.74854, 491.01797, 542.51495, 477.8443, 558.0838, 461.07785, 608.38324, 275.4491, 621.5569, 267.06586, 1627.5449, 256.2874, 1641.9161, 262.27545, 1655.0898, 537.72455, 1649.1018, 559.28143, 1637.1257, 573.65265, 1622.7545, 577.2455, 1605.988, 584.4311, 978.4431, 577.2455, 952.09576, 588.0239, 929.3413, 598.80237, 905.3892, 588.0239, 871.85626, 583.2335, 844.31134, 573.65265, 822.75446, 560.479, 813.17365, 538.9221, 804.7904, 516.16766, 804.7904, 494.61078, 811.976, 476.6467, 833.5329, 457.48505, 859.88025, 449.1018, 934.1317, 450.2994, 952.09576, 459.88025, 967.6647, 473.0539, 1089.8203, 470.6587, 1087.4252, 452.6946, 1079.0419, 429.94012, 1056.2875, 404.79044, 1037.1257, 394.012, 995.2096, 386.82635, 773.6527, 388.02396, 753.2934, 404.79044, 734.1317, 432.33533, 723.3533, 477.8443, 726.9461, 664.67065, 737.72455, 677.8443, 744.91016, 688.62274, 964.07184, 695.80835, 982.0359, 702.99396, 1088.6227, 705.38916, 1111.3772, 689.8203, 1717.3652, 683.8323, 1741.3174, 663.473, 1754.491, 633.5329, 1758.0839, 233.53294, 1736.527, 201.19762, 1704.1917, 192.81438, 1633.533, 186.82635, 574.8503, 165.26947, 556.8862, 179.64072, 538.9222, 200, 471.8563, 400, 455.0898, 414.37125, 432.33533, 421.5569)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area_Path" unique_id=2115293809 groups=["no_place"]]
+position = Vector2(-3.5928154, -17.964077)
+scale = Vector2(0.99999994, 0.99999994)
+polygon = PackedVector2Array(1001.1976, 843.1137, 1001.1976, 950.8982, 1033.533, 967.6646, 1101.7964, 978.44305, 1411.9761, 982.0359, 1829.9401, 984.4311, 1831.1377, 897.006, 1233.533, 900.59875, 1140.1198, 910.1796, 1094.6107, 908.982, 1075.4491, 879.0419, 1075.4491, 841.91614)
+
+[node name="HUD" parent="." unique_id=1805092987 instance=ExtResource("9")]
+
+[node name="Bushes" type="Node2D" parent="." unique_id=2130574630]
+light_mask = 2
+y_sort_enabled = true
+position = Vector2(1017.96405, -29.940006)
+scale = Vector2(0.5990241, 0.59902424)
+
+[node name="Bush01" type="Sprite2D" parent="Bushes" unique_id=888204372]
+y_sort_enabled = true
+position = Vector2(-1303.5171, 1083.5981)
+scale = Vector2(0.5674879, 0.5674877)
+texture = ExtResource("6")
+offset = Vector2(-14.092224, 21.138184)
+
+[node name="Bush02" type="Sprite2D" parent="Bushes" unique_id=80848341]
+position = Vector2(-841.68823, 1305.5162)
+scale = Vector2(0.42129713, 0.42129695)
+texture = ExtResource("7")
+offset = Vector2(-14.236694, 75.927246)
+
+[node name="Bush10" type="Sprite2D" parent="Bushes" unique_id=2111480519]
+position = Vector2(1167.5675, 193.92796)
+scale = Vector2(0.4159648, 0.4159607)
+skew = -0.1850049
+texture = ExtResource("8")
+offset = Vector2(-44.45111, 77.10408)
+
+[node name="Bush11" type="Sprite2D" parent="Bushes" unique_id=2070052325]
+position = Vector2(1295.5205, 239.91093)
+scale = Vector2(0.40431288, 0.40430892)
+texture = ExtResource("6")
+offset = Vector2(-36.99701, 70.0394)
+
+[node name="Bush09" type="Sprite2D" parent="Bushes" unique_id=1118628604]
+position = Vector2(729.73, 869.6776)
+scale = Vector2(0.7101857, 0.71018225)
+texture = ExtResource("8")
+offset = Vector2(-24.168152, -50.04492)
+
+[node name="Bush08" type="Sprite2D" parent="Bushes" unique_id=99066940]
+position = Vector2(647.7602, 1293.5208)
+scale = Vector2(0.3799669, 0.379966)
+texture = ExtResource("8")
+offset = Vector2(-20.984314, 132.47388)
+
+[node name="Bush12" type="Sprite2D" parent="Bushes" unique_id=1835904433]
+position = Vector2(1343.5027, 1355.4977)
+scale = Vector2(0.49620494, 0.49620375)
+texture = ExtResource("7")
+offset = Vector2(-35.86859, 30.077393)
+
+[node name="Bush07" type="Sprite2D" parent="Bushes" unique_id=591688402]
+position = Vector2(-179.93332, 843.6872)
+scale = Vector2(0.53895664, 0.53895605)
+texture = ExtResource("6")
+offset = Vector2(-0.8847046, 20.11206)
+
+[node name="Bush06" type="Sprite2D" parent="Bushes" unique_id=1912825880]
+position = Vector2(-841.68823, 155.94205)
+scale = Vector2(0.32720914, 0.32720897)
+texture = ExtResource("6")
+offset = Vector2(-15.7230835, 179.6389)
+
+[node name="Bush05" type="Sprite2D" parent="Bushes" unique_id=1811503792]
+position = Vector2(-1479.4521, 491.81757)
+scale = Vector2(0.42331016, 0.42331007)
+texture = ExtResource("7")
+offset = Vector2(-6.2764587, 85.31476)
+
+[node name="Bush03" type="Sprite2D" parent="Bushes" unique_id=2067311173]
+position = Vector2(-1467.4565, 1355.4976)
+scale = Vector2(0.38146707, 0.38146707)
+texture = ExtResource("8")
+offset = Vector2(-20.963898, 115.30176)
+
+[node name="Bush04" type="Sprite2D" parent="Bushes" unique_id=1157969287]
+y_sort_enabled = true
+position = Vector2(1185.5612, 1627.397)
+scale = Vector2(0.46475047, 0.46475047)
+skew = -0.2617994
+texture = ExtResource("8")
+offset = Vector2(-57.15918, 71.25659)
+
+[connection signal="timeout" from="GhostlingSpawner/Timer" to="GhostlingSpawner" method="_on_timer_timeout"]

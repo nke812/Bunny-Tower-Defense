@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://d3o0qgqxkupje"]
+
+[ext_resource type="Script" uid="uid://cj5vuu45ii5tk" path="res://Scripts/ghostling_spawner.gd" id="2_tmeid"]
+[ext_resource type="Texture2D" uid="uid://ba34fmtgpt1b5" path="res://Assets/Others/Map_Assets/Pieces/Grass2.png" id="3_ct2q0"]
+[ext_resource type="Texture2D" uid="uid://dguexvso7ppy5" path="res://Assets/Others/Map_Assets/Pieces/MapBase2.png" id="3_d3i2g"]
+[ext_resource type="PackedScene" uid="uid://cvtf3eidvbt76" path="res://Scenes/HUD.tscn" id="4_25kso"]
+[ext_resource type="Texture2D" uid="uid://c78t1k27uto6d" path="res://Assets/Others/Map_Assets/Pieces/Path2.png" id="4_ijloj"]
+[ext_resource type="Texture2D" uid="uid://cw8bvvn7jb141" path="res://Assets/Others/Map_Assets/Pieces/MushroomPosition.png" id="5_np52s"]
+
+[sub_resource type="Curve2D" id="Curve2D_lycfg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -247.90422, -340.11975, 0, 0, 0, 0, -255.08984, 47.904236, 0, 0, 0, 0, -213.17368, 91.018005, 0, 0, 0, 0, 89.82037, 91.018005, 0, 0, 0, 0, 124.5509, 125.748566, 0, 0, 0, 0, 123.35327, 283.83243, 0, 0, 0, 0, 73.053894, 310.17972, 0, 0, 0, 0, -240.71858, 310.17972, 0, 0, 0, 0, -298.2036, 352.09586, 0, 0, 0, 0, -300.59882, 591.6168, 0, 0, 0, 0, -252.69464, 628.74255, 0, 0, 0, 0, 361.6767, 643.1139, 0, 0, 0, 0, 407.18567, 597.60486, 0, 0, 0, 0, 403.59283, -126.946075, 0, 0, 0, 0, 450.29944, -174.85028, 0, 0, 0, 0, 891.01807, -170.05984, 0, 0, 0, 0, 943.71265, -124.55087, 0, 0, 0, 0, 944.9103, 154.49109, 0, 0, 0, 0, 905.3893, 208.3833, 0, 0, 0, 0, 662.2755, 226.34738, 0, 0, 0, 0, 616.76654, 282.6348, 0, 0, 0, 0, 616.76654, 586.8264, 0, 0, 0, 0, 669.4612, 640.7186, 0, 0, 0, 0, 1522.1558, 639.5211)
+}
+point_count = 24
+
+[node name="Mapa_2" type="Node2D" unique_id=41714579]
+y_sort_enabled = true
+position = Vector2(-36.000004, -42.000004)
+scale = Vector2(0.835, 0.835)
+
+[node name="Map2Music" type="AudioStreamPlayer" parent="." unique_id=1453626938]
+process_mode = 3
+volume_db = 1.0
+
+[node name="GhostlingSpawner" type="Node2D" parent="." unique_id=2109337534 groups=["spawner"]]
+y_sort_enabled = true
+position = Vector2(-17.964067, 2.395214)
+script = ExtResource("2_tmeid")
+
+[node name="Timer" type="Timer" parent="GhostlingSpawner" unique_id=1280611192]
+wait_time = 0.5
+autostart = true
+
+[node name="Map" type="Sprite2D" parent="." unique_id=2040754683]
+y_sort_enabled = true
+position = Vector2(1063.473, -1264.6707)
+scale = Vector2(1.1979376, 1.1979378)
+texture = ExtResource("3_d3i2g")
+offset = Vector2(108.36987, 1637.3945)
+
+[node name="Grass2" type="Sprite2D" parent="." unique_id=268070151]
+position = Vector2(1193.0538, 696.46704)
+scale = Vector2(1.1986027, 1.1986028)
+texture = ExtResource("3_ct2q0")
+
+[node name="Path" type="Sprite2D" parent="." unique_id=1742651141]
+y_sort_enabled = true
+position = Vector2(842.9867, -756.6143)
+scale = Vector2(1.1980294, 1.19803)
+texture = ExtResource("4_ijloj")
+offset = Vector2(292.51355, 1213.1501)
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1947152330]
+y_sort_enabled = true
+position = Vector2(450.2994, 310.17963)
+scale = Vector2(0.99999994, 0.99999994)
+curve = SubResource("Curve2D_lycfg")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1755593801]
+y_sort_enabled = true
+position = Vector2(-247.90422, -340.11975)
+rotates = false
+loop = false
+
+[node name="Cogumelos" type="Sprite2D" parent="." unique_id=105800588]
+y_sort_enabled = true
+position = Vector2(1092.2156, 3065.8682)
+scale = Vector2(1.1978915, 1.1978928)
+texture = ExtResource("5_np52s")
+offset = Vector2(85.25763, -1977.6544)
+
+[node name="Area_Path" type="Area2D" parent="." unique_id=2084109964 groups=["no_place"]]
+y_sort_enabled = true
+position = Vector2(2.395214, 20.359282)
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area_Path" unique_id=1712453182 groups=["no_place"]]
+position = Vector2(1.1976047, -23.952093)
+scale = Vector2(0.99999994, 0.99999994)
+polygon = PackedVector2Array(148.50302, 57.485043, 154.49104, 449.10187, 516.1677, 451.49707, 507.78452, 566.46716, 179.64075, 580.83844, 118.5629, 634.73065, 111.377266, 922.1558, 158.08386, 954.4912, 209.58087, 973.65283, 419.16174, 989.22174, 809.58093, 997.605, 900.599, 919.7606, 898.20374, 182.03596, 1325.7488, 183.23357, 1342.5153, 486.22766, 1076.647, 498.20367, 1035.9283, 517.36536, 1015.5691, 619.1618, 1004.79065, 792.8145, 1020.3595, 931.7367, 1059.8805, 976.0481, 1117.3655, 992.8145, 1549.7009, 974.85046, 1626.3477, 994.01215, 1822.7549, 1073.0541, 1823.9525, 811.9762, 1615.5692, 906.587, 1149.7008, 904.1918, 1111.3774, 877.8445, 1099.4015, 643.1139, 1122.1559, 589.2217, 1166.4673, 567.66473, 1353.2937, 565.2696, 1404.7908, 540.1199, 1451.4973, 491.01807, 1423.9524, 124.55093, 1099.4015, 95.8084, 816.7666, 119.760506, 792.8146, 916.16785, 202.39525, 912.575, 176.04794, 831.1379, 184.43117, 740.1199, 222.75453, 699.4013, 608.3833, 681.43726, 615.569, 462.2755, 603.5929, 421.55695, 560.21155, 368.72443, 246.70663, 342.515, 251.49706, 53.892227)
+
+[node name="HUD" parent="." unique_id=1805092987 instance=ExtResource("4_25kso")]
+
+[connection signal="timeout" from="GhostlingSpawner/Timer" to="GhostlingSpawner" method="_on_timer_timeout"]

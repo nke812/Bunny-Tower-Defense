@@ -1,0 +1,1482 @@
+[gd_scene format=3 uid="uid://cvtf3eidvbt76"]
+
+[ext_resource type="Script" uid="uid://bpsbggr0grq8c" path="res://Scripts/HUD/hud.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://da5nglivj1jrf" path="res://Assets/Others/UI_Assets/Settings.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cdwjmcfq4tcud" path="res://Assets/Others/UI_Assets/SettingsScreen.png" id="3_yrvoj"]
+[ext_resource type="FontFile" uid="uid://v56c1vt506yg" path="res://FontText/Coiny-Regular.ttf" id="4"]
+[ext_resource type="Texture2D" uid="uid://des567rskajt0" path="res://Assets/Others/UI_Assets/ExitBTN.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://b7owbksq7jwoe" path="res://Assets/Others/UI_Assets/XBTN.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://rorjm52vtgle" path="res://Assets/Others/UI_Assets/ExitBTNPressed.png" id="6_e0yge"]
+[ext_resource type="Script" uid="uid://dd7n0bwv0j1ap" path="res://Scripts/music_control.gd" id="7"]
+[ext_resource type="Script" uid="uid://cdcnh7mikbgwk" path="res://Scripts/fullscreen_cb.gd" id="8"]
+[ext_resource type="Texture2D" uid="uid://bniy7tb6xrmtx" path="res://Assets/Others/UI_Assets/XBTNPressed.png" id="8_iivpx"]
+[ext_resource type="FontFile" uid="uid://c4oqjtn2jr35r" path="res://FontText/Candy Planet.ttf" id="9"]
+[ext_resource type="Script" uid="uid://bgpptnikuhqpt" path="res://Scripts/HUD/vidas.gd" id="10"]
+[ext_resource type="Texture2D" uid="uid://bi20o5s68f2f5" path="res://Assets/Others/UI_Assets/Music.png" id="10_w3j15"]
+[ext_resource type="Texture2D" uid="uid://da5dymvx25kdi" path="res://Assets/Others/UI_Assets/Heart01.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://bc32xeabxhvne" path="res://Assets/Others/UI_Assets/Audio.png" id="11_1fefx"]
+[ext_resource type="Texture2D" uid="uid://cl0nvonsbewnh" path="res://Assets/Others/UI_Assets/Heart02.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://bivibntbcpj1u" path="res://Assets/Others/UI_Assets/Carrot.png" id="13"]
+[ext_resource type="Script" uid="uid://cht6cv0atxuhh" path="res://Scripts/HUD/moedas.gd" id="14"]
+[ext_resource type="Texture2D" uid="uid://v5cqqbouu0o4" path="res://Assets/Others/HUD_Assets/EventSign.png" id="15"]
+[ext_resource type="Script" uid="uid://b51nkp55iw5n2" path="res://Scripts/HUD/hud_shop.gd" id="16"]
+[ext_resource type="Texture2D" uid="uid://dae14h81gcb60" path="res://Assets/Others/HUD_Assets/HUD_BG_Down.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://b4d2lu4cmckvs" path="res://Assets/Others/UI_Assets/AmmunitionIcon.png" id="17_1fefx"]
+[ext_resource type="Texture2D" uid="uid://vxkjonrw4twr" path="res://Assets/Others/HUD_Assets/HUD_ShopFrame.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://462ieyr1y7lp" path="res://Assets/Others/HUD_Assets/HUD_BG_Right.png" id="19"]
+[ext_resource type="Texture2D" uid="uid://bd8aqo21l0707" path="res://Assets/Others/UI_Assets/DebugButton.png" id="19_w3j15"]
+[ext_resource type="Texture2D" uid="uid://dhgypn83cpoo0" path="res://Assets/Others/HUD_Assets/HUD_SelectionFrame.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://spg0ledfpuqm" path="res://Assets/Others/HUD_Assets/Skin.png" id="20_4hkqd"]
+[ext_resource type="Script" uid="uid://dynewn01di37k" path="res://Scripts/HUD/UI_Bunnies.gd" id="21"]
+[ext_resource type="Texture2D" uid="uid://dmlbdbiu8orcq" path="res://Assets/Others/HUD_Assets/LockedUpgrade.png" id="21_iivpx"]
+[ext_resource type="Texture2D" uid="uid://c1g3b3bj28cru" path="res://Assets/Others/HUD_Assets/BunnyBoxDPS.png" id="22"]
+[ext_resource type="Texture2D" uid="uid://ctyitenhvwroj" path="res://Assets/Others/HUD_Assets/BunnyBox.png" id="23"]
+[ext_resource type="Texture2D" uid="uid://diuywq2dtwx2a" path="res://Assets/Bunnies/Rookie.png" id="24"]
+[ext_resource type="Texture2D" uid="uid://dljxeldcr3hpb" path="res://Assets/Bunnies/RookieDisable.png" id="25"]
+[ext_resource type="Texture2D" uid="uid://dky88yfaa0uyc" path="res://Assets/Others/HUD_Assets/PriceTag.png" id="26"]
+[ext_resource type="Texture2D" uid="uid://dhknf3htayuth" path="res://Assets/Bunnies/Slasher.png" id="27"]
+[ext_resource type="Texture2D" uid="uid://cjftcxqlclxp5" path="res://Assets/Bunnies/SlasherDisable.png" id="28"]
+[ext_resource type="Texture2D" uid="uid://dwfxjbfe3j4tf" path="res://Assets/Bunnies/Toasty.png" id="29"]
+[ext_resource type="Texture2D" uid="uid://nbm3nx6pc4li" path="res://Assets/Bunnies/ToastyDisable.png" id="30"]
+[ext_resource type="Texture2D" uid="uid://dsu8j18b12l3m" path="res://Assets/Others/HUD_Assets/Lock.png" id="31"]
+[ext_resource type="Texture2D" uid="uid://7dnpuvisq35a" path="res://Assets/Bunnies/Anarchist.png" id="32"]
+[ext_resource type="Texture2D" uid="uid://c0ijj44gadpsk" path="res://Assets/Others/HUD_Assets/PriceTagDisabled.png" id="32_1fefx"]
+[ext_resource type="Texture2D" uid="uid://efuwa2251qfa" path="res://Assets/Bunnies/AnarchistDisable.png" id="33"]
+[ext_resource type="Texture2D" uid="uid://c65cppgvhkoah" path="res://Assets/Others/HUD_Assets/BunnyBoxStun.png" id="34"]
+[ext_resource type="Texture2D" uid="uid://ca483pwed2uya" path="res://Assets/Bunnies/Gooey.png" id="35"]
+[ext_resource type="Texture2D" uid="uid://ch7sdj5is3vxp" path="res://Assets/Bunnies/GooeyDisable.png" id="36"]
+[ext_resource type="Texture2D" uid="uid://dmfwaotuoifff" path="res://Assets/Bunnies/Scrappy.png" id="37"]
+[ext_resource type="Texture2D" uid="uid://dkpsu2ymf1rbd" path="res://Assets/Bunnies/ScrappyDisable.png" id="38"]
+[ext_resource type="Texture2D" uid="uid://bwr6u0niwo2hx" path="res://Assets/Bunnies/Ghoulish.png" id="39"]
+[ext_resource type="Texture2D" uid="uid://1wfh33gi3nya" path="res://Assets/Bunnies/GhoulishDisable.png" id="40"]
+[ext_resource type="Texture2D" uid="uid://kk1g13qt3yot" path="res://Assets/Others/HUD_Assets/BunnyBoxSupport.png" id="41"]
+[ext_resource type="Texture2D" uid="uid://bw3gf8wg7hwn0" path="res://Assets/Bunnies/Lucky.png" id="42"]
+[ext_resource type="Texture2D" uid="uid://bj3l82oui25og" path="res://Assets/Bunnies/LuckyDisable.png" id="43"]
+[ext_resource type="Texture2D" uid="uid://c3abgvg8alws7" path="res://Assets/Bunnies/Alien.png" id="44"]
+[ext_resource type="Texture2D" uid="uid://bb3lucdtipoh3" path="res://Assets/Bunnies/AlienDisable.png" id="45"]
+[ext_resource type="Texture2D" uid="uid://b4f81ngh84xns" path="res://Assets/Bunnies/Mystical.png" id="46"]
+[ext_resource type="Texture2D" uid="uid://bi1v8dc7c16vq" path="res://Assets/Bunnies/MysticalDisable.png" id="47"]
+[ext_resource type="Texture2D" uid="uid://ddkefcr0b17gg" path="res://Assets/Others/HUD_Assets/StartBTN.png" id="50_q3bjx"]
+[ext_resource type="Texture2D" uid="uid://cbwlvkux1et17" path="res://Assets/Others/HUD_Assets/RepeatBTN.png" id="52_iqxei"]
+[ext_resource type="Texture2D" uid="uid://blgrbhb1doycn" path="res://Assets/Others/HUD_Assets/StartBTNPressed.png" id="53_dsgg8"]
+[ext_resource type="Texture2D" uid="uid://bcpm0c0r2ugqw" path="res://Assets/Others/HUD_Assets/RepeatBTNPressed.png" id="55_jjmk5"]
+[ext_resource type="Texture2D" uid="uid://f7t2u23fe6vo" path="res://Assets/Others/HUD_Assets/ExtraSpeedBTN.png" id="56_h0ww3"]
+[ext_resource type="Texture2D" uid="uid://cijlhaqtv3cbb" path="res://Assets/Others/HUD_Assets/ExtraSpeedBTNPressed.png" id="57_hl3i6"]
+[ext_resource type="Texture2D" uid="uid://bt122i8epengs" path="res://Assets/Others/HUD_Assets/NormalSpeedBTN.png" id="58_087co"]
+[ext_resource type="Texture2D" uid="uid://jik7hcrr2chw" path="res://Assets/Others/HUD_Assets/NormalSpeedBTNPressed.png" id="59_ag3a8"]
+[ext_resource type="Shader" uid="uid://xhn25hsmp6t1" path="res://Others/outline.gdshader" id="60_087co"]
+[ext_resource type="Texture2D" uid="uid://cnweqxal6ed8" path="res://Assets/Bunnies/Voodo.png" id="60_hl3i6"]
+
+[sub_resource type="Theme" id="Theme_c4wnb"]
+default_font = ExtResource("4")
+
+[sub_resource type="Theme" id="Theme_7plk7"]
+default_font = ExtResource("9")
+
+[sub_resource type="Animation" id="Animation_iqxei"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/HUD_Shop/HudBgDown:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1269.618, 574.73)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/HUD_Shop/HudShopFrame:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1262.853, 471.273)]
+}
+
+[sub_resource type="Animation" id="Animation_4hkqd"]
+resource_name = "Shop_Appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/HUD_Shop/HudBgDown:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1.3660405, 0.7845841, 1),
+"update": 0,
+"values": [Vector2(-1269.618, 574.73), Vector2(-1269.618, 321.243), Vector2(-1269.618, 341.243)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/HUD_Shop/HudShopFrame:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1.3660405, 0.7845841, 1),
+"update": 0,
+"values": [Vector2(-1262.853, 471.273), Vector2(-1262.853, 217.815), Vector2(-1262.853, 238.785)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dsgg8"]
+_data = {
+&"RESET": SubResource("Animation_iqxei"),
+&"Shop_Appear": SubResource("Animation_4hkqd")
+}
+
+[sub_resource type="Animation" id="Animation_hpu6p"]
+resource_name = "BG_shop"
+length = 10.0
+loop_mode = 2
+step = 40.7383
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/HUD_Shop/HudBgDown:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 842.967, 261.968), Rect2(138.217, 639.981, 842.967, 261.968)]
+}
+
+[sub_resource type="Animation" id="Animation_op2xg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/HUD_Shop/HudBgDown:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 1080, 151.48657)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HUD/HUD_Shop/HudBgDown:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1269.618, 574.73)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HUD/HUD_Shop/HudShopFrame:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1262.853, 471.273)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7mj2a"]
+_data = {
+&"BG_shop": SubResource("Animation_hpu6p"),
+&"RESET": SubResource("Animation_op2xg")
+}
+
+[sub_resource type="Animation" id="Animation_087co"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../../../Voodo:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.08726646]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../../../Voodo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.161, 0.13)]
+}
+
+[sub_resource type="Animation" id="Animation_h0ww3"]
+resource_name = "boucing"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../../../Voodo:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.08726646, 0.08726646]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../../../Voodo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.036, 0.034), Vector2(0.036, 0.029), Vector2(0.036, 0.034)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hl3i6"]
+_data = {
+&"RESET": SubResource("Animation_087co"),
+&"boucing": SubResource("Animation_h0ww3")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ag3a8"]
+shader = ExtResource("60_087co")
+shader_parameter/active = true
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 40.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ornx7"]
+content_margin_left = 324.0
+
+[sub_resource type="Animation" id="Animation_yrvoj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../MusicControl/MusicIcon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_w3j15"]
+resource_name = "click"
+length = 0.13333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../MusicControl/MusicIcon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1fefx"]
+_data = {
+&"RESET": SubResource("Animation_yrvoj"),
+&"click": SubResource("Animation_w3j15")
+}
+
+[sub_resource type="Animation" id="Animation_s6gkq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/UI_Selection/Options/SFXControl/SFXIcon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ewiw0"]
+resource_name = "click"
+length = 0.13333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HUD/UI_Selection/Options/SFXControl/SFXIcon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.75, 0.75), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0a480"]
+_data = {
+&"RESET": SubResource("Animation_s6gkq"),
+&"click": SubResource("Animation_ewiw0")
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_q5dlx"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1805092987]
+
+[node name="HUD" type="Node2D" parent="." unique_id=1971829007 groups=["HP", "HUD"]]
+process_mode = 3
+position = Vector2(-52.999992, -59.000004)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("1")
+
+[node name="Pause" type="Button" parent="HUD" unique_id=2089806370]
+offset_left = 1464.0001
+offset_top = 56.000004
+offset_right = 1545.6047
+offset_bottom = 137.60461
+theme_override_font_sizes/font_size = 76
+icon = ExtResource("2")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="GameOver" type="Panel" parent="HUD" unique_id=605734411]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 438.00003
+offset_top = 224.00002
+offset_right = 1098.0
+offset_bottom = 954.53894
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Paused" type="Label" parent="HUD/GameOver" unique_id=764682033]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 55.000008
+offset_right = 605.0
+offset_bottom = 213.08383
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 32
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 76
+text = "IT'S OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="HUD/GameOver" unique_id=1066697129]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.21558
+offset_top = -145.26944
+offset_right = 261.49707
+offset_bottom = 25.988007
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 46
+text = "RETRY"
+
+[node name="BackMenu" type="Button" parent="HUD/GameOver" unique_id=1345564730]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.21558
+offset_top = 74.73053
+offset_right = 261.49707
+offset_bottom = 245.9881
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 46
+text = "QUIT"
+
+[node name="PGB_V" type="ProgressBar" parent="HUD" unique_id=633366904]
+offset_left = 72.0
+offset_top = -505.00006
+offset_right = 289.96423
+offset_bottom = -396.018
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 70
+step = 1.0
+value = 100.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Vida" type="Label" parent="HUD" unique_id=1231903724]
+process_mode = 3
+offset_left = 129.21373
+offset_top = 87.16769
+offset_right = 257.21375
+offset_bottom = 119.16769
+theme = SubResource("Theme_c4wnb")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.37254903)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 35
+text = "100"
+script = ExtResource("10")
+
+[node name="Heart" type="Sprite2D" parent="HUD" unique_id=1880252046]
+position = Vector2(97.21374, 103.16768)
+scale = Vector2(0.08047904, 0.08047904)
+texture = ExtResource("11")
+
+[node name="HeartBroke" type="Sprite2D" parent="HUD" unique_id=869311774]
+visible = false
+position = Vector2(97.106995, 103.10701)
+scale = Vector2(0.0803057, 0.0803057)
+texture = ExtResource("12")
+
+[node name="Coin" type="Sprite2D" parent="HUD" unique_id=771336608]
+position = Vector2(97.21373, 167.1677)
+scale = Vector2(0.08061068, 0.08061068)
+texture = ExtResource("13")
+
+[node name="Moedas" type="Label" parent="HUD" unique_id=432508488]
+process_mode = 3
+offset_left = 129.21373
+offset_top = 151.1677
+offset_right = 254.96223
+offset_bottom = 183.1677
+theme = SubResource("Theme_7plk7")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.37254903)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 35
+text = "100"
+script = ExtResource("14")
+
+[node name="PGB_M" type="ProgressBar" parent="HUD" unique_id=1840660125]
+offset_left = 301.9403
+offset_top = -505.00006
+offset_right = 519.90466
+offset_bottom = -396.018
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 70
+max_value = 9999999.0
+step = 1.0
+value = 9.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EventSign" type="Sprite2D" parent="HUD" unique_id=1396536025]
+visible = false
+position = Vector2(220.35931, 955.68866)
+scale = Vector2(0.4844466, 0.4844466)
+texture = ExtResource("15")
+
+[node name="Limits" type="Area2D" parent="HUD" unique_id=1224677807 groups=["no_place"]]
+position = Vector2(52.999992, 59.000004)
+
+[node name="Up" type="CollisionPolygon2D" parent="HUD/Limits" unique_id=320004685]
+position = Vector2(1093.0211, -318)
+scale = Vector2(0.9999999, 0.9999998)
+skew = 1.56907
+polygon = PackedVector2Array(-70564.016, -71828.11, 185468.02, 184204.3, 182353.02, 184204.3, -72520.5, -70669.59)
+
+[node name="Left" type="CollisionPolygon2D" parent="HUD/Limits" unique_id=1794759592]
+position = Vector2(1, 0)
+scale = Vector2(0.9999998, 0.9999998)
+polygon = PackedVector2Array(-759.0002, 3.814698e-06, 3.8146973e-06, 3.8146973e-06, -1.9999967, 1721.0004, -759.0002, 1721.0004)
+
+[node name="Right" type="CollisionPolygon2D" parent="HUD/Limits" unique_id=2044825819]
+position = Vector2(-11877.241, -4)
+scale = Vector2(7.8909883, 1)
+polygon = PackedVector2Array(1693.8613, 4.000004, 1803.8602, 4.000004, 1804.1136, 1086, 1693.8613, 1085)
+
+[node name="Down" type="CollisionPolygon2D" parent="HUD/Limits" unique_id=1688730896]
+position = Vector2(1105.0054, -341.00003)
+scale = Vector2(0.99999994, 0.99999994)
+skew = 1.569051
+polygon = PackedVector2Array(816586.06, 815333.4, 1182712, 1181460, 1180926, 1182032.9, 812508.1, 813614.5)
+
+[node name="Settings" type="CollisionPolygon2D" parent="HUD/Limits" unique_id=228766173]
+position = Vector2(1479.0001, 16.000008)
+scale = Vector2(0.67519164, 0.67317224)
+polygon = PackedVector2Array(-101.05957, -24.795378, -101.05957, 91.073944, 18.906494, 91.073944, 19, -25.00001)
+
+[node name="HUD_Shop" type="Node2D" parent="HUD" unique_id=1878578739]
+position = Vector2(2157.9224, 765.2696)
+scale = Vector2(1.078842, 1.078842)
+script = ExtResource("16")
+
+[node name="Shop_Appear" type="AnimationPlayer" parent="HUD/HUD_Shop" unique_id=1703018073]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_dsgg8")
+
+[node name="BG_Shop_Anim_loop" type="AnimationPlayer" parent="HUD/HUD_Shop" unique_id=92509159]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_7mj2a")
+autoplay = &"BG_shop"
+speed_scale = 0.155
+
+[node name="HudShopFrame" type="Sprite2D" parent="HUD/HUD_Shop" unique_id=470288902]
+position = Vector2(-1262.853, 471.273)
+scale = Vector2(0.43589035, 0.38)
+texture = ExtResource("18")
+
+[node name="HudBgDown" type="Sprite2D" parent="HUD/HUD_Shop" unique_id=1695463993]
+texture_repeat = 2
+position = Vector2(-1269.618, 574.73)
+scale = Vector2(1.6646795, 1.7471418)
+texture = ExtResource("17")
+region_enabled = true
+region_rect = Rect2(0, 0, 1080, 151.48657)
+
+[node name="Upgrade 1-1" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=1918691455]
+offset_left = 31.624382
+offset_top = -120.12201
+offset_right = 81.737816
+offset_bottom = -70.008575
+texture_normal = ExtResource("13")
+texture_disabled = ExtResource("21_iivpx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Upgrade 1-2" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=901008340]
+offset_left = 89.533226
+offset_top = -120.12201
+offset_right = 139.64667
+offset_bottom = -70.008575
+disabled = true
+texture_normal = ExtResource("13")
+texture_disabled = ExtResource("21_iivpx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Upgrade 1-3" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=1283517967]
+offset_left = 147.44203
+offset_top = -120.12201
+offset_right = 197.55547
+offset_bottom = -70.008575
+disabled = true
+texture_normal = ExtResource("13")
+texture_disabled = ExtResource("21_iivpx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Upgrade 1-4" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=1201173537]
+offset_left = 205.3509
+offset_top = -120.12201
+offset_right = 255.46434
+offset_bottom = -70.008575
+disabled = true
+texture_normal = ExtResource("13")
+texture_disabled = ExtResource("21_iivpx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Upgrade 2-1" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=1471342410]
+offset_left = 31.624361
+offset_top = -60.7021
+offset_right = 81.73779
+offset_bottom = -10.588665
+texture_normal = ExtResource("13")
+texture_disabled = ExtResource("21_iivpx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Upgrade 2-2" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=281258325]
+offset_left = 89.53318
+offset_top = -60.7021
+offset_right = 139.6466
+offset_bottom = -10.588665
+disabled = true
+texture_normal = ExtResource("13")
+texture_disabled = ExtResource("21_iivpx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Upgrade 2-3" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=1097753098]
+offset_left = 147.44196
+offset_top = -60.7021
+offset_right = 197.55539
+offset_bottom = -10.588665
+disabled = true
+texture_normal = ExtResource("13")
+texture_disabled = ExtResource("21_iivpx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Upgrade 2-4" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=530252470]
+offset_left = 205.35083
+offset_top = -60.7021
+offset_right = 255.46426
+offset_bottom = -10.588665
+disabled = true
+texture_normal = ExtResource("13")
+texture_disabled = ExtResource("21_iivpx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ExitShop" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=1695559731]
+anchors_preset = -1
+anchor_left = 0.952
+anchor_top = 0.001
+anchor_right = 0.99700004
+anchor_bottom = 0.14400001
+offset_left = -421.39297
+offset_top = -130.40773
+offset_right = -421.1511
+offset_bottom = -130.59328
+texture_normal = ExtResource("6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="BunnySel" type="Sprite2D" parent="HUD/HUD_Shop/HudBgDown" unique_id=2059092966]
+position = Vector2(-323.06763, -96.06152)
+scale = Vector2(0.09667676, 0.09131366)
+
+[node name="TextureButton" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=521091660]
+offset_left = -411.04413
+offset_top = -45.316696
+offset_right = -360.37393
+offset_bottom = 5.353504
+disabled = true
+texture_normal = ExtResource("20_4hkqd")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="lock" type="Sprite2D" parent="HUD/HUD_Shop/HudBgDown/TextureButton" unique_id=2023219171]
+position = Vector2(23.943045, 24.990696)
+scale = Vector2(0.046983793, 0.046983793)
+texture = ExtResource("31")
+
+[node name="LabelCusto" type="Label" parent="HUD/HUD_Shop/HudBgDown" unique_id=470586143]
+offset_left = 274.95288
+offset_top = -138.10477
+offset_right = 396.89563
+offset_bottom = -49.67105
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5882353)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 24
+vertical_alignment = 1
+
+[node name="Status1" type="Label" parent="HUD/HUD_Shop/HudBgDown" unique_id=1427387418]
+offset_left = -235.6472
+offset_top = -126.963486
+offset_right = 11.912735
+offset_bottom = -54.91356
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.21176471)
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Status2" type="Label" parent="HUD/HUD_Shop/HudBgDown" unique_id=993649540]
+offset_left = -240.10173
+offset_top = -70.72682
+offset_right = 8.89827
+offset_bottom = 1.3231049
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.21176471)
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="StatusExtra" type="Label" parent="HUD/HUD_Shop/HudBgDown" unique_id=754986492]
+offset_left = -235.6472
+offset_top = -33.05881
+offset_right = -146.55669
+offset_bottom = 0.36489487
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.21176471)
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="AmmunitionIcon" type="Sprite2D" parent="HUD/HUD_Shop/HudBgDown" unique_id=1674266700]
+visible = false
+position = Vector2(-253.46533, -20.326012)
+scale = Vector2(0.03754947, 0.03754947)
+texture = ExtResource("17_1fefx")
+
+[node name="TextureButton2" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=1569573465]
+offset_left = 273.28244
+offset_top = -61.707718
+offset_right = 396.3387
+offset_bottom = -18.369461
+texture_normal = ExtResource("19_w3j15")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="disable_shop" type="Button" parent="HUD" unique_id=82156049]
+visible = false
+offset_left = 52.99999
+offset_top = 58.0
+offset_right = 1546.0
+offset_bottom = 1138.0
+disabled = true
+flat = true
+
+[node name="UI_Selection" type="Node2D" parent="HUD" unique_id=1560998102]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="HudBgRight" type="Sprite2D" parent="HUD/UI_Selection" unique_id=1211361329]
+position = Vector2(1769.9219, 774.26953)
+scale = Vector2(1.0788419, 1.0788419)
+texture = ExtResource("19")
+region_enabled = true
+region_rect = Rect2(0, 0, 377.19507, 1080)
+
+[node name="HudSelectionFrame" type="Sprite2D" parent="HUD/UI_Selection" unique_id=887820282]
+position = Vector2(1759.1436, 705.47186)
+scale = Vector2(0.5964735, 0.5970855)
+texture = ExtResource("20")
+
+[node name="Round" type="Label" parent="HUD/UI_Selection" unique_id=795597463]
+offset_left = 1573.5145
+offset_top = 66.48505
+offset_right = 1856.1494
+offset_bottom = 123.97008
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.627451)
+theme_override_constants/shadow_offset_x = 4
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 65
+text = "RONDA:"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Event" type="Label" parent="HUD/UI_Selection" unique_id=888145862]
+offset_left = 1572.3173
+offset_top = 119.17966
+offset_right = 1945.97
+offset_bottom = 169.47903
+theme_override_colors/font_color = Color(0.6955032, 0.6955031, 0.6955031, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3647059)
+theme_override_constants/shadow_offset_x = 4
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 40
+text = "(SEM EVENTOS)"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="n_Round" type="Label" parent="HUD/UI_Selection" unique_id=2129903025 groups=["Round_Counter"]]
+offset_left = 1845.372
+offset_top = 65.28746
+offset_right = 1968.7245
+offset_bottom = 122.77249
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.627451)
+theme_override_constants/shadow_offset_x = 4
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 65
+text = "1"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Bunnies" type="Node2D" parent="HUD/UI_Selection" unique_id=1149456240]
+position = Vector2(53, 59.00001)
+scale = Vector2(1.0000001, 1.0000001)
+script = ExtResource("21")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HUD/UI_Selection/Bunnies" unique_id=1163235928]
+offset_left = 1513.0
+offset_top = 142.0
+offset_right = 1920.0
+offset_bottom = 875.0
+draw_focus_border = true
+vertical_scroll_mode = 2
+scroll_hint_mode = 1
+
+[node name="GridContainer" type="GridContainer" parent="HUD/UI_Selection/Bunnies/ScrollContainer" unique_id=2053837817]
+layout_mode = 2
+size_flags_vertical = 8
+columns = 2
+
+[node name="Rookie_BG_dps" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=1755857970]
+layout_mode = 2
+texture_normal = ExtResource("22")
+texture_disabled = ExtResource("23")
+
+[node name="Rookie" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Rookie_BG_dps" unique_id=1569122706]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.9480001
+anchor_bottom = 0.961
+offset_left = -8.0
+offset_top = -5.0
+offset_right = 7.671982
+offset_bottom = -4.224518
+pivot_offset = Vector2(119.298, 166.567)
+texture_normal = ExtResource("24")
+texture_disabled = ExtResource("25")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Rookie_BG_dps/Rookie" unique_id=973759547]
+libraries/ = SubResource("AnimationLibrary_hl3i6")
+autoplay = &"boucing"
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Rookie_BG_dps" unique_id=1662657573]
+position = Vector2(124, 245)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("26")
+
+[node name="Preço" type="Label" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Rookie_BG_dps" unique_id=1249860019]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 236.0
+offset_right = 137.0
+offset_bottom = 259.0
+rotation = -0.05235988
+theme_override_colors/font_color = Color(1, 0.78039217, 0.3019608, 1)
+theme_override_colors/font_shadow_color = Color(0.81960785, 0.627451, 0, 0.8745098)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 23
+text = "115"
+
+[node name="Slasher_BG_dps" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=378263718]
+layout_mode = 2
+texture_normal = ExtResource("22")
+texture_disabled = ExtResource("23")
+
+[node name="Slasher" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Slasher_BG_dps" unique_id=2052073892]
+layout_mode = 0
+offset_left = -9.0
+offset_top = -10.249191
+offset_right = 189.0
+offset_bottom = 246.23656
+texture_normal = ExtResource("27")
+texture_disabled = ExtResource("28")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Slasher_BG_dps" unique_id=1763141016]
+position = Vector2(124, 245)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("26")
+
+[node name="Preço" type="Label" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Slasher_BG_dps" unique_id=2028230198]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 236.0
+offset_right = 136.0
+offset_bottom = 259.0
+rotation = -0.05235988
+theme_override_colors/font_color = Color(1, 0.78039217, 0.3019608, 1)
+theme_override_colors/font_shadow_color = Color(0.81960785, 0.627451, 0, 0.8745098)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 23
+text = "250"
+
+[node name="Toasty_BG_dps" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=458300905]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("22")
+texture_disabled = ExtResource("23")
+
+[node name="Toasty" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Toasty_BG_dps" unique_id=898894793]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -17.43074
+offset_right = 200.0
+offset_bottom = 244.23656
+disabled = true
+texture_normal = ExtResource("29")
+texture_disabled = ExtResource("30")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Toasty_BG_dps" unique_id=752082675]
+position = Vector2(124, 245)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("32_1fefx")
+
+[node name="Preço" type="Label" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Toasty_BG_dps" unique_id=1736052465]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 236.0
+offset_right = 137.0
+offset_bottom = 259.0
+rotation = -0.05235988
+theme_override_colors/font_color = Color(0.6862745, 0.6862745, 0.6862745, 1)
+theme_override_colors/font_shadow_color = Color(0.4862745, 0.4862745, 0.4862745, 1)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 23
+text = "---"
+
+[node name="lock" type="Sprite2D" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Toasty_BG_dps" unique_id=1536827768]
+position = Vector2(96.00001, 128)
+scale = Vector2(0.24108563, 0.24108563)
+texture = ExtResource("31")
+
+[node name="Anarchist_BG_dps" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=1319889206]
+layout_mode = 2
+texture_normal = ExtResource("22")
+texture_disabled = ExtResource("23")
+
+[node name="Anarchist" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Anarchist_BG_dps" unique_id=1332871057]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 1.1138611
+offset_right = 194.0
+offset_bottom = 247.23654
+texture_normal = ExtResource("32")
+texture_disabled = ExtResource("33")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Anarchist_BG_dps" unique_id=357696644]
+position = Vector2(124, 245)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("26")
+
+[node name="Preço" type="Label" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Anarchist_BG_dps" unique_id=983144561]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 236.0
+offset_right = 137.0
+offset_bottom = 259.0
+rotation = -0.05235988
+theme_override_colors/font_color = Color(1, 0.78039217, 0.3019608, 1)
+theme_override_colors/font_shadow_color = Color(0.81960785, 0.627451, 0, 0.8745098)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 23
+text = "500"
+
+[node name="Gooey_BG_stun" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=2138510493]
+layout_mode = 2
+texture_normal = ExtResource("34")
+texture_disabled = ExtResource("23")
+
+[node name="Gooey" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Gooey_BG_stun" unique_id=1614574487]
+layout_mode = 0
+offset_left = -5.0
+offset_top = -5.839981
+offset_right = 195.0
+offset_bottom = 253.23656
+texture_normal = ExtResource("35")
+texture_disabled = ExtResource("36")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Gooey_BG_stun" unique_id=1645671348]
+position = Vector2(124, 245)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("26")
+
+[node name="Preço" type="Label" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Gooey_BG_stun" unique_id=277106955]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 236.0
+offset_right = 137.0
+offset_bottom = 259.0
+rotation = -0.05235988
+theme_override_colors/font_color = Color(1, 0.78039217, 0.3019608, 1)
+theme_override_colors/font_shadow_color = Color(0.81960785, 0.627451, 0, 0.8745098)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 23
+text = "225"
+
+[node name="Scrappy_BG_stun" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=824449174]
+layout_mode = 2
+texture_normal = ExtResource("34")
+texture_disabled = ExtResource("23")
+
+[node name="Scrappy" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Scrappy_BG_stun" unique_id=1322863999]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 0.113861084
+offset_right = 192.0
+offset_bottom = 246.23656
+texture_normal = ExtResource("37")
+texture_disabled = ExtResource("38")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Scrappy_BG_stun" unique_id=958780730]
+position = Vector2(124, 245)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("26")
+
+[node name="Preço" type="Label" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Scrappy_BG_stun" unique_id=1420738242]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 236.0
+offset_right = 137.0
+offset_bottom = 259.0
+rotation = -0.05235988
+theme_override_colors/font_color = Color(1, 0.78039217, 0.3019608, 1)
+theme_override_colors/font_shadow_color = Color(0.81960785, 0.627451, 0, 0.8745098)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 23
+text = "330"
+
+[node name="Ghoulish_BG_stun" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=1447302593]
+layout_mode = 2
+texture_normal = ExtResource("34")
+texture_disabled = ExtResource("23")
+
+[node name="Ghoulish" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Ghoulish_BG_stun" unique_id=316414207]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -7.658432
+offset_right = 192.0
+offset_bottom = 246.23656
+texture_normal = ExtResource("39")
+texture_disabled = ExtResource("40")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Ghoulish_BG_stun" unique_id=802096256]
+position = Vector2(124, 245)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("26")
+
+[node name="Preço" type="Label" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Ghoulish_BG_stun" unique_id=1696937418]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 236.0
+offset_right = 136.0
+offset_bottom = 259.0
+rotation = -0.05235988
+theme_override_colors/font_color = Color(1, 0.78039217, 0.3019608, 1)
+theme_override_colors/font_shadow_color = Color(0.81960785, 0.627451, 0, 0.8745098)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 23
+text = "700"
+
+[node name="Lucky_BG_support" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=1532573094]
+layout_mode = 2
+texture_normal = ExtResource("41")
+texture_disabled = ExtResource("23")
+
+[node name="Lucky" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Lucky_BG_support" unique_id=1775925073]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = 183.0
+offset_bottom = 246.23656
+texture_normal = ExtResource("42")
+texture_disabled = ExtResource("43")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Lucky_BG_support" unique_id=190610724]
+position = Vector2(124, 245)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("26")
+
+[node name="Preço" type="Label" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Lucky_BG_support" unique_id=618724223]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 236.0
+offset_right = 137.0
+offset_bottom = 259.0
+rotation = -0.05235988
+theme_override_colors/font_color = Color(1, 0.78039217, 0.3019608, 1)
+theme_override_colors/font_shadow_color = Color(0.81960785, 0.627451, 0, 0.8745098)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 23
+text = "750"
+
+[node name="Alien_BG_support" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=831714472]
+layout_mode = 2
+disabled = true
+texture_normal = ExtResource("41")
+texture_disabled = ExtResource("23")
+
+[node name="Alien" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Alien_BG_support" unique_id=776207283]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.7046204
+offset_right = 192.0
+offset_bottom = 246.23656
+disabled = true
+texture_normal = ExtResource("44")
+texture_disabled = ExtResource("45")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Alien_BG_support" unique_id=334616156]
+position = Vector2(124, 245)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("32_1fefx")
+
+[node name="Preço" type="Label" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Alien_BG_support" unique_id=1813860560]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 236.0
+offset_right = 137.0
+offset_bottom = 259.0
+rotation = -0.05235988
+theme_override_colors/font_color = Color(0.6862745, 0.6862745, 0.6862745, 1)
+theme_override_colors/font_shadow_color = Color(0.4862745, 0.4862745, 0.4862745, 1)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 23
+text = "---"
+
+[node name="lock" type="Sprite2D" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Alien_BG_support" unique_id=202336620]
+position = Vector2(96.00001, 128)
+scale = Vector2(0.24108563, 0.24108563)
+texture = ExtResource("31")
+
+[node name="Mystical_BG_support" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=542388852]
+layout_mode = 2
+texture_normal = ExtResource("41")
+texture_disabled = ExtResource("23")
+
+[node name="Mystical" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Mystical_BG_support" unique_id=54255089]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -10.249191
+offset_right = 194.0
+offset_bottom = 246.23656
+texture_normal = ExtResource("46")
+texture_disabled = ExtResource("47")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Mystical_BG_support" unique_id=1064552725]
+position = Vector2(124, 245)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("26")
+
+[node name="Preço" type="Label" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Mystical_BG_support" unique_id=1452866165]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 236.0
+offset_right = 146.0
+offset_bottom = 259.0
+rotation = -0.05235988
+theme_override_colors/font_color = Color(1, 0.78039217, 0.3019608, 1)
+theme_override_colors/font_shadow_color = Color(0.81960785, 0.627451, 0, 0.8745098)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 23
+text = "1400"
+
+[node name="Voodo" type="Sprite2D" parent="HUD/UI_Selection" unique_id=1908204347]
+material = SubResource("ShaderMaterial_ag3a8")
+position = Vector2(1941.0002, 134.00003)
+scale = Vector2(0.161, 0.13)
+skew = -0.08726646
+texture = ExtResource("60_hl3i6")
+
+[node name="StartRound" type="TextureButton" parent="HUD/UI_Selection" unique_id=2131063499 groups=["start_button"]]
+offset_left = 1581.0002
+offset_top = 931.0001
+offset_right = 1757.0004
+offset_bottom = 1107.0001
+texture_normal = ExtResource("50_q3bjx")
+texture_pressed = ExtResource("53_dsgg8")
+texture_disabled = ExtResource("53_dsgg8")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ExtraSpeed" type="TextureButton" parent="HUD/UI_Selection" unique_id=2131972820 groups=["SpeedUp"]]
+offset_left = 1773.0002
+offset_top = 931.0001
+offset_right = 1949.0002
+offset_bottom = 1107.0001
+texture_normal = ExtResource("56_h0ww3")
+texture_pressed = ExtResource("57_hl3i6")
+texture_disabled = ExtResource("57_hl3i6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="NormalSpeed" type="TextureButton" parent="HUD/UI_Selection" unique_id=834995313 groups=["SpeedDown"]]
+visible = false
+offset_left = 1773.0002
+offset_top = 931.0001
+offset_right = 1949.0002
+offset_bottom = 1107.0001
+texture_normal = ExtResource("58_087co")
+texture_pressed = ExtResource("59_ag3a8")
+texture_disabled = ExtResource("59_ag3a8")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AutoPlay" type="CheckButton" parent="HUD/UI_Selection" unique_id=1751470786 groups=["autoplay"]]
+anchors_preset = -1
+anchor_left = 0.666
+anchor_right = 0.735
+anchor_bottom = 0.071
+offset_left = 1340.0001
+offset_top = 61.000008
+offset_right = 1462.0001
+offset_bottom = 92.00001
+text = "Auto Play"
+
+[node name="Options" type="Panel" parent="HUD/UI_Selection" unique_id=2036140806]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 53.0
+offset_top = 58.00001
+offset_right = 1974.0
+offset_bottom = 1140.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(615, 1140)
+
+[node name="MenuSettings" type="Sprite2D" parent="HUD/UI_Selection/Options" unique_id=1886878567]
+modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
+position = Vector2(780.75146, 512.40625)
+scale = Vector2(0.39424866, 0.39125317)
+texture = ExtResource("3_yrvoj")
+
+[node name="Label" type="Label" parent="HUD/UI_Selection/Options" unique_id=264149739]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 120.0
+offset_top = 229.0
+offset_right = -166.03345
+offset_bottom = 327.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7019608)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.4392157)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ornx7")
+text = "DEFINIÇÕES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackMenu" type="TextureButton" parent="HUD/UI_Selection/Options" unique_id=1095390643]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.86500007
+anchor_top = 0.82400006
+anchor_right = 0.98600006
+anchor_bottom = 0.98200005
+offset_left = -669.66516
+offset_top = -180.56805
+offset_right = -798.1061
+offset_bottom = -247.52405
+texture_normal = ExtResource("5")
+texture_pressed = ExtResource("6_e0yge")
+texture_hover = ExtResource("6_e0yge")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ExitSettings" type="TextureButton" parent="HUD/UI_Selection/Options" unique_id=1073501601]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.79600006
+anchor_top = 0.21100001
+anchor_right = 0.86700004
+anchor_bottom = 0.317
+offset_left = -502.1161
+offset_top = 156.69798
+offset_right = -572.78723
+offset_bottom = 107.72586
+texture_normal = ExtResource("6")
+texture_pressed = ExtResource("8_iivpx")
+texture_hover = ExtResource("8_iivpx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MusicControl" type="HSlider" parent="HUD/UI_Selection/Options" unique_id=794568958 groups=["Music"]]
+layout_mode = 0
+offset_left = 573.7347
+offset_top = 419.40613
+offset_right = 951.058
+offset_bottom = 555.4061
+max_value = 1.0
+step = 0.05
+value = 0.25
+script = ExtResource("7")
+audio_bus_name = "Music"
+
+[node name="MusicIcon" type="TextureButton" parent="HUD/UI_Selection/Options/MusicControl" unique_id=598131015]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.28500003
+anchor_top = 0.18
+anchor_right = -0.054
+anchor_bottom = 0.82000005
+offset_left = 0.07143402
+offset_top = 3.0
+offset_right = -0.01804924
+offset_bottom = 2.9999924
+pivot_offset = Vector2(43.73108, 41.113922)
+texture_normal = ExtResource("10_w3j15")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SFXControl" type="HSlider" parent="HUD/UI_Selection/Options" unique_id=1704524898 groups=["Audio"]]
+layout_mode = 0
+offset_left = 573.7347
+offset_top = 523.4061
+offset_right = 951.05804
+offset_bottom = 659.4061
+max_value = 1.0
+step = 0.05
+value = 0.25
+script = ExtResource("7")
+audio_bus_name = "SFX"
+
+[node name="SFXIcon" type="TextureButton" parent="HUD/UI_Selection/Options/SFXControl" unique_id=863582847]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.27400002
+anchor_top = 0.21000001
+anchor_right = -0.061000004
+anchor_bottom = 0.8
+offset_left = 0.019584656
+offset_top = 5.340576e-05
+offset_right = -0.07593155
+offset_bottom = 4.5776367e-05
+pivot_offset = Vector2(40.632385, 40.033875)
+texture_normal = ExtResource("11_1fefx")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Click_AnimMusic" type="AnimationPlayer" parent="HUD/UI_Selection/Options" unique_id=583463549]
+root_node = NodePath("../SFXControl/SFXIcon")
+libraries/ = SubResource("AnimationLibrary_1fefx")
+
+[node name="Click_AnimSFX" type="AnimationPlayer" parent="HUD/UI_Selection/Options" unique_id=1477264164]
+root_node = NodePath("../../../..")
+libraries/ = SubResource("AnimationLibrary_0a480")
+
+[node name="Fullscreen_CB" type="CheckBox" parent="HUD/UI_Selection/Options" unique_id=1758551958]
+layout_mode = 0
+offset_left = 500.75146
+offset_top = 616.4062
+offset_right = 740.75146
+offset_bottom = 735.4062
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 39
+theme_override_icons/checked = SubResource("ImageTexture_q5dlx")
+text = "Fullscreen"
+script = ExtResource("8")
+
+[node name="Restart" type="TextureButton" parent="HUD/UI_Selection/Options" unique_id=1910244448]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 601.0
+offset_right = 1096.2561
+offset_bottom = 704.0
+texture_normal = ExtResource("52_iqxei")
+texture_pressed = ExtResource("55_jjmk5")
+texture_hover = ExtResource("55_jjmk5")
+texture_disabled = ExtResource("55_jjmk5")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Button" type="Button" parent="." unique_id=1543474290]
+visible = false
+offset_left = 1092.0
+offset_top = 5.0
+offset_right = 1244.0
+offset_bottom = 72.0
+text = "+50$ "
+
+[node name="Button2" type="Button" parent="." unique_id=186975066]
+visible = false
+offset_left = 932.0
+offset_top = 6.0
+offset_right = 1084.0
+offset_bottom = 73.0
+text = "-50$ "
+
+[connection signal="pressed" from="HUD/Pause" to="HUD" method="_on_button_pressed"]
+[connection signal="pressed" from="HUD/GameOver/Restart" to="HUD" method="_on_restart_pressed"]
+[connection signal="pressed" from="HUD/GameOver/BackMenu" to="HUD" method="_on_back_menu_pressed"]
+[connection signal="mouse_entered" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-1" to="HUD" method="mostrar_preco_1_1"]
+[connection signal="mouse_exited" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-1" to="HUD" method="tirar_preco"]
+[connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-1" to="HUD" method="_on_path_1_pressed"]
+[connection signal="mouse_entered" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-2" to="HUD" method="mostrar_preco_1_2"]
+[connection signal="mouse_exited" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-2" to="HUD" method="tirar_preco"]
+[connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-2" to="HUD" method="_on_path_1_pressed"]
+[connection signal="mouse_entered" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-3" to="HUD" method="mostrar_preco_1_3"]
+[connection signal="mouse_exited" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-3" to="HUD" method="tirar_preco"]
+[connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-3" to="HUD" method="_on_path_1_pressed"]
+[connection signal="mouse_entered" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-4" to="HUD" method="mostrar_preco_1_4"]
+[connection signal="mouse_exited" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-4" to="HUD" method="tirar_preco"]
+[connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-4" to="HUD" method="_on_path_1_pressed"]
+[connection signal="mouse_entered" from="HUD/HUD_Shop/HudBgDown/Upgrade 2-1" to="HUD" method="mostrar_preco_2_1"]
+[connection signal="mouse_exited" from="HUD/HUD_Shop/HudBgDown/Upgrade 2-1" to="HUD" method="tirar_preco"]
+[connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/Upgrade 2-1" to="HUD" method="_on_path_2_pressed"]
+[connection signal="mouse_entered" from="HUD/HUD_Shop/HudBgDown/Upgrade 2-2" to="HUD" method="mostrar_preco_2_2"]
+[connection signal="mouse_exited" from="HUD/HUD_Shop/HudBgDown/Upgrade 2-2" to="HUD" method="tirar_preco"]
+[connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/Upgrade 2-2" to="HUD" method="_on_path_2_pressed"]
+[connection signal="mouse_entered" from="HUD/HUD_Shop/HudBgDown/Upgrade 2-3" to="HUD" method="mostrar_preco_2_3"]
+[connection signal="mouse_exited" from="HUD/HUD_Shop/HudBgDown/Upgrade 2-3" to="HUD" method="tirar_preco"]
+[connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/Upgrade 2-3" to="HUD" method="_on_path_2_pressed"]
+[connection signal="mouse_entered" from="HUD/HUD_Shop/HudBgDown/Upgrade 2-4" to="HUD" method="mostrar_preco_2_4"]
+[connection signal="mouse_exited" from="HUD/HUD_Shop/HudBgDown/Upgrade 2-4" to="HUD" method="tirar_preco"]
+[connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/Upgrade 2-4" to="HUD" method="_on_path_2_pressed"]
+[connection signal="button_down" from="HUD/HUD_Shop/HudBgDown/ExitShop" to="HUD" method="_on_exit_settings_button_down"]
+[connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/TextureButton" to="HUD" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/TextureButton2" to="HUD" method="_on_sell_pressed"]
+[connection signal="pressed" from="HUD/disable_shop" to="HUD/HUD_Shop" method="_on_disable_shop_pressed"]
+[connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Rookie_BG_dps/Rookie" to="HUD/UI_Selection/Bunnies" method="_on_rookie_button_down"]
+[connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Slasher_BG_dps/Slasher" to="HUD/UI_Selection/Bunnies" method="_on_slasher_button_down"]
+[connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Anarchist_BG_dps/Anarchist" to="HUD/UI_Selection/Bunnies" method="_on_anarchist_button_down"]
+[connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Gooey_BG_stun/Gooey" to="HUD/UI_Selection/Bunnies" method="_on_gooey_button_down"]
+[connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Scrappy_BG_stun/Scrappy" to="HUD/UI_Selection/Bunnies" method="_on_scrappy_button_down"]
+[connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Ghoulish_BG_stun/Ghoulish" to="HUD/UI_Selection/Bunnies" method="_on_ghoulish_button_down"]
+[connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Lucky_BG_support/Lucky" to="HUD/UI_Selection/Bunnies" method="_on_lucky_button_down"]
+[connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Mystical_BG_support/Mystical" to="HUD/UI_Selection/Bunnies" method="_on_mystical_button_down"]
+[connection signal="mouse_entered" from="HUD/UI_Selection/StartRound" to="HUD" method="_on_start_round_mouse_entered"]
+[connection signal="mouse_exited" from="HUD/UI_Selection/StartRound" to="HUD" method="_on_start_round_mouse_exited"]
+[connection signal="pressed" from="HUD/UI_Selection/StartRound" to="HUD" method="_on_start_round_pressed"]
+[connection signal="mouse_entered" from="HUD/UI_Selection/ExtraSpeed" to="HUD" method="_on_extra_speed_mouse_entered"]
+[connection signal="mouse_exited" from="HUD/UI_Selection/ExtraSpeed" to="HUD" method="_on_extra_speed_mouse_exited"]
+[connection signal="pressed" from="HUD/UI_Selection/ExtraSpeed" to="HUD" method="_on_extra_speed_pressed"]
+[connection signal="mouse_entered" from="HUD/UI_Selection/NormalSpeed" to="HUD" method="_on_normal_speed_mouse_entered"]
+[connection signal="mouse_exited" from="HUD/UI_Selection/NormalSpeed" to="HUD" method="_on_normal_speed_mouse_exited"]
+[connection signal="pressed" from="HUD/UI_Selection/NormalSpeed" to="HUD" method="_on_normal_speed_pressed"]
+[connection signal="pressed" from="HUD/UI_Selection/AutoPlay" to="HUD" method="_on_auto_play_pressed"]
+[connection signal="pressed" from="HUD/UI_Selection/Options/BackMenu" to="HUD" method="_on_back_menu_pressed"]
+[connection signal="pressed" from="HUD/UI_Selection/Options/ExitSettings" to="HUD" method="_on_exit_settings_pressed"]
+[connection signal="changed" from="HUD/UI_Selection/Options/MusicControl" to="HUD" method="_on_music_control_changed"]
+[connection signal="value_changed" from="HUD/UI_Selection/Options/MusicControl" to="HUD" method="_on_music_control_value_changed"]
+[connection signal="pressed" from="HUD/UI_Selection/Options/MusicControl/MusicIcon" to="HUD" method="_on_music_icon_pressed"]
+[connection signal="value_changed" from="HUD/UI_Selection/Options/SFXControl" to="HUD" method="_on_sfx_control_value_changed"]
+[connection signal="pressed" from="HUD/UI_Selection/Options/SFXControl/SFXIcon" to="HUD" method="_on_sfx_icon_pressed"]
+[connection signal="toggled" from="HUD/UI_Selection/Options/Fullscreen_CB" to="HUD/UI_Selection/Options/Fullscreen_CB" method="_on_toggled"]
+[connection signal="pressed" from="HUD/UI_Selection/Options/Restart" to="HUD" method="_on_restart_pressed"]
+[connection signal="pressed" from="Button" to="HUD" method="MAIS_50kk"]
+[connection signal="pressed" from="Button2" to="HUD" method="_on_button_2_pressed"]

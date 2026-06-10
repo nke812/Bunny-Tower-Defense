@@ -1,0 +1,245 @@
+extends Node2D
+
+@onready var moedas_node = $HUD / PGB_M
+
+var font = load("res://FontText/Coiny-Regular.ttf")
+var font_size = 40
+var valor_lucky = 5
+var posicionado = false
+
+var focus = false
+var skin = false
+
+var path1 = 0
+var path2 = 0
+var preços_p1 = [650, 1400, 3500, 12000]
+var preços_p2 = [650, 1400, 3500, 12000]
+
+var P1status = "Money " + str(valor_lucky) + "$:"
+var P2status = "Farm speed: 3.5s"
+
+func _physics_process(_delta):
+    
+    if focus == true:
+        $ArrowSupport.visible = true
+    else:
+        $ArrowSupport.visible = false
+    
+    $ProgressBar.max_value = $Timer.wait_time
+    $ProgressBar.value = $Timer.wait_time - $Timer.time_left
+
+
+    var spawner = get_tree().get_first_node_in_group("spawner")
+
+    if not spawner.ronda_a_decorrer or not posicionado:
+        $Timer.paused = true
+    else:
+        $Timer.paused = false
+
+        if $Timer.is_stopped():
+            $Timer.start()
+
+
+func _on_timer_timeout() -> void:
+    var moedas = get_tree().current_scene.find_child("Moedas")
+    var valor_atual = int(moedas.text)
+    moedas.text = str(valor_atual + valor_lucky)
+    
+    $Lucky/AnimationPlayer.play("LuckyAction")
+    
+    # --- Alteração do Pitch ---
+    # randf_range gera um número decimal aleatório entre dois valores
+    $Money.pitch_scale = randf_range(0.9, 1.1) 
+    $Money.play()
+
+func label_money():
+    var label_M = Label.new()
+    $Panel.add_child(label_M)
+
+
+    label_M.text = "+" + str(valor_lucky) + "$"
+
+
+
+    if $Lucky.texture.resource_path == "res://Assets/Bunnies/Lucky.png":
+        label_M.modulate = Color(1.0, 0.902, 0.392, 1.0)
+
+    elif $Lucky.texture.resource_path == "res://Assets/Bunnies/Skins/ZeRon.png":
+        label_M.modulate = Color(0.957, 0.478, 0.965, 1.0)
+
+
+    label_M.add_theme_font_override("font", font)
+    label_M.add_theme_font_size_override("font_size", 40)
+
+    label_M.add_theme_color_override("font_shadow_color", Color(0.0, 0.0, 0.0, 0.341))
+    label_M.add_theme_constant_override("shadow_offset_x", 3)
+    label_M.add_theme_constant_override("shadow_offset_y", 3)
+    label_M.add_theme_constant_override("shadow_outline_size", 9)
+
+
+    var x_aleatorio = randf_range(0, 200)
+    var y_aleatorio = randf_range(0, 150)
+    label_M.position = Vector2(x_aleatorio, y_aleatorio)
+
+
+    var tween = create_tween()
+    tween.tween_property(label_M, "modulate:a", 0.0, 1.0)
+    tween.parallel().tween_property(label_M, "position:y", label_M.position.y - 20, 1.0)
+
+    tween.finished.connect(label_M.queue_free)
+
+func time_stop():
+    $Timer.stop()
+
+func time_start():
+    $Timer.start()
+    $Reload.play("default")
+
+
+func reset_focus():
+    focus = false
+
+func mudar_skin():
+    skin = !skin
+    
+    var path = $Lucky.texture.resource_path
+    match path:
+        "res://Assets/Bunnies/Lucky.png":
+            $Lucky.texture = load("res://Assets/Bunnies/Skins/ZeRon.png")
+            
+        "res://Assets/Bunnies/Skins/ZeRon.png":
+            $Lucky.texture = load("res://Assets/Bunnies/Lucky.png")
+            
+        "res://Assets/Bunnies/Paths/Lucky01.png":
+            $Lucky.texture = load("res://Assets/Bunnies/Skins/Paths/ZeRon01.png")
+            
+        "res://Assets/Bunnies/Skins/Paths/ZeRon01.png":
+            $Lucky.texture = load("res://Assets/Bunnies/Paths/Lucky01.png")
+            
+        "res://Assets/Bunnies/Paths/Lucky02.png":
+            $Lucky.texture = load("res://Assets/Bunnies/Skins/Paths/ZeRon02.png")
+            
+        "res://Assets/Bunnies/Skins/Paths/ZeRon02.png":
+            $Lucky.texture = load("res://Assets/Bunnies/Paths/Lucky02.png")
+
+func _on_button_button_down() -> void:
+    # 1. Diz a TODOS os nós no grupo "Bunnies" para correrem a função reset_focus
+    get_tree().call_group("Bunnies", "reset_focus")
+    
+    # 2. Agora liga o foco apenas DESTE coelho
+    focus = true
+    
+    # ... resto do teu código (abrir HUD, etc) ...
+    var hud = get_tree().get_first_node_in_group("HUD")
+    if hud:
+        hud.abrir_menu_upgrade(self)
+        
+        hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+        hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+        
+        hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Lucky.png")
+        hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
+        hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
+    
+
+func aplicar_upgrade(caminho):
+    var hud = get_tree().get_first_node_in_group("HUD")
+    var label_moedas = hud.get_node("Moedas")
+
+# 1. Transformar o texto da Label em número para poder fazer contas
+    var dinheiro_atual = int(label_moedas.text)
+
+# 2. Definir o custo baseado na Array e no nível atual
+    var lista_precos = preços_p1 if caminho == 1 else preços_p2
+    var nivel_atual = path1 if caminho == 1 else path2
+
+    if nivel_atual >= lista_precos.size(): return false
+
+    var custo = lista_precos[nivel_atual]
+
+# 3. A VERIFICAÇÃO E SUBTRAÇÃO
+    if dinheiro_atual >= custo:
+    # TIRA O DINHEIRO DO NÚMERO QUE LEMOS
+        dinheiro_atual -= custo
+    
+    # ATUALIZA A LABEL COM O NOVO VALOR (Transformando de volta para texto)
+        label_moedas.text = str(dinheiro_atual)
+    
+    # Continua com a lógica do upgrade...
+        
+        # 4. Aumenta o nível e aplica o match (dano, skin, etc.)
+        if caminho == 1:
+            path1 += 1
+            match path1:
+                1: 
+                    valor_lucky = 15
+                    P1status = "Money " + str(valor_lucky) + "$:"
+                    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+                    
+                2: 
+                    valor_lucky = 50
+                    P1status = "Money " + str(valor_lucky) + "$:"
+                    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+                    
+                3: 
+                    valor_lucky = 275
+                    P1status = "Money " + str(valor_lucky) + "$:"
+                    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+                    
+                4: 
+                    valor_lucky = 780
+                    P1status = "Money " + str(valor_lucky) + "$:"
+                    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+                    auraMAISego()
+                    
+                    if skin:
+                        $Lucky.texture = preload("res://Assets/Bunnies/Skins/Paths/ZeRon01.png")
+                    else:
+                        $Lucky.texture = preload("res://Assets/Bunnies/Paths/Lucky01.png")
+                        
+        else:
+            path2 += 1
+            match path2:
+                1: 
+                    $Timer.wait_time = 3.0
+                    
+                    P2status = "Farm speed: " + str($Timer.wait_time) + "s"
+                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+                    
+                2: 
+                    $Timer.wait_time = 2.6
+                    
+                    P2status = "Farm speed: " + str($Timer.wait_time) + "s"
+                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+                    
+                3: 
+                    $Timer.wait_time = 2.0
+                    
+                    P2status = "Farm speed: " + str($Timer.wait_time) + "s"
+                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+                4: 
+                    $Timer.wait_time = 1.3
+                    
+                    P2status = "Farm speed: " + str($Timer.wait_time) + "s"
+                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+                    auraMAISego()
+                    
+                    if skin:
+                        $Lucky.texture = preload("res://Assets/Bunnies/Skins/Paths/ZeRon02.png")
+                    else:
+                        $Lucky.texture = preload("res://Assets/Bunnies/Paths/Lucky02.png")
+            
+        return true
+    return false
+
+
+func auraMAISego():
+    $Lucky.modulate = Color(1, 1, 1)
+    $AURA.play("default")
+    
+    var tween = create_tween()
+
+
+    tween.tween_property($Lucky, "modulate", Color(2, 2, 2, 1), 0.3)
+ 
+    tween.tween_property($Lucky, "modulate", Color(1, 1, 1, 1), 0.4)
