@@ -250,6 +250,10 @@ func auraMAISego():
     tween.tween_property($Rookie, "modulate", Color(1, 1, 1, 1), 0.4)
     tween.parallel().tween_property($RookieHands_Attack, "modulate", Color(1, 1, 1, 1), 0.4)
 
+func atualizar_valorTorre():
+    var hud = get_tree().get_first_node_in_group("HUD")
+    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+
 func vender_torre():
     var moedas = get_tree().current_scene.find_child("Moedas")
     var valor_atual = int(moedas.text)

@@ -683,10 +683,10 @@ scale = Vector2(0.046983793, 0.046983793)
 texture = ExtResource("31")
 
 [node name="LabelCusto" type="Label" parent="HUD/HUD_Shop/HudBgDown" unique_id=470586143]
-offset_left = 274.95288
-offset_top = -138.10477
-offset_right = 396.89563
-offset_bottom = -49.67105
+offset_left = 188.64642
+offset_top = -174.71169
+offset_right = 310.58917
+offset_bottom = -86.27797
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5882353)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
