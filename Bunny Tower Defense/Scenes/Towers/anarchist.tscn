@@ -778,10 +778,12 @@ debug_color = Color(0, 0, 0, 0.41960785)
 [node name="Shot" type="AudioStreamPlayer" parent="." unique_id=952139436]
 stream = ExtResource("2_56475")
 volume_db = -22.825
+bus = &"SFX"
 
 [node name="Reload2" type="AudioStreamPlayer" parent="." unique_id=475112211]
 stream = ExtResource("3_k2aot")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=342500545]
 

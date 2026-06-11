@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cy6418q070xvu" path="res://Scripts/Bunnies/slasher.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dkr53o6gmqvxf" path="res://Assets/Bunnies/Others/Shadow.png" id="2"]
-[ext_resource type="AudioStream" uid="uid://ccqpk7c3ebaj" path="res://Assets/SFXs/SlasherBunnyULT.wav" id="2_0f8kl"]
-[ext_resource type="AudioStream" uid="uid://ca5fqqu5g237c" path="res://Assets/SFXs/SlasherSlash.wav" id="3_1vlif"]
+[ext_resource type="AudioStream" uid="uid://b58aggd03hltr" path="res://Assets/SFXs/SlasherBunnyULT.wav" id="2_0f8kl"]
+[ext_resource type="AudioStream" uid="uid://dw0jdchr7klby" path="res://Assets/SFXs/SlasherSlash.wav" id="3_1vlif"]
 [ext_resource type="Texture2D" uid="uid://berciy7trmcu5" path="res://Assets/Bunnies/Animations/SlashVFXSpriteSheet.png" id="4_q08p7"]
 [ext_resource type="Texture2D" uid="uid://cx360mq63gswy" path="res://Assets/Bunnies/Animations/Paths/EyeGlowSlasher01SpriteSheet.png" id="5_i7xlj"]
 [ext_resource type="Texture2D" uid="uid://nlcd786q3rpu" path="res://Assets/Bunnies/Animations/SlasherAttackIdle.png" id="6_1vlif"]
@@ -1021,10 +1021,12 @@ debug_color = Color(0, 0, 0, 0.41960785)
 [node name="Slash_Ult" type="AudioStreamPlayer" parent="." unique_id=1730715216]
 stream = ExtResource("2_0f8kl")
 volume_db = -15.152
+bus = &"SFX"
 
 [node name="Slash" type="AudioStreamPlayer" parent="." unique_id=1010549782]
 stream = ExtResource("3_1vlif")
 volume_db = -15.152
+bus = &"SFX"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=842566302]
 

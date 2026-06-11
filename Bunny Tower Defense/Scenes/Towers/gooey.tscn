@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://b4i63c7s3pbvr" path="res://Scripts/Bunnies/gooey.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dkr53o6gmqvxf" path="res://Assets/Bunnies/Others/Shadow.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://ca483pwed2uya" path="res://Assets/Bunnies/Gooey.png" id="3"]
-[ext_resource type="AudioStream" uid="uid://b3a4gmwmryfpd" path="res://Assets/SFXs/GooeySlime1.wav" id="3_648aa"]
-[ext_resource type="AudioStream" uid="uid://bw2en6v2pso7y" path="res://Assets/SFXs/GooeySlime.wav" id="3_geq81"]
+[ext_resource type="AudioStream" uid="uid://cbe3mgh1crfk1" path="res://Assets/SFXs/GooeySlime1.wav" id="3_648aa"]
+[ext_resource type="AudioStream" uid="uid://c161s3bh35h7b" path="res://Assets/SFXs/GooeySlime.wav" id="3_geq81"]
 [ext_resource type="Texture2D" uid="uid://bje4pbemesb41" path="res://Assets/Others/UI_Assets/ArrowStun.png" id="4_8ko8t"]
 [ext_resource type="Texture2D" uid="uid://c0cfxvyhvvig4" path="res://Assets/Bunnies/Animations/UpgradeAuraSpriteSheet.png" id="6_648aa"]
 
@@ -280,9 +280,11 @@ debug_color = Color(0, 0, 0, 0.41960785)
 
 [node name="Goo2" type="AudioStreamPlayer" parent="." unique_id=983173272]
 stream = ExtResource("3_648aa")
+bus = &"SFX"
 
 [node name="Goo" type="AudioStreamPlayer" parent="." unique_id=1598721432]
 stream = ExtResource("3_geq81")
+bus = &"SFX"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=342500545]
 

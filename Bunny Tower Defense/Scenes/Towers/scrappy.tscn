@@ -270,6 +270,8 @@ script = ExtResource("1_210gt")
 
 [node name="Attack" type="AudioStreamPlayer" parent="." unique_id=728345766]
 stream = ExtResource("2_j88ne")
+volume_db = -4.257
+bus = &"SFX"
 
 [node name="Range" type="Area2D" parent="." unique_id=1824610563]
 position = Vector2(-36.999996, -79.99999)

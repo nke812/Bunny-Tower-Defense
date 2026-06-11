@@ -1405,7 +1405,6 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Button" type="Button" parent="." unique_id=1543474290]
-visible = false
 offset_left = 1092.0
 offset_top = 5.0
 offset_right = 1244.0
@@ -1413,7 +1412,6 @@ offset_bottom = 72.0
 text = "+50$ "
 
 [node name="Button2" type="Button" parent="." unique_id=186975066]
-visible = false
 offset_left = 932.0
 offset_top = 6.0
 offset_right = 1084.0

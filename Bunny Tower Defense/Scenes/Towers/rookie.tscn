@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://qjkx21br6a30" path="res://Scripts/Bunnies/rookie.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dkr53o6gmqvxf" path="res://Assets/Bunnies/Others/Shadow.png" id="2"]
-[ext_resource type="AudioStream" uid="uid://bapi17haqb4nh" path="res://Assets/SFXs/Hit3.wav" id="2_3mwti"]
+[ext_resource type="AudioStream" uid="uid://8lc8y87fyf1p" path="res://Assets/SFXs/Hit3.wav" id="2_3mwti"]
 [ext_resource type="Texture2D" uid="uid://cbmccfyfx8iky" path="res://Assets/Bunnies/Animations/RookieAttackIdle.png" id="3_a4dix"]
-[ext_resource type="AudioStream" uid="uid://c2lhr5x3y85cx" path="res://Assets/SFXs/Hit2.wav" id="3_xji2b"]
+[ext_resource type="AudioStream" uid="uid://uwc0b7s8li2l" path="res://Assets/SFXs/Hit2.wav" id="3_xji2b"]
 [ext_resource type="Texture2D" uid="uid://dwrbtgkce4l1u" path="res://Assets/Others/UI_Assets/ArrowDPS.png" id="4_55yyg"]
-[ext_resource type="AudioStream" uid="uid://cltjncl30xg1q" path="res://Assets/SFXs/Hit1.wav" id="4_cfd32"]
+[ext_resource type="AudioStream" uid="uid://io1g8h7qicq5" path="res://Assets/SFXs/Hit1.wav" id="4_cfd32"]
 [ext_resource type="Texture2D" uid="uid://xr85dx8vd5rc" path="res://Assets/Bunnies/Animations/RookieAttackSpriteSheet.png" id="5_8lmgt"]
 [ext_resource type="Texture2D" uid="uid://bo45wgu6fj2yc" path="res://Assets/Bunnies/Animations/Paths/Rookie01AttackSpriteSheet.png" id="8_vxsyi"]
 [ext_resource type="Texture2D" uid="uid://br6u7ap07vgix" path="res://Assets/Bunnies/Animations/Paths/Rookie02AttackSpriteSheet.png" id="9_j2kb4"]
@@ -783,12 +783,15 @@ debug_color = Color(0, 0, 0, 0.41960785)
 
 [node name="Hit3" type="AudioStreamPlayer" parent="." unique_id=1825109660]
 stream = ExtResource("2_3mwti")
+bus = &"SFX"
 
 [node name="Hit2" type="AudioStreamPlayer" parent="." unique_id=830609251]
 stream = ExtResource("3_xji2b")
+bus = &"SFX"
 
 [node name="Hit" type="AudioStreamPlayer" parent="." unique_id=1824194571]
 stream = ExtResource("4_cfd32")
+bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="." unique_id=549134753 groups=["Timers"]]
 one_shot = true

@@ -81,30 +81,3 @@ func load_settings() -> void:
         saved_value = 1.0
     
     value = saved_value
-    
-    
-func load_music() -> void:
-    var config = ConfigFile.new()
-    var erro = config.load(SAVE_PATH)
-    var valor_musica: float = 1.0 # Valor padrão se não encontrar o ficheiro
-    
-    if erro == OK:
-        valor_musica = config.get_value("audio", "Music_volume", 1.0)
-    
-    # 2. Descobre o ID do canal da Música e aplica o som real no AudioServer
-    var bus_id = AudioServer.get_bus_index("Music")
-    if bus_id != -1:
-        AudioServer.set_bus_volume_db(bus_id, linear_to_db(valor_musica))
-
-
-func load_sfx() -> void:
-    var config = ConfigFile.new()
-    var erro = config.load(SAVE_PATH)
-    var valor_sfx: float = 1.0
-    
-    if erro == OK:
-        valor_sfx = config.get_value("audio", "SFX_volume", 1.0)
-    
-    var bus_id = AudioServer.get_bus_index("SFX")
-    if bus_id != -1:
-        AudioServer.set_bus_volume_db(bus_id, linear_to_db(valor_sfx))

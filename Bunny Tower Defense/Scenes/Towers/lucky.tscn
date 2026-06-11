@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bcosxxn3weerc" path="res://Scripts/Bunnies/lucky.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dkr53o6gmqvxf" path="res://Assets/Bunnies/Others/Shadow.png" id="2"]
-[ext_resource type="AudioStream" uid="uid://c2vyndqfnpp7p" path="res://Assets/SFXs/LuckyMoney.wav" id="2_t8cit"]
+[ext_resource type="AudioStream" uid="uid://dmpubcec8uog3" path="res://Assets/SFXs/LuckyMoney.wav" id="2_t8cit"]
 [ext_resource type="Texture2D" uid="uid://bw3gf8wg7hwn0" path="res://Assets/Bunnies/Lucky.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://b43vqrghk26ay" path="res://Assets/Others/UI_Assets/ArrowSupport.png" id="4_btyo5"]
 [ext_resource type="Texture2D" uid="uid://c0cfxvyhvvig4" path="res://Assets/Bunnies/Animations/UpgradeAuraSpriteSheet.png" id="6_n0lfg"]
@@ -316,6 +316,7 @@ debug_color = Color(0, 0, 0, 0.41960785)
 
 [node name="Money" type="AudioStreamPlayer" parent="." unique_id=1966862508]
 stream = ExtResource("2_t8cit")
+bus = &"SFX"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1203637217]
 
