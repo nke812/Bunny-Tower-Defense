@@ -13,7 +13,7 @@ var LastUpgradeCheck = preload("res://Assets/Others/HUD_Assets/UpgradeCrown.png"
 
 @onready var moedas_atuais = int(moedas_label.text)
 
-var autoplay = false
+
 
 
 
@@ -221,17 +221,46 @@ func mostrar_preco_2_4() -> void:
 
 
 
+var tween_preco: Tween
+
 func mostrar1():
-        var label_preco = $HUD_Shop/HudBgDown/LabelCusto
-        if torre_em_foco.path1 < torre_em_foco.preços_p1.size():
-            var proximo_custo = torre_em_foco.preços_p1[torre_em_foco.path1]
-            label_preco.text = str(proximo_custo) + " 🥕"
+    var label_preco = $HUD_Shop/HudBgDown/LabelCusto
+    if torre_em_foco.path1 < torre_em_foco.preços_p1.size():
+        var proximo_custo = torre_em_foco.preços_p1[torre_em_foco.path1]
+        label_preco.text = str(proximo_custo) + " 🥕"
+        
+        # Ativa o Fade In suave
+        fade_label_preco(label_preco, 1.0)
             
 func mostrar2():
-        var label_preco = $HUD_Shop/HudBgDown/LabelCusto
-        if torre_em_foco.path2 < torre_em_foco.preços_p2.size():
-            var proximo_custo = torre_em_foco.preços_p2[torre_em_foco.path2]
-            label_preco.text = str(proximo_custo) + " $"
+    var label_preco = $HUD_Shop/HudBgDown/LabelCusto
+    if torre_em_foco.path2 < torre_em_foco.preços_p2.size():
+        var proximo_custo = torre_em_foco.preços_p2[torre_em_foco.path2]
+        label_preco.text = str(proximo_custo) + " 🥕"
+        
+        # Ativa o Fade In suave
+        fade_label_preco(label_preco, 1.0)
+
+func tirar_preco() -> void:
+    tirar_brilho() 
+    var label_preco = $HUD_Shop/HudBgDown/LabelCusto
+    
+    # Ativa o Fade Out suave
+    fade_label_preco(label_preco, 0.0)
+
+
+# FUNÇÃO MÁGICA DO FADE (Podes colar isto no fim do teu script)
+func fade_label_preco(label: Label, valor_alvo: float):
+    # 1. Se já houver um fade a decorrer, cancela-o para não dar conflito
+    if tween_preco and tween_preco.is_running():
+        tween_preco.kill()
+        
+    # 2. Cria um novo animador (Tween)
+    tween_preco = create_tween()
+    
+    # 3. Anima a propriedade "modulate:a" (Alpha de transparência) até ao valor_alvo em 0.2 segundos
+    tween_preco.tween_property(label, "modulate:a", valor_alvo, 0.2).set_trans(Tween.TRANS_SINE)
+
 
 func tirar_brilho():
     var botoes = [$"HUD_Shop/HudBgDown/Upgrade 1-1", $"HUD_Shop/HudBgDown/Upgrade 1-2", $"HUD_Shop/HudBgDown/Upgrade 1-3", $"HUD_Shop/HudBgDown/Upgrade 1-4", $"HUD_Shop/HudBgDown/Upgrade 2-1", $"HUD_Shop/HudBgDown/Upgrade 2-2", $"HUD_Shop/HudBgDown/Upgrade 2-3", $"HUD_Shop/HudBgDown/Upgrade 2-4"]
@@ -239,11 +268,6 @@ func tirar_brilho():
     for botao in botoes:
         if botao:
             botao.modulate = Color(1.0, 1.0, 1.0)
-
-
-func tirar_preco() -> void:
-    tirar_brilho() 
-    $HUD_Shop/HudBgDown/LabelCusto.text = ""
 
 
 func _on_extra_speed_pressed() -> void:
@@ -310,8 +334,12 @@ func _on_sfx_control_value_changed(value: float) -> void:
 
 
 func _on_auto_play_pressed() -> void:
-    if autoplay == false: autoplay = true
-    elif autoplay == true: autoplay = false
+    var script_spawner = get_tree().get_first_node_in_group("spawner")
+    
+    if script_spawner:
+        # Inverte o valor: se era true vira false, se era false vira true
+        script_spawner.autoplay = !script_spawner.autoplay
+        print("Autoplay atualizado: ", script_spawner.autoplay)
 
 
 
@@ -337,3 +365,13 @@ func MAIS_50kk() -> void:
     var valor_atual = int(moedas.text)
     
     moedas.text = str(valor_atual + 50)
+
+
+func _on_bt_nsell_mouse_entered() -> void:
+    $HUD_Shop/HudBgDown/Control/BTNsell/Anim_Sell.play("new_animation")
+    await $HUD_Shop/HudBgDown/Control/BTNsell/Anim_Sell.animation_finished
+
+
+func _on_bt_nsell_mouse_exited() -> void:
+    $HUD_Shop/HudBgDown/Control/BTNsell/Anim_Sell.play_backwards("new_animation")
+    await $HUD_Shop/HudBgDown/Control/BTNsell/Anim_Sell.animation_finished

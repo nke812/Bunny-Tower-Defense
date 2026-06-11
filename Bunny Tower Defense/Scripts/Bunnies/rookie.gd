@@ -141,7 +141,7 @@ func _on_button_button_down() -> void:
     get_tree().call_group("Bunnies", "reset_focus")
     
     focus = true
-
+    
     var hud = get_tree().get_first_node_in_group("HUD")
     if hud:
         hud.abrir_menu_upgrade(self)
@@ -150,6 +150,7 @@ func _on_button_button_down() -> void:
         hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
         
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Rookie.png")
+        atualizar_valorTorre()
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
     
@@ -197,6 +198,7 @@ func aplicar_upgrade(caminho):
                         $Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
                         $RookieHands_Attack.animation = "Rookie01"
             
+            atualizar_valorTorre()
             atualizar_dmg()    
             P1status = "Damage: " + str(dmg_total)
             hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
@@ -225,7 +227,7 @@ func aplicar_upgrade(caminho):
                         $Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
                         $RookieHands_Attack.animation = "Rookie02"
                         
-                        
+            atualizar_valorTorre()            
             P2status = "Speed ATK: " + str($Timer.wait_time) + "s"
             hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
             
@@ -255,7 +257,9 @@ func auraMAISego():
 
 func atualizar_valorTorre():
     var hud = get_tree().get_first_node_in_group("HUD")
-    hud.get_node("HUD_Shop/HudBgDown/LabelCusto").text = str(valor_torre)
+    var valor_torre_60 : int = int(valor_torre * 0.6)
+    
+    hud.get_node("HUD_Shop/HudBgDown/Control/PanelSell/precoSell").text = str(valor_torre_60)
 
 func vender_torre():
     var moedas = get_tree().current_scene.find_child("Moedas")

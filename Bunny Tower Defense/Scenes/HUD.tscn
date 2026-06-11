@@ -197,6 +197,43 @@ _data = {
 &"RESET": SubResource("Animation_op2xg")
 }
 
+[sub_resource type="Animation" id="Animation_1fefx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelSell:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(685.9971, 647.7832)]
+}
+
+[sub_resource type="Animation" id="Animation_0a480"]
+resource_name = "new_animation"
+length = 0.23333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelSell:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.34151018, 1.6245054),
+"update": 0,
+"values": [Vector2(685.9971, 647.7832), Vector2(685.9971, 609.5846)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7iiwh"]
+_data = {
+&"RESET": SubResource("Animation_1fefx"),
+&"new_animation": SubResource("Animation_0a480")
+}
+
 [sub_resource type="Animation" id="Animation_087co"]
 length = 0.001
 tracks/0/type = "value"
@@ -496,7 +533,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 70
 max_value = 9999999.0
 step = 1.0
-value = 9.0
+value = 3625227.0
 metadata/_edit_use_anchors_ = true
 
 [node name="EventSign" type="Sprite2D" parent="HUD" unique_id=1396536025]
@@ -672,21 +709,21 @@ offset_left = -411.04413
 offset_top = -45.316696
 offset_right = -360.37393
 offset_bottom = 5.353504
-disabled = true
 texture_normal = ExtResource("20_4hkqd")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="lock" type="Sprite2D" parent="HUD/HUD_Shop/HudBgDown/TextureButton" unique_id=2023219171]
+visible = false
 position = Vector2(23.943045, 24.990696)
 scale = Vector2(0.046983793, 0.046983793)
 texture = ExtResource("31")
 
 [node name="LabelCusto" type="Label" parent="HUD/HUD_Shop/HudBgDown" unique_id=470586143]
-offset_left = 188.64642
-offset_top = -174.71169
-offset_right = 310.58917
-offset_bottom = -86.27797
+offset_left = 276.62332
+offset_top = -128.55513
+offset_right = 398.56607
+offset_bottom = -40.121414
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5882353)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 2
@@ -694,6 +731,7 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("9")
 theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Status1" type="Label" parent="HUD/HUD_Shop/HudBgDown" unique_id=1427387418]
@@ -734,14 +772,97 @@ position = Vector2(-253.46533, -20.326012)
 scale = Vector2(0.03754947, 0.03754947)
 texture = ExtResource("17_1fefx")
 
-[node name="BTNsell" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=1569573465]
-offset_left = 1000.48376
-offset_top = -94.07035
-offset_right = 1123.54
-offset_bottom = -50.732094
+[node name="Control" type="Control" parent="HUD/HUD_Shop/HudBgDown" unique_id=1558673895]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -409.3737
+offset_top = -703.655
+offset_right = -369.3737
+offset_bottom = -663.655
+
+[node name="PanelSell" type="Panel" parent="HUD/HUD_Shop/HudBgDown/Control" unique_id=55115524]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 17.150002
+anchor_top = 15.240001
+anchor_right = 20.185001
+anchor_bottom = 16.261002
+offset_left = -0.0029907227
+offset_top = 38.183167
+offset_right = -0.017150879
+offset_bottom = 38.194336
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(57.908813, 18.568848)
+
+[node name="precoSell" type="Label" parent="HUD/HUD_Shop/HudBgDown/Control/PanelSell" unique_id=686555823]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.044000003
+anchor_top = 0.119
+anchor_right = 0.9710001
+anchor_bottom = 0.76600003
+offset_left = -13.374578
+offset_top = 2.6669822
+offset_right = -37.684135
+offset_bottom = 2.6688251
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 24
+text = "560"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HUD_Shop/HudBgDown/Control/PanelSell" unique_id=1703031442]
+layout_mode = 0
+offset_left = 80.738266
+offset_top = 5.8360357
+offset_right = 104.12456
+offset_bottom = 29.222328
+texture = ExtResource("13")
+expand_mode = 1
+
+[node name="BTNsell" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown/Control" unique_id=1569573465]
+layout_mode = 0
+offset_left = 685.44025
+offset_top = 645.66113
+offset_right = 808.4965
+offset_bottom = 688.9994
 texture_normal = ExtResource("19_w3j15")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Anim_Sell" type="AnimationPlayer" parent="HUD/HUD_Shop/HudBgDown/Control/BTNsell" unique_id=190548707]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_7iiwh")
+
+[node name="precoSell" type="Label" parent="HUD/HUD_Shop/HudBgDown/Control/BTNsell" unique_id=1482161774]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.044000003
+anchor_top = 0.119
+anchor_right = 0.9710001
+anchor_bottom = 0.76600003
+offset_left = -0.01099205
+offset_top = 4.7891145
+offset_right = -0.030418396
+offset_bottom = 4.7909546
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 18
+text = "Vender"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="disable_shop" type="Button" parent="HUD" unique_id=82156049]
 visible = false
@@ -818,6 +939,7 @@ offset_top = 142.0
 offset_right = 1920.0
 offset_bottom = 875.0
 draw_focus_border = true
+scroll_vertical = 137
 vertical_scroll_mode = 2
 scroll_hint_mode = 1
 
@@ -1234,10 +1356,11 @@ anchors_preset = -1
 anchor_left = 0.666
 anchor_right = 0.735
 anchor_bottom = 0.071
-offset_left = 1340.0001
-offset_top = 61.000008
-offset_right = 1462.0001
-offset_bottom = 92.00001
+offset_left = 1303.0001
+offset_top = 62.000008
+offset_right = 1461.0001
+offset_bottom = 127.000015
+theme_override_font_sizes/font_size = 21
 text = "Auto Play"
 
 [node name="Options" type="Panel" parent="HUD/UI_Selection" unique_id=2036140806]
@@ -1447,7 +1570,9 @@ text = "-50$ "
 [connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/Upgrade 2-4" to="HUD" method="_on_path_2_pressed"]
 [connection signal="button_down" from="HUD/HUD_Shop/HudBgDown/ExitShop" to="HUD" method="_on_exit_settings_button_down"]
 [connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/TextureButton" to="HUD" method="_on_texture_button_pressed"]
-[connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/BTNsell" to="HUD" method="_on_sell_pressed"]
+[connection signal="mouse_entered" from="HUD/HUD_Shop/HudBgDown/Control/BTNsell" to="HUD" method="_on_bt_nsell_mouse_entered"]
+[connection signal="mouse_exited" from="HUD/HUD_Shop/HudBgDown/Control/BTNsell" to="HUD" method="_on_bt_nsell_mouse_exited"]
+[connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/Control/BTNsell" to="HUD" method="_on_sell_pressed"]
 [connection signal="pressed" from="HUD/disable_shop" to="HUD/HUD_Shop" method="_on_disable_shop_pressed"]
 [connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Rookie_BG_dps/Rookie" to="HUD/UI_Selection/Bunnies" method="_on_rookie_button_down"]
 [connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Slasher_BG_dps/Slasher" to="HUD/UI_Selection/Bunnies" method="_on_slasher_button_down"]

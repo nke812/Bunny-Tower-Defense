@@ -4,6 +4,8 @@ var mostrar_range = false
 var pronto_para_atacar = false
 var focus = false
 
+var valor_torre = 330
+
 var path1 = 0 # Guarda os upgrades de Knockback Distance
 var path2 = 0 # Guarda os upgrades de Chain Quantity
 
@@ -88,6 +90,7 @@ func _on_button_button_down() -> void:
         # Troca o asset no HUD para o Scrappy
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Scrappy.png")
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
+        atualizar_valorTorre()
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
 
 func aplicar_upgrade(caminho):
@@ -153,3 +156,19 @@ func _on_button_mouse_exited() -> void:
 
 func reset_focus():
     focus = false
+
+
+func atualizar_valorTorre():
+    var hud = get_tree().get_first_node_in_group("HUD")
+    var valor_torre_60 : int = int(valor_torre * 0.6)
+    
+    hud.get_node("HUD_Shop/HudBgDown/Control/PanelSell/precoSell").text = str(valor_torre_60)
+
+func vender_torre():
+    var moedas = get_tree().current_scene.find_child("Moedas")
+    var valor_atual = int(moedas.text)
+    var valor_torre_60 : int = int(valor_torre * 0.6)
+    
+    moedas.text = str(valor_atual + valor_torre_60)
+    
+    queue_free()

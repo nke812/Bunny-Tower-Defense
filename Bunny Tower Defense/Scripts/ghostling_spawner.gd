@@ -24,6 +24,7 @@ var inimigos_vivos = 0
 var vaga_atual = []
 var ronda_a_decorrer = false
 
+var autoplay = false
 
 
 func _process(_delta):
@@ -119,7 +120,7 @@ func _on_timer_timeout():
 
 
 func inimigo_morreu():
-    var autoplay = get_tree().get_first_node_in_group("autoplay")
+    
     
     inimigos_vivos -= 1
 
@@ -135,7 +136,8 @@ func inimigo_morreu():
         rodada_atual += 1
         atualizar_contador_rondas()
         
-        if autoplay:
+        if autoplay == true:
+            print("foi??")
             iniciar_vaga()
 
         var moedas_no = get_tree().current_scene.find_child("Moedas")
