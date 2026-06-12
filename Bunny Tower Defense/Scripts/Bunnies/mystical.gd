@@ -3,6 +3,8 @@ extends Node2D
 var posicionado = false
 var mostrar_range = false
 
+var valor_torre = 1400
+
 var focus = false
 var skin = false
 
@@ -39,6 +41,7 @@ func _on_button_button_down() -> void:
         hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
         
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Mystical.png")
+        atualizar_valorTorre()
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
     
@@ -68,50 +71,58 @@ func aplicar_upgrade(caminho):
                 1: 
                     P1status = "LV Buff: " + str(path1)
                     atualizar_torres_no_raio()
+                    valor_torre += 650
                     hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
                     
                 2: 
                     P1status = "LV Buff: " + str(path1)
                     atualizar_torres_no_raio()
+                    valor_torre += 1400
                     hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
                     
                 3: 
                     P1status = "LV Buff: " + str(path1)
                     atualizar_torres_no_raio()
+                    valor_torre += 3500
                     hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
                     
                 4: 
                     P1status = "LV Buff: " + str(path1)
                     atualizar_torres_no_raio()
+                    valor_torre += 12000
                     hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
                     $Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical01.png")
                     auraMAISego()
-                          
+            atualizar_valorTorre()              
         else:
             path2 += 1
             match path2:
                 1: 
                     $Range/CollisionRange.scale = Vector2(1.2, 1.2)
+                    valor_torre += 650
                     P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
                     hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
                     
                 2: 
                     $Range/CollisionRange.scale = Vector2(1.5, 1.5)
+                    valor_torre += 1400
                     P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
                     hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
                     
                 3: 
                     $Range/CollisionRange.scale = Vector2(1.7, 1.7)
+                    valor_torre += 3500
                     P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
                     hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
                     
                 4: 
                     $Range/CollisionRange.scale = Vector2(2.0, 2.0)
+                    valor_torre += 12000
                     P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
                     hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
                     $Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical02.png")
                     auraMAISego()
-                
+            atualizar_valorTorre()    
         return true
     return false
 
@@ -169,3 +180,19 @@ func atualizar_torres_no_raio() -> void:
             var bunny_aliado = corpo if corpo.has_method("receber_buff_mystical") else pai
             if bunny_aliado.has_method("receber_buff_mystical"):
                 bunny_aliado.receber_buff_mystical(path1)
+                
+                
+func atualizar_valorTorre():
+    var hud = get_tree().get_first_node_in_group("HUD")
+    var valor_torre_60 : int = int(valor_torre * 0.6)
+    
+    hud.get_node("HUD_Shop/HudBgDown/Control/PanelSell/precoSell").text = str(valor_torre_60)
+
+func vender_torre():
+    var moedas = get_tree().current_scene.find_child("Moedas")
+    var valor_atual = int(moedas.text)
+    var valor_torre_60 : int = int(valor_torre * 0.6)
+    
+    moedas.text = str(valor_atual + valor_torre_60)
+    
+    queue_free()

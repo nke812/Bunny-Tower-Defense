@@ -3,6 +3,8 @@ extends Node2D
 var pronto_para_atacar = false
 var mostrar_range = false
 
+var valor_torre = 250
+
 var contagem_ult = 0
 var dmg_Slasher = 3
 
@@ -160,6 +162,7 @@ func _on_insp_button_down() -> void:
         hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
         
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Slasher.png")
+        atualizar_valorTorre()
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
     
@@ -187,21 +190,25 @@ func aplicar_upgrade(caminho):
             match path1:
                 1: 
                     $Timer.wait_time = 2.7
+                    valor_torre += 400
                     P1status = "Speed ATK: " + str($Timer.wait_time) + "s"
                     hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
                     
                 2: 
                     $Timer.wait_time = 2.3
+                    valor_torre += 1500
                     P1status = "Speed ATK: " + str($Timer.wait_time) + "s"
                     hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
                 
                 3: 
                     $Timer.wait_time = 1.5
+                    valor_torre += 3500
                     P1status = "Speed ATK: " + str($Timer.wait_time) + "s"
                     hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
                     
                 4: 
                     $Timer.wait_time = 0.5
+                    valor_torre += 7500
                     P1status = "Speed ATK: " + str($Timer.wait_time) + "s"
                     hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
                     $Slasher/Ult.animation = "Ult01"
@@ -215,21 +222,26 @@ func aplicar_upgrade(caminho):
                     else:
                         $Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher01AttackIdle.png")
                         $SlasherAttack.animation = "Slasher01"
+                        
+            atualizar_valorTorre()
         else:
             path2 += 1
             match path2:
                 1: 
                     $Range/CollisionRange.scale = Vector2(1.3, 1.3)
+                    valor_torre += 400
                     P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
                     hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
                     
                 2: 
                     $Range/CollisionRange.scale = Vector2(1.5, 1.5)
+                    valor_torre += 1500
                     P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
                     hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
                     
                 3: 
                     $Range/CollisionRange.scale = Vector2(1.7, 1.7)
+                    valor_torre += 3500
                     P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
                     hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
                     
@@ -238,6 +250,7 @@ func aplicar_upgrade(caminho):
                     P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
                     hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
                     $Slasher/Ult.animation = "Ult02"
+                    valor_torre += 7500
                     $Slasher/AppearUlt.animation = "UltAppear02"
                     verificar_posicao_skin()
                     auraMAISego()
@@ -248,6 +261,7 @@ func aplicar_upgrade(caminho):
                     else:
                         $Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher02AttackIdle.png")
                         $SlasherAttack.animation = "Slasher02"
+            atualizar_valorTorre()
         return true
     return false
     
@@ -282,3 +296,18 @@ func auraMAISego():
  
     tween.tween_property($Slasher, "modulate", Color(1, 1, 1, 1), 0.4)
     tween.parallel().tween_property($SlasherAttack, "modulate", Color(1, 1, 1, 1), 0.4)
+
+func atualizar_valorTorre():
+    var hud = get_tree().get_first_node_in_group("HUD")
+    var valor_torre_60 : int = int(valor_torre * 0.6)
+    
+    hud.get_node("HUD_Shop/HudBgDown/Control/PanelSell/precoSell").text = str(valor_torre_60)
+
+func vender_torre():
+    var moedas = get_tree().current_scene.find_child("Moedas")
+    var valor_atual = int(moedas.text)
+    var valor_torre_60 : int = int(valor_torre * 0.6)
+    
+    moedas.text = str(valor_atual + valor_torre_60)
+    
+    queue_free()

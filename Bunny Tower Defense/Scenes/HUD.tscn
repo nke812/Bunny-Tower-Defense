@@ -66,6 +66,12 @@
 [ext_resource type="Texture2D" uid="uid://jik7hcrr2chw" path="res://Assets/Others/HUD_Assets/NormalSpeedBTNPressed.png" id="59_ag3a8"]
 [ext_resource type="Shader" uid="uid://xhn25hsmp6t1" path="res://Others/outline.gdshader" id="60_087co"]
 [ext_resource type="Texture2D" uid="uid://cnweqxal6ed8" path="res://Assets/Bunnies/Voodo.png" id="60_hl3i6"]
+[ext_resource type="Texture2D" uid="uid://de6l8cm0gsl02" path="res://Assets/Others/UI_Assets/GameOverScreen.png" id="67_jh456"]
+[ext_resource type="Texture2D" uid="uid://b150v8hgm7xxj" path="res://Assets/Enemies/Ghostlings/Brute.png" id="68_ynwmi"]
+[ext_resource type="Texture2D" uid="uid://dnpfk6l1itbih" path="res://Assets/Enemies/Ghostlings/Ghaztling.png" id="69_dr5ga"]
+[ext_resource type="Texture2D" uid="uid://c05ej7ee6147" path="res://Assets/Enemies/Ghostlings/Enhanced Ghoul.png" id="70_rywlk"]
+[ext_resource type="Texture2D" uid="uid://bg6qjkuandfwb" path="res://Assets/Enemies/Ghostlings/Ghostling.png" id="71_rkb15"]
+[ext_resource type="Texture2D" uid="uid://drgcfy5rniced" path="res://Assets/Enemies/Ghostlings/Ghazt.png" id="72_h7oxq"]
 
 [sub_resource type="Theme" id="Theme_c4wnb"]
 default_font = ExtResource("4")
@@ -402,70 +408,6 @@ icon = ExtResource("2")
 flat = true
 icon_alignment = 1
 expand_icon = true
-
-[node name="GameOver" type="Panel" parent="HUD" unique_id=605734411]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 438.00003
-offset_top = 224.00002
-offset_right = 1098.0
-offset_bottom = 954.53894
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="Paused" type="Label" parent="HUD/GameOver" unique_id=764682033]
-layout_mode = 0
-offset_left = 55.0
-offset_top = 55.000008
-offset_right = 605.0
-offset_bottom = 213.08383
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 32
-theme_override_fonts/font = ExtResource("9")
-theme_override_font_sizes/font_size = 76
-text = "IT'S OVER!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Restart" type="Button" parent="HUD/GameOver" unique_id=1066697129]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -282.21558
-offset_top = -145.26944
-offset_right = 261.49707
-offset_bottom = 25.988007
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("9")
-theme_override_font_sizes/font_size = 46
-text = "RETRY"
-
-[node name="BackMenu" type="Button" parent="HUD/GameOver" unique_id=1345564730]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -282.21558
-offset_top = 74.73053
-offset_right = 261.49707
-offset_bottom = 245.9881
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("9")
-theme_override_font_sizes/font_size = 46
-text = "QUIT"
 
 [node name="PGB_V" type="ProgressBar" parent="HUD" unique_id=633366904]
 offset_left = 72.0
@@ -813,7 +755,7 @@ theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("9")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 22
 text = "560"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -939,7 +881,7 @@ offset_top = 142.0
 offset_right = 1920.0
 offset_bottom = 875.0
 draw_focus_border = true
-scroll_vertical = 100
+scroll_vertical = 581
 vertical_scroll_mode = 2
 scroll_hint_mode = 1
 
@@ -1543,9 +1485,93 @@ texture_disabled = ExtResource("55_jjmk5")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="GameOver" type="Panel" parent="HUD/UI_Selection" unique_id=605734411]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 52.000004
+offset_top = 57.000015
+offset_right = 1977.0
+offset_bottom = 1143.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MenuSettings" type="Sprite2D" parent="HUD/UI_Selection/GameOver" unique_id=1923013459]
+modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
+position = Vector2(1000.0001, 494.00006)
+scale = Vector2(0.4556439, 0.4521819)
+texture = ExtResource("67_jh456")
+
+[node name="MenuSettings5" type="Sprite2D" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=528633972]
+modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
+position = Vector2(-715.4712, 581.62445)
+scale = Vector2(0.20880012, 0.19937226)
+texture = ExtResource("68_ynwmi")
+
+[node name="MenuSettings4" type="Sprite2D" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=181355863]
+modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
+position = Vector2(829.59534, -561.7209)
+scale = Vector2(0.14219007, 0.13377346)
+texture = ExtResource("69_dr5ga")
+
+[node name="MenuSettings3" type="Sprite2D" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=913714206]
+modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
+position = Vector2(787.89606, 488.74133)
+scale = Vector2(0.26375467, 0.25582942)
+texture = ExtResource("70_rywlk")
+
+[node name="MenuSettings2" type="Sprite2D" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=1323355483]
+modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
+position = Vector2(-423.57648, -513.06793)
+scale = Vector2(0.20285466, 0.19978376)
+texture = ExtResource("71_rkb15")
+
+[node name="MenuSettings" type="Sprite2D" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=430107304]
+modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
+position = Vector2(-798.86945, -183.55447)
+scale = Vector2(0.24978337, 0.24788553)
+texture = ExtResource("72_h7oxq")
+
+[node name="Restart" type="Button" parent="HUD/UI_Selection/GameOver" unique_id=1066697129]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.49988
+offset_top = -137.99994
+offset_right = 241.8778
+offset_bottom = -9.999939
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 46
+text = "RETRY"
+
+[node name="BackMenu" type="Button" parent="HUD/UI_Selection/GameOver" unique_id=1345564730]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.49994
+offset_top = 35.00006
+offset_right = 247.65356
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 46
+text = "QUIT"
+
 [connection signal="pressed" from="HUD/Pause" to="HUD" method="_on_button_pressed"]
-[connection signal="pressed" from="HUD/GameOver/Restart" to="HUD" method="_on_restart_pressed"]
-[connection signal="pressed" from="HUD/GameOver/BackMenu" to="HUD" method="_on_back_menu_pressed"]
 [connection signal="theme_changed" from="HUD/Moedas" to="HUD/UI_Selection/Bunnies" method="_on_moedas_theme_changed"]
 [connection signal="mouse_entered" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-1" to="HUD" method="mostrar_preco_1_1"]
 [connection signal="mouse_exited" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-1" to="HUD" method="tirar_preco"]
@@ -1606,3 +1632,5 @@ stretch_mode = 0
 [connection signal="pressed" from="HUD/UI_Selection/Options/Button" to="HUD" method="MAIS_50kk"]
 [connection signal="pressed" from="HUD/UI_Selection/Options/Button2" to="HUD" method="_on_button_2_pressed"]
 [connection signal="pressed" from="HUD/UI_Selection/Options/Restart" to="HUD" method="_on_restart_pressed"]
+[connection signal="pressed" from="HUD/UI_Selection/GameOver/Restart" to="HUD" method="_on_restart_pressed"]
+[connection signal="pressed" from="HUD/UI_Selection/GameOver/BackMenu" to="HUD" method="_on_back_menu_pressed"]

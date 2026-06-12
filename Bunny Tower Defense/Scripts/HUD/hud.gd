@@ -237,6 +237,7 @@ func atualizar_visual_upgrades():
 
 func _on_texture_button_pressed() -> void:
     if torre_em_foco != null:
+
         torre_em_foco.mudar_skin()
 
 
