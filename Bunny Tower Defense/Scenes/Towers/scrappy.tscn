@@ -285,7 +285,7 @@ debug_color = Color(0, 0, 0, 0.41960785)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=342500545]
 
 [node name="Timer" type="Timer" parent="." unique_id=549134753 groups=["Timers"]]
-wait_time = 3.0
+wait_time = 5.5
 one_shot = true
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=679138837]

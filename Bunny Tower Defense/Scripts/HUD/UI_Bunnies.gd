@@ -23,9 +23,47 @@ var local_proibido = false
 var custo_da_torre_atual = 0
 
 
-func _process(_delta: float) -> void :
-    moedas_atuais = int(moedas_label.text)
+func _ready() -> void:
+    atualizar_loja_botoes()
+
+func _process(_delta: float) -> void:
+    var moedas_atuais_nova = int(moedas_label.text)
     
+    if moedas_atuais_nova != moedas_atuais:
+        moedas_atuais = moedas_atuais_nova
+        atualizar_loja_botoes()
+
+
+    if temp_tower != null:
+        temp_tower.global_position = get_global_mouse_position()
+
+        var detector = temp_tower.get_node("HitBox")
+        var areas_em_cima = detector.get_overlapping_areas()
+
+        local_proibido = false
+        for area in areas_em_cima:
+            if area.is_in_group("no_place"):
+                local_proibido = true
+                break
+
+
+        if local_proibido:
+            temp_tower.modulate = Color(1, 0.2, 0.2, 0.5)
+        else:
+            temp_tower.modulate = Color(1, 1, 1, 0.5)
+
+
+        if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+            if not local_proibido:
+                largar_torre()
+            else:
+
+                temp_tower.queue_free()
+                temp_tower = null
+                custo_da_torre_atual = 0
+
+
+func atualizar_loja_botoes() -> void:
     
     #kiss D;
     $ScrollContainer/GridContainer/Rookie_BG_dps.disabled = (moedas_atuais < 115)
@@ -115,38 +153,7 @@ func _process(_delta: float) -> void :
         $ScrollContainer/GridContainer/Ghoulish_BG_stun/Preço.add_theme_color_override("font_color", Color.from_string("ffc74d", Color.WHITE))
         $ScrollContainer/GridContainer/Ghoulish_BG_stun/Preço.add_theme_color_override("font_shadow_color", Color.from_string("d1a000df", Color.BLACK))
         $ScrollContainer/GridContainer/Ghoulish_BG_stun/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTag.png")
-    
-    
-    
-    
-    
-    if temp_tower != null:
-        temp_tower.global_position = get_global_mouse_position()
 
-        var detector = temp_tower.get_node("HitBox")
-        var areas_em_cima = detector.get_overlapping_areas()
-
-        local_proibido = false
-        for area in areas_em_cima:
-            if area.is_in_group("no_place"):
-                local_proibido = true
-                break
-
-
-        if local_proibido:
-            temp_tower.modulate = Color(1, 0.2, 0.2, 0.5)
-        else:
-            temp_tower.modulate = Color(1, 1, 1, 0.5)
-
-
-        if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-            if not local_proibido:
-                largar_torre()
-            else:
-
-                temp_tower.queue_free()
-                temp_tower = null
-                custo_da_torre_atual = 0
 
 func _on_rookie_button_down() -> void :
     if temp_tower == null and moedas_atuais >= 115:

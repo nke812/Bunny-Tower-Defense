@@ -14,7 +14,15 @@ var LastUpgradeCheck = preload("res://Assets/Others/HUD_Assets/UpgradeCrown.png"
 @onready var moedas_atuais = int(moedas_label.text)
 
 
-
+func _process(_delta: float) -> void:
+    var moedas_atuais_nova = int(moedas_label.text)
+    # O DINHEIRO MUDOU?
+    if moedas_atuais_nova != moedas_atuais:
+        moedas_atuais = moedas_atuais_nova
+        
+        # 2. Se houver um coelho selecionado, atualiza também os botões de upgrade!
+        if torre_em_foco != null:
+            atualizar_visual_upgrades()
 
 
 func take_dmg(dmg):
@@ -101,57 +109,118 @@ func atualizar_visual_upgrades():
     
     moedas_atuais = int(moedas_label.text)
     
-    #/////////// PATH1 ///////////    
+    
+#/////////// PATH1 ///////////    
     $"HUD_Shop/HudBgDown/Upgrade 1-1".disabled = (torre_em_foco.path1 != 0)
     if torre_em_foco.path1 == 1: 
         $"HUD_Shop/HudBgDown/Upgrade 1-1".texture_disabled = UpgradeCheck
-    
+    else:
+        if torre_em_foco.path1 == 0:
+            var custo_1_1 = torre_em_foco.preços_p1[0]
+            
+            if moedas_atuais >= custo_1_1:
+                $"HUD_Shop/HudBgDown/Upgrade 1-1".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+            else:
+                $"HUD_Shop/HudBgDown/Upgrade 1-1".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+                
     
     $"HUD_Shop/HudBgDown/Upgrade 1-2".disabled = (torre_em_foco.path1 != 1)
     if torre_em_foco.path1 >= 2: 
         $"HUD_Shop/HudBgDown/Upgrade 1-2".texture_disabled = UpgradeCheck
     else:
-        $"HUD_Shop/HudBgDown/Upgrade 1-2".texture_disabled = UpgradeLocked
+        if torre_em_foco.path1 == 1:
+            var custo_1_2 = torre_em_foco.preços_p1[1]
+            if moedas_atuais >= custo_1_2:
+                $"HUD_Shop/HudBgDown/Upgrade 1-2".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+            else:
+                $"HUD_Shop/HudBgDown/Upgrade 1-2".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+        else:
+            $"HUD_Shop/HudBgDown/Upgrade 1-2".texture_disabled = UpgradeLocked
     
     
     $"HUD_Shop/HudBgDown/Upgrade 1-3".disabled = (torre_em_foco.path1 != 2)
     if torre_em_foco.path1 >= 3: 
         $"HUD_Shop/HudBgDown/Upgrade 1-3".texture_disabled = UpgradeCheck
     else:
-        $"HUD_Shop/HudBgDown/Upgrade 1-3".texture_disabled = UpgradeLocked
+        if torre_em_foco.path1 == 2:
+            var custo_1_3 = torre_em_foco.preços_p1[1]
+            if moedas_atuais >= custo_1_3:
+                $"HUD_Shop/HudBgDown/Upgrade 1-3".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+            else:
+                $"HUD_Shop/HudBgDown/Upgrade 1-3".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+        else:
+            $"HUD_Shop/HudBgDown/Upgrade 1-3".texture_disabled = UpgradeLocked
     
     
     $"HUD_Shop/HudBgDown/Upgrade 1-4".disabled = (torre_em_foco.path1 != 3)
     if torre_em_foco.path1 >= 4: 
         $"HUD_Shop/HudBgDown/Upgrade 1-4".texture_disabled = LastUpgradeCheck
     else:
-        $"HUD_Shop/HudBgDown/Upgrade 1-4".texture_disabled = UpgradeLocked
+        if torre_em_foco.path1 == 3:
+            var custo_1_4 = torre_em_foco.preços_p1[1]
+            if moedas_atuais >= custo_1_4:
+                $"HUD_Shop/HudBgDown/Upgrade 1-4".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+            else:
+                $"HUD_Shop/HudBgDown/Upgrade 1-4".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+        else:
+            $"HUD_Shop/HudBgDown/Upgrade 1-4".texture_disabled = UpgradeLocked
+
+
 
     #/////////// PATH2 ///////////
     $"HUD_Shop/HudBgDown/Upgrade 2-1".disabled = (torre_em_foco.path2 != 0)
     if torre_em_foco.path2 == 1: 
         $"HUD_Shop/HudBgDown/Upgrade 2-1".texture_disabled = UpgradeCheck
+    else:
+        if torre_em_foco.path2 == 0:
+            var custo_2_1 = torre_em_foco.preços_p2[0]
+            
+            if moedas_atuais >= custo_2_1:
+                $"HUD_Shop/HudBgDown/Upgrade 2-1".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+            else:
+                $"HUD_Shop/HudBgDown/Upgrade 2-1".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
     
     
     $"HUD_Shop/HudBgDown/Upgrade 2-2".disabled = (torre_em_foco.path2 != 1)
     if torre_em_foco.path2 >= 2: 
         $"HUD_Shop/HudBgDown/Upgrade 2-2".texture_disabled = UpgradeCheck
     else:
-        $"HUD_Shop/HudBgDown/Upgrade 2-2".texture_disabled = UpgradeLocked
+        if torre_em_foco.path2 == 1:
+            var custo_2_2 = torre_em_foco.preços_p2[1]
+            if moedas_atuais >= custo_2_2:
+                $"HUD_Shop/HudBgDown/Upgrade 2-2".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+            else:
+                $"HUD_Shop/HudBgDown/Upgrade 2-2".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+        else:
+            $"HUD_Shop/HudBgDown/Upgrade 2-2".texture_disabled = UpgradeLocked
     
     
     $"HUD_Shop/HudBgDown/Upgrade 2-3".disabled = (torre_em_foco.path2 != 2)
     if torre_em_foco.path2 >= 3: 
         $"HUD_Shop/HudBgDown/Upgrade 2-3".texture_disabled = UpgradeCheck
     else:
-        $"HUD_Shop/HudBgDown/Upgrade 2-3".texture_disabled = UpgradeLocked
+        if torre_em_foco.path2 == 2:
+            var custo_2_3 = torre_em_foco.preços_p2[1]
+            if moedas_atuais >= custo_2_3:
+                $"HUD_Shop/HudBgDown/Upgrade 2-3".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+            else:
+                $"HUD_Shop/HudBgDown/Upgrade 2-3".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+        else:
+            $"HUD_Shop/HudBgDown/Upgrade 2-3".texture_disabled = UpgradeLocked
     
     
     $"HUD_Shop/HudBgDown/Upgrade 2-4".disabled = (torre_em_foco.path2 != 3)
     if torre_em_foco.path2 >= 4: 
         $"HUD_Shop/HudBgDown/Upgrade 2-4".texture_disabled = LastUpgradeCheck
     else:
-        $"HUD_Shop/HudBgDown/Upgrade 2-4".texture_disabled = UpgradeLocked
+        if torre_em_foco.path2 == 3:
+            var custo_2_4 = torre_em_foco.preços_p2[1]
+            if moedas_atuais >= custo_2_4:
+                $"HUD_Shop/HudBgDown/Upgrade 2-4".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+            else:
+                $"HUD_Shop/HudBgDown/Upgrade 2-4".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+        else:
+            $"HUD_Shop/HudBgDown/Upgrade 2-4".texture_disabled = UpgradeLocked
 
 
 
@@ -173,53 +242,71 @@ func _on_texture_button_pressed() -> void:
 
 
 func mostrar_preco_1_1() -> void:
-    if $"HUD_Shop/HudBgDown/Upgrade 1-1".disabled == false:
+    if $"HUD_Shop/HudBgDown/Upgrade 1-1".disabled == false and $"HUD_Shop/HudBgDown/Upgrade 1-1".texture_normal.resource_path == "res://Assets/Others/UI_Assets/Carrot.png":
         $"HUD_Shop/HudBgDown/Upgrade 1-1".modulate = Color(1.211, 1.211, 1.211)
+        mostrar1()
+        
+    if $"HUD_Shop/HudBgDown/Upgrade 1-1".texture_normal.resource_path == "res://Assets/Others/UI_Assets/CarrotDisabled.png":
         mostrar1()
 
 
 func mostrar_preco_1_2() -> void:
-    if $"HUD_Shop/HudBgDown/Upgrade 1-2".disabled == false:
+    if $"HUD_Shop/HudBgDown/Upgrade 1-2".disabled == false and $"HUD_Shop/HudBgDown/Upgrade 1-2".texture_normal.resource_path == "res://Assets/Others/UI_Assets/Carrot.png":
         $"HUD_Shop/HudBgDown/Upgrade 1-2".modulate = Color(1.211, 1.211, 1.211)
+        mostrar1()
+    
+    if $"HUD_Shop/HudBgDown/Upgrade 1-2".texture_normal.resource_path == "res://Assets/Others/UI_Assets/CarrotDisabled.png":
         mostrar1()
 
 
 func mostrar_preco_1_3() -> void:
-    if $"HUD_Shop/HudBgDown/Upgrade 1-3".disabled == false:
+    if $"HUD_Shop/HudBgDown/Upgrade 1-3".disabled == false and $"HUD_Shop/HudBgDown/Upgrade 1-3".texture_normal.resource_path == "res://Assets/Others/UI_Assets/Carrot.png":
         $"HUD_Shop/HudBgDown/Upgrade 1-3".modulate = Color(1.211, 1.211, 1.211)
         mostrar1()
 
+    if $"HUD_Shop/HudBgDown/Upgrade 1-3".texture_normal.resource_path == "res://Assets/Others/UI_Assets/CarrotDisabled.png":
+        mostrar1()
 
 func mostrar_preco_1_4() -> void:
-    if $"HUD_Shop/HudBgDown/Upgrade 1-4".disabled == false:
+    if $"HUD_Shop/HudBgDown/Upgrade 1-4".disabled == false and $"HUD_Shop/HudBgDown/Upgrade 1-4".texture_normal.resource_path == "res://Assets/Others/UI_Assets/Carrot.png":
         $"HUD_Shop/HudBgDown/Upgrade 1-4".modulate = Color(1.211, 1.211, 1.211)
         mostrar1()
 
+    if $"HUD_Shop/HudBgDown/Upgrade 1-4".texture_normal.resource_path == "res://Assets/Others/UI_Assets/CarrotDisabled.png":
+        mostrar1()
 
 func mostrar_preco_2_1() -> void:
-    if $"HUD_Shop/HudBgDown/Upgrade 2-1".disabled == false:
+    if $"HUD_Shop/HudBgDown/Upgrade 2-1".disabled == false and $"HUD_Shop/HudBgDown/Upgrade 2-1".texture_normal.resource_path == "res://Assets/Others/UI_Assets/Carrot.png":
         $"HUD_Shop/HudBgDown/Upgrade 2-1".modulate = Color(1.211, 1.211, 1.211)
         mostrar2()
 
-
+    if $"HUD_Shop/HudBgDown/Upgrade 2-1".texture_normal.resource_path == "res://Assets/Others/UI_Assets/CarrotDisabled.png":
+        mostrar2()
+        
 func mostrar_preco_2_2() -> void:
-    if $"HUD_Shop/HudBgDown/Upgrade 2-2".disabled == false:
+    if $"HUD_Shop/HudBgDown/Upgrade 2-2".disabled == false and $"HUD_Shop/HudBgDown/Upgrade 2-2".texture_normal.resource_path == "res://Assets/Others/UI_Assets/Carrot.png":
         $"HUD_Shop/HudBgDown/Upgrade 2-2".modulate = Color(1.211, 1.211, 1.211)
         mostrar2()
 
-
+    if $"HUD_Shop/HudBgDown/Upgrade 2-2".texture_normal.resource_path == "res://Assets/Others/UI_Assets/CarrotDisabled.png":
+        mostrar2()
+        
 func mostrar_preco_2_3() -> void:
-    if $"HUD_Shop/HudBgDown/Upgrade 2-3".disabled == false:
+    if $"HUD_Shop/HudBgDown/Upgrade 2-3".disabled == false and $"HUD_Shop/HudBgDown/Upgrade 2-3".texture_normal.resource_path == "res://Assets/Others/UI_Assets/Carrot.png":
         $"HUD_Shop/HudBgDown/Upgrade 2-3".modulate = Color(1.211, 1.211, 1.211)
         mostrar2()
-
+        
+    if $"HUD_Shop/HudBgDown/Upgrade 2-3".texture_normal.resource_path == "res://Assets/Others/UI_Assets/CarrotDisabled.png":
+        mostrar2()
 
 func mostrar_preco_2_4() -> void:
-    if $"HUD_Shop/HudBgDown/Upgrade 2-4".disabled == false:
+    if $"HUD_Shop/HudBgDown/Upgrade 2-4".disabled == false and $"HUD_Shop/HudBgDown/Upgrade 2-4".texture_normal.resource_path == "res://Assets/Others/UI_Assets/Carrot.png":
         $"HUD_Shop/HudBgDown/Upgrade 2-4".modulate = Color(1.211, 1.211, 1.211)
         mostrar2()
 
-
+    if $"HUD_Shop/HudBgDown/Upgrade 2-4".texture_normal.resource_path == "res://Assets/Others/UI_Assets/CarrotDisabled.png":
+        mostrar2()
+        
 
 var tween_preco: Tween
 
@@ -245,20 +332,14 @@ func tirar_preco() -> void:
     tirar_brilho() 
     var label_preco = $HUD_Shop/HudBgDown/LabelCusto
     
-    # Ativa o Fade Out suave
     fade_label_preco(label_preco, 0.0)
 
 
-# FUNÇÃO MÁGICA DO FADE (Podes colar isto no fim do teu script)
 func fade_label_preco(label: Label, valor_alvo: float):
-    # 1. Se já houver um fade a decorrer, cancela-o para não dar conflito
     if tween_preco and tween_preco.is_running():
         tween_preco.kill()
-        
-    # 2. Cria um novo animador (Tween)
-    tween_preco = create_tween()
     
-    # 3. Anima a propriedade "modulate:a" (Alpha de transparência) até ao valor_alvo em 0.2 segundos
+    tween_preco = create_tween()
     tween_preco.tween_property(label, "modulate:a", valor_alvo, 0.2).set_trans(Tween.TRANS_SINE)
 
 
@@ -266,7 +347,7 @@ func tirar_brilho():
     var botoes = [$"HUD_Shop/HudBgDown/Upgrade 1-1", $"HUD_Shop/HudBgDown/Upgrade 1-2", $"HUD_Shop/HudBgDown/Upgrade 1-3", $"HUD_Shop/HudBgDown/Upgrade 1-4", $"HUD_Shop/HudBgDown/Upgrade 2-1", $"HUD_Shop/HudBgDown/Upgrade 2-2", $"HUD_Shop/HudBgDown/Upgrade 2-3", $"HUD_Shop/HudBgDown/Upgrade 2-4"]
     
     for botao in botoes:
-        if botao:
+        if botao :
             botao.modulate = Color(1.0, 1.0, 1.0)
 
 

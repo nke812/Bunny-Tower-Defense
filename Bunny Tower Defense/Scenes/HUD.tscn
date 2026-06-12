@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://b4d2lu4cmckvs" path="res://Assets/Others/UI_Assets/AmmunitionIcon.png" id="17_1fefx"]
 [ext_resource type="Texture2D" uid="uid://vxkjonrw4twr" path="res://Assets/Others/HUD_Assets/HUD_ShopFrame.png" id="18"]
 [ext_resource type="Texture2D" uid="uid://462ieyr1y7lp" path="res://Assets/Others/HUD_Assets/HUD_BG_Right.png" id="19"]
-[ext_resource type="Texture2D" uid="uid://bd8aqo21l0707" path="res://Assets/Others/UI_Assets/DebugButton.png" id="19_w3j15"]
+[ext_resource type="Texture2D" uid="uid://ckvva502ud7bw" path="res://Assets/Others/UI_Assets/SellButton.png" id="19_1fefx"]
 [ext_resource type="Texture2D" uid="uid://dhgypn83cpoo0" path="res://Assets/Others/HUD_Assets/HUD_SelectionFrame.png" id="20"]
 [ext_resource type="Texture2D" uid="uid://spg0ledfpuqm" path="res://Assets/Others/HUD_Assets/Skin.png" id="20_4hkqd"]
 [ext_resource type="Script" uid="uid://dynewn01di37k" path="res://Scripts/HUD/UI_Bunnies.gd" id="21"]
@@ -222,10 +222,10 @@ tracks/0/path = NodePath("PanelSell:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(0.34151018, 1.6245054),
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(0.37892914, 1.3660403),
 "update": 0,
-"values": [Vector2(685.9971, 647.7832), Vector2(685.9971, 609.5846)]
+"values": [Vector2(689.3379, 646.7219), Vector2(689.33795, 609.5846)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7iiwh"]
@@ -533,7 +533,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 70
 max_value = 9999999.0
 step = 1.0
-value = 3625227.0
+value = 3.0
 metadata/_edit_use_anchors_ = true
 
 [node name="EventSign" type="Sprite2D" parent="HUD" unique_id=1396536025]
@@ -789,8 +789,8 @@ anchor_right = 20.185001
 anchor_bottom = 16.261002
 offset_left = -0.0029907227
 offset_top = 38.183167
-offset_right = -0.017150879
-offset_bottom = 38.194336
+offset_right = -6.6989136
+offset_bottom = 38.194458
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(57.908813, 18.568848)
@@ -833,7 +833,7 @@ offset_left = 685.44025
 offset_top = 645.66113
 offset_right = 808.4965
 offset_bottom = 688.9994
-texture_normal = ExtResource("19_w3j15")
+texture_normal = ExtResource("19_1fefx")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -939,7 +939,7 @@ offset_top = 142.0
 offset_right = 1920.0
 offset_bottom = 875.0
 draw_focus_border = true
-scroll_vertical = 137
+scroll_vertical = 100
 vertical_scroll_mode = 2
 scroll_hint_mode = 1
 
@@ -1544,6 +1544,7 @@ text = "-50$ "
 [connection signal="pressed" from="HUD/Pause" to="HUD" method="_on_button_pressed"]
 [connection signal="pressed" from="HUD/GameOver/Restart" to="HUD" method="_on_restart_pressed"]
 [connection signal="pressed" from="HUD/GameOver/BackMenu" to="HUD" method="_on_back_menu_pressed"]
+[connection signal="theme_changed" from="HUD/Moedas" to="HUD/UI_Selection/Bunnies" method="_on_moedas_theme_changed"]
 [connection signal="mouse_entered" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-1" to="HUD" method="mostrar_preco_1_1"]
 [connection signal="mouse_exited" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-1" to="HUD" method="tirar_preco"]
 [connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-1" to="HUD" method="_on_path_1_pressed"]
