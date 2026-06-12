@@ -13,8 +13,8 @@ var preços_p1 = [250, 600, 2800, 7000]
 var preços_p2 = [250, 600, 2800, 7000]
 
 # Valores base do Scrappy (Alinhados com a tua descrição)
-var distancias_knockback = [1.0, 3.0, 7.0, 13.0, 20.0]
-var alvos_cadeia = [2, 8, 15, 30, 45]
+var distancias_knockback = [1.0, 3.0, 5.0, 7.5, 10.0]
+var alvos_cadeia = [2, 5, 7, 10, 15]
 
 var P1status = "Knockback: " + str(distancias_knockback[0])
 var P2status = "Chain Targets: " + str(alvos_cadeia[0])
@@ -93,15 +93,18 @@ func _on_button_button_down() -> void:
         atualizar_valorTorre()
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
 
+
 func aplicar_upgrade(caminho):
     var hud = get_tree().get_first_node_in_group("HUD")
     var label_moedas = hud.get_node("Moedas")
+
     var dinheiro_atual = int(label_moedas.text)
 
     var lista_precos = preços_p1 if caminho == 1 else preços_p2
     var nivel_atual = path1 if caminho == 1 else path2
 
     if nivel_atual >= lista_precos.size(): return false
+
     var custo = lista_precos[nivel_atual]
 
     if dinheiro_atual >= custo:
@@ -110,25 +113,56 @@ func aplicar_upgrade(caminho):
         
         if caminho == 1:
             path1 += 1
-            # Atualiza o status dinamicamente com base na tua Array de Knockback
+            match path1:
+                1:
+                    valor_torre += 250
+                2:
+                    valor_torre += 600
+                3:
+                    valor_torre += 2800
+                4:
+                    valor_torre += 7000
+                    auraMAISego()
+                    
+                    #if skin:
+                        #$Scrappy.texture = preload("res://Assets/Bunnies/Skins/Paths/scrappy_skin01.png")
+                        #$ScrappyHands_Attack.animation = "ScrappySkin01"
+                    #else:
+                        #$Scrappy.texture = preload("res://Assets/Bunnies/Paths/Scrappy01.png")
+                        #$ScrappyHands_Attack.animation = "Scrappy01"
+            
+            atualizar_valorTorre()
+            # Se o Scrappy tiver uma função própria para recalcular status, podes chamá-la aqui
+            
             P1status = "Knockback: " + str(distancias_knockback[path1])
             hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
-            
-            if path1 == 4:
-                auraMAISego()
-                $Scrappy.texture = load("res://Assets/Bunnies/Paths/Scrappy01.png")
+                
         else:
             path2 += 1
-            # Atualiza o status dinamicamente com base na tua Array de Cadeia
+            match path2:
+                1:
+                    valor_torre += 250
+                2:
+                    valor_torre += 600        
+                3:
+                    valor_torre += 2800
+                4:
+                    valor_torre += 7000
+                    auraMAISego()
+                    
+                    #if skin:
+                        #$Scrappy.texture = preload("res://Assets/Bunnies/Skins/Paths/scrappy_skin02.png")
+                        #$ScrappyHands_Attack.animation = "ScrappySkin02"
+                    #else:
+                        #$Scrappy.texture = preload("res://Assets/Bunnies/Paths/Scrappy02.png")
+                        #$ScrappyHands_Attack.animation = "Scrappy02"
+                        
+            atualizar_valorTorre()            
             P2status = "Chain Targets: " + str(alvos_cadeia[path2])
             hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
             
-            if path2 == 4:
-                auraMAISego()
-                $Scrappy.texture = load("res://Assets/Bunnies/Paths/Scrappy02.png")
-                
-        return true
-    return false
+        return true # Retorna sucesso para o HUD
+    return false # Retorna falha (não tirou dinheiro)
 
 func auraMAISego():
     $Scrappy.modulate = Color(1, 1, 1)
