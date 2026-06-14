@@ -8,6 +8,8 @@ var balas = pente_de_balas
 var dmg_Anarchist = 2
 var posicionado = false
 
+var valor_torre = 500
+
 #var skin = false
 
 var focus = false
@@ -27,7 +29,8 @@ func _process(delta: float) -> void :
     var hud = get_tree().get_first_node_in_group("HUD")
     
     if balas <= 0:
-        hud.get_node("HUD_Shop/HudBgDown/StatusExtra").text = "Recarregando..."
+        if focus:
+            hud.get_node("HUD_Shop/HudBgDown/StatusExtra").text = "Recarregando..."
         if spawner.ronda_a_decorrer:
             $Reload.paused = false
             if $Reload.is_stopped():
@@ -79,9 +82,10 @@ func atacar(alvo):
         
         alvo.DMGED(dmg_Anarchist)
         pronto_para_atacar = false
-        
         balas -= 1
-        hud.get_node("HUD_Shop/HudBgDown/StatusExtra").text = str(balas)
+        
+        if focus:
+            hud.get_node("HUD_Shop/HudBgDown/StatusExtra").text = str(balas)
         $Timer.start()
 
 func _on_reload_timeout() -> void :
@@ -89,7 +93,8 @@ func _on_reload_timeout() -> void :
     var hud = get_tree().get_first_node_in_group("HUD")
     
     balas = pente_de_balas
-    hud.get_node("HUD_Shop/HudBgDown/StatusExtra").text = str(balas)
+    if focus:
+        hud.get_node("HUD_Shop/HudBgDown/StatusExtra").text = str(balas)
     $Reload2.play()
     
     match texture:
@@ -106,14 +111,17 @@ func receber_buff_mystical(mystical):
         match mystical:
             0: 
                 pente_de_balas += 1
+                $Timer.wait_time = 1.3
             1: 
                 pente_de_balas += 1
             2: 
                 pente_de_balas += 1
+                $Timer.wait_time = 1.0
             3: 
                 pente_de_balas += 1
             4: 
                 pente_de_balas += 1
+                $Timer.wait_time = 0.7
 
 
 
@@ -182,6 +190,7 @@ func _on_button_button_down() -> void:
         hud.get_node("HUD_Shop/HudBgDown/AmmunitionIcon").visible = true
         
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Anarchist.png")
+        atualizar_valorTorre()
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
     
@@ -213,26 +222,21 @@ func aplicar_upgrade(caminho):
                 1: 
                     dmg_Anarchist = 4
                     pente_de_balas += 2
-                    P1status = "Damage: " + str(dmg_Anarchist)
-                    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
-                    
+                    valor_torre += 1200
                 2: 
                     dmg_Anarchist = 7
                     pente_de_balas += 2
-                    P1status = "Damage: " + str(dmg_Anarchist)
-                    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+                    valor_torre += 3000
                     
                 3: 
                     dmg_Anarchist = 10
                     pente_de_balas += 2
-                    P1status = "Damage: " + str(dmg_Anarchist)
-                    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+                    valor_torre += 7000
                     
                 4: 
                     dmg_Anarchist = 17
                     pente_de_balas += 5
-                    P1status = "Damage: " + str(dmg_Anarchist)
-                    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+                    valor_torre += 10000
                 
                     auraMAISego()
                     $Anarchist.texture = preload("res://Assets/Bunnies/Animations/Paths/Anarchist01AttackIdle.png")
@@ -244,31 +248,31 @@ func aplicar_upgrade(caminho):
                     #else:
                         #$Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
                         #$RookieHands_Attack.animation = "Rookie01"
+                        
+            P1status = "Damage: " + str(dmg_Anarchist)
+            hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+            atualizar_valorTorre()
         else:
             path2 += 1
             match path2:
                 1: 
                     $Reload.wait_time = 0.8
                     pente_de_balas += 2
-                    P2status = "Reload Speed: " + str($Reload.wait_time) + "s"
-                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+                    valor_torre += 1200
                     
                 2: 
                     $Reload.wait_time = 0.6
                     pente_de_balas += 2
-                    P2status = "Reload Speed: " + str($Reload.wait_time) + "s"
-                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+                    valor_torre += 3000
                     
                 3: 
                     $Reload.wait_time = 0.4
                     pente_de_balas += 2
-                    P2status = "Reload Speed: " + str($Reload.wait_time) + "s"
-                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+                    valor_torre += 7000
                 4: 
                     $Reload.wait_time = 0.2
                     pente_de_balas += 5
-                    P2status = "Reload Speed: " + str($Reload.wait_time) + "s"
-                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+                    valor_torre += 10000
                     
                     auraMAISego()
                     $Anarchist.texture = preload("res://Assets/Bunnies/Animations/Paths/Anarchist02AttackIdle.png")
@@ -281,7 +285,9 @@ func aplicar_upgrade(caminho):
                     #else:
                         #$Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
                         #$RookieHands_Attack.animation = "Rookie02"
-            
+            atualizar_valorTorre()
+            P2status = "Reload Speed: " + str($Reload.wait_time) + "s"
+            hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
         return true
     return false
     
@@ -298,3 +304,19 @@ func auraMAISego():
  
     tween.tween_property($Anarchist, "modulate", Color(1, 1, 1, 1), 0.4)
     tween.parallel().tween_property($Anarchist_Animations, "modulate", Color(1, 1, 1, 1), 0.4)
+
+
+func atualizar_valorTorre():
+    var hud = get_tree().get_first_node_in_group("HUD")
+    var valor_torre_60 : int = int(valor_torre * 0.6)
+    
+    hud.get_node("HUD_Shop/HudBgDown/Control/PanelSell/precoSell").text = str(valor_torre_60)
+
+func vender_torre():
+    var moedas = get_tree().current_scene.find_child("Moedas")
+    var valor_atual = int(moedas.text)
+    var valor_torre_60 : int = int(valor_torre * 0.6)
+    
+    moedas.text = str(valor_atual + valor_torre_60)
+    
+    queue_free()

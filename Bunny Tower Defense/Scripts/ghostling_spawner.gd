@@ -43,9 +43,11 @@ func iniciar_vaga():
     match rodada_atual:
         # --- FASE 1: O GRUPO BÁSICO (Rondas 1-10) ---
         
-        1: vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
-        #1: vaga_atual = [Leviathan]
-        #1: vaga_atual = [Ghostling]
+        1: 
+            $"../StarRound".play()
+            #vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
+            vaga_atual = [Leviathan]
+            #vaga_atual = [Ghostling]
         
         2: vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghazt, Ghazt, Ghostling, Ghostling, Ghazt, Ghazt]
         3: vaga_atual = [Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt]
@@ -137,7 +139,7 @@ func inimigo_morreu():
         atualizar_contador_rondas()
         
         if autoplay == true:
-            print("foi??")
+
             iniciar_vaga()
 
         var moedas_no = get_tree().current_scene.find_child("Moedas")

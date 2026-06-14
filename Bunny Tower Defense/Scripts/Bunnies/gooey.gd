@@ -4,6 +4,8 @@ var mostrar_range = false
 var pronto_para_atacar = false
 var TimeSlimed = 3.0
 
+var valor_torre = 225
+
 var focus = false
 var skin = false
 
@@ -127,6 +129,7 @@ func _on_button_button_down() -> void:
         hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
         
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Gooey.png")
+        atualizar_valorTorre()
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
     
@@ -162,23 +165,19 @@ func aplicar_upgrade(caminho):
             match path1:
                 1: 
                     TimeSlimed = 3.5
-                    P1status = "Stun Time: " + str(TimeSlimed)
-                    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+                    valor_torre += 250
                     
                 2: 
                     TimeSlimed = 4.2
-                    P1status = "Stun Time: " + str(TimeSlimed)
-                    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+                    valor_torre += 600
                     
                 3: 
                     TimeSlimed = 5.0
-                    P1status = "Stun Time: " + str(TimeSlimed)
-                    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+                    valor_torre += 2800
                     
                 4: 
                     TimeSlimed = 8.0
-                    P1status = "Stun Time: " + str(TimeSlimed)
-                    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+                    valor_torre += 7000
                     auraMAISego()
                     
                     if skin:
@@ -187,31 +186,27 @@ func aplicar_upgrade(caminho):
                     else:
                         $Gooey.texture = load("res://Assets/Bunnies/Paths/Gooey01.png")
                         Goo_Color = "Blue_Goo"
+                        
+            P1status = "Stun Time: " + str(TimeSlimed)
+            hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+            atualizar_valorTorre()
         else:
             path2 += 1
             match path2:
                 1: 
                     $Timer.wait_time = 2.1
-                    
-                    P2status = "Speed ATK: " + str($Timer.wait_time) + "s"
-                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+                    valor_torre += 250
                     
                 2: 
                     $Timer.wait_time = 1.7
-                    
-                    P2status = "Speed ATK: " + str($Timer.wait_time) + "s"
-                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+                    valor_torre += 600
                     
                 3: 
                     $Timer.wait_time = 1.3
-                    
-                    P2status = "Speed ATK: " + str($Timer.wait_time) + "s"
-                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+                    valor_torre += 2800
                 4: 
                     $Timer.wait_time = 0.5
-                    
-                    P2status = "Speed ATK: " + str($Timer.wait_time) + "s"
-                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+                    valor_torre += 7000
                     auraMAISego()
                     
                     if skin:
@@ -220,7 +215,9 @@ func aplicar_upgrade(caminho):
                     else:
                         $Gooey.texture = load("res://Assets/Bunnies/Paths/Gooey02.png")
                         Goo_Color = "Purple_Goo"
-            
+            P2status = "Speed ATK: " + str($Timer.wait_time) + "s"
+            hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+            atualizar_valorTorre()
         return true
     return false
             
@@ -235,3 +232,19 @@ func auraMAISego():
     tween.tween_property($Gooey, "modulate", Color(2, 2, 2, 1), 0.3)
  
     tween.tween_property($Gooey, "modulate", Color(1, 1, 1, 1), 0.4)
+
+
+func atualizar_valorTorre():
+    var hud = get_tree().get_first_node_in_group("HUD")
+    var valor_torre_60 : int = int(valor_torre * 0.6)
+    
+    hud.get_node("HUD_Shop/HudBgDown/Control/PanelSell/precoSell").text = str(valor_torre_60)
+
+func vender_torre():
+    var moedas = get_tree().current_scene.find_child("Moedas")
+    var valor_atual = int(moedas.text)
+    var valor_torre_60 : int = int(valor_torre * 0.6)
+    
+    moedas.text = str(valor_atual + valor_torre_60)
+    
+    queue_free()

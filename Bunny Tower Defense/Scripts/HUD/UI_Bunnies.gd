@@ -220,6 +220,7 @@ func configurar_torre_temp():
     get_tree().current_scene.add_child(temp_tower)
 
 func largar_torre():
+    $TowerPlace.play()
     if "posicionado" in temp_tower:
         temp_tower.posicionado = true
 

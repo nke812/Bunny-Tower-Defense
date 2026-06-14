@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cl0nvonsbewnh" path="res://Assets/Others/UI_Assets/Heart02.png" id="12"]
 [ext_resource type="Texture2D" uid="uid://bivibntbcpj1u" path="res://Assets/Others/UI_Assets/Carrot.png" id="13"]
 [ext_resource type="Script" uid="uid://cht6cv0atxuhh" path="res://Scripts/HUD/moedas.gd" id="14"]
+[ext_resource type="AudioStream" uid="uid://cjdb7qigpeqqn" path="res://Assets/SFXs/Upgrade.wav" id="14_rywlk"]
 [ext_resource type="Texture2D" uid="uid://v5cqqbouu0o4" path="res://Assets/Others/HUD_Assets/EventSign.png" id="15"]
 [ext_resource type="Script" uid="uid://b51nkp55iw5n2" path="res://Scripts/HUD/hud_shop.gd" id="16"]
 [ext_resource type="Texture2D" uid="uid://dae14h81gcb60" path="res://Assets/Others/HUD_Assets/HUD_BG_Down.png" id="17"]
@@ -25,12 +26,14 @@
 [ext_resource type="Texture2D" uid="uid://vxkjonrw4twr" path="res://Assets/Others/HUD_Assets/HUD_ShopFrame.png" id="18"]
 [ext_resource type="Texture2D" uid="uid://462ieyr1y7lp" path="res://Assets/Others/HUD_Assets/HUD_BG_Right.png" id="19"]
 [ext_resource type="Texture2D" uid="uid://ckvva502ud7bw" path="res://Assets/Others/UI_Assets/SellButton.png" id="19_1fefx"]
+[ext_resource type="AudioStream" uid="uid://di45cl2j45a5e" path="res://Assets/SFXs/Sell.wav" id="19_dr5ga"]
 [ext_resource type="Texture2D" uid="uid://dhgypn83cpoo0" path="res://Assets/Others/HUD_Assets/HUD_SelectionFrame.png" id="20"]
 [ext_resource type="Texture2D" uid="uid://spg0ledfpuqm" path="res://Assets/Others/HUD_Assets/Skin.png" id="20_4hkqd"]
 [ext_resource type="Script" uid="uid://dynewn01di37k" path="res://Scripts/HUD/UI_Bunnies.gd" id="21"]
 [ext_resource type="Texture2D" uid="uid://dmlbdbiu8orcq" path="res://Assets/Others/HUD_Assets/LockedUpgrade.png" id="21_iivpx"]
 [ext_resource type="Texture2D" uid="uid://c1g3b3bj28cru" path="res://Assets/Others/HUD_Assets/BunnyBoxDPS.png" id="22"]
 [ext_resource type="Texture2D" uid="uid://ctyitenhvwroj" path="res://Assets/Others/HUD_Assets/BunnyBox.png" id="23"]
+[ext_resource type="AudioStream" uid="uid://bgxsml3ij4qvy" path="res://Assets/SFXs/TowerPlace.wav" id="23_ynwmi"]
 [ext_resource type="Texture2D" uid="uid://diuywq2dtwx2a" path="res://Assets/Bunnies/Rookie.png" id="24"]
 [ext_resource type="Texture2D" uid="uid://dljxeldcr3hpb" path="res://Assets/Bunnies/RookieDisable.png" id="25"]
 [ext_resource type="Texture2D" uid="uid://dky88yfaa0uyc" path="res://Assets/Others/HUD_Assets/PriceTag.png" id="26"]
@@ -69,6 +72,7 @@
 [ext_resource type="Texture2D" uid="uid://de6l8cm0gsl02" path="res://Assets/Others/UI_Assets/GameOverScreen.png" id="67_jh456"]
 [ext_resource type="Texture2D" uid="uid://b150v8hgm7xxj" path="res://Assets/Enemies/Ghostlings/Brute.png" id="68_ynwmi"]
 [ext_resource type="Texture2D" uid="uid://dnpfk6l1itbih" path="res://Assets/Enemies/Ghostlings/Ghaztling.png" id="69_dr5ga"]
+[ext_resource type="AudioStream" uid="uid://b4vqgn5pnsxoo" path="res://Assets/SFXs/GameOver.wav" id="70_rkb15"]
 [ext_resource type="Texture2D" uid="uid://c05ej7ee6147" path="res://Assets/Enemies/Ghostlings/Enhanced Ghoul.png" id="70_rywlk"]
 [ext_resource type="Texture2D" uid="uid://bg6qjkuandfwb" path="res://Assets/Enemies/Ghostlings/Ghostling.png" id="71_rkb15"]
 [ext_resource type="Texture2D" uid="uid://drgcfy5rniced" path="res://Assets/Enemies/Ghostlings/Ghazt.png" id="72_h7oxq"]
@@ -390,6 +394,39 @@ _data = {
 
 [sub_resource type="ImageTexture" id="ImageTexture_q5dlx"]
 
+[sub_resource type="Animation" id="Animation_ynwmi"]
+resource_name = "go_appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuSettings:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.4556439, 0.4521819)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dr5ga"]
+_data = {
+&"go_appear": SubResource("Animation_ynwmi")
+}
+
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1805092987]
 
 [node name="HUD" type="Node2D" parent="." unique_id=1971829007 groups=["HP", "HUD"]]
@@ -417,7 +454,7 @@ offset_bottom = -396.018
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 70
 step = 1.0
-value = 100.0
+value = 1.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Vida" type="Label" parent="HUD" unique_id=1231903724]
@@ -475,7 +512,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 70
 max_value = 9999999.0
 step = 1.0
-value = 235.0
+value = 34.0
 metadata/_edit_use_anchors_ = true
 
 [node name="EventSign" type="Sprite2D" parent="HUD" unique_id=1396536025]
@@ -541,6 +578,9 @@ scale = Vector2(1.6646795, 1.7471418)
 texture = ExtResource("17")
 region_enabled = true
 region_rect = Rect2(0, 0, 1080, 151.48657)
+
+[node name="UpgradeSound" type="AudioStreamPlayer" parent="HUD/HUD_Shop/HudBgDown" unique_id=150928854]
+stream = ExtResource("14_rywlk")
 
 [node name="Upgrade 1-1" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=1918691455]
 offset_left = 31.624382
@@ -722,6 +762,10 @@ offset_top = -703.655
 offset_right = -369.3737
 offset_bottom = -663.655
 
+[node name="SellSound" type="AudioStreamPlayer" parent="HUD/HUD_Shop/HudBgDown/Control" unique_id=305423836]
+stream = ExtResource("19_dr5ga")
+bus = &"SFX"
+
 [node name="PanelSell" type="Panel" parent="HUD/HUD_Shop/HudBgDown/Control" unique_id=55115524]
 layout_mode = 1
 anchors_preset = -1
@@ -875,13 +919,18 @@ position = Vector2(53, 59.00001)
 scale = Vector2(1.0000001, 1.0000001)
 script = ExtResource("21")
 
+[node name="TowerPlace" type="AudioStreamPlayer" parent="HUD/UI_Selection/Bunnies" unique_id=1193138151]
+stream = ExtResource("23_ynwmi")
+volume_db = -3.0
+bus = &"SFX"
+
 [node name="ScrollContainer" type="ScrollContainer" parent="HUD/UI_Selection/Bunnies" unique_id=1163235928]
 offset_left = 1513.0
 offset_top = 142.0
 offset_right = 1920.0
 offset_bottom = 875.0
 draw_focus_border = true
-scroll_vertical = 581
+scroll_vertical = 100
 vertical_scroll_mode = 2
 scroll_hint_mode = 1
 
@@ -1485,6 +1534,11 @@ texture_disabled = ExtResource("55_jjmk5")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="GameOverSFX" type="AudioStreamPlayer" parent="HUD/UI_Selection" unique_id=1352006093]
+stream = ExtResource("70_rkb15")
+volume_db = -5.0
+bus = &"SFX"
+
 [node name="GameOver" type="Panel" parent="HUD/UI_Selection" unique_id=605734411]
 visible = false
 anchors_preset = 8
@@ -1504,7 +1558,7 @@ size_flags_vertical = 4
 [node name="MenuSettings" type="Sprite2D" parent="HUD/UI_Selection/GameOver" unique_id=1923013459]
 modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
 position = Vector2(1000.0001, 494.00006)
-scale = Vector2(0.4556439, 0.4521819)
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("67_jh456")
 
 [node name="MenuSettings5" type="Sprite2D" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=528633972]
@@ -1537,39 +1591,58 @@ position = Vector2(-798.86945, -183.55447)
 scale = Vector2(0.24978337, 0.24788553)
 texture = ExtResource("72_h7oxq")
 
-[node name="Restart" type="Button" parent="HUD/UI_Selection/GameOver" unique_id=1066697129]
-layout_mode = 1
+[node name="Restart" type="Button" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=1066697129]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -164.49988
-offset_top = -137.99994
-offset_right = 241.8778
-offset_bottom = -9.999939
+offset_left = -1467.3287
+offset_top = -1066.8235
+offset_right = -596.7091
+offset_bottom = -792.59753
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("9")
 theme_override_font_sizes/font_size = 46
 text = "RETRY"
 
-[node name="BackMenu" type="Button" parent="HUD/UI_Selection/GameOver" unique_id=1345564730]
-layout_mode = 1
+[node name="BackMenu" type="Button" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=1345564730]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -136.49994
-offset_top = 35.00006
-offset_right = 247.65356
-offset_bottom = 156.0
+offset_left = -1427.8242
+offset_top = -770.4825
+offset_right = -620.39557
+offset_bottom = -516.1601
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("9")
 theme_override_font_sizes/font_size = 46
 text = "QUIT"
+
+[node name="Label" type="Label" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=1319169810]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 70.23038
+offset_top = -597.10486
+offset_right = -1413.7697
+offset_bottom = -477.68378
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7019608)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.4392157)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 82
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ornx7")
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver_Appear" type="AnimationPlayer" parent="HUD/UI_Selection/GameOver" unique_id=318900475]
+libraries/ = SubResource("AnimationLibrary_dr5ga")
 
 [connection signal="pressed" from="HUD/Pause" to="HUD" method="_on_button_pressed"]
 [connection signal="theme_changed" from="HUD/Moedas" to="HUD/UI_Selection/Bunnies" method="_on_moedas_theme_changed"]
@@ -1632,5 +1705,5 @@ text = "QUIT"
 [connection signal="pressed" from="HUD/UI_Selection/Options/Button" to="HUD" method="MAIS_50kk"]
 [connection signal="pressed" from="HUD/UI_Selection/Options/Button2" to="HUD" method="_on_button_2_pressed"]
 [connection signal="pressed" from="HUD/UI_Selection/Options/Restart" to="HUD" method="_on_restart_pressed"]
-[connection signal="pressed" from="HUD/UI_Selection/GameOver/Restart" to="HUD" method="_on_restart_pressed"]
-[connection signal="pressed" from="HUD/UI_Selection/GameOver/BackMenu" to="HUD" method="_on_back_menu_pressed"]
+[connection signal="pressed" from="HUD/UI_Selection/GameOver/MenuSettings/Restart" to="HUD" method="_on_restart_pressed"]
+[connection signal="pressed" from="HUD/UI_Selection/GameOver/MenuSettings/BackMenu" to="HUD" method="_on_back_menu_pressed"]

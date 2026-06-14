@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cf5i2ng5uq7i"]
 
 [ext_resource type="Script" uid="uid://deemh3xh6l078" path="res://Scripts/Maps/map_1.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://uh3ws1hfei76" path="res://Assets/SFXs/RoundStart.wav" id="2_4vd4o"]
 [ext_resource type="AudioStream" uid="uid://gda01hgj8bbe" path="res://Assets/Music/GraveyardGroove.ogg" id="2_etryv"]
 [ext_resource type="Script" uid="uid://cj5vuu45ii5tk" path="res://Scripts/ghostling_spawner.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://btpfuo1qi7tam" path="res://Assets/Others/Map_Assets/MapGrasslands.png" id="4"]
@@ -21,6 +22,11 @@ y_sort_enabled = true
 position = Vector2(-36.000004, -42.000004)
 scale = Vector2(0.835, 0.835)
 script = ExtResource("1")
+
+[node name="StarRound" type="AudioStreamPlayer" parent="." unique_id=397369011]
+process_mode = 3
+stream = ExtResource("2_4vd4o")
+bus = &"SFX"
 
 [node name="Map1Music" type="AudioStreamPlayer" parent="." unique_id=1453626938]
 process_mode = 3

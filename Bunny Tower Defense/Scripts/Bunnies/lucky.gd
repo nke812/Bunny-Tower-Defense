@@ -203,7 +203,7 @@ func aplicar_upgrade(caminho):
                         $Lucky.texture = preload("res://Assets/Bunnies/Skins/Paths/ZeRon01.png")
                     else:
                         $Lucky.texture = preload("res://Assets/Bunnies/Paths/Lucky01.png")
-                        
+            atualizar_valorTorre()            
         else:
             path2 += 1
             match path2:

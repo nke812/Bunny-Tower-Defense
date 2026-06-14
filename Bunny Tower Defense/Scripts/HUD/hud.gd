@@ -7,6 +7,7 @@ var UpgradeLocked = preload("res://Assets/Others/HUD_Assets/LockedUpgrade.png")
 var UpgradeCheck = preload("res://Assets/Others/HUD_Assets/UpgradeCarrot.png")
 var LastUpgradeCheck = preload("res://Assets/Others/HUD_Assets/UpgradeCrown.png")
 
+var GameOver : bool = false
 
 @onready var moedas_label = $Moedas
 @onready var moedas_barra = $PGB_M
@@ -26,10 +27,37 @@ func _process(_delta: float) -> void:
 
 
 func take_dmg(dmg):
+    # SE O JOGO JÁ ACABOU, IGNORA QUALQUER DANO EXTRA!
+    if GameOver:
+        return
+
     $PGB_V.value -= dmg
-    if $PGB_V.value == 0:
-        $GameOver.visible = true
+    
+    # Mudámos para <= 0 para o caso de a vida descer abaixo de zero num golpe forte
+    if $PGB_V.value <= 0:
+        GameOver = true # Bloqueia o take_dmg para sempre
+        $UI_Selection/GameOverSFX.play()
+        # Força o valor visível a ficar a zero e não negativo
+        $PGB_V.value = 0 
+        
+        # Dispara a tua animação (corre apenas UMA vez)
+        $UI_Selection/GameOver/GameOver_Appear.play("go_appear")
+        
+        Engine.time_scale = 1.0
         $Pause.visible = false
+        
+        for coelho in get_tree().get_nodes_in_group("Bunnies"):
+            if coelho.has_node("Timer"):
+                coelho.get_node("Timer").stop()
+            
+            # SEGURANÇA EXTRA: Desativa o script ou a lógica do coelho 
+            # para garantir que ele não tenta ligar o timer outra vez
+            coelho.set_process(false)
+            coelho.set_physics_process(false)
+            
+            # Se a tua área de detecção tiver um nome específico (ex: Area2D), desliga-a:
+            if coelho.has_node("Area2D"):
+                coelho.get_node("Area2D").monitoring = false
 
 
 func _on_button_pressed() -> void :
@@ -87,6 +115,7 @@ func _on_path_1_pressed() -> void:
     if torre_em_foco != null:
         # O 'if' aqui serve para confirmar: "A torre conseguiu tirar o dinheiro?"
         if torre_em_foco.aplicar_upgrade(1):
+            $HUD_Shop/HudBgDown/UpgradeSound.play()
             atualizar_visual_upgrades()
             tirar_brilho()
             tirar_preco()
@@ -95,6 +124,7 @@ func _on_path_1_pressed() -> void:
 func _on_path_2_pressed() -> void:
     if torre_em_foco != null:
         if torre_em_foco.aplicar_upgrade(2):
+            $HUD_Shop/HudBgDown/UpgradeSound.play()
             atualizar_visual_upgrades()
             tirar_brilho()
             tirar_preco()
@@ -102,6 +132,8 @@ func _on_path_2_pressed() -> void:
 func _on_sell_pressed() -> void:
     torre_em_foco.vender_torre()
     _on_exit_settings_button_down()
+    $HUD_Shop/HudBgDown/Control/SellSound.play()
+    
 
 # Esta é a função "mágica" que vai gerir os teus ícones
 func atualizar_visual_upgrades():
@@ -143,7 +175,7 @@ func atualizar_visual_upgrades():
         $"HUD_Shop/HudBgDown/Upgrade 1-3".texture_disabled = UpgradeCheck
     else:
         if torre_em_foco.path1 == 2:
-            var custo_1_3 = torre_em_foco.preços_p1[1]
+            var custo_1_3 = torre_em_foco.preços_p1[2]
             if moedas_atuais >= custo_1_3:
                 $"HUD_Shop/HudBgDown/Upgrade 1-3".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
             else:
@@ -157,7 +189,7 @@ func atualizar_visual_upgrades():
         $"HUD_Shop/HudBgDown/Upgrade 1-4".texture_disabled = LastUpgradeCheck
     else:
         if torre_em_foco.path1 == 3:
-            var custo_1_4 = torre_em_foco.preços_p1[1]
+            var custo_1_4 = torre_em_foco.preços_p1[3]
             if moedas_atuais >= custo_1_4:
                 $"HUD_Shop/HudBgDown/Upgrade 1-4".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
             else:
@@ -200,7 +232,7 @@ func atualizar_visual_upgrades():
         $"HUD_Shop/HudBgDown/Upgrade 2-3".texture_disabled = UpgradeCheck
     else:
         if torre_em_foco.path2 == 2:
-            var custo_2_3 = torre_em_foco.preços_p2[1]
+            var custo_2_3 = torre_em_foco.preços_p2[2]
             if moedas_atuais >= custo_2_3:
                 $"HUD_Shop/HudBgDown/Upgrade 2-3".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
             else:
@@ -214,7 +246,7 @@ func atualizar_visual_upgrades():
         $"HUD_Shop/HudBgDown/Upgrade 2-4".texture_disabled = LastUpgradeCheck
     else:
         if torre_em_foco.path2 == 3:
-            var custo_2_4 = torre_em_foco.preços_p2[1]
+            var custo_2_4 = torre_em_foco.preços_p2[3]
             if moedas_atuais >= custo_2_4:
                 $"HUD_Shop/HudBgDown/Upgrade 2-4".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
             else:
