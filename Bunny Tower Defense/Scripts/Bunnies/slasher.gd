@@ -57,7 +57,7 @@ func verificar_e_atacar():
 
 func atacar(alvo):
     if alvo.has_method("DMGED"):
-        $Slasher/AnimationPlayer.play("LuckyAction")
+        $Slasher/AnimationPlayer.play("animAttack")
         $SlasherAttackEffect.play()
         
         $SlasherAttack.play()
@@ -119,6 +119,8 @@ func mudar_skin():
     skin = !skin
     
     verificar_posicao_skin()
+    
+    
     
     
     var texture = $Slasher.texture.resource_path

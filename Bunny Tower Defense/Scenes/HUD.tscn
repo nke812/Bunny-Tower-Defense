@@ -512,7 +512,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 70
 max_value = 9999999.0
 step = 1.0
-value = 34.0
+value = 32435.0
 metadata/_edit_use_anchors_ = true
 
 [node name="EventSign" type="Sprite2D" parent="HUD" unique_id=1396536025]
@@ -581,6 +581,7 @@ region_rect = Rect2(0, 0, 1080, 151.48657)
 
 [node name="UpgradeSound" type="AudioStreamPlayer" parent="HUD/HUD_Shop/HudBgDown" unique_id=150928854]
 stream = ExtResource("14_rywlk")
+bus = &"SFX"
 
 [node name="Upgrade 1-1" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=1918691455]
 offset_left = 31.624382

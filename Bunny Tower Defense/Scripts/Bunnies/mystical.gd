@@ -46,6 +46,31 @@ func _on_button_button_down() -> void:
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
     
 
+func mudar_skin():
+    skin = !skin
+    $AnimationPlayer.play("ChangeSkin")
+    
+    var texture = $Mystical.texture.resource_path
+    match texture:
+        "res://Assets/Bunnies/Mystical.png":
+            $Mystical.texture = preload("res://Assets/Bunnies/Skins/Catharsis.png")
+            
+        "res://Assets/Bunnies/Skins/Catharsis.png":
+            $Mystical.texture = preload("res://Assets/Bunnies/Mystical.png")
+            
+        "res://Assets/Bunnies/Paths/Mystical01.png":
+            $Mystical.texture = preload("res://Assets/Bunnies/Skins/Paths/Catharsis01.png")
+            
+        "res://Assets/Bunnies/Skins/Paths/Catharsis01.png":
+            $Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical01.png")
+            
+        "res://Assets/Bunnies/Paths/Mystical02.png":
+            $Mystical.texture = preload("res://Assets/Bunnies/Skins/Paths/Catharsis02.png")
+            
+        "res://Assets/Bunnies/Skins/Paths/Catharsis02.png":
+            $Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical02.png")
+
+
 func aplicar_upgrade(caminho):
     var hud = get_tree().get_first_node_in_group("HUD")
     var label_moedas = hud.get_node("Moedas")
@@ -91,7 +116,11 @@ func aplicar_upgrade(caminho):
                     atualizar_torres_no_raio()
                     valor_torre += 12000
                     hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
-                    $Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical01.png")
+                    
+                    if skin: $Mystical.texture = preload("res://Assets/Bunnies/Skins/Paths/Catharsis01.png")
+                    else: $Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical01.png")
+                    
+                    
                     auraMAISego()
             atualizar_valorTorre()              
         else:
@@ -120,7 +149,10 @@ func aplicar_upgrade(caminho):
                     valor_torre += 12000
                     P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
                     hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
-                    $Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical02.png")
+                    
+                    if skin: $Mystical.texture = preload("res://Assets/Bunnies/Skins/Paths/Catharsis02.png")
+                    else: $Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical02.png")
+                    
                     auraMAISego()
             atualizar_valorTorre()    
         return true
@@ -138,12 +170,12 @@ func auraMAISego():
  
     tween.tween_property($Mystical, "modulate", Color(1, 1, 1, 1), 0.4)
 
-func _draw() -> void:
+func _draw() -> void :
     if mostrar_range:
         var shape = $Range/CollisionRange.shape
         if shape is CircleShape2D:
             var raio_final = shape.radius * $Range/CollisionRange.scale.x
-            draw_circle(Vector2.ZERO, raio_final, Color(0.0, 0.0, 0.0, 0.302)) # Círculo verde transparente
+            draw_circle(Vector2.ZERO, raio_final, Color(0.46, 0.46, 0.46, 0.443))
 
 func _on_button_mouse_entered() -> void:
     mostrar_range = true

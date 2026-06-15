@@ -46,8 +46,8 @@ func verificar_e_atacar():
 
 func atacar(alvo):
     if alvo.has_method("DMGED"):
-        $Rookie/AnimationPlayer.play("RookieAttack")
-        $RookieHands_Attack.play()
+        $Node2D/Rookie/AnimationPlayer.play("RookieAttack")
+        $Node2D/RookieHands_Attack.play()
         
         var sons_hit = [$Hit, $Hit2, $Hit3]
         var som_sorteado = sons_hit[randi() % sons_hit.size()]
@@ -110,32 +110,34 @@ func reset_focus():
 
 func mudar_skin():
     skin = !skin
+    $SkinChange.play("ChangeSkin")
     
-    var texture = $Rookie.texture.resource_path
+    
+    var texture = $Node2D/Rookie.texture.resource_path
     match texture:
         "res://Assets/Bunnies/Animations/RookieAttackIdle.png":
-            $Rookie.texture = preload("res://Assets/Bunnies/Skins/buny.png")
-            $RookieHands_Attack.animation = "RookieSkin"
+            $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Skins/buny.png")
+            $Node2D/RookieHands_Attack.animation = "RookieSkin"
             
         "res://Assets/Bunnies/Skins/buny.png":
-            $Rookie.texture = preload("res://Assets/Bunnies/Animations/RookieAttackIdle.png")
-            $RookieHands_Attack.animation = "Rookie"
+            $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Animations/RookieAttackIdle.png")
+            $Node2D/RookieHands_Attack.animation = "Rookie"
             
         "res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png":
-            $Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny01.png")
-            $RookieHands_Attack.animation = "RookieSkin01"
+            $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny01.png")
+            $Node2D/RookieHands_Attack.animation = "RookieSkin01"
             
         "res://Assets/Bunnies/Skins/Paths/buny01.png":
-            $Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
-            $RookieHands_Attack.animation = "Rookie01"
+            $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
+            $Node2D/RookieHands_Attack.animation = "Rookie01"
             
         "res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png":
-            $Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny02.png")
-            $RookieHands_Attack.animation = "RookieSkin02"
+            $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny02.png")
+            $Node2D/RookieHands_Attack.animation = "RookieSkin02"
             
         "res://Assets/Bunnies/Skins/Paths/buny02.png":
-            $Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
-            $RookieHands_Attack.animation = "Rookie02"
+            $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
+            $Node2D/RookieHands_Attack.animation = "Rookie02"
 
 func _on_button_button_down() -> void:
     get_tree().call_group("Bunnies", "reset_focus")
@@ -192,11 +194,11 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
                     if skin:
-                        $Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny01.png")
-                        $RookieHands_Attack.animation = "RookieSkin01"
+                        $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny01.png")
+                        $Node2D/RookieHands_Attack.animation = "RookieSkin01"
                     else:
-                        $Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
-                        $RookieHands_Attack.animation = "Rookie01"
+                        $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
+                        $Node2D/RookieHands_Attack.animation = "Rookie01"
             
             atualizar_valorTorre()
             atualizar_dmg()    
@@ -221,11 +223,11 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
                     if skin:
-                        $Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny02.png")
-                        $RookieHands_Attack.animation = "RookieSkin02"
+                        $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny02.png")
+                        $Node2D/RookieHands_Attack.animation = "RookieSkin02"
                     else:
-                        $Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
-                        $RookieHands_Attack.animation = "Rookie02"
+                        $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
+                        $Node2D/RookieHands_Attack.animation = "Rookie02"
                         
             atualizar_valorTorre()            
             P2status = "Speed ATK: " + str($Timer.wait_time) + "s"
@@ -239,18 +241,18 @@ func atualizar_dmg():
     dmg_total = dmg_Rookie + dmg_Mystical
     
 func auraMAISego():
-    $Rookie.modulate = Color(1, 1, 1)
-    $RookieHands_Attack.modulate = Color(1, 1, 1)
+    $Node2D/Rookie.modulate = Color(1, 1, 1)
+    $Node2D/RookieHands_Attack.modulate = Color(1, 1, 1)
     $AURA.play("default")
     
     var tween = create_tween()
 
 
-    tween.tween_property($Rookie, "modulate", Color(2, 2, 2, 1), 0.3)
-    tween.parallel().tween_property($RookieHands_Attack, "modulate", Color(2, 2, 2, 1), 0.3)
+    tween.tween_property($Node2D/Rookie, "modulate", Color(2, 2, 2, 1), 0.3)
+    tween.parallel().tween_property($Node2D/RookieHands_Attack, "modulate", Color(2, 2, 2, 1), 0.3)
  
-    tween.tween_property($Rookie, "modulate", Color(1, 1, 1, 1), 0.4)
-    tween.parallel().tween_property($RookieHands_Attack, "modulate", Color(1, 1, 1, 1), 0.4)
+    tween.tween_property($Node2D/Rookie, "modulate", Color(1, 1, 1, 1), 0.4)
+    tween.parallel().tween_property($Node2D/RookieHands_Attack, "modulate", Color(1, 1, 1, 1), 0.4)
 
 
 

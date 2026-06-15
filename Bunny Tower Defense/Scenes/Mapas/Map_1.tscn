@@ -5,7 +5,6 @@
 [ext_resource type="AudioStream" uid="uid://gda01hgj8bbe" path="res://Assets/Music/GraveyardGroove.ogg" id="2_etryv"]
 [ext_resource type="Script" uid="uid://cj5vuu45ii5tk" path="res://Scripts/ghostling_spawner.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://btpfuo1qi7tam" path="res://Assets/Others/Map_Assets/MapGrasslands.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://detp27r3t8fig" path="res://Assets/Others/Map_Assets/Pieces/BushPosition.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://blf41njwmhhrd" path="res://Assets/Others/Map_Assets/Bush01.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://ds673xketndkv" path="res://Assets/Others/Map_Assets/Bush02.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://dlceism21lgnt" path="res://Assets/Others/Map_Assets/Bush03.png" id="8"]
@@ -64,14 +63,6 @@ y_sort_enabled = true
 position = Vector2(-541.3174, 158.0839)
 rotates = false
 loop = false
-
-[node name="BushPosition" type="Sprite2D" parent="." unique_id=1478967233]
-visible = false
-y_sort_enabled = true
-position = Vector2(1114.9701, 888.62274)
-scale = Vector2(0.59924597, 0.59924597)
-texture = ExtResource("5")
-offset = Vector2(130.9253, -320.56262)
 
 [node name="Area_Path" type="Area2D" parent="." unique_id=655402903 groups=["no_place"]]
 y_sort_enabled = true

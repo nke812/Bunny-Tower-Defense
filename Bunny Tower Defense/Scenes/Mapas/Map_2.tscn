@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://d3o0qgqxkupje"]
 
+[ext_resource type="AudioStream" uid="uid://uh3ws1hfei76" path="res://Assets/SFXs/RoundStart.wav" id="1_edkja"]
 [ext_resource type="Script" uid="uid://cj5vuu45ii5tk" path="res://Scripts/ghostling_spawner.gd" id="2_tmeid"]
 [ext_resource type="Texture2D" uid="uid://ba34fmtgpt1b5" path="res://Assets/Others/Map_Assets/Pieces/Grass2.png" id="3_ct2q0"]
 [ext_resource type="Texture2D" uid="uid://dguexvso7ppy5" path="res://Assets/Others/Map_Assets/Pieces/MapBase2.png" id="3_d3i2g"]
 [ext_resource type="PackedScene" uid="uid://cvtf3eidvbt76" path="res://Scenes/HUD.tscn" id="4_25kso"]
 [ext_resource type="Texture2D" uid="uid://c78t1k27uto6d" path="res://Assets/Others/Map_Assets/Pieces/Path2.png" id="4_ijloj"]
 [ext_resource type="Texture2D" uid="uid://cw8bvvn7jb141" path="res://Assets/Others/Map_Assets/Pieces/MushroomPosition.png" id="5_np52s"]
+[ext_resource type="Texture2D" uid="uid://c5sofkss2ul1l" path="res://Assets/Others/Map_Assets/MushroomPosition6.png" id="7_0ypbn"]
+[ext_resource type="Texture2D" uid="uid://dv3t8wttjkqqf" path="res://Assets/Others/Map_Assets/MushroomPosition5.png" id="8_y1d7f"]
+[ext_resource type="Texture2D" uid="uid://cmr3pisckoiu3" path="res://Assets/Others/Map_Assets/MushroomPosition4.png" id="9_or06t"]
+[ext_resource type="Texture2D" uid="uid://c2p1aflhwbnkd" path="res://Assets/Others/Map_Assets/MushroomPosition3.png" id="10_fnokn"]
+[ext_resource type="Texture2D" uid="uid://bf4uhq1ong6eq" path="res://Assets/Others/Map_Assets/MushroomPosition2.png" id="11_pb0ep"]
+[ext_resource type="Texture2D" uid="uid://bef7nma2yb1ki" path="res://Assets/Others/Map_Assets/MushroomPosition1.png" id="12_mrkoi"]
 
 [sub_resource type="Curve2D" id="Curve2D_lycfg"]
 _data = {
@@ -17,6 +24,11 @@ point_count = 24
 y_sort_enabled = true
 position = Vector2(-36.000004, -42.000004)
 scale = Vector2(0.835, 0.835)
+
+[node name="StarRound" type="AudioStreamPlayer" parent="." unique_id=615667039]
+process_mode = 3
+stream = ExtResource("1_edkja")
+volume_db = 1.0
 
 [node name="Map2Music" type="AudioStreamPlayer" parent="." unique_id=1453626938]
 process_mode = 3
@@ -39,9 +51,10 @@ texture = ExtResource("3_d3i2g")
 offset = Vector2(108.36987, 1637.3945)
 
 [node name="Grass2" type="Sprite2D" parent="." unique_id=268070151]
-position = Vector2(1193.0538, 696.46704)
+position = Vector2(1135.3293, -64.67078)
 scale = Vector2(1.1986027, 1.1986028)
 texture = ExtResource("3_ct2q0")
+offset = Vector2(48.15979, 635.0209)
 
 [node name="Path" type="Sprite2D" parent="." unique_id=1742651141]
 y_sort_enabled = true
@@ -62,10 +75,11 @@ position = Vector2(-247.90422, -340.11975)
 rotates = false
 loop = false
 
-[node name="Cogumelos" type="Sprite2D" parent="." unique_id=105800588]
+[node name="Cogumelos" type="Sprite2D" parent="Path2D" unique_id=105800588]
+visible = false
 y_sort_enabled = true
-position = Vector2(1092.2156, 3065.8682)
-scale = Vector2(1.1978915, 1.1978928)
+position = Vector2(641.91614, 2755.6885)
+scale = Vector2(1.1978915, 1.1978927)
 texture = ExtResource("5_np52s")
 offset = Vector2(85.25763, -1977.6544)
 
@@ -79,6 +93,52 @@ collision_layer = 2
 position = Vector2(1.1976047, -23.952093)
 scale = Vector2(0.99999994, 0.99999994)
 polygon = PackedVector2Array(148.50302, 57.485043, 154.49104, 449.10187, 516.1677, 451.49707, 507.78452, 566.46716, 179.64075, 580.83844, 118.5629, 634.73065, 111.377266, 922.1558, 158.08386, 954.4912, 209.58087, 973.65283, 419.16174, 989.22174, 809.58093, 997.605, 900.599, 919.7606, 898.20374, 182.03596, 1325.7488, 183.23357, 1342.5153, 486.22766, 1076.647, 498.20367, 1035.9283, 517.36536, 1015.5691, 619.1618, 1004.79065, 792.8145, 1020.3595, 931.7367, 1059.8805, 976.0481, 1117.3655, 992.8145, 1549.7009, 974.85046, 1626.3477, 994.01215, 1822.7549, 1073.0541, 1823.9525, 811.9762, 1615.5692, 906.587, 1149.7008, 904.1918, 1111.3774, 877.8445, 1099.4015, 643.1139, 1122.1559, 589.2217, 1166.4673, 567.66473, 1353.2937, 565.2696, 1404.7908, 540.1199, 1451.4973, 491.01807, 1423.9524, 124.55093, 1099.4015, 95.8084, 816.7666, 119.760506, 792.8146, 916.16785, 202.39525, 912.575, 176.04794, 831.1379, 184.43117, 740.1199, 222.75453, 699.4013, 608.3833, 681.43726, 615.569, 462.2755, 603.5929, 421.55695, 560.21155, 368.72443, 246.70663, 342.515, 251.49706, 53.892227)
+
+[node name="Mushrooms" type="Node2D" parent="." unique_id=1574497388]
+y_sort_enabled = true
+position = Vector2(43.113777, 50.2994)
+scale = Vector2(1.1976047, 1.1976047)
+
+[node name="Mushroom6" type="Sprite2D" parent="Mushrooms" unique_id=1061172986]
+y_sort_enabled = true
+position = Vector2(1425.0001, 131.00002)
+scale = Vector2(1.0154269, 1.0154964)
+texture = ExtResource("7_0ypbn")
+offset = Vector2(2.297577, 1.4830856)
+
+[node name="Mushroom5" type="Sprite2D" parent="Mushrooms" unique_id=656952812]
+y_sort_enabled = true
+position = Vector2(1238.0001, 497.0001)
+scale = Vector2(1.007684, 1.0077184)
+texture = ExtResource("8_y1d7f")
+offset = Vector2(-2.6645813, -11.462952)
+
+[node name="Mushroom4" type="Sprite2D" parent="Mushrooms" unique_id=1435090033]
+y_sort_enabled = true
+position = Vector2(993.0001, 881.0001)
+scale = Vector2(1.0038347, 1.0038519)
+texture = ExtResource("9_or06t")
+offset = Vector2(-0.6911926, -62.339844)
+
+[node name="Mushroom3" type="Sprite2D" parent="Mushrooms" unique_id=796843813]
+y_sort_enabled = true
+position = Vector2(120.000015, 921.0001)
+scale = Vector2(1.0019156, 1.0019242)
+texture = ExtResource("10_fnokn")
+offset = Vector2(1.2991638, -19.55658)
+
+[node name="Mushroom2" type="Sprite2D" parent="Mushrooms" unique_id=738222427]
+y_sort_enabled = true
+position = Vector2(447.00006, 555.00006)
+scale = Vector2(1.0009574, 1.0009617)
+texture = ExtResource("11_pb0ep")
+offset = Vector2(0.29919434, -34.568115)
+
+[node name="Mushroom1" type="Sprite2D" parent="Mushrooms" unique_id=1241515499]
+position = Vector2(333.00003, 161.00002)
+scale = Vector2(1.0004786, 1.0004808)
+texture = ExtResource("12_mrkoi")
+offset = Vector2(6.29541, -19.595306)
 
 [node name="HUD" parent="." unique_id=1805092987 instance=ExtResource("4_25kso")]
 
