@@ -6,7 +6,11 @@ var mostrar_range = false
 var valor_torre = 250
 
 var contagem_ult = 0
+
+var dmg_Mystical = 0
 var dmg_Slasher = 3
+
+var dmg_total = dmg_Slasher + dmg_Mystical
 
 var focus = false
 var skin = false 
@@ -69,14 +73,14 @@ func atacar(alvo):
             
         if contagem_ult >= 20: 
                 # Se a contagem subiu muito, dá mais um bónus de dano ao mesmo gajo
-            alvo.DMGED(dmg_Slasher * 2) 
+            alvo.DMGED(dmg_total * 2) 
             $Slash_Ult.play()
             contagem_ult = 0
             verificar_ult()
             
         else:
             # Ataque básico normal
-            alvo.DMGED(dmg_Slasher)
+            alvo.DMGED(dmg_total)
 
         pronto_para_atacar = false
         $Timer.start()
@@ -117,27 +121,27 @@ func reset_focus():
 
 func mudar_skin():
     skin = !skin
-    
+    $ChangeSkin.play("ChangeSkin")
     verificar_posicao_skin()
     
     
     
     
-    var texture = $Slasher.texture.resource_path
+    var texture = $Node2D/Slasher.texture.resource_path
     match texture:
         "res://Assets/Bunnies/Animations/SlasherAttackIdle.png":
-            $Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/CanelaAttackIdle.png")
-            $SlasherAttack.animation = "SlasherSkin"
+            $Node2D/Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/CanelaAttackIdle.png")
+            $Node2D/SlasherAttack.animation = "SlasherSkin"
             
             
         "res://Assets/Bunnies/Animations/Skins/CanelaAttackIdle.png":
-            $Slasher.texture = preload("res://Assets/Bunnies/Animations/SlasherAttackIdle.png")
-            $SlasherAttack.animation = "Slasher"
+            $Node2D/Slasher.texture = preload("res://Assets/Bunnies/Animations/SlasherAttackIdle.png")
+            $Node2D/SlasherAttack.animation = "Slasher"
             
             
         "res://Assets/Bunnies/Animations/Paths/Slasher01AttackIdle.png":
-            $Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/Paths/Canela01AttackIdle.png")
-            $SlasherAttack.animation = "SlasherSkin01"
+            $Node2D/Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/Paths/Canela01AttackIdle.png")
+            $Node2D/SlasherAttack.animation = "SlasherSkin01"
             
         "res://Assets/Bunnies/Animations/Skins/Paths/Canela01AttackIdle.png":
             $Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher01AttackIdle.png")
@@ -270,20 +274,20 @@ func aplicar_upgrade(caminho):
 func verificar_posicao_skin():
     
     if skin:
-        $SlasherAttack.position = Vector2(-78.0, -25.0)
-        $Slasher/Ult.position = Vector2(324, 43)
-        $Slasher/AppearUlt.position = Vector2(324, 43)
+        $Node2D/SlasherAttack.position = Vector2(-78.0, -25.0)
+        $Node2D/Slasher/Ult.position = Vector2(324, 43)
+        $Node2D/Slasher/AppearUlt.position = Vector2(324, 43)
         
-        $Slasher/AppearUlt.scale = Vector2(0.68, 0.68)
-        $Slasher/Ult.scale = Vector2(0.68, 0.68)
+        $Node2D/Slasher/AppearUlt.scale = Vector2(0.68, 0.68)
+        $Node2D/Slasher/Ult.scale = Vector2(0.68, 0.68)
         
     elif skin == false:
-        $SlasherAttack.position = Vector2(-6.0, -39.0)
-        $Slasher/AppearUlt.position = Vector2(-8, 5)
-        $Slasher/Ult.position = Vector2(-8, 5)
+        $Node2D/SlasherAttack.position = Vector2(-6.0, -39.0)
+        $Node2D/Slasher/AppearUlt.position = Vector2(-8, 5)
+        $Node2D/Slasher/Ult.position = Vector2(-8, 5)
         
-        $Slasher/AppearUlt.scale = Vector2(1, 1)
-        $Slasher/Ult.scale = Vector2(1, 1)
+        $Node2D/Slasher/AppearUlt.scale = Vector2(1, 1)
+        $Node2D/Slasher/Ult.scale = Vector2(1, 1)
         
 func auraMAISego():
     $Slasher.modulate = Color(1, 1, 1)
@@ -298,6 +302,9 @@ func auraMAISego():
  
     tween.tween_property($Slasher, "modulate", Color(1, 1, 1, 1), 0.4)
     tween.parallel().tween_property($SlasherAttack, "modulate", Color(1, 1, 1, 1), 0.4)
+
+func atualizar_dmg():
+    dmg_total = dmg_Slasher + dmg_Mystical
 
 func atualizar_valorTorre():
     var hud = get_tree().get_first_node_in_group("HUD")

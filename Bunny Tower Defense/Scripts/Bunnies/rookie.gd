@@ -12,6 +12,7 @@ var pronto_para_atacar = false
 
 var dmg_Mystical = 0
 var dmg_Rookie = 1
+
 var dmg_total = dmg_Rookie + dmg_Mystical
 
 var focus = false
@@ -26,6 +27,7 @@ var P2status = "Speed ATK: 1s"
 
 
 func _process(delta: float) -> void: 
+
     if focus == true:
         $ArrowDps.visible = true
     else:
@@ -57,38 +59,42 @@ func atacar(alvo):
         pronto_para_atacar = false
         $Timer.start()
 
-func receber_buff_mystical(mystical):
+func receber_buff_mystical(nivel_mystical):
     var dmg_buff = 0
     var scale_buff = Vector2(1.0, 1.0) 
     
-    match mystical:
-        0: 
-            dmg_buff = 0
-            scale_buff = Vector2(1.1, 1.1)
-        1: 
-            dmg_buff = 1
-            scale_buff = Vector2(1.2, 1.2)
-        2: 
-            dmg_buff = 2
-            scale_buff = Vector2(1.3, 1.3)
-        3: 
-            dmg_buff = 3
-            scale_buff = Vector2(1.4, 1.4)
-        4: 
-            dmg_buff = 4
-            scale_buff = Vector2(1.5, 1.5)
+    if posicionado and MysticalBuff == true:
+        match nivel_mystical:
+            0: 
+                dmg_buff = 1
+                scale_buff = Vector2(1.1, 1.1)
+            1: 
+                dmg_buff = 2
+                scale_buff = Vector2(1.2, 1.2)
+            2: 
+                dmg_buff = 3
+                scale_buff = Vector2(1.3, 1.3)
+            3: 
+                dmg_buff = 4
+                scale_buff = Vector2(1.4, 1.4)
+            4: 
+                dmg_buff = 5
+                scale_buff = Vector2(1.5, 1.5)
+    else:
+        dmg_buff = 0
+        scale_buff = Vector2(1.0, 1.0)
     
+
+    dmg_Mystical = dmg_buff
+    $Range/CollisionRange.scale = scale_buff
     
-    if dmg_buff > dmg_Mystical:
-        dmg_Mystical = dmg_buff
-        $Range/CollisionRange.scale = scale_buff
+    atualizar_dmg()
+    P1status = "Damage: " + str(dmg_total)
+    
+    var hud = get_tree().get_first_node_in_group("HUD")
+    if hud and focus == true:
+        hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
         
-        atualizar_dmg()
-        P1status = "Damage: " + str(dmg_total)
-        
-        var hud = get_tree().get_first_node_in_group("HUD")
-        if hud and focus == true:
-            hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
         
 func _draw() -> void :
     if mostrar_range:

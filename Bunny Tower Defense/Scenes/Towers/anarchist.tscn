@@ -803,6 +803,9 @@ position = Vector2(-13, 71.00001)
 scale = Vector2(0.32291666, 0.32291666)
 texture = ExtResource("2")
 
+[node name="Node2D" type="Node2D" parent="." unique_id=1893523376]
+scale = Vector2(0.32291666, 0.32291666)
+
 [node name="Anarchist" type="Sprite2D" parent="." unique_id=799830229]
 position = Vector2(5.9604645e-08, 0)
 scale = Vector2(0.111, 0.106)

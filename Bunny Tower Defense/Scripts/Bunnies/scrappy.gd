@@ -4,6 +4,8 @@ var mostrar_range = false
 var pronto_para_atacar = false
 var focus = false
 
+var posicionado = false
+var MysticalBuff = false
 var valor_torre = 330
 
 var path1 = 0 # Guarda os upgrades de Knockback Distance
@@ -15,11 +17,16 @@ var preços_p2 = [250, 600, 2800, 7000]
 # Valores base do Scrappy (Alinhados com a tua descrição)
 var distancias_knockback = [1.0, 3.0, 5.0, 7.5, 10.0]
 var alvos_cadeia = [2, 5, 7, 10, 15]
+var dmg_Scrappy = 0
 
 var P1status = "Knockback: " + str(distancias_knockback[0])
 var P2status = "Chain Targets: " + str(alvos_cadeia[0])
 
 func _process(delta: float) -> void:
+    
+    print(MysticalBuff)
+    print(dmg_Scrappy)
+    
     if focus == true:
         $ArrowStun.visible = true
     else:
@@ -68,9 +75,7 @@ func atacar_em_cadeia(alvos):
             # Se o teu inimigo tiver uma função para receber empurrão, chama-a:
             if inimigo.has_method("aplicar_knockback"):
                 inimigo.aplicar_knockback(forca_knockback)
-            
-            # Opcional: Se ele também der um pequenino dano elétrico/robótico
-            # inimigo.DMGED(5) 
+            inimigo.DMGED(dmg_Scrappy) 
 
     pronto_para_atacar = false
     $Timer.start()
@@ -88,12 +93,31 @@ func _on_button_button_down() -> void:
         hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
         
         # Troca o asset no HUD para o Scrappy
+        hud.get_node("HUD_Shop/HudBgDown/TextureButton").disabled = true
+        hud.get_node("HUD_Shop/HudBgDown/TextureButton/lock").visible = true
+        
+        
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Scrappy.png")
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
         atualizar_valorTorre()
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
 
-
+func receber_buff_mystical(nivel_mystical):
+    if posicionado and MysticalBuff == true:
+        match nivel_mystical:
+            0: 
+                dmg_Scrappy = 1
+            1: 
+                dmg_Scrappy = 2
+            2: 
+                dmg_Scrappy = 3
+            3: 
+                dmg_Scrappy = 4
+            4: 
+                dmg_Scrappy = 5
+    else:
+        dmg_Scrappy = 0
+    
 func aplicar_upgrade(caminho):
     var hud = get_tree().get_first_node_in_group("HUD")
     var label_moedas = hud.get_node("Moedas")
@@ -132,7 +156,6 @@ func aplicar_upgrade(caminho):
                         #$ScrappyHands_Attack.animation = "Scrappy01"
             
             atualizar_valorTorre()
-            # Se o Scrappy tiver uma função própria para recalcular status, podes chamá-la aqui
             
             P1status = "Knockback: " + str(distancias_knockback[path1])
             hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
@@ -189,6 +212,10 @@ func _on_button_mouse_exited() -> void:
     queue_redraw()
 
 func reset_focus():
+    var hud = get_tree().get_first_node_in_group("HUD")
+    
+    hud.get_node("HUD_Shop/HudBgDown/TextureButton").disabled = false
+    hud.get_node("HUD_Shop/HudBgDown/TextureButton/lock").visible = false
     focus = false
 
 

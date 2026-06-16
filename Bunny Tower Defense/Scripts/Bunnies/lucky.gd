@@ -9,6 +9,10 @@ var posicionado = false
 
 var valor_torre = 750
 
+var MysticalBuff = false
+var moedas_bonus = 0
+
+
 var focus = false
 var skin = false
 
@@ -103,6 +107,7 @@ func reset_focus():
 
 func mudar_skin():
     skin = !skin
+    $ChangeSkin.play("ChangeSkin")
     
     var path = $Lucky.texture.resource_path
     match path:
@@ -145,6 +150,24 @@ func _on_button_button_down() -> void:
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
     
 
+
+
+
+func receber_buff_mystical(mystical):
+    var spawner = get_tree().get_first_node_in_group("spawner")
+    if posicionado and MysticalBuff == true:
+        match mystical:
+            0: 
+                spawner.moedas_fim_ronda_bonus = 70
+            2: 
+                spawner.moedas_fim_ronda_bonus = 160
+            4: 
+                spawner.moedas_fim_ronda_bonus = 320
+    else:
+        spawner.moedas_fim_ronda_bonus = 0
+
+    spawner.atualizar_moedas_buff()
+    
 func aplicar_upgrade(caminho):
     var hud = get_tree().get_first_node_in_group("HUD")
     var label_moedas = hud.get_node("Moedas")

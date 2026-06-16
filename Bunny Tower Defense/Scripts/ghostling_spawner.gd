@@ -5,6 +5,7 @@ extends Node2D
 @onready var Ghazt = preload("res://Scenes/Enemies/Ghostling/ghazt.tscn")
 @onready var Ghoul = preload("res://Scenes/Enemies/Ghostling/ghoul.tscn")
 @onready var Ghaztling = preload("res://Scenes/Enemies/Ghostling/ghaztling.tscn")
+@onready var Ghazely = preload("res://Scenes/Enemies/Ghostling/ghazely.tscn")
 
 
 @onready var Enhanced_Ghaztling = preload("res://Scenes/Enemies/Ghostling/enhanced_ghaztling.tscn")
@@ -24,10 +25,19 @@ var inimigos_vivos = 0
 var vaga_atual = []
 var ronda_a_decorrer = false
 
+
+var moedas_fim_ronda = 115
+var moedas_fim_ronda_bonus = 0
+var moedas_fim_ronda_total = moedas_fim_ronda + moedas_fim_ronda_bonus
+
 var autoplay = false
 
 
+
 func _process(_delta):
+    
+    print("Moedas: ", moedas_fim_ronda, " + ", moedas_fim_ronda_bonus, " = ", moedas_fim_ronda_total)
+    
     var botao_start = get_tree().get_first_node_in_group("start_button")
 
     if botao_start:
@@ -45,9 +55,9 @@ func iniciar_vaga():
         
         1: 
             $"../StarRound".play()
-            #vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
-            vaga_atual = [Leviathan]
-            #vaga_atual = [Ghostling]
+            vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
+            #vaga_atual = [Leviathan]
+            #vaga_atual = [Ghazely]
         
         2: vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghazt, Ghazt, Ghostling, Ghostling, Ghazt, Ghazt]
         3: vaga_atual = [Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt]
@@ -121,9 +131,7 @@ func _on_timer_timeout():
         $Timer.stop()
 
 
-func inimigo_morreu():
-    
-    
+func inimigo_morreu():   
     inimigos_vivos -= 1
 
     if inimigos_vivos < 0:
@@ -144,8 +152,11 @@ func inimigo_morreu():
 
         var moedas_no = get_tree().current_scene.find_child("Moedas")
         if moedas_no:
-            moedas_no.text = str(int(moedas_no.text) + 50 + rodada_atual + 75)
+            moedas_no.text = str(int(moedas_no.text) + rodada_atual + moedas_fim_ronda_total)
 
 func atualizar_contador_rondas() -> void :
     var contador_no = get_tree().get_first_node_in_group("Round_Counter")
     contador_no.text = str(rodada_atual)
+
+func atualizar_moedas_buff() -> void :
+    moedas_fim_ronda_total = moedas_fim_ronda + moedas_fim_ronda_bonus

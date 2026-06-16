@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bw3salfmnpblp" path="res://Assets/Bunnies/Animations/Skins/Paths/buny01AttackSpriteSheet.png" id="11_xji2b"]
 [ext_resource type="Texture2D" uid="uid://cp85p33lm3s28" path="res://Assets/Bunnies/Animations/Skins/Paths/buny02AttackSpriteSheet.png" id="12_cfd32"]
 [ext_resource type="Texture2D" uid="uid://c0cfxvyhvvig4" path="res://Assets/Bunnies/Animations/UpgradeAuraSpriteSheet.png" id="15_cfd32"]
-[ext_resource type="Animation" uid="uid://b1g85crk2yvfh" path="res://ChangeSkin.res" id="15_fwte1"]
+[ext_resource type="Animation" uid="uid://b1g85crk2yvfh" path="res://Others/ChangeSkin.res" id="15_fwte1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a4dix"]
 radius = 196.01021

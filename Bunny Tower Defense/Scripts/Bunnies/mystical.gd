@@ -20,7 +20,6 @@ var P2status = "Range: 1"
 
 func _physics_process(_delta):
     
-    
     if focus == true:
         $ArrowSupport.visible = true
     else:
@@ -186,22 +185,12 @@ func _on_button_mouse_exited() -> void:
     queue_redraw()
 
 
-
-
-
 func _on_range_area_entered(area: Area2D):
     var Bunny = area.get_parent()
-    
-    # 1. Verifica se é um coelho válido
-    if Bunny.is_in_group("Bunnies") and area != self and Bunny != self:
-        
-        # 2. Descobre onde está o script
-        var script_bunny = area if area.has_method("receber_buff_mystical") else Bunny
-        
-        # 3. Verifica se ele tem a FUNÇÃO e se JÁ ESTÁ NO CHÃO (posicionado == true)
-        if script_bunny.has_method("receber_buff_mystical"):
-            # 4. Aplica o buff passando o nível atual do upgrade!
-            script_bunny.receber_buff_mystical(path1)
+    if Bunny and Bunny.is_in_group("Bunnies") and Bunny != self:
+        Bunny.MysticalBuff = true
+        if Bunny.has_method("receber_buff_mystical"):
+            Bunny.receber_buff_mystical(path1)
 
           
 func atualizar_torres_no_raio() -> void:
@@ -227,4 +216,26 @@ func vender_torre():
     
     moedas.text = str(valor_atual + valor_torre_60)
     
+    desativar_buff()
     queue_free()
+
+func ativar_buff():
+    var areas_no_raio = $Range.get_overlapping_areas()
+    for area in areas_no_raio:
+        var coelho = area.get_parent() # O nó principal (Rookie/Scrappy) é o pai da Area2D de colisão
+        if coelho and coelho.is_in_group("Bunnies") and coelho != self:
+            coelho.MysticalBuff = true
+            if coelho.has_method("receber_buff_mystical"):
+                coelho.receber_buff_mystical(path1)
+
+func desativar_buff():
+    var areas_no_raio = $Range.get_overlapping_areas()
+    for area in areas_no_raio:
+        var coelho = area.get_parent()
+        if coelho and coelho.is_in_group("Bunnies") and coelho != self:
+            coelho.MysticalBuff = false
+            if coelho.has_method("receber_buff_mystical"):
+                coelho.receber_buff_mystical(path1) # Passa o path1 para ele resetar os status sabendo que o buff é falso
+
+func receber_buff_mystical(nivel_mystical):
+    pass

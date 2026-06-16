@@ -2,10 +2,17 @@ extends Node2D
 
 var mostrar_range = false
 var pronto_para_atacar = false
-var pente_de_balas = 5
+
+var balas_extras = 0
+var pente_de_balas = 5 + balas_extras
 var balas = pente_de_balas
 
+
 var dmg_Anarchist = 2
+
+var MysticalBuff = false
+
+
 var posicionado = false
 
 var valor_torre = 500
@@ -107,23 +114,32 @@ func _on_reload_timeout() -> void :
 
 
 func receber_buff_mystical(mystical):
-    if posicionado:
+    var hud = get_tree().get_first_node_in_group("HUD")
+    
+    if posicionado and MysticalBuff == true:
         match mystical:
             0: 
-                pente_de_balas += 1
+                balas_extras = 1
                 $Timer.wait_time = 1.3
             1: 
-                pente_de_balas += 1
+                balas_extras = 2
             2: 
-                pente_de_balas += 1
+                balas_extras = 3
                 $Timer.wait_time = 1.0
             3: 
-                pente_de_balas += 1
+                balas_extras = 4
             4: 
-                pente_de_balas += 1
+                balas_extras = 5
                 $Timer.wait_time = 0.7
+    else:
+        balas_extras = 0
+        $Timer.wait_time = 1.5
 
-
+    
+    pente_de_balas = 5 + int(balas_extras)
+    balas = pente_de_balas
+    if focus:
+        hud.get_node("HUD_Shop/HudBgDown/StatusExtra").text = str(balas)
 
 func _draw() -> void :
     if mostrar_range:
@@ -144,6 +160,10 @@ func reset_focus():
     var hud = get_tree().get_first_node_in_group("HUD")
     hud.get_node("HUD_Shop/HudBgDown/StatusExtra").text = ""
     hud.get_node("HUD_Shop/HudBgDown/AmmunitionIcon").visible = false
+    
+    hud.get_node("HUD_Shop/HudBgDown/TextureButton").disabled = false
+    hud.get_node("HUD_Shop/HudBgDown/TextureButton/lock").visible = false
+    
     focus = false
 
 #func mudar_skin():
@@ -189,6 +209,9 @@ func _on_button_button_down() -> void:
         hud.get_node("HUD_Shop/HudBgDown/StatusExtra").text = str(balas)
         hud.get_node("HUD_Shop/HudBgDown/AmmunitionIcon").visible = true
         
+        hud.get_node("HUD_Shop/HudBgDown/TextureButton").disabled = true
+        hud.get_node("HUD_Shop/HudBgDown/TextureButton/lock").visible = true
+        
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Anarchist.png")
         atualizar_valorTorre()
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
@@ -199,11 +222,8 @@ func aplicar_upgrade(caminho):
     var hud = get_tree().get_first_node_in_group("HUD")
     var label_moedas = hud.get_node("Moedas")
     
-
-# 1. Transformar o texto da Label em número para poder fazer contas
     var dinheiro_atual = int(label_moedas.text)
 
-# 2. Definir o custo baseado na Array e no nível atual
     var lista_precos = preços_p1 if caminho == 1 else preços_p2
     var nivel_atual = path1 if caminho == 1 else path2
 
