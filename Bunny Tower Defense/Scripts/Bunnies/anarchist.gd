@@ -198,7 +198,7 @@ func reset_focus():
 func _on_button_button_down() -> void:
     get_tree().call_group("Bunnies", "reset_focus")
     var hud = get_tree().get_first_node_in_group("HUD")
-    
+    hud.get_node("HUD_Shop/BuffStatus").visible = false
     focus = true
     
     if hud:
@@ -214,6 +214,9 @@ func _on_button_button_down() -> void:
         
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Anarchist.png")
         atualizar_valorTorre()
+        if MysticalBuff == true:
+           hud.get_node("HUD_Shop/BuffStatus").visible = true
+        
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
     

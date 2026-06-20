@@ -130,6 +130,9 @@ func _on_path_2_pressed() -> void:
             tirar_preco()
 
 func _on_sell_pressed() -> void:
+    if not is_instance_valid(torre_em_foco): 
+        return
+    
     torre_em_foco.vender_torre()
     _on_exit_settings_button_down()
     $HUD_Shop/HudBgDown/Control/SellSound.play()
@@ -344,6 +347,9 @@ func mostrar_preco_2_4() -> void:
 var tween_preco: Tween
 
 func mostrar1():
+    if not is_instance_valid(torre_em_foco): 
+        return
+        
     var label_preco = $HUD_Shop/HudBgDown/LabelCusto
     if torre_em_foco.path1 < torre_em_foco.preços_p1.size():
         var proximo_custo = torre_em_foco.preços_p1[torre_em_foco.path1]
@@ -351,8 +357,14 @@ func mostrar1():
         
         # Ativa o Fade In suave
         fade_label_preco(label_preco, 1.0)
-            
+#            Invalid access to property or key 'path1' on a base object of type 'previously freed'.
+
+
+
 func mostrar2():
+    if not is_instance_valid(torre_em_foco): 
+        return
+    
     var label_preco = $HUD_Shop/HudBgDown/LabelCusto
     if torre_em_foco.path2 < torre_em_foco.preços_p2.size():
         var proximo_custo = torre_em_foco.preços_p2[torre_em_foco.path2]
@@ -387,7 +399,7 @@ func tirar_brilho():
 func _on_extra_speed_pressed() -> void:
     $UI_Selection/ExtraSpeed.visible = false
     $UI_Selection/NormalSpeed.visible = true
-    Engine.time_scale = 2.0
+    Engine.time_scale = 0.1
 
 
 func _on_normal_speed_pressed() -> void:
@@ -471,14 +483,14 @@ func _on_button_2_pressed() -> void:
     var moedas = get_tree().current_scene.find_child("Moedas")
     var valor_atual = int(moedas.text)
     
-    moedas.text = str(valor_atual - 50)
+    moedas.text = str(valor_atual - 500)
 
 
 func MAIS_50kk() -> void:
     var moedas = get_tree().current_scene.find_child("Moedas")
     var valor_atual = int(moedas.text)
     
-    moedas.text = str(valor_atual + 50)
+    moedas.text = str(valor_atual + 500)
 
 
 func _on_bt_nsell_mouse_entered() -> void:

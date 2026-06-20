@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://da5dymvx25kdi" path="res://Assets/Others/UI_Assets/Heart01.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://bc32xeabxhvne" path="res://Assets/Others/UI_Assets/Audio.png" id="11_1fefx"]
 [ext_resource type="Texture2D" uid="uid://cl0nvonsbewnh" path="res://Assets/Others/UI_Assets/Heart02.png" id="12"]
+[ext_resource type="Script" uid="uid://bhib51smh7pvo" path="res://Scripts/HUD/hud_buff_status.gd" id="12_h7oxq"]
 [ext_resource type="Texture2D" uid="uid://bivibntbcpj1u" path="res://Assets/Others/UI_Assets/Carrot.png" id="13"]
 [ext_resource type="Script" uid="uid://cht6cv0atxuhh" path="res://Scripts/HUD/moedas.gd" id="14"]
 [ext_resource type="AudioStream" uid="uid://cjdb7qigpeqqn" path="res://Assets/SFXs/Upgrade.wav" id="14_rywlk"]
@@ -83,6 +84,96 @@ default_font = ExtResource("4")
 [sub_resource type="Theme" id="Theme_7plk7"]
 default_font = ExtResource("9")
 
+[sub_resource type="Animation" id="Animation_gx4x5"]
+resource_name = "MenuBuffs"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.49767432),
+"transitions": PackedFloat32Array(1.5157169, 0.48296818, 0.4506252),
+"update": 0,
+"values": [Vector2(-2106.746, -62.353), Vector2(-1886.036, -62.353), Vector2(-1899.211, -62.353)]
+}
+
+[sub_resource type="Animation" id="Animation_umgxi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2188.581, -62.353)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3q0p"]
+_data = {
+&"MenuBuffs": SubResource("Animation_gx4x5"),
+&"RESET": SubResource("Animation_umgxi")
+}
+
+[sub_resource type="Animation" id="Animation_rkb15"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HudBgDown:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 300, 120)]
+}
+
+[sub_resource type="Animation" id="Animation_h7oxq"]
+resource_name = "bgAnim"
+length = 10.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HudBgDown:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 300, 120), Rect2(138.217, 640, 300, 120)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gx4x5"]
+_data = {
+&"RESET": SubResource("Animation_rkb15"),
+&"bgAnim": SubResource("Animation_h7oxq")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgiap"]
+size = Vector2(343.17462, 139.44957)
+
 [sub_resource type="Animation" id="Animation_iqxei"]
 length = 0.001
 tracks/0/type = "value"
@@ -108,6 +199,42 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-1262.853, 471.273)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HUD/HUD_Shop/BuffStatus:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2123.501, -62.353394)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HUD/HUD_Shop/BuffStatus/Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HUD/HUD_Shop/BuffStatus:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_4hkqd"]
@@ -136,6 +263,42 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1.3660405, 0.7845841, 1),
 "update": 0,
 "values": [Vector2(-1262.853, 471.273), Vector2(-1262.853, 217.815), Vector2(-1262.853, 238.785)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HUD/HUD_Shop/BuffStatus:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2190.2395, -62.353394), Vector2(-2106.746, -62.353)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HUD/HUD_Shop/BuffStatus/Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.299755, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("HUD/HUD_Shop/BuffStatus:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dsgg8"]
@@ -555,6 +718,97 @@ polygon = PackedVector2Array(-101.05957, -24.795378, -101.05957, 91.073944, 18.9
 position = Vector2(2157.9224, 765.2696)
 scale = Vector2(1.078842, 1.078842)
 script = ExtResource("16")
+
+[node name="BuffStatus" type="Node2D" parent="HUD/HUD_Shop" unique_id=255250496]
+visible = false
+position = Vector2(-2123.501, -62.353394)
+scale = Vector2(1.1561065, 1.2133758)
+script = ExtResource("12_h7oxq")
+
+[node name="MenuBuffsAnims" type="AnimationPlayer" parent="HUD/HUD_Shop/BuffStatus" unique_id=911724109]
+libraries/ = SubResource("AnimationLibrary_k3q0p")
+
+[node name="HudBgDown" type="Sprite2D" parent="HUD/HUD_Shop/BuffStatus" unique_id=771173879]
+texture_repeat = 2
+position = Vector2(8.400984, -4.4301653)
+scale = Vector2(0.9640177, 1.0117718)
+texture = ExtResource("17")
+region_enabled = true
+region_rect = Rect2(0, 0, 300, 120)
+region_filter_clip_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/HUD_Shop/BuffStatus/HudBgDown" unique_id=1997883165]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_gx4x5")
+autoplay = &"bgAnim"
+speed_scale = 0.155
+
+[node name="HudShopFrame2" type="Sprite2D" parent="HUD/HUD_Shop/BuffStatus" unique_id=2114873993]
+position = Vector2(8.957808, 112.28756)
+scale = Vector2(0.09172892, 0.16340137)
+texture = ExtResource("18")
+flip_h = true
+
+[node name="HudShopFrame3" type="Sprite2D" parent="HUD/HUD_Shop/BuffStatus" unique_id=62519885]
+position = Vector2(94.147354, -3.9749813)
+rotation = -1.5717903
+scale = Vector2(0.035900537, 0.16600546)
+texture = ExtResource("18")
+flip_h = true
+flip_v = true
+
+[node name="HudShopFrame4" type="Sprite2D" parent="HUD/HUD_Shop/BuffStatus" unique_id=471444392]
+position = Vector2(8.933636, -119.99383)
+scale = Vector2(0.09171373, 0.1636532)
+texture = ExtResource("18")
+flip_h = true
+flip_v = true
+
+[node name="Status" type="Label" parent="HUD/HUD_Shop/BuffStatus" unique_id=86376607]
+offset_left = -25.487194
+offset_top = -60.34991
+offset_right = 174.27458
+offset_bottom = -12.930386
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6156863)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 0)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 32
+text = "Buff:"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Buff4" type="Label" parent="HUD/HUD_Shop/BuffStatus" unique_id=11219044]
+anchors_preset = -1
+anchor_left = 0.03379254
+anchor_top = 1.7469556
+anchor_right = 0.03379254
+anchor_bottom = 1.7469558
+offset_left = -25.487206
+offset_top = 6.87487
+offset_right = 174.27457
+offset_bottom = 54.294395
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 24
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Buff3" type="Label" parent="HUD/HUD_Shop/BuffStatus" unique_id=873583955]
+offset_left = -25.487202
+offset_top = -23.681831
+offset_right = 174.27458
+offset_bottom = 23.737694
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 24
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="HUD/HUD_Shop/BuffStatus" unique_id=614763757]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HUD/HUD_Shop/BuffStatus/Area2D" unique_id=1718230541]
+position = Vector2(28.072067, -3.2639465)
+shape = SubResource("RectangleShape2D_cgiap")
 
 [node name="Shop_Appear" type="AnimationPlayer" parent="HUD/HUD_Shop" unique_id=1703018073]
 root_node = NodePath("../../..")
@@ -1320,9 +1574,9 @@ stretch_mode = 0
 
 [node name="ExtraSpeed" type="TextureButton" parent="HUD/UI_Selection" unique_id=2131972820 groups=["SpeedUp"]]
 offset_left = 1773.0001
-offset_top = 947.0001
+offset_top = 949.0001
 offset_right = 1949.0001
-offset_bottom = 1123.0001
+offset_bottom = 1125.0001
 texture_normal = ExtResource("58_087co")
 texture_pressed = ExtResource("59_ag3a8")
 texture_disabled = ExtResource("59_ag3a8")
@@ -1645,6 +1899,8 @@ libraries/ = SubResource("AnimationLibrary_dr5ga")
 
 [connection signal="pressed" from="HUD/Pause" to="HUD" method="_on_button_pressed"]
 [connection signal="theme_changed" from="HUD/Moedas" to="HUD/UI_Selection/Bunnies" method="_on_moedas_theme_changed"]
+[connection signal="mouse_entered" from="HUD/HUD_Shop/BuffStatus/Area2D" to="HUD/HUD_Shop/BuffStatus" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="HUD/HUD_Shop/BuffStatus/Area2D" to="HUD/HUD_Shop/BuffStatus" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-1" to="HUD" method="mostrar_preco_1_1"]
 [connection signal="mouse_exited" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-1" to="HUD" method="tirar_preco"]
 [connection signal="pressed" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-1" to="HUD" method="_on_path_1_pressed"]

@@ -24,6 +24,9 @@ var preços_p2 = [650, 1400, 3500, 12000]
 var P1status = "Money " + str(valor_lucky) + "$:"
 var P2status = "Farm speed: 3.5s"
 
+var BuffStatus1 = "Bonus por ronda: " + str(moedas_bonus)
+
+
 func _physics_process(_delta):
     
     if focus == true:
@@ -130,14 +133,11 @@ func mudar_skin():
             $Lucky.texture = load("res://Assets/Bunnies/Paths/Lucky02.png")
 
 func _on_button_button_down() -> void:
-    # 1. Diz a TODOS os nós no grupo "Bunnies" para correrem a função reset_focus
     get_tree().call_group("Bunnies", "reset_focus")
-    
-    # 2. Agora liga o foco apenas DESTE coelho
     focus = true
     
-    # ... resto do teu código (abrir HUD, etc) ...
     var hud = get_tree().get_first_node_in_group("HUD")
+    hud.get_node("HUD_Shop/BuffStatus").visible = false
     if hud:
         hud.abrir_menu_upgrade(self)
         
@@ -148,24 +148,34 @@ func _on_button_button_down() -> void:
         atualizar_valorTorre()
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
-    
+        
+        if MysticalBuff == true:
+            hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
+            hud.get_node("HUD_Shop/BuffStatus").visible = true
 
-
+        
 
 
 func receber_buff_mystical(mystical):
+    var hud = get_tree().get_first_node_in_group("HUD")
     var spawner = get_tree().get_first_node_in_group("spawner")
     if posicionado and MysticalBuff == true:
-        match mystical:
-            0: 
+        match [mystical, path1]:
+            [0, 0]:
                 spawner.moedas_fim_ronda_bonus = 70
-            2: 
+                BuffStatus1 = "Bonus por ronda: 70"
+            [2, 2]:
                 spawner.moedas_fim_ronda_bonus = 160
-            4: 
+                BuffStatus1 = "Bonus por ronda: 160"
+            [4, 4]: # Ele n ta a apanhar aqui n sei pq leo
                 spawner.moedas_fim_ronda_bonus = 320
+                BuffStatus1 = "Bonus por ronda: 320"
     else:
         spawner.moedas_fim_ronda_bonus = 0
 
+
+    
+    hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
     spawner.atualizar_moedas_buff()
     
 func aplicar_upgrade(caminho):

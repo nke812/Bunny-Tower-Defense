@@ -215,7 +215,7 @@ func configurar_torre_temp():
 
     var range_node = temp_tower.get_node("Range")
     range_node.monitoring = false
-    range_node.monitorable = false
+    range_node.monitorable = true
 
     get_tree().current_scene.add_child(temp_tower)
 

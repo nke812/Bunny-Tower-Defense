@@ -3,10 +3,12 @@ extends Node2D
 var pronto_para_atacar = false
 var mostrar_range = false
 
+var posicionado = false
 var valor_torre = 250
 
 var contagem_ult = 0
 
+var MysticalBuff = false
 var dmg_Mystical = 0
 var dmg_Slasher = 3
 
@@ -23,6 +25,7 @@ var preços_p2 = [400, 1500, 3500, 7500]
 
 var P1status = "Speed ATK: 3s"
 var P2status = "Range: 1"
+
 
 func _ready() -> void:
     verificar_posicao_skin()
@@ -59,13 +62,50 @@ func verificar_e_atacar():
                 atacar(corpo)
                 break
 
+func receber_buff_mystical(nivel_mystical):
+    var dmg_buff = 0
+    var scale_buff = Vector2(1.0, 1.0) 
+    
+    if posicionado and MysticalBuff == true:
+        match nivel_mystical:
+            0: 
+                dmg_buff = 1
+                scale_buff = Vector2(1.1, 1.1)
+            1: 
+                dmg_buff = 2
+                scale_buff = Vector2(1.2, 1.2)
+            2: 
+                dmg_buff = 3
+                scale_buff = Vector2(1.3, 1.3)
+            3: 
+                dmg_buff = 4
+                scale_buff = Vector2(1.4, 1.4)
+            4: 
+                dmg_buff = 5
+                scale_buff = Vector2(1.5, 1.5)
+    else:
+        dmg_buff = 0
+        scale_buff = Vector2(1.0, 1.0)
+    
+
+    dmg_Mystical = dmg_buff
+    $Range/CollisionRange.scale = scale_buff
+    
+    atualizar_dmg()
+    P1status = "Damage: " + str(dmg_total)
+    
+    var hud = get_tree().get_first_node_in_group("HUD")
+    if hud and focus == true:
+        hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+
+
 func atacar(alvo):
     if alvo.has_method("DMGED"):
-        $Slasher/AnimationPlayer.play("animAttack")
-        $SlasherAttackEffect.play()
+        $Node2D/Slasher/AnimationPlayer.play("animAttack")
+        $Node2D/SlasherAttackEffect.play()
         
-        $SlasherAttack.play()
-        $Slash.play()
+        $Node2D/SlasherAttack.play()
+        
         
         contagem_ult += 3
         verificar_ult()
@@ -74,29 +114,30 @@ func atacar(alvo):
         if contagem_ult >= 20: 
                 # Se a contagem subiu muito, dá mais um bónus de dano ao mesmo gajo
             alvo.DMGED(dmg_total * 2) 
-            $Slash_Ult.play()
+            $Node2D/Slash_Ult.play()
             contagem_ult = 0
             verificar_ult()
             
         else:
             # Ataque básico normal
             alvo.DMGED(dmg_total)
+            $Node2D/Slash.play()
 
         pronto_para_atacar = false
         $Timer.start()
 
 func verificar_ult():
     if contagem_ult >= 35 or contagem_ult == 0:
-        $Slasher/Ult.visible = false
-        $Slasher/AppearUlt.play_backwards()
+        $Node2D/Slasher/Ult.visible = false
+        $Node2D/Slasher/AppearUlt.play_backwards()
         
 
     elif contagem_ult > 20:
-        if not $Slasher/Ult.visible and not $Slasher/AppearUlt.is_playing():
-            $Slasher/AppearUlt.play()
-            await $Slasher/AppearUlt.animation_finished
-            $Slasher/Ult.visible = true
-            $Slasher/Ult.play()
+        if not $Node2D/Slasher/Ult.visible and not $Node2D/Slasher/AppearUlt.is_playing():
+            $Node2D/Slasher/AppearUlt.play()
+            await $Node2D/Slasher/AppearUlt.animation_finished
+            $Node2D/Slasher/Ult.visible = true
+            $Node2D/Slasher/Ult.play()
 
 
 func _draw() -> void :
@@ -144,16 +185,16 @@ func mudar_skin():
             $Node2D/SlasherAttack.animation = "SlasherSkin01"
             
         "res://Assets/Bunnies/Animations/Skins/Paths/Canela01AttackIdle.png":
-            $Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher01AttackIdle.png")
-            $SlasherAttack.animation = "Slasher01"
+            $Node2D/Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher01AttackIdle.png")
+            $Node2D/SlasherAttack.animation = "Slasher01"
             
         "res://Assets/Bunnies/Animations/Paths/Slasher02AttackIdle.png":
-            $Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/Paths/Canela02AttackIdle.png")
-            $SlasherAttack.animation = "SlasherSkin02"
+            $Node2D/Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/Paths/Canela02AttackIdle.png")
+            $Node2D/SlasherAttack.animation = "SlasherSkin02"
             
         "res://Assets/Bunnies/Animations/Skins/Paths/Canela02AttackIdle.png":
-            $Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher02AttackIdle.png")
-            $SlasherAttack.animation = "Slasher02"
+            $Node2D/Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher02AttackIdle.png")
+            $Node2D/SlasherAttack.animation = "Slasher02"
 
 func _on_insp_button_down() -> void:
     get_tree().call_group("Bunnies", "reset_focus")
@@ -161,6 +202,7 @@ func _on_insp_button_down() -> void:
     focus = true
     
     var hud = get_tree().get_first_node_in_group("HUD")
+    hud.get_node("HUD_Shop/BuffStatus").visible = false
     if hud:
         hud.abrir_menu_upgrade(self)
         
@@ -169,6 +211,9 @@ func _on_insp_button_down() -> void:
         
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Slasher.png")
         atualizar_valorTorre()
+        
+        if MysticalBuff == true:
+           hud.get_node("HUD_Shop/BuffStatus").visible = true
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
     
@@ -217,17 +262,17 @@ func aplicar_upgrade(caminho):
                     valor_torre += 7500
                     P1status = "Speed ATK: " + str($Timer.wait_time) + "s"
                     hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
-                    $Slasher/Ult.animation = "Ult01"
-                    $Slasher/AppearUlt.animation = "UltAppear01"
+                    $Node2D/Slasher/Ult.animation = "Ult01"
+                    $Node2D/Slasher/AppearUlt.animation = "UltAppear01"
                     verificar_posicao_skin()
                     auraMAISego()
                     
                     if skin:
-                        $Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/Paths/Canela01AttackIdle.png")
-                        $SlasherAttack.animation = "SlasherSkin01"
+                        $Node2D/Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/Paths/Canela01AttackIdle.png")
+                        $Node2D/SlasherAttack.animation = "SlasherSkin01"
                     else:
-                        $Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher01AttackIdle.png")
-                        $SlasherAttack.animation = "Slasher01"
+                        $Node2D/Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher01AttackIdle.png")
+                        $Node2D/SlasherAttack.animation = "Slasher01"
                         
             atualizar_valorTorre()
         else:
@@ -255,18 +300,18 @@ func aplicar_upgrade(caminho):
                     $Range/CollisionRange.scale = Vector2(2.0, 2.0)
                     P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
                     hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
-                    $Slasher/Ult.animation = "Ult02"
+                    $Node2D/Slasher/Ult.animation = "Ult02"
                     valor_torre += 7500
-                    $Slasher/AppearUlt.animation = "UltAppear02"
+                    $Node2D/Slasher/AppearUlt.animation = "UltAppear02"
                     verificar_posicao_skin()
                     auraMAISego()
                     
                     if skin:
-                        $Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/Paths/Canela02AttackIdle.png")
-                        $SlasherAttack.animation = "SlasherSkin02"
+                        $Node2D/Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/Paths/Canela02AttackIdle.png")
+                        $Node2D/SlasherAttack.animation = "SlasherSkin02"
                     else:
-                        $Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher02AttackIdle.png")
-                        $SlasherAttack.animation = "Slasher02"
+                        $Node2D/Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher02AttackIdle.png")
+                        $Node2D/SlasherAttack.animation = "Slasher02"
             atualizar_valorTorre()
         return true
     return false
@@ -290,18 +335,18 @@ func verificar_posicao_skin():
         $Node2D/Slasher/Ult.scale = Vector2(1, 1)
         
 func auraMAISego():
-    $Slasher.modulate = Color(1, 1, 1)
-    $SlasherAttack.modulate = Color(1, 1, 1)
+    $Node2D/Slasher.modulate = Color(1, 1, 1)
+    $Node2D/SlasherAttack.modulate = Color(1, 1, 1)
     $AURA.play("default")
     
     var tween = create_tween()
 
 
-    tween.tween_property($Slasher, "modulate", Color(2, 2, 2, 1), 0.3)
-    tween.parallel().tween_property($SlasherAttack, "modulate", Color(2, 2, 2, 1), 0.3)
+    tween.tween_property($Node2D/Slasher, "modulate", Color(2, 2, 2, 1), 0.3)
+    tween.parallel().tween_property($Node2D/SlasherAttack, "modulate", Color(2, 2, 2, 1), 0.3)
  
-    tween.tween_property($Slasher, "modulate", Color(1, 1, 1, 1), 0.4)
-    tween.parallel().tween_property($SlasherAttack, "modulate", Color(1, 1, 1, 1), 0.4)
+    tween.tween_property($Node2D/Slasher, "modulate", Color(1, 1, 1, 1), 0.4)
+    tween.parallel().tween_property($Node2D/SlasherAttack, "modulate", Color(1, 1, 1, 1), 0.4)
 
 func atualizar_dmg():
     dmg_total = dmg_Slasher + dmg_Mystical

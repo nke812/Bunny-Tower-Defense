@@ -87,6 +87,7 @@ func _on_button_button_down() -> void:
     focus = true
     
     var hud = get_tree().get_first_node_in_group("HUD")
+    hud.get_node("HUD_Shop/BuffStatus").visible = false
     if hud:
         hud.abrir_menu_upgrade(self)
         hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
@@ -100,6 +101,9 @@ func _on_button_button_down() -> void:
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Scrappy.png")
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
         atualizar_valorTorre()
+        
+        if MysticalBuff == true:
+           hud.get_node("HUD_Shop/BuffStatus").visible = true
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
 
 func receber_buff_mystical(nivel_mystical):

@@ -6,6 +6,8 @@ var TimeSlimed = 3.0
 
 var valor_torre = 225
 
+var MysticalBuff = false
+
 var focus = false
 var skin = false
 
@@ -123,6 +125,7 @@ func _on_button_button_down() -> void:
     focus = true
     
     var hud = get_tree().get_first_node_in_group("HUD")
+    hud.get_node("HUD_Shop/BuffStatus").visible = false
     if hud:
         hud.abrir_menu_upgrade(self)
         
@@ -131,6 +134,9 @@ func _on_button_button_down() -> void:
         
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Gooey.png")
         atualizar_valorTorre()
+        
+        if MysticalBuff == true:
+           hud.get_node("HUD_Shop/BuffStatus").visible = true
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
     

@@ -5,6 +5,8 @@ var mostrar_range = false
 
 var valor_torre = 1400
 
+var MysticalBuff = true
+
 var focus = false
 var skin = false
 
@@ -17,6 +19,7 @@ var buffs = 0
 
 var P1status = "LV Buff: " + str(path1)
 var P2status = "Range: 1"
+
 
 func _physics_process(_delta):
     
@@ -33,6 +36,7 @@ func _on_button_button_down() -> void:
     focus = true
 
     var hud = get_tree().get_first_node_in_group("HUD")
+    hud.get_node("HUD_Shop/BuffStatus").visible = false
     if hud:
         hud.abrir_menu_upgrade(self)
         
@@ -187,11 +191,11 @@ func _on_button_mouse_exited() -> void:
 
 func _on_range_area_entered(area: Area2D):
     var Bunny = area.get_parent()
+    
     if Bunny and Bunny.is_in_group("Bunnies") and Bunny != self:
         Bunny.MysticalBuff = true
         if Bunny.has_method("receber_buff_mystical"):
             Bunny.receber_buff_mystical(path1)
-
           
 func atualizar_torres_no_raio() -> void:
     var corpos_no_raio = $Range.get_overlapping_areas()

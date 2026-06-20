@@ -24,6 +24,8 @@ var preços_p2 = [140, 425, 2400, 5500]
 
 var P1status = "Damage: " + str(dmg_Rookie)
 var P2status = "Speed ATK: 1s"
+var BuffStatus1 = "Dmg: " + "+" + str(dmg_Mystical)
+var BuffStatus2 = "Range: 0" + "+"
 
 
 func _process(delta: float) -> void: 
@@ -84,7 +86,7 @@ func receber_buff_mystical(nivel_mystical):
         dmg_buff = 0
         scale_buff = Vector2(1.0, 1.0)
     
-
+    
     dmg_Mystical = dmg_buff
     $Range/CollisionRange.scale = scale_buff
     
@@ -92,8 +94,17 @@ func receber_buff_mystical(nivel_mystical):
     P1status = "Damage: " + str(dmg_total)
     
     var hud = get_tree().get_first_node_in_group("HUD")
-    if hud and focus == true:
-        hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+    
+    BuffStatus1 = "Dmg: " + "+" + str(dmg_Mystical) 
+    hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
+        
+    BuffStatus2 = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
+    hud.get_node("HUD_Shop/BuffStatus/Buff4").text = str(BuffStatus2)
+    
+    
+    
+
+
         
         
 func _draw() -> void :
@@ -151,6 +162,7 @@ func _on_button_button_down() -> void:
     focus = true
     
     var hud = get_tree().get_first_node_in_group("HUD")
+    hud.get_node("HUD_Shop/BuffStatus").visible = false
     if hud:
         hud.abrir_menu_upgrade(self)
         
@@ -160,6 +172,12 @@ func _on_button_button_down() -> void:
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Rookie.png")
         atualizar_valorTorre()
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
+        
+        if MysticalBuff == true:
+            hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
+            hud.get_node("HUD_Shop/BuffStatus/Buff4").text = str(BuffStatus2)
+            hud.get_node("HUD_Shop/BuffStatus").visible = true
+        
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
     
 
