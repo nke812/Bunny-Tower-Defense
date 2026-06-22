@@ -75,19 +75,16 @@ func receber_buff_mystical(nivel_mystical):
         match nivel_mystical:
             0: 
                 dmg_buff = 1
-                multiplicador_range = Vector2(0.1, 0.1)
             1: 
                 dmg_buff = 2
-                multiplicador_range = Vector2(0.2, 0.2)
             2: 
                 dmg_buff = 3
-                multiplicador_range = Vector2(0.3, 0.3)
+                multiplicador_range = Vector2(0.2, 0.2)
             3: 
                 dmg_buff = 4
-                multiplicador_range = Vector2(0.4, 0.4)
             4: 
                 dmg_buff = 5
-                multiplicador_range = Vector2(0.5, 0.5)
+                multiplicador_range = Vector2(0.3, 0.3)
     else:
         dmg_buff = 0
         multiplicador_range = Vector2(1.0, 1.0)
