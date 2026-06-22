@@ -399,7 +399,7 @@ func tirar_brilho():
 func _on_extra_speed_pressed() -> void:
     $UI_Selection/ExtraSpeed.visible = false
     $UI_Selection/NormalSpeed.visible = true
-    Engine.time_scale = 0.1
+    Engine.time_scale = 2.0
 
 
 func _on_normal_speed_pressed() -> void:

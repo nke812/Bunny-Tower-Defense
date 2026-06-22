@@ -24,8 +24,8 @@ var preços_p2 = [650, 1400, 3500, 12000]
 var P1status = "Money " + str(valor_lucky) + "$:"
 var P2status = "Farm speed: 3.5s"
 
-var BuffStatus1 = "Bonus por ronda: " + str(moedas_bonus)
-
+var BuffStatus1 = "Bonus por"
+var BuffStatus2 = "ronda: " + str(moedas_bonus)
 
 func _physics_process(_delta):
     
@@ -151,11 +151,12 @@ func _on_button_button_down() -> void:
         
         if MysticalBuff == true:
             hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
+            hud.get_node("HUD_Shop/BuffStatus/Buff4").text = str(BuffStatus2)
             hud.get_node("HUD_Shop/BuffStatus").visible = true
 
         
 
-
+#LUCKY TA TODO AMERDADOOOO!!!!11
 func receber_buff_mystical(mystical):
     var hud = get_tree().get_first_node_in_group("HUD")
     var spawner = get_tree().get_first_node_in_group("spawner")
@@ -163,19 +164,20 @@ func receber_buff_mystical(mystical):
         match [mystical, path1]:
             [0, 0]:
                 spawner.moedas_fim_ronda_bonus = 70
-                BuffStatus1 = "Bonus por ronda: 70"
+                BuffStatus2 = "ronda: 70"
             [2, 2]:
                 spawner.moedas_fim_ronda_bonus = 160
-                BuffStatus1 = "Bonus por ronda: 160"
-            [4, 4]: # Ele n ta a apanhar aqui n sei pq leo
+                BuffStatus2 = "ronda: 160"
+            [4, 4]: # Ele n ta a apanhar aqui n sei pq
                 spawner.moedas_fim_ronda_bonus = 320
-                BuffStatus1 = "Bonus por ronda: 320"
+                BuffStatus2 = "ronda: 320"
     else:
         spawner.moedas_fim_ronda_bonus = 0
 
 
     
     hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
+    hud.get_node("HUD_Shop/BuffStatus/Buff4").text = str(BuffStatus2)
     spawner.atualizar_moedas_buff()
     
 func aplicar_upgrade(caminho):

@@ -8,6 +8,8 @@ var valor_torre = 250
 
 var contagem_ult = 0
 
+var range_base_upgrade = Vector2(1.0, 1.0)
+
 var MysticalBuff = false
 var dmg_Mystical = 0
 var dmg_Slasher = 3
@@ -32,6 +34,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void :
+    
+    print(dmg_total)
+    
     $ProgressBar.value = contagem_ult
     $ProgressBar/ProgressBar.value = contagem_ult
 
@@ -64,45 +69,49 @@ func verificar_e_atacar():
 
 func receber_buff_mystical(nivel_mystical):
     var dmg_buff = 0
-    var scale_buff = Vector2(1.0, 1.0) 
+    var multiplicador_range = Vector2(1.0, 1.0) 
     
     if posicionado and MysticalBuff == true:
         match nivel_mystical:
             0: 
                 dmg_buff = 1
-                scale_buff = Vector2(1.1, 1.1)
+                multiplicador_range = Vector2(0.1, 0.1)
             1: 
                 dmg_buff = 2
-                scale_buff = Vector2(1.2, 1.2)
+                multiplicador_range = Vector2(0.2, 0.2)
             2: 
                 dmg_buff = 3
-                scale_buff = Vector2(1.3, 1.3)
+                multiplicador_range = Vector2(0.3, 0.3)
             3: 
                 dmg_buff = 4
-                scale_buff = Vector2(1.4, 1.4)
+                multiplicador_range = Vector2(0.4, 0.4)
             4: 
                 dmg_buff = 5
-                scale_buff = Vector2(1.5, 1.5)
+                multiplicador_range = Vector2(0.5, 0.5)
     else:
         dmg_buff = 0
-        scale_buff = Vector2(1.0, 1.0)
+        multiplicador_range = Vector2(1.0, 1.0)
     
 
     dmg_Mystical = dmg_buff
-    $Range/CollisionRange.scale = scale_buff
+    
+    # CORREÇÃO DA SINERGIA: Multiplica o range do upgrade pelo bónus do Mystical!
+    $Range/CollisionRange.scale = range_base_upgrade + multiplicador_range
     
     atualizar_dmg()
     P1status = "Damage: " + str(dmg_total)
+    P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
     
     var hud = get_tree().get_first_node_in_group("HUD")
     if hud and focus == true:
         hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+        hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
 
 
 func atacar(alvo):
     if alvo.has_method("DMGED"):
         $Node2D/Slasher/AnimationPlayer.play("animAttack")
-        $Node2D/SlasherAttackEffect.play()
+        $SlasherAttackEffect.play()
         
         $Node2D/SlasherAttack.play()
         
@@ -114,14 +123,14 @@ func atacar(alvo):
         if contagem_ult >= 20: 
                 # Se a contagem subiu muito, dá mais um bónus de dano ao mesmo gajo
             alvo.DMGED(dmg_total * 2) 
-            $Node2D/Slash_Ult.play()
+            $Slash_Ult.play()
             contagem_ult = 0
             verificar_ult()
             
         else:
             # Ataque básico normal
             alvo.DMGED(dmg_total)
-            $Node2D/Slash.play()
+            $Slash.play()
 
         pronto_para_atacar = false
         $Timer.start()
@@ -279,29 +288,18 @@ func aplicar_upgrade(caminho):
             path2 += 1
             match path2:
                 1: 
-                    $Range/CollisionRange.scale = Vector2(1.3, 1.3)
+                    range_base_upgrade = Vector2(1.3, 1.3)
                     valor_torre += 400
-                    P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
-                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
-                    
                 2: 
-                    $Range/CollisionRange.scale = Vector2(1.5, 1.5)
+                    range_base_upgrade = Vector2(1.5, 1.5)
                     valor_torre += 1500
-                    P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
-                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
-                    
                 3: 
-                    $Range/CollisionRange.scale = Vector2(1.7, 1.7)
+                    range_base_upgrade = Vector2(1.7, 1.7)
                     valor_torre += 3500
-                    P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
-                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
-                    
                 4: 
-                    $Range/CollisionRange.scale = Vector2(2.0, 2.0)
-                    P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
-                    hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
-                    $Node2D/Slasher/Ult.animation = "Ult02"
+                    range_base_upgrade = Vector2(2.0, 2.0)
                     valor_torre += 7500
+                    $Node2D/Slasher/Ult.animation = "Ult02"
                     $Node2D/Slasher/AppearUlt.animation = "UltAppear02"
                     verificar_posicao_skin()
                     auraMAISego()
@@ -312,8 +310,13 @@ func aplicar_upgrade(caminho):
                     else:
                         $Node2D/Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher02AttackIdle.png")
                         $Node2D/SlasherAttack.animation = "Slasher02"
+
+            # A MÁGICA ACONTECE AQUI: Atualiza o ecrã multiplicando o upgrade pelo buff atual!
+            $Range/CollisionRange.scale = range_base_upgrade * (Vector2(1.1, 1.1) if MysticalBuff else Vector2(1.0, 1.0))
+            P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
+            hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
             atualizar_valorTorre()
-        return true
+            return true
     return false
     
 func verificar_posicao_skin():
