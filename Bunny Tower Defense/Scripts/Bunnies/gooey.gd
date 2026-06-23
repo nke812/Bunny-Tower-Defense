@@ -2,11 +2,15 @@ extends Node2D
 
 var mostrar_range = false
 var pronto_para_atacar = false
+
 var TimeSlimed = 3.0
+var TimeSlimed_buff = 0.0
+var TimeSlimed_Total = TimeSlimed + TimeSlimed_buff
 
 var valor_torre = 225
 
 var MysticalBuff = false
+var posicionado = false
 
 var focus = false
 var skin = false
@@ -20,6 +24,9 @@ var preços_p2 = [250, 600, 2800, 7000]
 
 var P1status = "Stun Time: " + str(TimeSlimed)
 var P2status = "Speed ATK: 2.5s"
+var BuffStatus1 = "Stun Extra:"
+var BuffStatus2 = "+0s"
+
 
 func _process(delta: float) -> void :
     
@@ -34,6 +41,31 @@ func _process(delta: float) -> void :
     if pronto_para_atacar:
         verificar_e_atacar()
 
+func receber_buff_mystical(mystical):
+    var hud = get_tree().get_first_node_in_group("HUD")
+    
+    if posicionado and MysticalBuff == true:
+        match mystical:
+            0:
+                TimeSlimed_buff = 0.5
+            1:
+                TimeSlimed_buff = 0.8
+            2:
+                TimeSlimed_buff = 1.2
+            3:
+                TimeSlimed_buff = 1.6
+            4:
+                TimeSlimed_buff = 2.2
+    else:
+        TimeSlimed_buff = 0.0
+        
+          
+    P1status = "Stun Time: " + str(TimeSlimed_Total)
+    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+    
+    BuffStatus2 = str(TimeSlimed_buff) + "+"
+    hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
+
 func verificar_e_atacar():
     var corpos = $Range.get_overlapping_bodies()
     var alvo_final = null
@@ -41,30 +73,25 @@ func verificar_e_atacar():
 
     for corpo in corpos:
         if corpo.is_in_group("Ghostlings"):
-            # Guardamos o primeiro fantasma que aparecer, caso todos estejam stunados
             if primeiro_fantasma == null:
                 primeiro_fantasma = corpo
             
-            # Se acharmos um que NÃO está stunado, ESSE é o alvo ideal
             if not corpo.goo_stun:
                 alvo_final = corpo
                 break 
 
-    # Se não achou ninguém limpo, mas existe algum fantasma na área...
     if alvo_final == null and primeiro_fantasma != null:
         alvo_final = primeiro_fantasma
 
-    # Só ataca se realmente encontrou um fantasma
     if alvo_final != null:
         atacar(alvo_final)
 
-# No atacar(alvo) do Gooey
+
 func atacar(alvo):
     if alvo.has_method("gooey_stun"):
         $Gooey/AnimationPlayer.play("Gooey_Attack")
         
-        # Enviamos o TimeSlimed E a Goo_Color deste coelho específico
-        alvo.gooey_stun(TimeSlimed, Goo_Color)
+        alvo.gooey_stun(TimeSlimed_Total, Goo_Color)
         
         pronto_para_atacar = false
         $Timer.start()
@@ -145,10 +172,8 @@ func aplicar_upgrade(caminho):
     var hud = get_tree().get_first_node_in_group("HUD")
     var label_moedas = hud.get_node("Moedas")
 
-# 1. Transformar o texto da Label em número para poder fazer contas
     var dinheiro_atual = int(label_moedas.text)
 
-# 2. Definir o custo baseado na Array e no nível atual
     var lista_precos = preços_p1 if caminho == 1 else preços_p2
     var nivel_atual = path1 if caminho == 1 else path2
 
@@ -156,17 +181,11 @@ func aplicar_upgrade(caminho):
 
     var custo = lista_precos[nivel_atual]
 
-# 3. A VERIFICAÇÃO E SUBTRAÇÃO
     if dinheiro_atual >= custo:
-    # TIRA O DINHEIRO DO NÚMERO QUE LEMOS
         dinheiro_atual -= custo
     
-    # ATUALIZA A LABEL COM O NOVO VALOR (Transformando de volta para texto)
         label_moedas.text = str(dinheiro_atual)
     
-    # Continua com a lógica do upgrade...
-        
-        # 4. Aumenta o nível e aplica o match (dano, skin, etc.)
         if caminho == 1:
             path1 += 1
             match path1:
@@ -193,8 +212,9 @@ func aplicar_upgrade(caminho):
                     else:
                         $Gooey.texture = load("res://Assets/Bunnies/Paths/Gooey01.png")
                         Goo_Color = "Blue_Goo"
-                        
-            P1status = "Stun Time: " + str(TimeSlimed)
+            
+            TimeSlimed_Total = TimeSlimed + TimeSlimed_buff            
+            P1status = "Stun Time: " + str(TimeSlimed_Total)
             hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
             atualizar_valorTorre()
         else:
@@ -246,6 +266,7 @@ func atualizar_valorTorre():
     var valor_torre_60 : int = int(valor_torre * 0.6)
     
     hud.get_node("HUD_Shop/HudBgDown/Control/PanelSell/precoSell").text = str(valor_torre_60)
+
 
 func vender_torre():
     var moedas = get_tree().current_scene.find_child("Moedas")

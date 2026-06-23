@@ -344,6 +344,14 @@ func mostrar_preco_2_4() -> void:
         mostrar2()
         
 
+func dar_bounce_no_botao(botao: TextureButton):
+    var tween = create_tween().set_parallel(true)
+    botao.pivot_offset = botao.size / 2
+    tween.tween_property(botao, "scale", Vector2(1.15, 1.15), 0.1).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+    var tween_back = create_tween()
+    tween_back.tween_property(botao, "scale", Vector2(1.0, 1.0), 0.1).set_delay(0.1)
+
+
 var tween_preco: Tween
 
 func mostrar1():
@@ -496,8 +504,6 @@ func MAIS_50kk() -> void:
 func _on_bt_nsell_mouse_entered() -> void:
     $HUD_Shop/HudBgDown/Control/BTNsell/Anim_Sell.play("new_animation")
     await $HUD_Shop/HudBgDown/Control/BTNsell/Anim_Sell.animation_finished
-
-
 func _on_bt_nsell_mouse_exited() -> void:
     $HUD_Shop/HudBgDown/Control/BTNsell/Anim_Sell.play_backwards("new_animation")
     await $HUD_Shop/HudBgDown/Control/BTNsell/Anim_Sell.animation_finished

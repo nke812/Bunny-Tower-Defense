@@ -8,8 +8,8 @@ var posicionado = false
 var MysticalBuff = false
 var valor_torre = 330
 
-var path1 = 0 # Guarda os upgrades de Knockback Distance
-var path2 = 0 # Guarda os upgrades de Chain Quantity
+var path1 = 0
+var path2 = 0
 
 var preços_p1 = [250, 600, 2800, 7000]
 var preços_p2 = [250, 600, 2800, 7000]
@@ -18,6 +18,8 @@ var preços_p2 = [250, 600, 2800, 7000]
 var distancias_knockback = [1.0, 3.0, 5.0, 7.5, 10.0]
 var alvos_cadeia = [2, 5, 7, 10, 15]
 var dmg_Scrappy = 0
+
+var BuffStatus1 = "Dmg: +0"
 
 var P1status = "Knockback: " + str(distancias_knockback[0])
 var P2status = "Chain Targets: " + str(alvos_cadeia[0])
@@ -42,37 +44,29 @@ func verificar_e_atacar():
     var corpos = $Range.get_overlapping_bodies()
     var inimigos_validos = []
 
-    # 1. Filtra apenas quem é inimigo e está vivo
     for corpo in corpos:
         if corpo.is_in_group("Ghostlings") and is_instance_valid(corpo):
             if corpo.has_method("DMGED"):
                 inimigos_validos.append(corpo)
 
-    # Se não há inimigos no alcance, cancela
     if inimigos_validos.size() == 0:
         return
 
-    # 2. SISTEMA DE CADEIA: Pega na quantidade permitida pelo Path2
     var quantidade_maxima = alvos_cadeia[path2]
     var alvos_atingidos = []
 
     for i in range(min(quantidade_maxima, inimigos_validos.size())):
         alvos_atingidos.append(inimigos_validos[i])
 
-    # 3. Dispara contra os alvos selecionados em cadeia
     atacar_em_cadeia(alvos_atingidos)
 
 func atacar_em_cadeia(alvos):
-    # Ativa a animação do Scrappy
     $Scrappy/AnimationPlayer.play("scrppy_Attack")
     $Attack.play()
-    # Pega na força de empurrão atual baseado no Path1
     var forca_knockback = distancias_knockback[path1]
 
-    # Aplica o efeito a cada inimigo da corrente
     for inimigo in alvos:
         if is_instance_valid(inimigo):
-            # Se o teu inimigo tiver uma função para receber empurrão, chama-a:
             if inimigo.has_method("aplicar_knockback"):
                 inimigo.aplicar_knockback(forca_knockback)
             inimigo.DMGED(dmg_Scrappy) 
@@ -80,15 +74,13 @@ func atacar_em_cadeia(alvos):
     pronto_para_atacar = false
     $Timer.start()
 
-# --- SISTEMA DE UPGRADES E HUD ---
-
 func _on_button_button_down() -> void:
     get_tree().call_group("Bunnies", "reset_focus")
     focus = true
     
     var hud = get_tree().get_first_node_in_group("HUD")
-    hud.get_node("HUD_Shop/BuffStatus").visible = false
     if hud:
+        hud.get_node("HUD_Shop/BuffStatus").visible = false
         hud.abrir_menu_upgrade(self)
         hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
         hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
@@ -97,30 +89,34 @@ func _on_button_button_down() -> void:
         hud.get_node("HUD_Shop/HudBgDown/TextureButton").disabled = true
         hud.get_node("HUD_Shop/HudBgDown/TextureButton/lock").visible = true
         
-        
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Scrappy.png")
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
         atualizar_valorTorre()
         
         if MysticalBuff == true:
-           hud.get_node("HUD_Shop/BuffStatus").visible = true
+            hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
+            hud.get_node("HUD_Shop/BuffStatus/Buff4").text = "" # Limpa o buff 4 para não lixo visual
+            hud.get_node("HUD_Shop/BuffStatus").visible = true
+            
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
 
 func receber_buff_mystical(nivel_mystical):
     if posicionado and MysticalBuff == true:
         match nivel_mystical:
-            0: 
-                dmg_Scrappy = 1
-            1: 
-                dmg_Scrappy = 2
-            2: 
-                dmg_Scrappy = 3
-            3: 
-                dmg_Scrappy = 4
-            4: 
-                dmg_Scrappy = 5
+            0: dmg_Scrappy = 1
+            1: dmg_Scrappy = 2
+            2: dmg_Scrappy = 3
+            3: dmg_Scrappy = 4
+            4: dmg_Scrappy = 5
     else:
         dmg_Scrappy = 0
+    
+    BuffStatus1 = "Dmg: +" + str(dmg_Scrappy)
+    
+    var hud = get_tree().get_first_node_in_group("HUD")
+    if hud and focus == true:
+        hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
+        hud.get_node("HUD_Shop/BuffStatus/Buff4").text = ""
     
 func aplicar_upgrade(caminho):
     var hud = get_tree().get_first_node_in_group("HUD")
@@ -151,13 +147,8 @@ func aplicar_upgrade(caminho):
                 4:
                     valor_torre += 7000
                     auraMAISego()
-                    
-                    #if skin:
-                        #$Scrappy.texture = preload("res://Assets/Bunnies/Skins/Paths/scrappy_skin01.png")
-                        #$ScrappyHands_Attack.animation = "ScrappySkin01"
-                    #else:
-                        #$Scrappy.texture = preload("res://Assets/Bunnies/Paths/Scrappy01.png")
-                        #$ScrappyHands_Attack.animation = "Scrappy01"
+                    $Scrappy.texture = preload("res://Assets/Bunnies/Paths/Scrappy01.png")
+
             
             atualizar_valorTorre()
             
@@ -176,20 +167,14 @@ func aplicar_upgrade(caminho):
                 4:
                     valor_torre += 7000
                     auraMAISego()
-                    
-                    #if skin:
-                        #$Scrappy.texture = preload("res://Assets/Bunnies/Skins/Paths/scrappy_skin02.png")
-                        #$ScrappyHands_Attack.animation = "ScrappySkin02"
-                    #else:
-                        #$Scrappy.texture = preload("res://Assets/Bunnies/Paths/Scrappy02.png")
-                        #$ScrappyHands_Attack.animation = "Scrappy02"
+                    $Scrappy.texture = preload("res://Assets/Bunnies/Paths/Scrappy02.png")
                         
             atualizar_valorTorre()            
             P2status = "Chain Targets: " + str(alvos_cadeia[path2])
             hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
             
-        return true # Retorna sucesso para o HUD
-    return false # Retorna falha (não tirou dinheiro)
+        return true
+    return false
 
 func auraMAISego():
     $Scrappy.modulate = Color(1, 1, 1)

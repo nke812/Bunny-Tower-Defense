@@ -296,6 +296,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ivn0g")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": 0,
 "name": &"UltAppear",
@@ -1200,14 +1203,13 @@ offset = Vector2(-25.777275, -601.9757)
 libraries/ = SubResource("AnimationLibrary_r1clt")
 
 [node name="Ult" type="AnimatedSprite2D" parent="Node2D/Slasher" unique_id=139699849]
-position = Vector2(324.1781, 43.32887)
-scale = Vector2(0.68, 0.68)
+visible = false
+position = Vector2(-49.75138, -584.6433)
 sprite_frames = SubResource("SpriteFrames_8jeol")
 animation = &"Ult"
-frame_progress = 0.0034864312
 
 [node name="AppearUlt" type="AnimatedSprite2D" parent="Node2D/Slasher" unique_id=274262831]
-position = Vector2(87.9777, -702.55176)
+position = Vector2(64.6196, -1287.1951)
 scale = Vector2(0.68, 0.68)
 sprite_frames = SubResource("SpriteFrames_47s4e")
 animation = &"UltAppear"

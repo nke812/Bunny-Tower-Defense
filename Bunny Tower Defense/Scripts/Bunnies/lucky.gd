@@ -160,34 +160,38 @@ func _on_button_button_down() -> void:
 func receber_buff_mystical(mystical):
     var hud = get_tree().get_first_node_in_group("HUD")
     var spawner = get_tree().get_first_node_in_group("spawner")
+    if not spawner: return
+
     if posicionado and MysticalBuff == true:
-        match [mystical, path1]:
-            [0, 0]:
-                spawner.moedas_fim_ronda_bonus = 70
-                BuffStatus2 = "ronda: 70"
-            [2, 2]:
-                spawner.moedas_fim_ronda_bonus = 160
-                BuffStatus2 = "ronda: 160"
-            [4, 4]: # Ele n ta a apanhar aqui n sei pq
-                spawner.moedas_fim_ronda_bonus = 320
-                BuffStatus2 = "ronda: 320"
+        var bonus_base = 0
+        match mystical:
+            0: bonus_base = 70
+            1: bonus_base = 100
+            2: bonus_base = 160
+            3: bonus_base = 240
+            4: bonus_base = 320
+        
+        # 2. SINERGIA: Dá um extra baseado no maior nível de upgrade do Lucky (path1 ou path2)
+        var maior_upgrade = max(path1, path2)
+        spawner.moedas_fim_ronda_bonus = bonus_base + (maior_upgrade * 30) # +30 moedas por cada upgrade do Lucky!
+        
+        BuffStatus2 = "ronda: " + str(spawner.moedas_fim_ronda_bonus)
     else:
         spawner.moedas_fim_ronda_bonus = 0
+        BuffStatus2 = "ronda: 0"
 
-
-    
-    hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
-    hud.get_node("HUD_Shop/BuffStatus/Buff4").text = str(BuffStatus2)
+    if hud:
+        hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
+        hud.get_node("HUD_Shop/BuffStatus/Buff4").text = str(BuffStatus2)
+        
     spawner.atualizar_moedas_buff()
     
 func aplicar_upgrade(caminho):
     var hud = get_tree().get_first_node_in_group("HUD")
     var label_moedas = hud.get_node("Moedas")
 
-# 1. Transformar o texto da Label em número para poder fazer contas
     var dinheiro_atual = int(label_moedas.text)
 
-# 2. Definir o custo baseado na Array e no nível atual
     var lista_precos = preços_p1 if caminho == 1 else preços_p2
     var nivel_atual = path1 if caminho == 1 else path2
 
@@ -195,17 +199,9 @@ func aplicar_upgrade(caminho):
 
     var custo = lista_precos[nivel_atual]
 
-# 3. A VERIFICAÇÃO E SUBTRAÇÃO
     if dinheiro_atual >= custo:
-    # TIRA O DINHEIRO DO NÚMERO QUE LEMOS
         dinheiro_atual -= custo
-    
-    # ATUALIZA A LABEL COM O NOVO VALOR (Transformando de volta para texto)
         label_moedas.text = str(dinheiro_atual)
-    
-    # Continua com a lógica do upgrade...
-        
-        # 4. Aumenta o nível e aplica o match (dano, skin, etc.)
         if caminho == 1:
             path1 += 1
             match path1:
@@ -271,6 +267,9 @@ func aplicar_upgrade(caminho):
                     else:
                         $Lucky.texture = preload("res://Assets/Bunnies/Paths/Lucky02.png")
             atualizar_valorTorre()
+            
+            if MysticalBuff:
+                receber_buff_mystical(0)
         return true
     return false
 

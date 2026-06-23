@@ -7,17 +7,13 @@ var balas_extras = 0
 var pente_de_balas = 5 + balas_extras
 var balas = pente_de_balas
 
-
 var dmg_Anarchist = 2
 
 var MysticalBuff = false
 
-
 var posicionado = false
 
 var valor_torre = 500
-
-#var skin = false
 
 var focus = false
 
@@ -28,6 +24,9 @@ var preços_p2 = [1200, 3000, 7000, 10000]
 
 var P1status = "Damage: " + str(dmg_Anarchist)
 var P2status = "Reload Speed: 3s"
+var BuffStatus1 = "Pente: +0"
+var BuffStatus2 = "Atk Speed: +0s"
+
 var StatusExtra = str(balas)
 
 
@@ -115,31 +114,46 @@ func _on_reload_timeout() -> void :
 
 func receber_buff_mystical(mystical):
     var hud = get_tree().get_first_node_in_group("HUD")
+    var atk_speed_percent = 0
     
     if posicionado and MysticalBuff == true:
         match mystical:
             0: 
                 balas_extras = 1
                 $Timer.wait_time = 1.3
+                atk_speed_percent = 1.3
             1: 
                 balas_extras = 2
+                $Timer.wait_time = 1.1
+                atk_speed_percent = 1.1
             2: 
                 balas_extras = 3
                 $Timer.wait_time = 1.0
+                atk_speed_percent = 1.0
             3: 
                 balas_extras = 4
+                $Timer.wait_time = 0.8
+                atk_speed_percent = 0.8
             4: 
                 balas_extras = 5
                 $Timer.wait_time = 0.7
+                atk_speed_percent = 0.7
     else:
         balas_extras = 0
         $Timer.wait_time = 1.5
+        atk_speed_percent = 0
 
     
     pente_de_balas = 5 + int(balas_extras)
     balas = pente_de_balas
-    if focus:
+    
+    BuffStatus1 = "Pente: +" + str(balas_extras)
+    BuffStatus2 = "Atk Speed: " + str(atk_speed_percent) + "s"
+    
+    if focus and hud:
         hud.get_node("HUD_Shop/HudBgDown/StatusExtra").text = str(balas)
+        hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
+        hud.get_node("HUD_Shop/BuffStatus/Buff4").text = str(BuffStatus2)
 
 func _draw() -> void :
     if mostrar_range:
@@ -166,35 +180,6 @@ func reset_focus():
     
     focus = false
 
-#func mudar_skin():
-    #skin = !skin
-    #
-    #var texture = $Rookie.texture.resource_path
-    #match texture:
-        #"res://Assets/Bunnies/Animations/RookieAttackIdle.png":
-            #$Rookie.texture = preload("res://Assets/Bunnies/Skins/buny.png")
-            #$RookieHands_Attack.animation = "RookieSkin"
-            #
-        #"res://Assets/Bunnies/Skins/buny.png":
-            #$Rookie.texture = preload("res://Assets/Bunnies/Animations/RookieAttackIdle.png")
-            #$RookieHands_Attack.animation = "Rookie"
-            #
-        #"res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png":
-            #$Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny01.png")
-            #$RookieHands_Attack.animation = "RookieSkin01"
-            #
-        #"res://Assets/Bunnies/Skins/Paths/buny01.png":
-            #$Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
-            #$RookieHands_Attack.animation = "Rookie01"
-            #
-        #"res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png":
-            #$Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny02.png")
-            #$RookieHands_Attack.animation = "RookieSkin02"
-            #
-        #"res://Assets/Bunnies/Skins/Paths/buny02.png":
-            #$Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
-            #$RookieHands_Attack.animation = "Rookie02"
-
 func _on_button_button_down() -> void:
     get_tree().call_group("Bunnies", "reset_focus")
     var hud = get_tree().get_first_node_in_group("HUD")
@@ -214,8 +199,11 @@ func _on_button_button_down() -> void:
         
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Anarchist.png")
         atualizar_valorTorre()
+        
         if MysticalBuff == true:
-           hud.get_node("HUD_Shop/BuffStatus").visible = true
+            hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
+            hud.get_node("HUD_Shop/BuffStatus/Buff4").text = str(BuffStatus2)
+            hud.get_node("HUD_Shop/BuffStatus").visible = true
         
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")
@@ -264,13 +252,6 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     $Anarchist.texture = preload("res://Assets/Bunnies/Animations/Paths/Anarchist01AttackIdle.png")
                     $Anarchist_Animations.animation = "Attack01"
-                    
-                    #if skin:
-                        #$Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny01.png")
-                        #$RookieHands_Attack.animation = "RookieSkin01"
-                    #else:
-                        #$Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
-                        #$RookieHands_Attack.animation = "Rookie01"
                         
             P1status = "Damage: " + str(dmg_Anarchist)
             hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
@@ -301,13 +282,6 @@ func aplicar_upgrade(caminho):
                     $Anarchist.texture = preload("res://Assets/Bunnies/Animations/Paths/Anarchist02AttackIdle.png")
                     $Anarchist_Animations.animation = "Attack02"
                     
-                    
-                    #if skin:
-                        #$Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny02.png")
-                        #$RookieHands_Attack.animation = "RookieSkin02"
-                    #else:
-                        #$Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
-                        #$RookieHands_Attack.animation = "Rookie02"
             atualizar_valorTorre()
             P2status = "Reload Speed: " + str($Reload.wait_time) + "s"
             hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
