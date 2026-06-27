@@ -1260,6 +1260,7 @@ theme_override_font_sizes/font_size = 23
 text = "250"
 
 [node name="Toasty_BG_dps" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=458300905]
+visible = false
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("22")
@@ -1335,6 +1336,7 @@ theme_override_font_sizes/font_size = 23
 text = "500"
 
 [node name="Alien_BG_dps" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=831714472]
+visible = false
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("22")
@@ -1444,6 +1446,7 @@ theme_override_font_sizes/font_size = 23
 text = "330"
 
 [node name="Ghoulish_BG_stun" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=1447302593]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("34")
 texture_disabled = ExtResource("23")

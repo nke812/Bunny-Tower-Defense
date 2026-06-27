@@ -5,7 +5,7 @@ var mostrar_range = false
 
 var valor_torre = 1400
 
-var MysticalBuff = true
+var MysticalBuff = false
 
 var focus = false
 var skin = false
@@ -21,7 +21,55 @@ var P1status = "LV Buff: " + str(path1)
 var P2status = "Range: 1"
 
 
-func _physics_process(_delta):
+# Guarda a lista de coelhos que estão atualmente dentro do raio
+var coelhos_no_raio: Array = []
+
+func _ready() -> void:
+    posicionado = true
+    # Aguarda um frame físico para garantir que as áreas iniciais são detetadas
+    await get_tree().physics_frame
+    _atualizar_buffs_iniciais()
+
+func _atualizar_buffs_iniciais() -> void:
+    # Corre apenas UMA vez no ready para apanhar quem já lá estava
+    var areas = $Range.get_overlapping_areas()
+    for area in areas:
+        _aplicar_buff_a_area(area)
+
+func _on_range_area_entered(area: Area2D) -> void:
+    _aplicar_buff_a_area(area)
+
+func _on_range_area_exited(area: Area2D) -> void:
+    _remover_buff_de_area(area)
+
+# --- Funções Auxiliares Isoladas ---
+
+func _aplicar_buff_a_area(area: Area2D) -> void:
+    var coelho = area.get_parent()
+    if coelho and coelho.is_in_group("Bunnies") and coelho != self:
+        if not coelhos_no_raio.has(coelho):
+            coelhos_no_raio.append(coelho)
+        
+        coelho.MysticalBuff = true
+        if coelho.has_method("receber_buff_mystical"):
+            coelho.receber_buff_mystical(path1)
+
+func _remover_buff_de_area(area: Area2D) -> void:
+    var coelho = area.get_parent()
+    if coelho and coelho.is_in_group("Bunnies"):
+        if coelhos_no_raio.has(coelho):
+            coelhos_no_raio.erase(coelho)
+        
+        coelho.MysticalBuff = false
+        if coelho.has_method("remover_buff_mystical"):
+            coelho.remover_buff_mystical()
+
+# Se precisares de atualizar o buff de toda a gente quando a Mystical faz um upgrade de nível:
+func atualizar_nivel_do_buff() -> void:
+    for coelho in coelhos_no_raio:
+        if is_instance_valid(coelho) and coelho.has_method("receber_buff_mystical"):
+            coelho.receber_buff_mystical(path1)
+    
     
     if focus == true:
         $ArrowSupport.visible = true
@@ -188,14 +236,6 @@ func _on_button_mouse_exited() -> void:
     mostrar_range = false
     queue_redraw()
 
-
-func _on_range_area_entered(area: Area2D):
-    var Bunny = area.get_parent()
-    
-    if Bunny and Bunny.is_in_group("Bunnies") and Bunny != self:
-        Bunny.MysticalBuff = true
-        if Bunny.has_method("receber_buff_mystical"):
-            Bunny.receber_buff_mystical(path1)
           
 func atualizar_torres_no_raio() -> void:
     var corpos_no_raio = $Range.get_overlapping_areas()
@@ -223,10 +263,12 @@ func vender_torre():
     desativar_buff()
     queue_free()
 
+
+
 func ativar_buff():
     var areas_no_raio = $Range.get_overlapping_areas()
     for area in areas_no_raio:
-        var coelho = area.get_parent() # O nó principal (Rookie/Scrappy) é o pai da Area2D de colisão
+        var coelho = area.get_parent()
         if coelho and coelho.is_in_group("Bunnies") and coelho != self:
             coelho.MysticalBuff = true
             if coelho.has_method("receber_buff_mystical"):
@@ -238,8 +280,8 @@ func desativar_buff():
         var coelho = area.get_parent()
         if coelho and coelho.is_in_group("Bunnies") and coelho != self:
             coelho.MysticalBuff = false
-            if coelho.has_method("receber_buff_mystical"):
-                coelho.receber_buff_mystical(path1) # Passa o path1 para ele resetar os status sabendo que o buff é falso
+            if coelho.has_method("remover_buff_mystical"):
+                coelho.remover_buff_mystical() # Chama a função de limpeza que já tens no Rookie!
 
 func receber_buff_mystical(nivel_mystical):
     pass

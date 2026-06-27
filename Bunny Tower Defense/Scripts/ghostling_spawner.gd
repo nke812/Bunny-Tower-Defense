@@ -36,7 +36,7 @@ var autoplay = false
 
 func _process(_delta):
     
-    print("Moedas: ", moedas_fim_ronda, " + ", moedas_fim_ronda_bonus, " = ", moedas_fim_ronda_total)
+    #print("Moedas: ", moedas_fim_ronda, " + ", moedas_fim_ronda_bonus, " = ", moedas_fim_ronda_total)
     
     var botao_start = get_tree().get_first_node_in_group("start_button")
 

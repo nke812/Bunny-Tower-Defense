@@ -22,13 +22,15 @@ var path2 = 0
 var preços_p1 = [250, 600, 2800, 7000]
 var preços_p2 = [250, 600, 2800, 7000]
 
-var P1status = "Stun Time: " + str(TimeSlimed)
+var P1status = "Stun Time: " + str(TimeSlimed_Total)
 var P2status = "Speed ATK: 2.5s"
 var BuffStatus1 = "Stun Extra:"
 var BuffStatus2 = "+0s"
 
 
 func _process(delta: float) -> void :
+    
+    #print("Normal: ", TimeSlimed, " Buff: ", TimeSlimed_buff, " Total: ", TimeSlimed_Total)
     
     if focus == true:
         $ArrowStun.visible = true
@@ -44,8 +46,24 @@ func _process(delta: float) -> void :
 func receber_buff_mystical(mystical):
     var hud = get_tree().get_first_node_in_group("HUD")
     
+    # Se ele tiver o MysticalBuff ativo, vamos procurar se existe algum Mystical com nível maior por perto
+    var maior_nivel_mystical = mystical
+    
     if posicionado and MysticalBuff == true:
-        match mystical:
+        # Procura todos os Mysticals no mapa (ou podes usar o $Range.get_overlapping_areas() / bodies se preferires)
+        var mysticals = get_tree().get_nodes_in_group("Mystical")
+        for m in mysticals:
+            # Verifica se o Mystical m está dentro do alcance ou perto o suficiente (ou se já está a dar buff a este coelho)
+            # Nota: Se o teu Mystical já guarda as torres que bufa, garantimos que pegamos o maior nível disponível
+            if m.has_method("esta_a_bufar") and m.esta_a_bufar(self): # Ajusta para a tua lógica se necessário
+                if m.nivel_mystical > maior_nivel_mystical:
+                    maior_nivel_mystical = m.nivel_mystical
+            elif m.global_position.distance_to(global_position) < 200: # Exemplo usando distância se não usares áreas
+                if m.nivel_mystical > maior_nivel_mystical:
+                    maior_nivel_mystical = m.nivel_mystical
+
+        # Agora sim, aplica o match baseado no maior nível encontrado!
+        match maior_nivel_mystical:
             0:
                 TimeSlimed_buff = 0.5
             1:
@@ -59,12 +77,13 @@ func receber_buff_mystical(mystical):
     else:
         TimeSlimed_buff = 0.0
         
-          
+    TimeSlimed_Total = TimeSlimed_buff + TimeSlimed
     P1status = "Stun Time: " + str(TimeSlimed_Total)
-    hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
     
-    BuffStatus2 = str(TimeSlimed_buff) + "+"
-    hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
+    if hud and focus:
+        hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
+        BuffStatus2 = "+" + str(TimeSlimed_buff) + "s"
+        hud.get_node("HUD_Shop/BuffStatus/Buff4").text = str(BuffStatus2)
 
 func verificar_e_atacar():
     var corpos = $Range.get_overlapping_bodies()
@@ -156,8 +175,12 @@ func _on_button_button_down() -> void:
     if hud:
         hud.abrir_menu_upgrade(self)
         
+        TimeSlimed_Total = TimeSlimed + TimeSlimed_buff
         hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
         hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
+        hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
+        hud.get_node("HUD_Shop/BuffStatus/Buff4").text = str(BuffStatus2)
+        
         
         hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Assets/Bunnies/Gooey.png")
         atualizar_valorTorre()
@@ -242,6 +265,7 @@ func aplicar_upgrade(caminho):
                     else:
                         $Gooey.texture = load("res://Assets/Bunnies/Paths/Gooey02.png")
                         Goo_Color = "Purple_Goo"
+                        
             P2status = "Speed ATK: " + str($Timer.wait_time) + "s"
             hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
             atualizar_valorTorre()

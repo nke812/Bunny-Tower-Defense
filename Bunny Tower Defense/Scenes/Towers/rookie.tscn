@@ -356,7 +356,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7r0as")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Rookie",
 "speed": 67.0
 }, {
@@ -394,7 +394,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yprdp")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Rookie01",
 "speed": 67.0
 }, {
@@ -432,7 +432,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lanaj")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Rookie02",
 "speed": 67.0
 }, {
@@ -470,7 +470,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_06gbm")
 }],
-"loop": false,
+"loop": 0,
 "name": &"RookieSkin",
 "speed": 67.0
 }, {
@@ -508,7 +508,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ao5bu")
 }],
-"loop": false,
+"loop": 0,
 "name": &"RookieSkin01",
 "speed": 67.0
 }, {
@@ -546,7 +546,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3std7")
 }],
-"loop": false,
+"loop": 0,
 "name": &"RookieSkin02",
 "speed": 67.0
 }]
@@ -763,7 +763,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 17.0
 }]
@@ -837,6 +837,7 @@ rotation = 1.5707964
 scale = Vector2(0.94, 0.94)
 collision_layer = 3
 collision_mask = 3
+monitorable = false
 
 [node name="HitBox" type="CollisionShape2D" parent="HitBox" unique_id=406183586]
 position = Vector2(-3.0985658, 114.827095)

@@ -63,7 +63,7 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_55yyg"]
 radius = 37.326958
-height = 99.867
+height = 534.0426
 
 [sub_resource type="Animation" id="Animation_a4dix"]
 length = 0.001
@@ -273,7 +273,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 17.0
 }]
