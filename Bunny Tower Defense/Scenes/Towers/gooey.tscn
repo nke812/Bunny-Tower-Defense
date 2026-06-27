@@ -404,7 +404,7 @@ texture = ExtResource("4_8ko8t")
 libraries/ = SubResource("AnimationLibrary_3y2c6")
 autoplay = &"idle"
 
-[node name="ChangeSkin" type="AnimationPlayer" parent="." unique_id=1717209521]
+[node name="SkinChange" type="AnimationPlayer" parent="." unique_id=1717209521]
 libraries/ = SubResource("AnimationLibrary_ct6sh")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

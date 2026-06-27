@@ -62,8 +62,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_55yyg"]
-radius = 37.326958
-height = 534.0426
+radius = 28.723417
+height = 91.48936
 
 [sub_resource type="Animation" id="Animation_a4dix"]
 length = 0.001
@@ -360,7 +360,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="HitBox" type="CollisionShape2D" parent="HitBox" unique_id=2058948867]
-position = Vector2(0.09291077, 132.91219)
+position = Vector2(6.475906, 131.84837)
 shape = SubResource("CapsuleShape2D_55yyg")
 
 [node name="Panel" type="Panel" parent="." unique_id=1676851426]
@@ -402,7 +402,7 @@ sprite_frames = SubResource("SpriteFrames_n2gny")
 frame = 24
 frame_progress = 1.0
 
-[node name="ChangeSkin" type="AnimationPlayer" parent="." unique_id=1492507041]
+[node name="SkinChange" type="AnimationPlayer" parent="." unique_id=1492507041]
 libraries/ = SubResource("AnimationLibrary_sgs10")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

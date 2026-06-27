@@ -1515,6 +1515,7 @@ theme_override_font_sizes/font_size = 23
 text = "750"
 
 [node name="Mystical_BG_support" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=542388852]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("41")
 texture_disabled = ExtResource("23")

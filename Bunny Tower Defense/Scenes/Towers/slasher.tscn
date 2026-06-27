@@ -1283,7 +1283,7 @@ position = Vector2(-1.9073486e-06, -9.536743e-07)
 scale = Vector2(1.5186768, 1.4453512)
 sprite_frames = SubResource("SpriteFrames_xh8xt")
 
-[node name="ChangeSkin" type="AnimationPlayer" parent="." unique_id=393900052]
+[node name="SkinChange" type="AnimationPlayer" parent="." unique_id=393900052]
 root_node = NodePath("../AnimationPlayer")
 libraries/ = SubResource("AnimationLibrary_kctmb")
 

@@ -237,15 +237,13 @@ func largar_torre():
     if temp_tower:
         if moedas_atuais >= custo_da_torre_atual:
             temp_tower.get_node("Shadow").visible = true
+            temp_tower.get_node("SkinChange").play("ChangeSkin")
             temp_tower.modulate.a = 1.0
             temp_tower.process_mode = Node.PROCESS_MODE_INHERIT
 
 
             var range_node = temp_tower.get_node("Range")
             range_node.monitoring = true
-            range_node.monitorable = true
-            
-            var hitbox = temp_tower.get_node("HitBox")
             range_node.monitorable = true
 
             var novas_moedas = moedas_atuais - custo_da_torre_atual
