@@ -27,7 +27,7 @@ func DMGED(quantidade):
         
         var moedas = get_tree().current_scene.find_child("Moedas")
         var valor_atual = int(moedas.text)
-        moedas.text = str(valor_atual + 1)
+        moedas.text = str(valor_atual + 5)
 
         speed = 0
         $AnimationPlayer.play("Animations/ghostling_TakeDMG")

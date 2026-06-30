@@ -172,7 +172,7 @@ func reset_focus():
 
 func mudar_skin():
     skin = !skin
-    $ChangeSkin.play("ChangeSkin")
+    $SkinChange.play("ChangeSkin")
     verificar_posicao_skin()
     
     
@@ -188,7 +188,6 @@ func mudar_skin():
         "res://Assets/Bunnies/Animations/Skins/CanelaAttackIdle.png":
             $Node2D/Slasher.texture = preload("res://Assets/Bunnies/Animations/SlasherAttackIdle.png")
             $Node2D/SlasherAttack.animation = "Slasher"
-            
             
         "res://Assets/Bunnies/Animations/Paths/Slasher01AttackIdle.png":
             $Node2D/Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/Paths/Canela01AttackIdle.png")

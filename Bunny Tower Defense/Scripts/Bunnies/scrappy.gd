@@ -14,7 +14,6 @@ var path2 = 0
 var preços_p1 = [250, 600, 2800, 7000]
 var preços_p2 = [250, 600, 2800, 7000]
 
-# Valores base do Scrappy (Alinhados com a tua descrição)
 var distancias_knockback = [1.0, 3.0, 5.0, 7.5, 10.0]
 var alvos_cadeia = [2, 5, 7, 10, 15]
 var dmg_Scrappy = 0

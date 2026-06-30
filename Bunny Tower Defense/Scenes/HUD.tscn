@@ -1112,31 +1112,32 @@ flat = true
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="HudBgRight" type="Sprite2D" parent="HUD/UI_Selection" unique_id=1211361329]
-position = Vector2(1769.9219, 774.26953)
+position = Vector2(1769.9219, 731.2695)
 scale = Vector2(1.0788419, 1.0788419)
 texture = ExtResource("19")
 region_enabled = true
 region_rect = Rect2(0, 0, 377.19507, 1080)
 
 [node name="HudSelectionFrame" type="Sprite2D" parent="HUD/UI_Selection" unique_id=887820282]
-position = Vector2(1759.1436, 705.47186)
+position = Vector2(1759.1436, 662.47174)
 scale = Vector2(0.5964735, 0.5970855)
 texture = ExtResource("20")
 
 [node name="Round" type="Label" parent="HUD/UI_Selection" unique_id=795597463]
-offset_left = 1573.5145
-offset_top = 66.48505
-offset_right = 1856.1494
-offset_bottom = 123.97009
+offset_left = 1570.0002
+offset_top = 60.000015
+offset_right = 1871.0002
+offset_bottom = 117.485054
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.627451)
 theme_override_constants/shadow_offset_x = 4
 theme_override_fonts/font = ExtResource("4")
-theme_override_font_sizes/font_size = 65
+theme_override_font_sizes/font_size = 75
 text = "RONDA:"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Event" type="Label" parent="HUD/UI_Selection" unique_id=888145862]
+visible = false
 offset_left = 1572.3173
 offset_top = 119.17966
 offset_right = 1945.97
@@ -1151,14 +1152,14 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="n_Round" type="Label" parent="HUD/UI_Selection" unique_id=2129903025 groups=["Round_Counter"]]
-offset_left = 1845.372
-offset_top = 65.28746
-offset_right = 1968.7245
-offset_bottom = 122.77249
+offset_left = 1882.0001
+offset_top = 62.000008
+offset_right = 2005.3527
+offset_bottom = 119.48505
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.627451)
 theme_override_constants/shadow_offset_x = 4
 theme_override_fonts/font = ExtResource("4")
-theme_override_font_sizes/font_size = 65
+theme_override_font_sizes/font_size = 75
 text = "1"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -1175,9 +1176,9 @@ bus = &"SFX"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HUD/UI_Selection/Bunnies" unique_id=1163235928]
 offset_left = 1513.0
-offset_top = 142.0
+offset_top = 93.0
 offset_right = 1920.0
-offset_bottom = 875.0
+offset_bottom = 897.0
 draw_focus_border = true
 vertical_scroll_mode = 2
 scroll_hint_mode = 1
@@ -1574,9 +1575,9 @@ stretch_mode = 0
 [node name="NormalSpeed" type="TextureButton" parent="HUD/UI_Selection" unique_id=834995313 groups=["SpeedDown"]]
 visible = false
 offset_left = 1773.0002
-offset_top = 947.0001
+offset_top = 949.0001
 offset_right = 1949.0002
-offset_bottom = 1123.0001
+offset_bottom = 1125.0001
 texture_normal = ExtResource("56_h0ww3")
 texture_pressed = ExtResource("57_hl3i6")
 texture_disabled = ExtResource("57_hl3i6")

@@ -373,6 +373,7 @@ pivot_offset = Vector2(106, 63)
 size_flags_horizontal = 4
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1094588579]
+visible = false
 offset_left = -62.0
 offset_top = -190.0
 offset_right = 53.0

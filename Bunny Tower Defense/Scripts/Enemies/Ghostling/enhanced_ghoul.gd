@@ -11,7 +11,7 @@ func _physics_process(delta):
     pf.progress += speed * delta
 
     if $"..".progress_ratio >= 0.99:
-        get_tree().call_group("HP", "take_dmg", 30)
+        get_tree().call_group("HP", "take_dmg", 25)
 
         var spawner_no = get_tree().get_first_node_in_group("spawner")
         spawner_no.inimigo_morreu()
@@ -30,7 +30,7 @@ func DMGED(quantidade):
         $"../Goo_Splash".visible = false
         $HitBoxGhostling.set_deferred("disabled", true)
 
-        moedas.text = str(valor_atual + 1)
+        moedas.text = str(valor_atual + 7)
         
         
         speed = 0

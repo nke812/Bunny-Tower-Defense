@@ -13,9 +13,7 @@ var dmg_Mystical = 0
 var dmg_Rookie = 1
 
 # Usamos um Getter para garantir que o dano total está SEMPRE atualizado em tempo real
-var dmg_total: int:
-    get:
-        return dmg_Rookie + dmg_Mystical
+var dmg_total = dmg_Rookie + dmg_Mystical
 
 var focus = false
 
@@ -31,8 +29,6 @@ var BuffStatus2 = "Range: 1.0"
 
 
 func _process(delta: float) -> void: 
-
-    #print("Normal: ", dmg_Rookie, " Buff: ", dmg_Mystical, " Total: ", dmg_total)
 
     if focus == true:
         $ArrowDps.visible = true
@@ -50,7 +46,7 @@ func verificar_e_atacar():
     for corpo in corpos:
         if corpo.is_in_group("Ghostlings"):
             atacar(corpo)
-            break # Ataca apenas o primeiro fantasma detetado
+            break
 
 func atacar(alvo):
     if alvo.has_method("DMGED"):
@@ -70,7 +66,6 @@ func receber_buff_mystical(nivel_mystical):
         var dmg_buff = 0
         var scale_buff = Vector2(1.0, 1.0) 
     
-        # Mapeia os valores do buff dependendo do nível
         match nivel_mystical:
             0: 
                 dmg_buff = 1
@@ -88,8 +83,7 @@ func receber_buff_mystical(nivel_mystical):
                 dmg_buff = 5
                 scale_buff = Vector2(1.5, 1.5)
 
-    
-        # SÓ aceita o novo buff se ele for mais forte do que o que já temos aplicado!
+
         if dmg_buff > dmg_Mystical:
                 dmg_Mystical = dmg_buff
                 $Range/CollisionRange.scale = scale_buff
@@ -97,7 +91,9 @@ func receber_buff_mystical(nivel_mystical):
             dmg_Mystical = 0
             $Range/CollisionRange.scale = Vector2(1.0, 1.0)
     
+        dmg_total = dmg_Rookie + dmg_Mystical
         P1status = "Damage: " + str(dmg_total)
+        
     
         var hud = get_tree().get_first_node_in_group("HUD")
         if hud and focus:
@@ -238,7 +234,8 @@ func aplicar_upgrade(caminho):
                         $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
                         $Node2D/RookieHands_Attack.animation = "Rookie01"
             
-            atualizar_valorTorre()   
+            atualizar_valorTorre()
+            dmg_total = dmg_Rookie + dmg_Mystical
             P1status = "Damage: " + str(dmg_total)
             hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
                 

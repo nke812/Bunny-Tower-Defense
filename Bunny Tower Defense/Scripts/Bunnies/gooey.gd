@@ -138,7 +138,7 @@ func reset_focus():
 func mudar_skin():
     skin = !skin
     
-    $ChangeSkin.play("ChangeSkin")
+    $SkinChange.play("ChangeSkin")
     var path = $Gooey.texture.resource_path
     match path:
         "res://Assets/Bunnies/Gooey.png":

@@ -15,6 +15,7 @@ extends Node2D
 
 
 @onready var Leviathan = preload("res://Scenes/Enemies/Bosses/Leviathan.tscn")
+@onready var Azazel = preload("res://Scenes/Enemies/Bosses/Azazel.tscn")
 
 
 
@@ -57,7 +58,8 @@ func iniciar_vaga():
             $"../StarRound".play()
             #vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
             #vaga_atual = [Leviathan]
-            vaga_atual = [Ghazely]
+            vaga_atual = [Azazel]
+            #vaga_atual = [Ghazely]
         
         2: vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghazt, Ghazt, Ghostling, Ghostling, Ghazt, Ghazt]
         3: vaga_atual = [Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt]

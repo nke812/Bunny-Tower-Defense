@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var moedas_node = $HUD / PGB_M
+@onready var moedas_node = $HUD/PGB_M
 
 var font = load("res://FontText/Coiny-Regular.ttf")
 var font_size = 40
@@ -56,8 +56,6 @@ func _on_timer_timeout() -> void:
     
     $Lucky/AnimationPlayer.play("LuckyAction")
     
-    # --- Alteração do Pitch ---
-    # randf_range gera um número decimal aleatório entre dois valores
     $Money.pitch_scale = randf_range(0.9, 1.1) 
     $Money.play()
 
@@ -69,12 +67,24 @@ func label_money():
     label_M.text = "+" + str(valor_lucky) + "$"
 
 
-
     if $Lucky.texture.resource_path == "res://Assets/Bunnies/Lucky.png":
         label_M.modulate = Color(1.0, 0.902, 0.392, 1.0)
 
     elif $Lucky.texture.resource_path == "res://Assets/Bunnies/Skins/ZeRon.png":
         label_M.modulate = Color(0.957, 0.478, 0.965, 1.0)
+        
+    elif $Lucky.texture.resource_path == "res://Assets/Bunnies/Paths/Lucky01.png":
+        label_M.modulate = Color("143978ff")
+        
+    elif $Lucky.texture.resource_path == "res://Assets/Bunnies/Skins/Lucky02.png":
+        label_M.modulate = Color(0.51, 0.54, 0.0, 1.0)
+        
+    elif $Lucky.texture.resource_path == "res://Assets/Bunnies/Skins/Paths/ZeRon01.png":
+        label_M.modulate = Color(0.811, 0.556, 0.866, 1.0)
+        
+    elif $Lucky.texture.resource_path == "res://Assets/Bunnies/Skins/Paths/ZeRon02.png":
+        label_M.modulate = Color(0.849, 0.262, 0.36, 1.0)
+    
 
 
     label_M.add_theme_font_override("font", font)
@@ -110,7 +120,7 @@ func reset_focus():
 
 func mudar_skin():
     skin = !skin
-    $ChangeSkin.play("ChangeSkin")
+    $SkinChange.play("ChangeSkin")
     
     var path = $Lucky.texture.resource_path
     match path:
@@ -154,9 +164,7 @@ func _on_button_button_down() -> void:
             hud.get_node("HUD_Shop/BuffStatus/Buff4").text = str(BuffStatus2)
             hud.get_node("HUD_Shop/BuffStatus").visible = true
 
-        
 
-#LUCKY TA TODO AMERDADOOOO!!!!11
 func receber_buff_mystical(mystical):
     var hud = get_tree().get_first_node_in_group("HUD")
     var spawner = get_tree().get_first_node_in_group("spawner")
@@ -171,9 +179,8 @@ func receber_buff_mystical(mystical):
             3: bonus_base = 240
             4: bonus_base = 320
         
-        # 2. SINERGIA: Dá um extra baseado no maior nível de upgrade do Lucky (path1 ou path2)
         var maior_upgrade = max(path1, path2)
-        spawner.moedas_fim_ronda_bonus = bonus_base + (maior_upgrade * 30) # +30 moedas por cada upgrade do Lucky!
+        spawner.moedas_fim_ronda_bonus = bonus_base + (maior_upgrade * 30)
         
         BuffStatus2 = "ronda: " + str(spawner.moedas_fim_ronda_bonus)
     else:

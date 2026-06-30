@@ -18,6 +18,7 @@ func _process(_delta: float) -> void :
 
             if o_pai.progress_ratio >= 0.72 and o_pai.progress_ratio <= 0.805:
                 ghostling.modulate.a = 0.1
+                
 
                 ghostling.set_deferred("collision_layer", 0)
                 ghostling.set_deferred("collision_mask", 0)

@@ -1,14 +1,16 @@
 extends CharacterBody2D
 
-@export var speed = 200
+@export var speed = 230
 @export var vida = 7
-var speed_base = 200
+var speed_base = 230
 
 var goo_stun = false
+
 
 func _physics_process(delta):
     var pf = get_parent() as PathFollow2D
     pf.progress += speed * delta
+
 
     if $"..".progress_ratio >= 0.99:
         get_tree().call_group("HP", "take_dmg", 8)
@@ -20,18 +22,20 @@ func _physics_process(delta):
 func DMGED(quantidade):
     var moedas = get_tree().current_scene.find_child("Moedas")
     var valor_atual = int(moedas.text)
-    
-    vida -= quantidade
 
+    vida -= quantidade
+    $AnimationPlayer.play("Animations/ghostling_TakeDMG")
+
+    moedas.text = str(valor_atual + quantidade)
 
     if vida <= 0:
         $Death.play()
         $"../Goo_Splash".visible = false
         $HitBoxGhostling.set_deferred("disabled", true)
+        
+        var novo_total = int(moedas.text)
+        moedas.text = str(novo_total + 5)
 
-        moedas.text = str(valor_atual + 1)
-        
-        
         speed = 0
         $AnimationPlayer.play("Animations/ghostling_TakeDMG")
         $"../POP".play("default")
@@ -45,24 +49,7 @@ func DMGED(quantidade):
         spawner_no.inimigo_morreu()
 
         get_parent().queue_free()
-        
 
-func gooey_stun(TimeSlimed: float, cor_ataque: String):
-    if goo_stun: return 
-    
-    goo_stun = true
-    $"../Goo_Splash".visible = true
-    $"../Goo_Splash".play(cor_ataque)
-    
-    speed = speed / 3
-
-    await get_tree().create_timer(TimeSlimed).timeout
-    
-    if is_instance_valid(self):
-        $"../Goo_Splash".play_backwards(cor_ataque)
-        speed = speed_base
-        goo_stun = false    
-            
 func aplicar_knockback(distancia: float) -> void:
     var pai = get_parent()
     if pai is PathFollow2D:
@@ -72,8 +59,8 @@ func aplicar_knockback(distancia: float) -> void:
             progresso_alvo = 0
             
         var tween_A = create_tween()   
-        tween_A.tween_property($Ghostling, "modulate", Color(2.0, 2.0, 0.289, 1.0), 0.3)
-        tween_A.tween_property($Ghostling, "modulate", Color(1, 1, 1, 1), 0.4)
+        tween_A.tween_property($Ghoul, "modulate", Color(2.0, 2.0, 0.289, 1.0), 0.3)
+        tween_A.tween_property($Ghoul, "modulate", Color(1, 1, 1, 1), 0.4)
         speed = speed_base / 10
         
         var tween_recuo = create_tween()

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var speed = 450
-@export var vida = 25
-var speed_base = 450
+@export var speed = 250
+@export var vida = 45
+var speed_base = 250
 
 var goo_stun = false
 
@@ -30,7 +30,7 @@ func DMGED(quantidade):
         $"../Goo_Splash".visible = false
         $HitBoxGhostling.set_deferred("disabled", true)
 
-        moedas.text = str(valor_atual + 1)
+        moedas.text = str(valor_atual + 10)
         
         
         speed = 0

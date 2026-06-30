@@ -34,7 +34,7 @@ func DMGED(quantidade):
         $HitBoxGhostling.set_deferred("disabled", true)
         
         var novo_total = int(moedas.text)
-        moedas.text = str(novo_total + 1)
+        moedas.text = str(novo_total + 2)
 
         speed = 0
         $AnimationPlayer.play("Animations/ghostling_TakeDMG")
