@@ -56,9 +56,9 @@ func iniciar_vaga():
         
         1: 
             $"../StarRound".play()
-            #vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
+            vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
             #vaga_atual = [Leviathan]
-            vaga_atual = [Azazel]
+            #vaga_atual = [Azazel]
             #vaga_atual = [Ghazely]
         
         2: vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghazt, Ghazt, Ghostling, Ghostling, Ghazt, Ghazt]

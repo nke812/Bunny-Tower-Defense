@@ -664,7 +664,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 70
 max_value = 9999999.0
 step = 1.0
-value = 254262.0
+value = 165.0
 metadata/_edit_use_anchors_ = true
 
 [node name="EventSign" type="Sprite2D" parent="HUD" unique_id=1396536025]

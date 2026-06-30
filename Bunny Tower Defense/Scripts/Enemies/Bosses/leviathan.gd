@@ -37,7 +37,7 @@ func DMGED(quantidade):
         
         
         var novo_total = int(moedas.text)
-        moedas.text = str(novo_total + 250)
+        moedas.text = str(novo_total + 100)
         speed = 0
         $Dmg.play("dmg")
         $POP.play("default")
