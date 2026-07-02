@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed_base = 750
-@export var speed = 750
+@export var speed_base = 380
+@export var speed = 380
 @export var vida = 10
 
 var goo_stun = false
@@ -27,7 +27,7 @@ func DMGED(quantidade):
         
         var moedas = get_tree().current_scene.find_child("Moedas")
         var valor_atual = int(moedas.text)
-        moedas.text = str(valor_atual + 5)
+        moedas.text = str(valor_atual + 20)
 
         speed = 0
         $AnimationPlayer.play("Animations/ghostling_TakeDMG")

@@ -1,52 +1,48 @@
-[gd_scene format=3 uid="uid://d0lho3cedns0r"]
+[gd_scene format=3 uid="uid://br46ovayf4pf2"]
 
-[ext_resource type="Script" uid="uid://cgnhu40vgoq11" path="res://Scripts/Enemies/Bosses/azazel.gd" id="1_r1kj2"]
-[ext_resource type="AudioStream" uid="uid://dp508xdpg20uj" path="res://Assets/SFXs/GhostlingDies.wav" id="2_oi18t"]
-[ext_resource type="Texture2D" uid="uid://bnegu7l6fa2v4" path="res://Assets/Enemies/Bosses/Azazel.png" id="3_d7oo4"]
-[ext_resource type="Texture2D" uid="uid://cfd4e64q7fkpx" path="res://Assets/Enemies/Animations/BossSplashVFXSpriteSheet.png" id="4_fv1n4"]
-[ext_resource type="Texture2D" uid="uid://8upo31eleqj" path="res://Assets/Bunnies/Animations/Paths/GooSplash01VFXSpriteSheet.png" id="5_rp87g"]
-[ext_resource type="Texture2D" uid="uid://pbo82nncgqos" path="res://Assets/Bunnies/Animations/GooSplashVFXSpriteSheet.png" id="6_5hpw5"]
-[ext_resource type="Texture2D" uid="uid://d1y6xppvpk2ov" path="res://Assets/Bunnies/Animations/Paths/GooSplash02VFXSpriteSheet.png" id="7_c2ydj"]
-[ext_resource type="Texture2D" uid="uid://dy6xyvu8o3ear" path="res://Assets/Bunnies/Animations/Skins/VoidGooSplashVFXSpriteSheet.png" id="8_wxi20"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_38gty"]
-radius = 475.76706
-height = 2367.3726
+[ext_resource type="Script" uid="uid://dhaa5trxua1gp" path="res://Scripts/Enemies/Bosses/lucifer.gd" id="1_tqtgj"]
+[ext_resource type="AudioStream" uid="uid://dp508xdpg20uj" path="res://Assets/SFXs/GhostlingDies.wav" id="2_xip7b"]
+[ext_resource type="Texture2D" uid="uid://cga0q0h1p7kdr" path="res://Assets/Enemies/Bosses/Lucifer.png" id="3_l8sg2"]
+[ext_resource type="Texture2D" uid="uid://cfd4e64q7fkpx" path="res://Assets/Enemies/Animations/BossSplashVFXSpriteSheet.png" id="4_su1hc"]
+[ext_resource type="Texture2D" uid="uid://8upo31eleqj" path="res://Assets/Bunnies/Animations/Paths/GooSplash01VFXSpriteSheet.png" id="5_fflw5"]
+[ext_resource type="Texture2D" uid="uid://pbo82nncgqos" path="res://Assets/Bunnies/Animations/GooSplashVFXSpriteSheet.png" id="6_i4qo7"]
+[ext_resource type="Texture2D" uid="uid://d1y6xppvpk2ov" path="res://Assets/Bunnies/Animations/Paths/GooSplash02VFXSpriteSheet.png" id="7_g3t36"]
+[ext_resource type="Texture2D" uid="uid://dy6xyvu8o3ear" path="res://Assets/Bunnies/Animations/Skins/VoidGooSplashVFXSpriteSheet.png" id="8_s20y2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dvle"]
-atlas = ExtResource("4_fv1n4")
+atlas = ExtResource("4_su1hc")
 region = Rect2(0, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pnxci"]
-atlas = ExtResource("4_fv1n4")
+atlas = ExtResource("4_su1hc")
 region = Rect2(210, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yoo5f"]
-atlas = ExtResource("4_fv1n4")
+atlas = ExtResource("4_su1hc")
 region = Rect2(420, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2qtoa"]
-atlas = ExtResource("4_fv1n4")
+atlas = ExtResource("4_su1hc")
 region = Rect2(0, 247, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5iqw3"]
-atlas = ExtResource("4_fv1n4")
+atlas = ExtResource("4_su1hc")
 region = Rect2(210, 247, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5owo6"]
-atlas = ExtResource("4_fv1n4")
+atlas = ExtResource("4_su1hc")
 region = Rect2(420, 247, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dr4kn"]
-atlas = ExtResource("4_fv1n4")
+atlas = ExtResource("4_su1hc")
 region = Rect2(0, 494, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t6l8a"]
-atlas = ExtResource("4_fv1n4")
+atlas = ExtResource("4_su1hc")
 region = Rect2(210, 494, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8eqob"]
-atlas = ExtResource("4_fv1n4")
+atlas = ExtResource("4_su1hc")
 region = Rect2(420, 494, 210, 247)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w16gq"]
@@ -84,100 +80,203 @@ animations = [{
 "speed": 16.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_amx8r"]
+radius = 508.68332
+height = 2145.68
+
+[sub_resource type="Animation" id="Animation_waq2b"]
+resource_name = "Idle"
+length = 1.2333333
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lucifer/Lucifer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-27.291672, -481.77197), Vector2(-27.292, -235)]
+}
+
+[sub_resource type="Animation" id="Animation_02gee"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lucifer/Lucifer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-27.291672, -481.77197)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y3iwk"]
+_data = {
+&"Idle": SubResource("Animation_waq2b"),
+&"RESET": SubResource("Animation_02gee")
+}
+
+[sub_resource type="Animation" id="Animation_cp3ge"]
+resource_name = "Dmg"
+length = 0.13333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.066382505, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.83137256, 0, 0.14901961, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.066382505, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.4016192, 1.4016188), Vector2(1.402, 1.132), Vector2(1.4016192, 1.4016188)]
+}
+
+[sub_resource type="Animation" id="Animation_xdl2q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.4016192, 1.4016188)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4nu0s"]
+_data = {
+&"Dmg": SubResource("Animation_cp3ge"),
+&"RESET": SubResource("Animation_xdl2q")
+}
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_m8hi3"]
-atlas = ExtResource("5_rp87g")
+atlas = ExtResource("5_fflw5")
 region = Rect2(0, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wt1d1"]
-atlas = ExtResource("5_rp87g")
+atlas = ExtResource("5_fflw5")
 region = Rect2(210, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q16wj"]
-atlas = ExtResource("5_rp87g")
+atlas = ExtResource("5_fflw5")
 region = Rect2(420, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3akch"]
-atlas = ExtResource("5_rp87g")
+atlas = ExtResource("5_fflw5")
 region = Rect2(0, 247, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xjhbb"]
-atlas = ExtResource("5_rp87g")
+atlas = ExtResource("5_fflw5")
 region = Rect2(210, 247, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1x415"]
-atlas = ExtResource("5_rp87g")
+atlas = ExtResource("5_fflw5")
 region = Rect2(420, 247, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xlhr5"]
-atlas = ExtResource("6_5hpw5")
+atlas = ExtResource("6_i4qo7")
 region = Rect2(0, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_58dlj"]
-atlas = ExtResource("6_5hpw5")
+atlas = ExtResource("6_i4qo7")
 region = Rect2(210, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fi2nc"]
-atlas = ExtResource("6_5hpw5")
+atlas = ExtResource("6_i4qo7")
 region = Rect2(420, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s2lvb"]
-atlas = ExtResource("6_5hpw5")
+atlas = ExtResource("6_i4qo7")
 region = Rect2(0, 247, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0dci"]
-atlas = ExtResource("6_5hpw5")
+atlas = ExtResource("6_i4qo7")
 region = Rect2(210, 247, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ap7sq"]
-atlas = ExtResource("6_5hpw5")
+atlas = ExtResource("6_i4qo7")
 region = Rect2(420, 247, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wwi3n"]
-atlas = ExtResource("7_c2ydj")
+atlas = ExtResource("7_g3t36")
 region = Rect2(0, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mfqq4"]
-atlas = ExtResource("7_c2ydj")
+atlas = ExtResource("7_g3t36")
 region = Rect2(210, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dc0my"]
-atlas = ExtResource("7_c2ydj")
+atlas = ExtResource("7_g3t36")
 region = Rect2(420, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m5icr"]
-atlas = ExtResource("7_c2ydj")
+atlas = ExtResource("7_g3t36")
 region = Rect2(0, 247, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c5gho"]
-atlas = ExtResource("7_c2ydj")
+atlas = ExtResource("7_g3t36")
 region = Rect2(210, 247, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1wqas"]
-atlas = ExtResource("7_c2ydj")
+atlas = ExtResource("7_g3t36")
 region = Rect2(420, 247, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u51jh"]
-atlas = ExtResource("8_wxi20")
+atlas = ExtResource("8_s20y2")
 region = Rect2(0, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ovi4k"]
-atlas = ExtResource("8_wxi20")
+atlas = ExtResource("8_s20y2")
 region = Rect2(210, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e7xrc"]
-atlas = ExtResource("8_wxi20")
+atlas = ExtResource("8_s20y2")
 region = Rect2(420, 0, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2ekt"]
-atlas = ExtResource("8_wxi20")
+atlas = ExtResource("8_s20y2")
 region = Rect2(0, 247, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7f7ev"]
-atlas = ExtResource("8_wxi20")
+atlas = ExtResource("8_s20y2")
 region = Rect2(210, 247, 210, 247)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u7g7k"]
-atlas = ExtResource("8_wxi20")
+atlas = ExtResource("8_s20y2")
 region = Rect2(420, 247, 210, 247)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_arexb"]
@@ -305,138 +404,48 @@ corner_radius_bottom_left = 45
 shadow_color = Color(0, 0.7490196, 0, 1)
 shadow_size = 15
 
-[sub_resource type="Animation" id="Animation_ikf1f"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Azazel/Azazel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Azazel/Azazel:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.4016192, 1.4016188)]
-}
-
-[sub_resource type="Animation" id="Animation_lfabd"]
-resource_name = "dmg"
-length = 0.16666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Azazel/Azazel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0859145, 0.16666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.92941177, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Azazel/Azazel:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0859145, 0.16666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1.4016192, 1.4016188), Vector2(1.402, 1.217), Vector2(1.4016192, 1.4016188)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vmlfr"]
-_data = {
-&"RESET": SubResource("Animation_ikf1f"),
-&"dmg": SubResource("Animation_lfabd")
-}
-
-[sub_resource type="Animation" id="Animation_ppu2v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Azazel/Azazel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-27.291672, -481.77197)]
-}
-
-[sub_resource type="Animation" id="Animation_2esuf"]
-resource_name = "idle"
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Azazel/Azazel:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1.5157169, 0.5547848),
-"update": 0,
-"values": [Vector2(-27.291672, -481.77197), Vector2(-27.291672, -273.43872)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_taxva"]
-_data = {
-&"RESET": SubResource("Animation_ppu2v"),
-&"idle": SubResource("Animation_2esuf")
-}
-
 [node name="PathFollow2D" type="PathFollow2D" unique_id=1689450392]
 position = Vector2(2, 0)
 scale = Vector2(0.096, 0.096)
 rotates = false
 loop = false
 
-[node name="Azazel" type="CharacterBody2D" parent="." unique_id=1513647972 groups=["Bosses", "Ghostlings"]]
+[node name="Lucifer" type="CharacterBody2D" parent="." unique_id=1513647972 groups=["Bosses", "Ghostlings"]]
 position = Vector2(1, 0)
 scale = Vector2(0.8, 0.8)
-script = ExtResource("1_r1kj2")
+script = ExtResource("1_tqtgj")
 
-[node name="Death" type="AudioStreamPlayer" parent="Azazel" unique_id=11068065]
-stream = ExtResource("2_oi18t")
+[node name="Death" type="AudioStreamPlayer" parent="Lucifer" unique_id=11068065]
+stream = ExtResource("2_xip7b")
 volume_db = -12.355
 bus = &"SFX"
 
-[node name="Azazel" type="Sprite2D" parent="Azazel" unique_id=886288773]
+[node name="Lucifer" type="Sprite2D" parent="Lucifer" unique_id=886288773]
 position = Vector2(-27.291672, -481.77197)
 scale = Vector2(1.4016192, 1.4016188)
-texture = ExtResource("3_d7oo4")
+texture = ExtResource("3_l8sg2")
 
-[node name="HitBoxBoss" type="CollisionShape2D" parent="Azazel" unique_id=479302795]
-position = Vector2(-170.52083, -169.27083)
-rotation = 1.1885692
-scale = Vector2(1.25, 1.25)
-shape = SubResource("CapsuleShape2D_38gty")
-
-[node name="POP" type="AnimatedSprite2D" parent="Azazel" unique_id=1716665873]
-position = Vector2(-261.66666, -143.22917)
+[node name="POP" type="AnimatedSprite2D" parent="Lucifer" unique_id=1716665873]
+position = Vector2(76.875, -117.187485)
 scale = Vector2(11.223956, 11.223956)
 sprite_frames = SubResource("SpriteFrames_w16gq")
 frame = 8
 frame_progress = 1.0
+
+[node name="HitBoxBoss" type="CollisionShape2D" parent="Lucifer" unique_id=2133810198]
+position = Vector2(-92.39583, -234.375)
+rotation = -1.876229
+scale = Vector2(1.4016191, 1.4016192)
+shape = SubResource("CapsuleShape2D_amx8r")
+
+[node name="Idle" type="AnimationPlayer" parent="Lucifer" unique_id=1860643789]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_y3iwk")
+autoplay = &"Idle"
+
+[node name="Dmg" type="AnimationPlayer" parent="Lucifer" unique_id=1417498850]
+root_node = NodePath("../Lucifer")
+libraries/ = SubResource("AnimationLibrary_4nu0s")
 
 [node name="Goo_Splash" type="AnimatedSprite2D" parent="." unique_id=608810858]
 position = Vector2(-145.83331, -218.75)
@@ -452,14 +461,6 @@ offset_right = 822.9167
 offset_bottom = -1083.3334
 theme_override_styles/background = SubResource("StyleBoxFlat_agwtu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_02hma")
-max_value = 350.0
-value = 350.0
+max_value = 200.0
+value = 200.0
 show_percentage = false
-
-[node name="dmg" type="AnimationPlayer" parent="." unique_id=157867076]
-root_node = NodePath("../idle")
-libraries/ = SubResource("AnimationLibrary_vmlfr")
-
-[node name="idle" type="AnimationPlayer" parent="." unique_id=1386594476]
-libraries/ = SubResource("AnimationLibrary_taxva")
-autoplay = &"idle"

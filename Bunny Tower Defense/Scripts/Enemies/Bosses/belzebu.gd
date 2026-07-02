@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-@export var speed = 100
-@export var vida = 200
-var speed_base = 100
+@export var speed = 130
+@export var vida = 400
+var speed_base = 130
 
 
 var goo_stun = false
@@ -13,7 +13,7 @@ func _physics_process(delta):
     pf.progress += speed * delta
 
     if $"..".progress_ratio >= 0.99:
-        get_tree().call_group("HP", "take_dmg", 200)
+        get_tree().call_group("HP", "take_dmg", 430)
 
         var spawner_no = get_tree().get_first_node_in_group("spawner")
         spawner_no.inimigo_morreu()
@@ -24,11 +24,11 @@ func DMGED(quantidade):
 
     vida -= quantidade
     atualizar_barra()
-    $Dmg.play("dmg")
+    $Dmg.play("Dmg")
 
     
-    if vida <= 50 and $Leviathan.texture.resource_path == "res://Assets/Enemies/Bosses/Leviathan.png":
-        $Leviathan.texture = preload("res://Assets/Enemies/Bosses/LeviathanDamaged.png")
+    if vida <= 50 and $Belzebu.texture.resource_path == "res://Assets/Enemies/Bosses/Belzebu.png":
+        $Belzebu.texture = preload("res://Assets/Enemies/Bosses/BelzebuDamaged.png")
 
     if vida <= 0:
         $Death.play()
@@ -37,13 +37,13 @@ func DMGED(quantidade):
         
         
         var novo_total = int(moedas.text)
-        moedas.text = str(novo_total + 250)
+        moedas.text = str(novo_total + 550)
         speed = 0
-        $Dmg.play("dmg")
+        $"../dmg".play("dmg")
         $POP.play("default")
         
-        await $Dmg.animation_finished
-        $Leviathan.modulate = Color(0.957, 0.478, 0.965, 0.0)
+        await $"../dmg".animation_finished
+        $Belzebu.modulate = Color(0.957, 0.478, 0.965, 0.0)
         
         await $POP.animation_finished
 

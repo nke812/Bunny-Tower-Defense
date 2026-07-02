@@ -1,23 +1,21 @@
 extends Node2D
 
-
 @onready var Ghostling = preload("res://Scenes/Enemies/Ghostling/ghostling.tscn")
 @onready var Ghazt = preload("res://Scenes/Enemies/Ghostling/ghazt.tscn")
 @onready var Ghoul = preload("res://Scenes/Enemies/Ghostling/ghoul.tscn")
 @onready var Ghaztling = preload("res://Scenes/Enemies/Ghostling/ghaztling.tscn")
 @onready var Ghazely = preload("res://Scenes/Enemies/Ghostling/ghazely.tscn")
 
-
 @onready var Enhanced_Ghaztling = preload("res://Scenes/Enemies/Ghostling/enhanced_ghaztling.tscn")
 @onready var Enhanced_Ghoul = preload("res://Scenes/Enemies/Ghostling/enhanced_ghoul.tscn")
 @onready var Unholy_Phantasm = preload("res://Scenes/Enemies/Ghostling/unholy_phantasm.tscn")
 @onready var Brute = preload("res://Scenes/Enemies/Ghostling/brute.tscn")
 
-
 @onready var Leviathan = preload("res://Scenes/Enemies/Bosses/Leviathan.tscn")
 @onready var Azazel = preload("res://Scenes/Enemies/Bosses/Azazel.tscn")
-
-
+@onready var Belzebu = preload("res://Scenes/Enemies/Bosses/Belzebu.tscn")
+@onready var Fenrir = preload("res://Scenes/Enemies/Bosses/Fenrir.tscn")
+@onready var Lucifer = preload("res://Scenes/Enemies/Bosses/Lucifer.tscn")
 
 @onready var Undead_Ghostling = preload("res://Scenes/Enemies/Ghostling/undead_ghostling.tscn")
 
@@ -26,21 +24,17 @@ var inimigos_vivos = 0
 var vaga_atual = []
 var ronda_a_decorrer = false
 
-
 var moedas_fim_ronda = 115
 var moedas_fim_ronda_bonus = 0
 var moedas_fim_ronda_total = moedas_fim_ronda + moedas_fim_ronda_bonus
 
 var autoplay = false
 
-
+func _ready() -> void:
+    atualizar_contador_rondas()
 
 func _process(_delta):
-    
-    #print("Moedas: ", moedas_fim_ronda, " + ", moedas_fim_ronda_bonus, " = ", moedas_fim_ronda_total)
-    
     var botao_start = get_tree().get_first_node_in_group("start_button")
-
     if botao_start:
         if inimigos_vivos > 0 or not $Timer.is_stopped():
             botao_start.disabled = true
@@ -48,19 +42,12 @@ func _process(_delta):
             botao_start.disabled = false
 
 func iniciar_vaga():
+    var hud = get_tree().get_first_node_in_group("HUD")
     ronda_a_decorrer = true
-    
-
+     
     match rodada_atual:
         # --- FASE 1: O GRUPO BÁSICO (Rondas 1-10) ---
-        
-        1: 
-            $"../StarRound".play()
-            vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
-            #vaga_atual = [Leviathan]
-            #vaga_atual = [Azazel]
-            #vaga_atual = [Ghazely]
-        
+        1: vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
         2: vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghazt, Ghazt, Ghostling, Ghostling, Ghazt, Ghazt]
         3: vaga_atual = [Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt]
         4: vaga_atual = [Ghostling, Ghoul, Ghostling, Ghoul, Ghostling, Ghoul, Ghostling, Ghoul]
@@ -70,95 +57,266 @@ func iniciar_vaga():
         8: vaga_atual = [Ghaztling, Ghazt, Ghazt, Ghaztling, Ghazt, Ghazt, Ghaztling, Ghazt, Ghazt]
         9: vaga_atual = [Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghostling, Ghostling, Ghostling, Ghostling, Ghoul, Ghoul]
         10: vaga_atual = [Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling]
+    
+        # --- [11 a 20] ERUPÇÃO DE MINI-FANTASMAS (Ghaztlings Rápidos) ---
+        11: vaga_atual = [Ghostling, Ghazt, Ghostling, Ghazt, Ghoul]
+        12: vaga_atual = [Ghazt, Ghazt, Ghaztling, Ghaztling, Ghazt]
+        13: vaga_atual = [Ghoul, Ghoul, Ghostling, Ghostling, Ghaztling, Ghaztling]
+        14: vaga_atual = [Ghazt, Ghoul, Ghaztling, Ghaztling, Ghaztling, Ghaztling]
+        15: vaga_atual = [Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling]
+        16: vaga_atual = [Ghoul, Ghoul, Ghoul, Ghazt, Ghazt, Ghostling]
+        17: vaga_atual = [Ghostling, Ghaztling, Ghostling, Ghaztling, Ghoul, Ghoul]
+        18: vaga_atual = [Ghazt, Ghazt, Ghazt, Ghoul, Ghoul, Ghaztling, Ghaztling]
+        19: vaga_atual = [Ghaztling, Ghaztling, Ghoul, Ghoul, Ghoul, Ghoul]
+        20: vaga_atual = [Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul]
 
-        # --- FASE 2: HORDAS MISTAS E QUANTIDADE (Rondas 11-25) ---
-        11: vaga_atual = [Ghazt, Ghazt, Ghostling, Ghostling, Ghazt, Ghazt, Ghostling, Ghostling, Ghoul, Ghoul, Ghoul]
-        12: vaga_atual = [Ghaztling, Ghaztling, Ghaztling, Ghostling, Ghostling, Ghostling, Ghaztling, Ghaztling, Ghaztling, Ghostling, Ghostling]
-        13: vaga_atual = [Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul]
-        14: vaga_atual = [Ghazt, Ghaztling, Ghazt, Ghaztling, Ghazt, Ghaztling, Ghazt, Ghaztling, Ghazt, Ghaztling, Ghazt, Ghaztling]
-        15: vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
-        16: vaga_atual = [Ghoul, Ghoul, Ghaztling, Ghaztling, Ghoul, Ghoul, Ghaztling, Ghaztling, Ghoul, Ghoul, Ghaztling, Ghaztling]
-        17: vaga_atual = [Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt]
-        18: vaga_atual = [Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling]
-        19: vaga_atual = [Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghazt, Ghazt, Ghazt, Ghazt, Ghostling, Ghostling, Ghostling, Ghostling]
-        20: vaga_atual = [Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling]
-        21: vaga_atual = [Ghazt, Ghostling, Ghazt, Ghostling, Ghoul, Ghostling, Ghoul, Ghostling, Ghaztling, Ghostling, Ghaztling, Ghostling]
-        22: vaga_atual = [Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul]
-        23: vaga_atual = [Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
-        24: vaga_atual = [Ghoul, Ghoul, Ghoul, Ghazt, Ghazt, Ghazt, Ghostling, Ghostling, Ghostling, Ghaztling, Ghaztling, Ghaztling]
-        25: vaga_atual = [Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling]
+        # --- [21 a 30] TRANSIÇÃO PARA AVANÇADOS (Introdução de Ghazely - Imune a Stun) ---
+        21: vaga_atual = [Ghoul, Ghoul, Ghazely]
+        22: vaga_atual = [Ghazt, Ghazt, Ghazely, Ghostling, Ghostling]
+        23: vaga_atual = [Ghaztling, Ghaztling, Ghazely, Ghazely]
+        24: vaga_atual = [Ghoul, Ghoul, Ghoul, Ghazely, Ghazt]
+        25: vaga_atual = [Ghazely, Ghazely, Ghazely, Ghazely]
+        26: vaga_atual = [Ghazt, Ghazt, Ghoul, Ghoul, Ghazely, Ghaztling]
+        27: vaga_atual = [Ghaztling, Ghaztling, Ghaztling, Ghazely, Ghazely, Ghazely]
+        28: vaga_atual = [Ghoul, Ghoul, Ghazely, Ghazely, Ghoul, Ghoul]
+        29: vaga_atual = [Ghazt, Ghazely, Ghazely, Ghazely, Ghazt, Ghaztling]
+        30: vaga_atual = [Ghazely, Ghazely, Ghazely, Ghazely, Ghazely, Ghazely, Ghazely, Ghazely]
 
-        # --- FASE 3: INTRODUÇÃO LENTA DE ELITES (Rondas 26-37) ---
-        26: vaga_atual = [Enhanced_Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul] # Apenas 1 melhorado
-        27: vaga_atual = [Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Enhanced_Ghaztling]
-        28: vaga_atual = [Enhanced_Ghoul, Ghoul, Ghoul, Enhanced_Ghoul, Ghoul, Ghoul, Ghoul]
-        29: vaga_atual = [Unholy_Phantasm, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
-        30: vaga_atual = [Enhanced_Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Enhanced_Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling]
-        31: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul]
-        32: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling]
-        33: vaga_atual = [Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling]
-        34: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul]
-        35: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Ghostling, Ghostling, Ghostling, Ghostling]
-        36: vaga_atual = [Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling]
-        37: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul]
+        # --- [31 a 40] ENTRADA DE ALVOS PESADOS (Enhanced_Ghaztling e Enhanced_Ghoul) ---
+        31: vaga_atual = [Ghazely, Ghazely, Enhanced_Ghaztling]
+        32: vaga_atual = [Ghoul, Ghoul, Enhanced_Ghaztling, Enhanced_Ghaztling]
+        33: vaga_atual = [Ghaztling, Ghaztling, Enhanced_Ghaztling, Ghazely, Ghazely]
+        34: vaga_atual = [Enhanced_Ghoul, Ghoul, Ghoul, Ghoul]
+        35: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghaztling, Enhanced_Ghaztling]
+        36: vaga_atual = [Ghazely, Ghazely, Enhanced_Ghoul, Ghazely, Ghazely]
+        37: vaga_atual = [Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling]
+        38: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Ghoul, Ghoul]
+        39: vaga_atual = [Ghazely, Enhanced_Ghaztling, Enhanced_Ghoul, Ghazely]
+        40: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul]
 
-        # --- FASE 4: O APOCALIPSE DOS BRUTES (Rondas 38-50) ---
-        38: vaga_atual = [Brute, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Ghoul, Ghoul, Ghoul, Ghoul]
-        39: vaga_atual = [Brute, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling]
-        40: vaga_atual = [Brute, Brute, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm]
-        41: vaga_atual = [Brute, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul]
-        42: vaga_atual = [Brute, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling]
-        43: vaga_atual = [Brute, Brute, Brute, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul]
-        44: vaga_atual = [Brute, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm]
-        45: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul]
-        46: vaga_atual = [Brute, Brute, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm]
-        47: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute]
-        48: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Brute, Brute]
-        49: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling]
+        # --- [41 a 49] PRESSÃO PRÉ-BOSS ---
+        41: vaga_atual = [Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghoul, Enhanced_Ghoul]
+        42: vaga_atual = [Ghazely, Ghazely, Ghazely, Enhanced_Ghoul, Enhanced_Ghoul]
+        43: vaga_atual = [Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghoul, Enhanced_Ghoul]
+        44: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul]
+        45: 
+            vaga_atual = [Ghazely, Ghazely, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling]
+            
+            hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
+            await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
+            
+            hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
+            
+        46: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghaztling, Enhanced_Ghaztling]
+        47: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul]
+        48: vaga_atual = [Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling]
+        49: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling]
+
+        # --- [50] PRIMEIRO CHEFE ---
         50: vaga_atual = [Leviathan]
+
+        # --- [51 a 60] LEVIATHAN TORNA-SE COMUM + NASCIMENTO DOS BRUTES ---
+        51: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul]
+        52: vaga_atual = [Brute, Enhanced_Ghaztling, Enhanced_Ghaztling]
+        53: vaga_atual = [Brute, Enhanced_Ghoul, Enhanced_Ghoul]
+        54: vaga_atual = [Enhanced_Ghaztling, Enhanced_Ghaztling, Leviathan, Enhanced_Ghaztling, Enhanced_Ghaztling]
+        55: vaga_atual = [Brute, Brute]
+        56: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Brute, Enhanced_Ghoul]
+        57: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Brute, Brute, Brute]
+        58: vaga_atual = [Brute, Enhanced_Ghaztling, Enhanced_Ghaztling, Brute]
+        59: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Brute, Unholy_Phantasm]
+        60: vaga_atual = [Brute, Brute, Brute, Brute]
+
+        # --- [61 a 69] CAOS DE BRUTES ---
+        61: vaga_atual = [Brute, Brute, Leviathan]
+        62: vaga_atual = [Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Brute, Brute]
+        63: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Brute, Brute]
+        64: vaga_atual = [Leviathan, Brute, Leviathan]
+        65: 
+            vaga_atual = [Brute, Brute, Brute, Enhanced_Ghaztling, Enhanced_Ghaztling]
+            
+            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = preload("res://Assets/Enemies/Bosses/Azazel.png")
+            hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 70:"
+            
+            hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
+            await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
+            
+            hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
+            
+            
+        66: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Brute, Brute, Brute]
+        67: vaga_atual = [Leviathan, Leviathan, Brute]
+        68: vaga_atual = [Brute, Brute, Brute, Brute, Brute]
+        69: vaga_atual = [Brute, Brute, Leviathan, Leviathan, Enhanced_Ghoul]
+
+        # --- [70] SEGUNDO CHEFE ---
+        70: vaga_atual = [Azazel]
+
+        # --- [71 a 84] INJEÇÃO DE AZAZEL E LEVIATHAN NAS VAGAS ---
+        71: vaga_atual = [Brute, Brute, Azazel]
+        72: vaga_atual = [Leviathan, Leviathan, Azazel]
+        73: vaga_atual = [Brute, Brute, Brute, Leviathan, Leviathan]
+        74: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Azazel, Enhanced_Ghoul, Enhanced_Ghoul]
+        75: vaga_atual = [Brute, Brute, Brute, Brute, Azazel]
+        76: vaga_atual = [Leviathan, Azazel, Leviathan]
+        77: vaga_atual = [Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Azazel, Brute, Brute]
+        78: vaga_atual = [Azazel, Azazel]
+        79: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Leviathan]
+        80: 
+            vaga_atual = [Azazel, Brute, Brute, Leviathan, Enhanced_Ghoul]
+            
+            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = preload("res://Assets/Enemies/Bosses/Belzebu.png")
+            hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 85:"
+            
+            hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
+            await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
+            
+            hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
+            
+        81: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Brute, Brute]
+        82: vaga_atual = [Azazel, Leviathan, Azazel]
+        83: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute]
+        84: vaga_atual = [Azazel, Azazel, Brute, Brute]
+
+        # --- [85] TERCEIRO CHEFE ---
+        85: vaga_atual = [Belzebu]
+
+        # --- [86 a 99] INTRODUÇÃO DE UNHOLY PHANTASM (MUTAÇÕES RÁPIDAS) ---
+        86: vaga_atual = [Brute, Brute, Unholy_Phantasm]
+        87: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm]
+        88: vaga_atual = [Belzebu, Unholy_Phantasm]
+        89: vaga_atual = [Brute, Brute, Brute, Unholy_Phantasm, Unholy_Phantasm]
+        90: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm]
+        91: vaga_atual = [Azazel, Belzebu]
+        92: vaga_atual = [Unholy_Phantasm, Brute, Brute, Unholy_Phantasm]
+        93: vaga_atual = [Belzebu, Leviathan, Leviathan]
+        94: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Brute, Brute]
+        95: vaga_atual = [Belzebu, Belzebu]
+        96: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm]
+        97: vaga_atual = [Brute, Brute, Brute, Brute, Belzebu]
+        98: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Belzebu, Unholy_Phantasm, Unholy_Phantasm]
+        99: vaga_atual = [Belzebu, Azazel, Leviathan]
+
+        # --- [100 a 109] APOCALIPSE ANTES DO QUARTO BOSS ---
+        100: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute]
+        101: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Belzebu]
+        102: vaga_atual = [Belzebu, Belzebu, Brute, Brute]
+        103: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm]
+        104: vaga_atual = [Azazel, Azazel, Belzebu]
+        105: 
+            vaga_atual = [Brute, Brute, Brute, Brute, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm]
+            
+            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = preload("res://Assets/Enemies/Bosses/Fenrir.png")
+            hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 110:"
+            
+            hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
+            await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
+            
+            hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
+            
+        106: vaga_atual = [Belzebu, Belzebu, Belzebu]
+        107: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm]
+        108: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Belzebu, Belzebu]
+        109: vaga_atual = [Belzebu, Azazel, Belzebu, Azazel]
+
+        # --- [110] QUARTO CHEFE (Vem em matilha de 3!) ---
+        110: vaga_atual = [Fenrir, Fenrir, Fenrir]
+
+        # --- [111 a 125] MATILHAS DE FENRIRS MISTURADAS NAS RONDAS ---
+        111: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Fenrir, Fenrir, Fenrir]
+        112: vaga_atual = [Brute, Brute, Fenrir, Fenrir, Fenrir, Fenrir]
+        113: vaga_atual = [Belzebu, Fenrir, Fenrir, Fenrir]
+        114: vaga_atual = [Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+        115: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Fenrir, Fenrir, Fenrir]
+        116: vaga_atual = [Belzebu, Belzebu, Fenrir, Fenrir, Fenrir]
+        117: vaga_atual = [Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+        118: vaga_atual = [Brute, Brute, Brute, Brute, Fenrir, Fenrir, Fenrir]
+        119: vaga_atual = [Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+        120: vaga_atual = [Azazel, Azazel, Fenrir, Fenrir, Fenrir, Fenrir]
+        121: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+        122: vaga_atual = [Belzebu, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+        123: vaga_atual = [Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+        124: vaga_atual = [Brute, Brute, Brute, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+        125: vaga_atual = [Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+
+        # --- [126 a 139] ENTRADA DE COMBINAÇÕES TRIPLAS DE BOSSES ---
+        126: vaga_atual = [Leviathan, Azazel, Belzebu]
+        127: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Fenrir, Fenrir, Fenrir]
+        128: vaga_atual = [Belzebu, Belzebu, Fenrir, Fenrir, Fenrir, Fenrir]
+        129: vaga_atual = [Azazel, Belzebu, Fenrir, Fenrir, Fenrir]
+        130: vaga_atual = [Leviathan, Leviathan, Leviathan, Leviathan, Leviathan]
+        131: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm]
+        132: vaga_atual = [Azazel, Azazel, Azazel]
+        133: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute]
+        134: vaga_atual = [Belzebu, Belzebu, Belzebu, Belzebu]
+        135: vaga_atual = [Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+        136: vaga_atual = [Leviathan, Azazel, Belzebu, Fenrir, Fenrir, Fenrir]
+        137: vaga_atual = [Belzebu, Belzebu, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+        138: vaga_atual = [Azazel, Azazel, Belzebu, Belzebu, Fenrir, Fenrir, Fenrir]
+        139: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Belzebu, Belzebu, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+
+        # --- [140 a 149] RETA FINAL: O PURGATÓRIO ---
+        140: vaga_atual = [Belzebu, Belzebu, Belzebu, Belzebu, Belzebu]
+        141: vaga_atual = [Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+        142: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm]
+        143: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute]
+        144: vaga_atual = [Azazel, Azazel, Azazel, Azazel, Azazel]
+        145: 
+            vaga_atual = [Belzebu, Belzebu, Belzebu, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+            
+            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = preload("res://Assets/Enemies/Bosses/Lucifer.png")
+            hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 150:"
+            
+            hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
+            await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
+            
+            hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
+        146: vaga_atual = [Leviathan, Leviathan, Azazel, Azazel, Belzebu, Belzebu, Fenrir, Fenrir, Fenrir, Fenrir]
+        147: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Brute, Brute, Brute, Brute, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+        148: vaga_atual = [Belzebu, Belzebu, Belzebu, Belzebu, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+        149: vaga_atual = [Azazel, Azazel, Belzebu, Belzebu, Belzebu, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
+
+        # --- [150] O CHEFE FINAL DO JOGO ---
+        150: vaga_atual = [Lucifer]
 
     $Timer.start()
 
-
 func _on_timer_timeout():
     if vaga_atual.size() > 0:
-
         var cena_do_inimigo = vaga_atual.pop_front()
-
         var novo_fantasma = cena_do_inimigo.instantiate()
         get_node("../Path2D").add_child(novo_fantasma)
-
         inimigos_vivos += 1
     else:
         $Timer.stop()
 
-
-func inimigo_morreu():   
+func inimigo_morreu():
+    var hud = get_tree().get_first_node_in_group("HUD")
     inimigos_vivos -= 1
-
     if inimigos_vivos < 0:
         inimigos_vivos = 0
-
-    print("Inimigos no mapa: ", inimigos_vivos)
 
     if vaga_atual.size() == 0 and inimigos_vivos == 0 and ronda_a_decorrer:
         ronda_a_decorrer = false
         
-
+        if rodada_atual == 150 and hud.get_node("PGB_V").value >= 1:
+            hud.victory()
+            return
+        
         rodada_atual += 1
         atualizar_contador_rondas()
         
         if autoplay == true:
-
             iniciar_vaga()
 
         var moedas_no = get_tree().current_scene.find_child("Moedas")
         if moedas_no:
             moedas_no.text = str(int(moedas_no.text) + rodada_atual + moedas_fim_ronda_total)
 
-func atualizar_contador_rondas() -> void :
+func atualizar_contador_rondas() -> void:
     var contador_no = get_tree().get_first_node_in_group("Round_Counter")
-    contador_no.text = str(rodada_atual)
+    if contador_no:
+        contador_no.text = str(rodada_atual)
 
-func atualizar_moedas_buff() -> void :
+func atualizar_moedas_buff() -> void:
     moedas_fim_ronda_total = moedas_fim_ronda + moedas_fim_ronda_bonus

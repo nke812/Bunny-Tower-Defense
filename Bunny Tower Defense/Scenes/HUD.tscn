@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bi20o5s68f2f5" path="res://Assets/Others/UI_Assets/Music.png" id="10_w3j15"]
 [ext_resource type="Texture2D" uid="uid://da5dymvx25kdi" path="res://Assets/Others/UI_Assets/Heart01.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://bc32xeabxhvne" path="res://Assets/Others/UI_Assets/Audio.png" id="11_1fefx"]
+[ext_resource type="Texture2D" uid="uid://dxjcr53dpiljr" path="res://Assets/Enemies/Bosses/Leviathan.png" id="11_rkb15"]
 [ext_resource type="Texture2D" uid="uid://cl0nvonsbewnh" path="res://Assets/Others/UI_Assets/Heart02.png" id="12"]
 [ext_resource type="Script" uid="uid://bhib51smh7pvo" path="res://Scripts/HUD/hud_buff_status.gd" id="12_h7oxq"]
 [ext_resource type="Texture2D" uid="uid://bivibntbcpj1u" path="res://Assets/Others/UI_Assets/Carrot.png" id="13"]
@@ -71,10 +72,14 @@
 [ext_resource type="Texture2D" uid="uid://de6l8cm0gsl02" path="res://Assets/Others/UI_Assets/GameOverScreen.png" id="67_jh456"]
 [ext_resource type="Texture2D" uid="uid://b150v8hgm7xxj" path="res://Assets/Enemies/Ghostlings/Brute.png" id="68_ynwmi"]
 [ext_resource type="Texture2D" uid="uid://dnpfk6l1itbih" path="res://Assets/Enemies/Ghostlings/Ghaztling.png" id="69_dr5ga"]
+[ext_resource type="AudioStream" uid="uid://brjj841aeq5se" path="res://Assets/SFXs/Victory.wav" id="70_h7oxq"]
 [ext_resource type="AudioStream" uid="uid://b4vqgn5pnsxoo" path="res://Assets/SFXs/GameOver.wav" id="70_rkb15"]
 [ext_resource type="Texture2D" uid="uid://c05ej7ee6147" path="res://Assets/Enemies/Ghostlings/Enhanced Ghoul.png" id="70_rywlk"]
 [ext_resource type="Texture2D" uid="uid://bg6qjkuandfwb" path="res://Assets/Enemies/Ghostlings/Ghostling.png" id="71_rkb15"]
 [ext_resource type="Texture2D" uid="uid://drgcfy5rniced" path="res://Assets/Enemies/Ghostlings/Ghazt.png" id="72_h7oxq"]
+[ext_resource type="StyleBox" uid="uid://c780cu0wjs70y" path="res://Others/new_style_box_flat.tres" id="72_k3q0p"]
+[ext_resource type="StyleBox" uid="uid://dwu10cfsa422d" path="res://Others/new_style_box_flat2.tres" id="73_cgiap"]
+[ext_resource type="StyleBox" uid="uid://36cm41bhp6jn" path="res://Others/new_style_box_flat3.tres" id="74_ki85q"]
 
 [sub_resource type="Theme" id="Theme_c4wnb"]
 default_font = ExtResource("4")
@@ -234,6 +239,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HUD/HUD_Shop/EventSign:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1550.664, 364.9568)]
+}
 
 [sub_resource type="Animation" id="Animation_4hkqd"]
 resource_name = "Shop_Appear"
@@ -297,6 +314,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HUD/HUD_Shop/EventSign:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.20071103, 0.3),
+"transitions": PackedFloat32Array(1.3660405, 0.7845841, 1),
+"update": 0,
+"values": [Vector2(-1550.664, 364.9568), Vector2(-1550.6641, 105.41919), Vector2(-1550.664, 144.61)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dsgg8"]
@@ -366,6 +395,43 @@ tracks/2/keys = {
 _data = {
 &"BG_shop": SubResource("Animation_hpu6p"),
 &"RESET": SubResource("Animation_op2xg")
+}
+
+[sub_resource type="Animation" id="Animation_ki85q"]
+resource_name = "Placa"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.36666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.4486969, -0.09948376736367659, 0.17627825]
+}
+
+[sub_resource type="Animation" id="Animation_fk8ef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.4294983187761066]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_63sul"]
+_data = {
+&"Placa": SubResource("Animation_ki85q"),
+&"RESET": SubResource("Animation_fk8ef")
 }
 
 [sub_resource type="Animation" id="Animation_k3q0p"]
@@ -470,7 +536,7 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ornx7"]
 content_margin_left = 324.0
 
-[sub_resource type="Animation" id="Animation_yrvoj"]
+[sub_resource type="Animation" id="Animation_ke15f"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -485,7 +551,7 @@ tracks/0/keys = {
 "values": [Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_w3j15"]
+[sub_resource type="Animation" id="Animation_311ux"]
 resource_name = "click"
 length = 0.13333334
 tracks/0/type = "value"
@@ -503,11 +569,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1fefx"]
 _data = {
-&"RESET": SubResource("Animation_yrvoj"),
-&"click": SubResource("Animation_w3j15")
+&"RESET": SubResource("Animation_ke15f"),
+&"click": SubResource("Animation_311ux")
 }
 
-[sub_resource type="Animation" id="Animation_s6gkq"]
+[sub_resource type="Animation" id="Animation_o66vf"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -522,7 +588,7 @@ tracks/0/keys = {
 "values": [Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_ewiw0"]
+[sub_resource type="Animation" id="Animation_fipmv"]
 resource_name = "click"
 length = 0.13333334
 tracks/0/type = "value"
@@ -540,15 +606,75 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0a480"]
 _data = {
-&"RESET": SubResource("Animation_s6gkq"),
-&"click": SubResource("Animation_ewiw0")
+&"RESET": SubResource("Animation_o66vf"),
+&"click": SubResource("Animation_fipmv")
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_q5dlx"]
 
-[sub_resource type="Animation" id="Animation_ynwmi"]
-resource_name = "go_appear"
+[sub_resource type="Animation" id="Animation_5r81r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuSettings:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_5ygir"]
+resource_name = "Victory"
 length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuSettings:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.39, 0.39)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pimpp"]
+_data = {
+&"RESET": SubResource("Animation_5r81r"),
+&"Victory": SubResource("Animation_5ygir")
+}
+
+[sub_resource type="Animation" id="Animation_63sul"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -556,10 +682,10 @@ tracks/0/path = NodePath("MenuSettings:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.26666668),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(0.4556439, 0.4521819)]
+"values": [Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -571,11 +697,40 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ynwmi"]
+resource_name = "go_appear"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
 "values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuSettings:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.17902349),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(0.39, 0.39)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dr5ga"]
 _data = {
+&"RESET": SubResource("Animation_63sul"),
 &"go_appear": SubResource("Animation_ynwmi")
 }
 
@@ -666,12 +821,6 @@ max_value = 9999999.0
 step = 1.0
 value = 165.0
 metadata/_edit_use_anchors_ = true
-
-[node name="EventSign" type="Sprite2D" parent="HUD" unique_id=1396536025]
-visible = false
-position = Vector2(220.35931, 955.68866)
-scale = Vector2(0.4844466, 0.4844466)
-texture = ExtResource("15")
 
 [node name="Limits" type="Area2D" parent="HUD" unique_id=1224677807 groups=["no_place"]]
 position = Vector2(52.999992, 59.000004)
@@ -810,9 +959,41 @@ libraries/ = SubResource("AnimationLibrary_7mj2a")
 autoplay = &"BG_shop"
 speed_scale = 0.155
 
+[node name="EventSign" type="Sprite2D" parent="HUD/HUD_Shop" unique_id=1396536025]
+position = Vector2(-1550.664, 364.9568)
+rotation = 2.4294984
+scale = Vector2(0.38554043, 0.3845584)
+skew = -0.009783268
+texture = ExtResource("15")
+offset = Vector2(-42.575317, -246.34229)
+
+[node name="Label" type="Label" parent="HUD/HUD_Shop/EventSign" unique_id=1670058315]
+offset_left = -305.08447
+offset_top = -317.7701
+offset_right = 54.915527
+offset_bottom = -211.85251
+rotation = -0.2443461
+theme_override_colors/font_color = Color(0.34509805, 0.2627451, 0.08235294, 1)
+theme_override_colors/font_shadow_color = Color(0.12027856, 0.0841201, 0.013171076, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 60
+text = "Ronda 50:"
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/HUD_Shop/EventSign" unique_id=1856453435]
+position = Vector2(145.12148, -342.71924)
+rotation = -0.08726646
+scale = Vector2(0.0864978, 0.086497776)
+texture = ExtResource("11_rkb15")
+
+[node name="Placa" type="AnimationPlayer" parent="HUD/HUD_Shop/EventSign" unique_id=2018084519]
+libraries/ = SubResource("AnimationLibrary_63sul")
+movie_quit_on_finish = true
+
 [node name="HudShopFrame" type="Sprite2D" parent="HUD/HUD_Shop" unique_id=470288902]
 position = Vector2(-1262.853, 471.273)
-scale = Vector2(0.43589035, 0.38)
+scale = Vector2(0.43589032, 0.37999997)
 texture = ExtResource("18")
 
 [node name="HudBgDown" type="Sprite2D" parent="HUD/HUD_Shop" unique_id=1695463993]
@@ -1124,14 +1305,14 @@ scale = Vector2(0.5964735, 0.5970855)
 texture = ExtResource("20")
 
 [node name="Round" type="Label" parent="HUD/UI_Selection" unique_id=795597463]
-offset_left = 1570.0002
+offset_left = 1573.0002
 offset_top = 60.000015
-offset_right = 1871.0002
-offset_bottom = 117.485054
+offset_right = 1874.0002
+offset_bottom = 121.000015
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.627451)
 theme_override_constants/shadow_offset_x = 4
 theme_override_fonts/font = ExtResource("4")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 67
 text = "RONDA:"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -1152,14 +1333,14 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="n_Round" type="Label" parent="HUD/UI_Selection" unique_id=2129903025 groups=["Round_Counter"]]
-offset_left = 1882.0001
+offset_left = 1850.0001
 offset_top = 62.000008
-offset_right = 2005.3527
-offset_bottom = 119.48505
+offset_right = 1973.3527
+offset_bottom = 123.00001
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.627451)
 theme_override_constants/shadow_offset_x = 4
 theme_override_fonts/font = ExtResource("4")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 67
 text = "1"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -1203,6 +1384,7 @@ offset_top = -5.0
 offset_right = 7.671982
 offset_bottom = -4.224518
 pivot_offset = Vector2(119.298, 166.567)
+focus_mode = 0
 texture_normal = ExtResource("24")
 texture_disabled = ExtResource("25")
 ignore_texture_size = true
@@ -1237,6 +1419,7 @@ offset_left = -9.0
 offset_top = -10.249191
 offset_right = 189.0
 offset_bottom = 246.23656
+focus_mode = 0
 texture_normal = ExtResource("27")
 texture_disabled = ExtResource("28")
 ignore_texture_size = true
@@ -1313,6 +1496,7 @@ offset_left = 4.0
 offset_top = 1.1138611
 offset_right = 194.0
 offset_bottom = 247.23654
+focus_mode = 0
 texture_normal = ExtResource("32")
 texture_disabled = ExtResource("33")
 ignore_texture_size = true
@@ -1389,6 +1573,7 @@ offset_left = -5.0
 offset_top = -5.839981
 offset_right = 195.0
 offset_bottom = 253.23656
+focus_mode = 0
 texture_normal = ExtResource("35")
 texture_disabled = ExtResource("36")
 ignore_texture_size = true
@@ -1423,6 +1608,7 @@ offset_left = 2.0
 offset_top = 0.113861084
 offset_right = 192.0
 offset_bottom = 246.23656
+focus_mode = 0
 texture_normal = ExtResource("37")
 texture_disabled = ExtResource("38")
 ignore_texture_size = true
@@ -1492,6 +1678,7 @@ offset_left = -4.0
 offset_top = 4.0
 offset_right = 183.0
 offset_bottom = 246.23656
+focus_mode = 0
 texture_normal = ExtResource("42")
 texture_disabled = ExtResource("43")
 ignore_texture_size = true
@@ -1748,6 +1935,7 @@ text = "Fullscreen"
 script = ExtResource("8")
 
 [node name="Button" type="Button" parent="HUD/UI_Selection/Options" unique_id=1543474290]
+visible = false
 layout_mode = 0
 offset_left = 921.00006
 offset_top = 17.000002
@@ -1756,6 +1944,7 @@ offset_bottom = 84.0
 text = "+50$ "
 
 [node name="Button2" type="Button" parent="HUD/UI_Selection/Options" unique_id=186975066]
+visible = false
 layout_mode = 0
 offset_left = 761.00006
 offset_top = 18.000002
@@ -1776,8 +1965,95 @@ texture_disabled = ExtResource("55_jjmk5")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="GameOverSFX" type="AudioStreamPlayer" parent="HUD/UI_Selection" unique_id=1352006093]
-stream = ExtResource("70_rkb15")
+[node name="Victory" type="Panel" parent="HUD/UI_Selection" unique_id=645426843]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 52.0
+offset_top = 57.00001
+offset_right = 1976.9999
+offset_bottom = 1143.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VictoryAppear" type="AnimationPlayer" parent="HUD/UI_Selection/Victory" unique_id=81642443]
+libraries/ = SubResource("AnimationLibrary_pimpp")
+
+[node name="MenuSettings" type="Sprite2D" parent="HUD/UI_Selection/Victory" unique_id=493482756]
+modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
+position = Vector2(969.0001, 496.00006)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_yrvoj")
+
+[node name="Exit" type="Button" parent="HUD/UI_Selection/Victory/MenuSettings" unique_id=31817429]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1614.0393
+offset_top = -678.08875
+offset_right = -743.41986
+offset_bottom = -403.8628
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.59832734, 0.36597556, 0.7490196)
+theme_override_colors/font_pressed_color = Color(0.97512275, 0.4593264, 3.85046e-06, 0.7490196)
+theme_override_colors/font_hover_color = Color(1, 0.82651573, 0.73310596, 0.7490196)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9")
+theme_override_font_sizes/font_size = 66
+theme_override_styles/normal = ExtResource("72_k3q0p")
+theme_override_styles/pressed = ExtResource("73_cgiap")
+theme_override_styles/hover = ExtResource("74_ki85q")
+text = "Voltar ao Menu"
+
+[node name="Label" type="Label" parent="HUD/UI_Selection/Victory/MenuSettings" unique_id=1901669782]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -2.845049
+offset_top = -657.187
+offset_right = -1471.845
+offset_bottom = -537.7659
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7019608)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.4392157)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 107
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ornx7")
+text = "VITÓRIA!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="HUD/UI_Selection/Victory/MenuSettings/Label" unique_id=1628716608]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -768.14087
+offset_top = 412.5199
+offset_right = -72.14093
+offset_bottom = 661.5199
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7019608)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.4392157)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 107
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ornx7")
+text = "Obrigado por jogar a
+ demonstração de 
+Bunny Tower Defense!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VictorySFX" type="AudioStreamPlayer" parent="HUD/UI_Selection" unique_id=1913920607]
+stream = ExtResource("70_h7oxq")
 volume_db = -5.0
 bus = &"SFX"
 
@@ -1846,8 +2122,11 @@ offset_bottom = -792.59753
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("9")
-theme_override_font_sizes/font_size = 46
-text = "RETRY"
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = ExtResource("72_k3q0p")
+theme_override_styles/pressed = ExtResource("73_cgiap")
+theme_override_styles/hover = ExtResource("74_ki85q")
+text = "Tentar de novo"
 
 [node name="BackMenu" type="Button" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=1345564730]
 anchors_preset = 8
@@ -1855,15 +2134,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1427.8242
-offset_top = -770.4825
-offset_right = -620.39557
-offset_bottom = -516.1601
+offset_left = -1467.5898
+offset_top = -698.20496
+offset_right = -596.5485
+offset_bottom = -423.84595
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("9")
-theme_override_font_sizes/font_size = 46
-text = "QUIT"
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = ExtResource("72_k3q0p")
+theme_override_styles/pressed = ExtResource("73_cgiap")
+theme_override_styles/hover = ExtResource("74_ki85q")
+text = "Voltar ao Menu"
 
 [node name="Label" type="Label" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=1319169810]
 anchors_preset = 10
@@ -1885,6 +2167,11 @@ vertical_alignment = 1
 
 [node name="GameOver_Appear" type="AnimationPlayer" parent="HUD/UI_Selection/GameOver" unique_id=318900475]
 libraries/ = SubResource("AnimationLibrary_dr5ga")
+
+[node name="GameOverSFX" type="AudioStreamPlayer" parent="HUD/UI_Selection" unique_id=1352006093]
+stream = ExtResource("70_rkb15")
+volume_db = -5.0
+bus = &"SFX"
 
 [connection signal="pressed" from="HUD/Pause" to="HUD" method="_on_button_pressed"]
 [connection signal="theme_changed" from="HUD/Moedas" to="HUD/UI_Selection/Bunnies" method="_on_moedas_theme_changed"]
@@ -1923,6 +2210,7 @@ libraries/ = SubResource("AnimationLibrary_dr5ga")
 [connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Rookie_BG_dps/Rookie" to="HUD/UI_Selection/Bunnies" method="_on_rookie_button_down"]
 [connection signal="mouse_entered" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Rookie_BG_dps/Rookie" to="HUD/HUD_Shop" method="_on_rookie_mouse_entered"]
 [connection signal="mouse_exited" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Rookie_BG_dps/Rookie" to="HUD/HUD_Shop" method="_on_rookie_mouse_exited"]
+[connection signal="pressed" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Rookie_BG_dps/Rookie" to="HUD" method="_on_rookie_pressed"]
 [connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Slasher_BG_dps/Slasher" to="HUD/UI_Selection/Bunnies" method="_on_slasher_button_down"]
 [connection signal="mouse_entered" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Slasher_BG_dps/Slasher" to="HUD/HUD_Shop" method="_on_slasher_mouse_entered"]
 [connection signal="mouse_exited" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Slasher_BG_dps/Slasher" to="HUD/HUD_Shop" method="_on_slasher_mouse_exited"]
@@ -1969,5 +2257,6 @@ libraries/ = SubResource("AnimationLibrary_dr5ga")
 [connection signal="pressed" from="HUD/UI_Selection/Options/Button" to="HUD" method="MAIS_50kk"]
 [connection signal="pressed" from="HUD/UI_Selection/Options/Button2" to="HUD" method="_on_button_2_pressed"]
 [connection signal="pressed" from="HUD/UI_Selection/Options/Restart" to="HUD" method="_on_restart_pressed"]
+[connection signal="pressed" from="HUD/UI_Selection/Victory/MenuSettings/Exit" to="HUD" method="_on_back_menu_pressed"]
 [connection signal="pressed" from="HUD/UI_Selection/GameOver/MenuSettings/Restart" to="HUD" method="_on_restart_pressed"]
 [connection signal="pressed" from="HUD/UI_Selection/GameOver/MenuSettings/BackMenu" to="HUD" method="_on_back_menu_pressed"]

@@ -156,20 +156,10 @@ func atualizar_loja_botoes() -> void:
 
 
 func _on_rookie_button_down() -> void :
-# Dentro das funções de clique do botão (ex: _on_rookie_button_down)
     if temp_tower == null and moedas_atuais >= 115:
         temp_tower = rookie_scene.instantiate()
         custo_da_torre_atual = 115
-    
-    # DESATIVAR colisões temporariamente para não quebrar os buffers das torres vivas
-    if temp_tower.has_node("HitBox"):
-        temp_tower.get_node("HitBox").monitoring = false
-        temp_tower.get_node("HitBox").monitorable = false
-    if temp_tower.has_node("Range"):
-        temp_tower.get_node("Range").monitoring = false
-        temp_tower.get_node("Range").monitorable = false
-        
-    configurar_torre_temp()
+        configurar_torre_temp()
 
 func _on_slasher_button_down() -> void :
     if temp_tower == null and moedas_atuais >= 250:

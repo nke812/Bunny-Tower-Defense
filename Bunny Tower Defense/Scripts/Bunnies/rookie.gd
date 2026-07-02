@@ -12,7 +12,6 @@ var pronto_para_atacar = false
 var dmg_Mystical = 0
 var dmg_Rookie = 1
 
-# Usamos um Getter para garantir que o dano total está SEMPRE atualizado em tempo real
 var dmg_total = dmg_Rookie + dmg_Mystical
 
 var focus = false

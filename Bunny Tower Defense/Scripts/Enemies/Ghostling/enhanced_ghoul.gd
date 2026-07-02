@@ -30,7 +30,7 @@ func DMGED(quantidade):
         $"../Goo_Splash".visible = false
         $HitBoxGhostling.set_deferred("disabled", true)
 
-        moedas.text = str(valor_atual + 7)
+        moedas.text = str(valor_atual + 30)
         
         
         speed = 0

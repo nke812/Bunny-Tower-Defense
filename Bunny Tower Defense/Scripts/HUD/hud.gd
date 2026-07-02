@@ -17,30 +17,28 @@ var GameOver : bool = false
 
 func _process(_delta: float) -> void:
     var moedas_atuais_nova = int(moedas_label.text)
-    # O DINHEIRO MUDOU?
     if moedas_atuais_nova != moedas_atuais:
         moedas_atuais = moedas_atuais_nova
         
-        # 2. Se houver um coelho selecionado, atualiza também os botões de upgrade!
         if torre_em_foco != null:
             atualizar_visual_upgrades()
-
-
+            
+    $HUD_Shop/BG_Shop_Anim_loop.speed_scale = 0.155 / Engine.time_scale
+    $HUD_Shop/Shop_Appear.speed_scale = 1 / Engine.time_scale
+    $HUD_Shop/HudBgDown/Control/BTNsell/Anim_Sell.speed_scale = 1 / Engine.time_scale
+    $HUD_Shop/EventSign/Placa.speed_scale = 1 / Engine.time_scale
+    
 func take_dmg(dmg):
-    # SE O JOGO JÁ ACABOU, IGNORA QUALQUER DANO EXTRA!
     if GameOver:
         return
 
     $PGB_V.value -= dmg
     
-    # Mudámos para <= 0 para o caso de a vida descer abaixo de zero num golpe forte
     if $PGB_V.value <= 0:
-        GameOver = true # Bloqueia o take_dmg para sempre
+        GameOver = true
         $UI_Selection/GameOverSFX.play()
-        # Força o valor visível a ficar a zero e não negativo
         $PGB_V.value = 0 
         
-        # Dispara a tua animação (corre apenas UMA vez)
         $UI_Selection/GameOver/GameOver_Appear.play("go_appear")
         
         Engine.time_scale = 1.0
@@ -49,13 +47,10 @@ func take_dmg(dmg):
         for coelho in get_tree().get_nodes_in_group("Bunnies"):
             if coelho.has_node("Timer"):
                 coelho.get_node("Timer").stop()
-            
-            # SEGURANÇA EXTRA: Desativa o script ou a lógica do coelho 
-            # para garantir que ele não tenta ligar o timer outra vez
+
             coelho.set_process(false)
             coelho.set_physics_process(false)
             
-            # Se a tua área de detecção tiver um nome específico (ex: Area2D), desliga-a:
             if coelho.has_node("Area2D"):
                 coelho.get_node("Area2D").monitoring = false
 
@@ -78,7 +73,7 @@ func _on_options_pressed():
 
 func _on_back_menu_pressed():
     get_tree().paused = false
-    get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+    get_tree().change_scene_to_file("res://Scenes/loading_Menu.tscn")
 
 
 
@@ -109,11 +104,10 @@ func _on_exit_settings_button_down() -> void:
     
 func abrir_menu_upgrade(torre_clicada):
     torre_em_foco = torre_clicada
-    atualizar_visual_upgrades() # Atualiza as cenouras assim que abre
+    atualizar_visual_upgrades()
 
 func _on_path_1_pressed() -> void:
     if torre_em_foco != null:
-        # O 'if' aqui serve para confirmar: "A torre conseguiu tirar o dinheiro?"
         if torre_em_foco.aplicar_upgrade(1):
             $HUD_Shop/HudBgDown/UpgradeSound.play()
             atualizar_visual_upgrades()
@@ -137,8 +131,6 @@ func _on_sell_pressed() -> void:
     _on_exit_settings_button_down()
     $HUD_Shop/HudBgDown/Control/SellSound.play()
     
-
-# Esta é a função "mágica" que vai gerir os teus ícones
 func atualizar_visual_upgrades():
     if torre_em_foco == null: return
     
@@ -363,9 +355,7 @@ func mostrar1():
         var proximo_custo = torre_em_foco.preços_p1[torre_em_foco.path1]
         label_preco.text = str(proximo_custo) + " 🥕"
         
-        # Ativa o Fade In suave
         fade_label_preco(label_preco, 1.0)
-#            Invalid access to property or key 'path1' on a base object of type 'previously freed'.
 
 
 
@@ -378,7 +368,6 @@ func mostrar2():
         var proximo_custo = torre_em_foco.preços_p2[torre_em_foco.path2]
         label_preco.text = str(proximo_custo) + " 🥕"
         
-        # Ativa o Fade In suave
         fade_label_preco(label_preco, 1.0)
 
 func tirar_preco() -> void:
@@ -471,20 +460,7 @@ func _on_auto_play_pressed() -> void:
     var script_spawner = get_tree().get_first_node_in_group("spawner")
     
     if script_spawner:
-        # Inverte o valor: se era true vira false, se era false vira true
         script_spawner.autoplay = !script_spawner.autoplay
-        print("Autoplay atualizado: ", script_spawner.autoplay)
-
-
-
-
-
-
-
-
-
-
-
 
 
 func _on_button_2_pressed() -> void:
@@ -507,3 +483,14 @@ func _on_bt_nsell_mouse_entered() -> void:
 func _on_bt_nsell_mouse_exited() -> void:
     $HUD_Shop/HudBgDown/Control/BTNsell/Anim_Sell.play_backwards("new_animation")
     await $HUD_Shop/HudBgDown/Control/BTNsell/Anim_Sell.animation_finished
+
+func victory():
+    $UI_Selection/VictorySFX.play()
+    $UI_Selection/Victory/VictoryAppear.play("Victory")
+        
+    Engine.time_scale = 1.0
+    $Pause.visible = false
+
+
+func _on_exit_pressed() -> void:
+    pass # Replace with function body.

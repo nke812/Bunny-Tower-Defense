@@ -359,6 +359,7 @@ offset_left = -63.0
 offset_top = -93.0
 offset_right = 63.0
 offset_bottom = 77.0
+focus_mode = 0
 flat = true
 
 [node name="AURA" type="AnimatedSprite2D" parent="." unique_id=1001402597]

@@ -33,7 +33,7 @@ func DMGED(quantidade):
             $Death.play()
             $"../Goo_Splash".visible = false
             $HitBoxGhostling.disabled = true
-            moedas.text = str(valor_atual + 9)
+            moedas.text = str(valor_atual + 20)
 
 
             speed = 0
