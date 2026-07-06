@@ -34,10 +34,10 @@ func DMGED(quantidade):
         var novo_total = int(moedas.text)
         moedas.text = str(novo_total + 255)
         speed = 0
-        $"../Dmg".play("dmg")
+        $"Dmg".play("Dmg")
         $POP.play("default")
         
-        await $"../dmg".animation_finished
+        await $"Dmg".animation_finished
         $Fenrir.modulate = Color(0.957, 0.478, 0.965, 0.0)
         
         await $POP.animation_finished

@@ -213,16 +213,16 @@ func aplicar_upgrade(caminho):
             path1 += 1
             match path1:
                 1: 
-                    dmg_Rookie = 2
+                    dmg_Rookie = 4
                     valor_torre += 140
                 2: 
-                    dmg_Rookie = 3
+                    dmg_Rookie = 6
                     valor_torre += 425
                 3: 
-                    dmg_Rookie = 5
+                    dmg_Rookie = 10
                     valor_torre += 2400
                 4: 
-                    dmg_Rookie = 8
+                    dmg_Rookie = 15
                     valor_torre += 5500
                     auraMAISego()
                     

@@ -39,10 +39,10 @@ func DMGED(quantidade):
         var novo_total = int(moedas.text)
         moedas.text = str(novo_total + 550)
         speed = 0
-        $"../dmg".play("dmg")
+        $"Dmg".play("Dmg")
         $POP.play("default")
         
-        await $"../dmg".animation_finished
+        await $"Dmg".animation_finished
         $Belzebu.modulate = Color(0.957, 0.478, 0.965, 0.0)
         
         await $POP.animation_finished

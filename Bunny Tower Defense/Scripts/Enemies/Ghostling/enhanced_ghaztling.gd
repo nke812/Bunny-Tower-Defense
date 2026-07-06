@@ -19,6 +19,7 @@ func _physics_process(delta):
 
 func DMGED(quantidade):
     vida -= quantidade
+    $AnimationPlayer.play("Animations/ghostling_TakeDMG")
 
     if vida <= 0:
         $Death.play()

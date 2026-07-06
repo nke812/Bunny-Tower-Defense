@@ -117,7 +117,7 @@ func atacar(alvo):
         $Node2D/SlasherAttack.play()
         
         
-        contagem_ult += 3
+        contagem_ult += 5
         verificar_ult()
      
             

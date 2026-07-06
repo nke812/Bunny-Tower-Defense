@@ -19,8 +19,8 @@ var focus = false
 
 var path1 = 0
 var path2 = 0
-var preços_p1 = [1200, 3000, 7000, 10000]
-var preços_p2 = [1200, 3000, 7000, 10000]
+var preços_p1 = [500, 1300, 2000, 4550]
+var preços_p2 = [500, 1300, 2000, 4550]
 
 var P1status = "Damage: " + str(dmg_Anarchist)
 var P2status = "Reload Speed: 3s"
@@ -233,21 +233,21 @@ func aplicar_upgrade(caminho):
                 1: 
                     dmg_Anarchist = 4
                     pente_de_balas += 2
-                    valor_torre += 1200
+                    valor_torre += 500
                 2: 
                     dmg_Anarchist = 7
                     pente_de_balas += 2
-                    valor_torre += 3000
+                    valor_torre += 1300
                     
                 3: 
-                    dmg_Anarchist = 10
+                    dmg_Anarchist = 12
                     pente_de_balas += 2
-                    valor_torre += 7000
+                    valor_torre += 2000
                     
                 4: 
-                    dmg_Anarchist = 14
+                    dmg_Anarchist = 17
                     pente_de_balas += 5
-                    valor_torre += 10000
+                    valor_torre += 4550
                 
                     auraMAISego()
                     $Node2D/Anarchist.texture = preload("res://Assets/Bunnies/Animations/Paths/Anarchist01AttackIdle.png")
@@ -260,23 +260,23 @@ func aplicar_upgrade(caminho):
             path2 += 1
             match path2:
                 1: 
-                    $Reload.wait_time = 0.8
+                    $Reload.wait_time = 2.5
                     pente_de_balas += 2
-                    valor_torre += 1200
+                    valor_torre += 500
                     
                 2: 
-                    $Reload.wait_time = 0.6
+                    $Reload.wait_time = 2.1
                     pente_de_balas += 2
-                    valor_torre += 3000
+                    valor_torre += 1300
                     
                 3: 
-                    $Reload.wait_time = 0.4
+                    $Reload.wait_time = 1.7
                     pente_de_balas += 2
-                    valor_torre += 7000
+                    valor_torre += 2000
                 4: 
-                    $Reload.wait_time = 0.2
+                    $Reload.wait_time = 1.0
                     pente_de_balas += 5
-                    valor_torre += 10000
+                    valor_torre += 4550
                     
                     auraMAISego()
                     $Node2D/Anarchist.texture = preload("res://Assets/Bunnies/Animations/Paths/Anarchist02AttackIdle.png")
