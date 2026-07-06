@@ -75,7 +75,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.4016192, 1.4016188)]
+"values": [Vector2(2.804, 2.804)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -103,7 +103,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.06666667, 0.13333334),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1.4016192, 1.4016188), Vector2(1.402, 1.312), Vector2(1.4016192, 1.4016188)]
+"values": [Vector2(2.804, 2.804), Vector2(2.804, 2.624), Vector2(2.804, 2.804)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -434,7 +434,7 @@ bus = &"SFX"
 
 [node name="Leviathan" type="Sprite2D" parent="Leviathan" unique_id=886288773]
 position = Vector2(-27.291672, -481.77197)
-scale = Vector2(1.4016192, 1.4016188)
+scale = Vector2(2.804, 2.804)
 texture = ExtResource("3_qelmg")
 
 [node name="HitBoxBoss" type="CollisionShape2D" parent="Leviathan" unique_id=1543695989]

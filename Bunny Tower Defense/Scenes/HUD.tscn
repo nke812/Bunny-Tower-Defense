@@ -811,10 +811,10 @@ text = "100"
 script = ExtResource("14")
 
 [node name="PGB_M" type="ProgressBar" parent="HUD" unique_id=1840660125]
-offset_left = 301.9403
-offset_top = -505.00006
-offset_right = 519.90466
-offset_bottom = -396.018
+offset_left = 302.00003
+offset_top = -505.0
+offset_right = 519.96436
+offset_bottom = -396.01794
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 70
 max_value = 9999999.0

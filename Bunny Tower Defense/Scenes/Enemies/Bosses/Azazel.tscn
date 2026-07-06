@@ -329,7 +329,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.4016192, 1.4016188)]
+"values": [Vector2(2.804, 2.804)]
 }
 
 [sub_resource type="Animation" id="Animation_lfabd"]
@@ -357,7 +357,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.0859145, 0.16666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1.4016192, 1.4016188), Vector2(1.402, 1.217), Vector2(1.4016192, 1.4016188)]
+"values": [Vector2(2.804, 2.804), Vector2(2.804, 2.434), Vector2(2.804, 2.804)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vmlfr"]
@@ -422,7 +422,7 @@ bus = &"SFX"
 
 [node name="Azazel" type="Sprite2D" parent="Azazel" unique_id=886288773]
 position = Vector2(-27.291672, -481.77197)
-scale = Vector2(1.4016192, 1.4016188)
+scale = Vector2(2.804, 2.804)
 texture = ExtResource("3_d7oo4")
 
 [node name="HitBoxBoss" type="CollisionShape2D" parent="Azazel" unique_id=479302795]
