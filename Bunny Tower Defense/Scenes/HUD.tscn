@@ -410,7 +410,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.23333333, 0.36666667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [2.4486969, -0.09948376736367659, 0.17627825]
+"values": [2.4486969, -0.0994837673636766, 0.17627825]
 }
 
 [sub_resource type="Animation" id="Animation_fk8ef"]
@@ -819,7 +819,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 70
 max_value = 9999999.0
 step = 1.0
-value = 165.0
+value = 9999999.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Limits" type="Area2D" parent="HUD" unique_id=1224677807 groups=["no_place"]]
@@ -1115,7 +1115,7 @@ stretch_mode = 0
 
 [node name="BunnySel" type="Sprite2D" parent="HUD/HUD_Shop/HudBgDown" unique_id=2059092966]
 position = Vector2(-323.06763, -96.06152)
-scale = Vector2(0.09667676, 0.09131366)
+scale = Vector2(0.194, 0.182)
 
 [node name="TextureButton" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=521091660]
 offset_left = -411.04413
@@ -1935,7 +1935,6 @@ text = "Fullscreen"
 script = ExtResource("8")
 
 [node name="Button" type="Button" parent="HUD/UI_Selection/Options" unique_id=1543474290]
-visible = false
 layout_mode = 0
 offset_left = 921.00006
 offset_top = 17.000002
@@ -1944,7 +1943,6 @@ offset_bottom = 84.0
 text = "+50$ "
 
 [node name="Button2" type="Button" parent="HUD/UI_Selection/Options" unique_id=186975066]
-visible = false
 layout_mode = 0
 offset_left = 761.00006
 offset_top = 18.000002

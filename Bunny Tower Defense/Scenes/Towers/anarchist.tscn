@@ -852,8 +852,8 @@ position = Vector2(0, 76.61)
 scale = Vector2(0.11124286, 0.10587178)
 
 [node name="Anarchist" type="Sprite2D" parent="Node2D" unique_id=799830229]
-position = Vector2(8.989342, -15.207111)
-scale = Vector2(1.0438507, 1.0103233)
+position = Vector2(0, 938.777)
+scale = Vector2(2.088, 2.02)
 texture = ExtResource("5_3yj7i")
 offset = Vector2(29.614, -958.683)
 

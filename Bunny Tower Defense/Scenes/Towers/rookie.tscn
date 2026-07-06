@@ -816,8 +816,8 @@ scale = Vector2(0.32291666, 0.32291666)
 
 [node name="Rookie" type="Sprite2D" parent="Node2D" unique_id=799830229]
 y_sort_enabled = true
-position = Vector2(3.6916416e-07, -213.67741)
-scale = Vector2(0.34449404, 0.32786098)
+position = Vector2(32.58, -122.837)
+scale = Vector2(0.688, 0.656)
 texture = ExtResource("3_a4dix")
 offset = Vector2(-81.46554, -260.57336)
 
