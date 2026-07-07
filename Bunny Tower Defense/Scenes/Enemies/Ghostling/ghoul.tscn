@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cuh6bt4t0j161" path="res://Scripts/Enemies/Ghostling/ghoul.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://caacynj4xfd51" path="res://Assets/Enemies/Ghostlings/Ghoul.png" id="2"]
-[ext_resource type="AudioStream" uid="uid://detqv5jo3t4by" path="res://Assets/SFXs/GhostlingDies.wav" id="2_hitl8"]
-[ext_resource type="AnimationLibrary" uid="uid://2l7nm16gxs37" path="res://Animations.res" id="3"]
+[ext_resource type="AudioStream" uid="uid://dp508xdpg20uj" path="res://Assets/SFXs/GhostlingDies.wav" id="2_hitl8"]
+[ext_resource type="AnimationLibrary" uid="uid://2l7nm16gxs37" path="res://Others/Animations.res" id="3"]
 [ext_resource type="Texture2D" uid="uid://dy1up7pkfgkw" path="res://Assets/Enemies/Animations/GhostSplashVFXSpriteSheet.png" id="5_38qrq"]
 [ext_resource type="Texture2D" uid="uid://8upo31eleqj" path="res://Assets/Bunnies/Animations/Paths/GooSplash01VFXSpriteSheet.png" id="6_rky76"]
 [ext_resource type="Texture2D" uid="uid://pbo82nncgqos" path="res://Assets/Bunnies/Animations/GooSplashVFXSpriteSheet.png" id="7_oplvy"]
@@ -83,7 +83,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0e3yp")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 24.0
 }]
@@ -208,7 +208,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1x415")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Blue_Goo",
 "speed": 16.0
 }, {
@@ -234,7 +234,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ap7sq")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Green_Goo",
 "speed": 24.0
 }, {
@@ -260,7 +260,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1wqas")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Purple_Goo",
 "speed": 16.0
 }, {
@@ -286,7 +286,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u7g7k")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Void_Goo",
 "speed": 16.0
 }]
@@ -305,9 +305,13 @@ stream = ExtResource("2_hitl8")
 volume_db = -12.355
 bus = &"SFX"
 
-[node name="Ghoul" type="Sprite2D" parent="Ghoul" unique_id=1107085541]
-position = Vector2(2.5000002, 1.250001)
-scale = Vector2(0.096, 0.096)
+[node name="scaling node" type="Node2D" parent="Ghoul" unique_id=327356147]
+position = Vector2(-1.2499999, 0)
+scale = Vector2(2.5, 2.5)
+
+[node name="Ghoul" type="Sprite2D" parent="Ghoul/scaling node" unique_id=1107085541]
+position = Vector2(3.0000002, 1.0000008)
+scale = Vector2(0.0768, 0.0768)
 texture = ExtResource("2")
 
 [node name="HitBoxGhostling" type="CollisionShape2D" parent="Ghoul" unique_id=1645084352]
@@ -316,7 +320,7 @@ scale = Vector2(1.2499999, 1.2499999)
 shape = SubResource("CapsuleShape2D_xrukc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ghoul" unique_id=205048655]
-root_node = NodePath("../Ghoul")
+root_node = NodePath("../scaling node/Ghoul")
 libraries/Animations = ExtResource("3")
 
 [node name="POP" type="AnimatedSprite2D" parent="." unique_id=2109170812]

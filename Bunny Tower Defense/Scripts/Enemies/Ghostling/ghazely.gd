@@ -41,8 +41,8 @@ func DMGED(quantidade):
         $"../POP".play("default")
         
         await $AnimationPlayer.animation_finished
-        $Ghazely.modulate = Color(0.957, 0.478, 0.965, 0.0)
-        
+        $"scaling node/Ghazely".modulate = Color(0.957, 0.478, 0.965, 0.0)
+       
         await $"../POP".animation_finished
 
         var spawner_no = get_tree().get_first_node_in_group("spawner")

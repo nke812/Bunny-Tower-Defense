@@ -305,9 +305,13 @@ stream = ExtResource("2_buxqf")
 volume_db = -12.355
 bus = &"SFX"
 
-[node name="Ghazely" type="Sprite2D" parent="Ghazely" unique_id=886288773]
-position = Vector2(2.5, 1.250001)
-scale = Vector2(0.096, 0.096)
+[node name="scaling node" type="Node2D" parent="Ghazely" unique_id=1046879901]
+position = Vector2(-1.2499999, 0)
+scale = Vector2(2.5, 2.5)
+
+[node name="Ghazely" type="Sprite2D" parent="Ghazely/scaling node" unique_id=886288773]
+position = Vector2(3, 1.0000008)
+scale = Vector2(0.0768, 0.0768)
 texture = ExtResource("3_v3c2l")
 
 [node name="HitBoxGhostling" type="CollisionShape2D" parent="Ghazely" unique_id=225533921]
@@ -316,7 +320,7 @@ scale = Vector2(1.2499999, 1.2499999)
 shape = SubResource("CapsuleShape2D_g77sf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ghazely" unique_id=944319890]
-root_node = NodePath("../Ghazely")
+root_node = NodePath("../scaling node/Ghazely")
 libraries/Animations = ExtResource("4_jio7c")
 
 [node name="POP" type="AnimatedSprite2D" parent="." unique_id=1086440092]

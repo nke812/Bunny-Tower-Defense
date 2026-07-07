@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bbywayjaqfn8y" path="res://Scripts/Enemies/Ghostling/undead_ghostling.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://b6gyw8ikn2rrb" path="res://Assets/Enemies/Ghostlings/Undead Ghostling.png" id="2"]
-[ext_resource type="AudioStream" uid="uid://detqv5jo3t4by" path="res://Assets/SFXs/GhostlingDies.wav" id="2_co8ua"]
-[ext_resource type="AnimationLibrary" uid="uid://2l7nm16gxs37" path="res://Animations.res" id="3"]
+[ext_resource type="AudioStream" uid="uid://dp508xdpg20uj" path="res://Assets/SFXs/GhostlingDies.wav" id="2_co8ua"]
+[ext_resource type="AnimationLibrary" uid="uid://2l7nm16gxs37" path="res://Others/Animations.res" id="3"]
 [ext_resource type="Texture2D" uid="uid://cl0a3fmxoac1i" path="res://Assets/Enemies/Animations/UndeadGhostSplashVFXSpriteSheet.png" id="5_f2meb"]
 [ext_resource type="Texture2D" uid="uid://pbo82nncgqos" path="res://Assets/Bunnies/Animations/GooSplashVFXSpriteSheet.png" id="7_8spsk"]
 [ext_resource type="Texture2D" uid="uid://d1y6xppvpk2ov" path="res://Assets/Bunnies/Animations/Paths/GooSplash02VFXSpriteSheet.png" id="8_s860w"]
@@ -81,7 +81,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 24.0
 }]
@@ -206,7 +206,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1x415")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Blue_Goo",
 "speed": 16.0
 }, {
@@ -232,7 +232,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ap7sq")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Green_Goo",
 "speed": 24.0
 }, {
@@ -258,7 +258,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1wqas")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Purple_Goo",
 "speed": 16.0
 }, {
@@ -284,7 +284,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u7g7k")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Void_Goo",
 "speed": 16.0
 }]
@@ -304,8 +304,13 @@ stream = ExtResource("2_co8ua")
 volume_db = -12.355
 bus = &"SFX"
 
-[node name="UndeadGhostling" type="Sprite2D" parent="UndeadGhostling" unique_id=1910617082]
-position = Vector2(0, 1.2501221)
+[node name="scaling node" type="Node2D" parent="UndeadGhostling" unique_id=1891481954]
+position = Vector2(-1.25, 0)
+scale = Vector2(2.5, 2.5)
+
+[node name="UndeadGhostling" type="Sprite2D" parent="UndeadGhostling/scaling node" unique_id=1910617082]
+position = Vector2(1, 1.0000978)
+scale = Vector2(0.8000001, 0.8000001)
 texture = ExtResource("2")
 
 [node name="HitBoxUndeadGhostling" type="CollisionShape2D" parent="UndeadGhostling" unique_id=1706406217]

@@ -27,8 +27,8 @@ func DMGED(quantidade):
     $"Dmg".play("Dmg")
 
     
-    if vida <= 50 and $Lucifer.texture.resource_path == "res://Assets/Enemies/Bosses/Lucifer.png":
-        $Lucifer.texture = preload("res://Assets/Enemies/Bosses/LuciferDamaged.png")
+    if vida <= 50 and $"Scale node ou assim/Lucifer".texture.resource_path == "res://Assets/Enemies/Bosses/Lucifer.png":
+        $"Scale node ou assim/Lucifer".texture = preload("res://Assets/Enemies/Bosses/LuciferDamaged.png")
 
     if vida <= 0:
         $Death.play()
@@ -43,7 +43,7 @@ func DMGED(quantidade):
         $POP.play("default")
         
         await $"Dmg".animation_finished
-        $Lucifer.modulate = Color(0.957, 0.478, 0.965, 0.0)
+        $"Scale node ou assim/Lucifer".modulate = Color(0.957, 0.478, 0.965, 0.0)
         
         await $POP.animation_finished
 

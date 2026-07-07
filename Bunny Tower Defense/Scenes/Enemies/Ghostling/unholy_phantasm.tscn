@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dscg1f63c73ou"]
 
 [ext_resource type="Script" uid="uid://da22ty8rnf2tb" path="res://Scripts/Enemies/Ghostling/unholy_phantasm.gd" id="1_c42um"]
-[ext_resource type="AudioStream" uid="uid://detqv5jo3t4by" path="res://Assets/SFXs/GhostlingDies.wav" id="2_2imqy"]
+[ext_resource type="AudioStream" uid="uid://dp508xdpg20uj" path="res://Assets/SFXs/GhostlingDies.wav" id="2_2imqy"]
 [ext_resource type="Texture2D" uid="uid://peicj2f1iw8b" path="res://Assets/Enemies/Ghostlings/Unholy Phantasm.png" id="3_weyi2"]
-[ext_resource type="AnimationLibrary" uid="uid://2l7nm16gxs37" path="res://Animations.res" id="4_64sus"]
+[ext_resource type="AnimationLibrary" uid="uid://2l7nm16gxs37" path="res://Others/Animations.res" id="4_64sus"]
 [ext_resource type="Texture2D" uid="uid://dy1up7pkfgkw" path="res://Assets/Enemies/Animations/GhostSplashVFXSpriteSheet.png" id="5_s332u"]
 [ext_resource type="Texture2D" uid="uid://8upo31eleqj" path="res://Assets/Bunnies/Animations/Paths/GooSplash01VFXSpriteSheet.png" id="6_doabh"]
 [ext_resource type="Texture2D" uid="uid://pbo82nncgqos" path="res://Assets/Bunnies/Animations/GooSplashVFXSpriteSheet.png" id="7_2q3sr"]
@@ -83,7 +83,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0e3yp")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 24.0
 }]
@@ -208,7 +208,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1x415")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Blue_Goo",
 "speed": 16.0
 }, {
@@ -234,7 +234,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ap7sq")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Green_Goo",
 "speed": 16.0
 }, {
@@ -260,7 +260,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1wqas")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Purple_Goo",
 "speed": 16.0
 }, {
@@ -286,7 +286,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u7g7k")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Void_Goo",
 "speed": 16.0
 }]
@@ -305,9 +305,13 @@ stream = ExtResource("2_2imqy")
 volume_db = -12.355
 bus = &"SFX"
 
-[node name="Unholy Phantasm" type="Sprite2D" parent="Unholy Phantasm" unique_id=886288773]
-position = Vector2(2.5000002, 1.250001)
-scale = Vector2(0.096, 0.096)
+[node name="scaling node" type="Node2D" parent="Unholy Phantasm" unique_id=1895099663]
+position = Vector2(-1.2499999, 0)
+scale = Vector2(2.5, 2.5)
+
+[node name="Unholy Phantasm" type="Sprite2D" parent="Unholy Phantasm/scaling node" unique_id=886288773]
+position = Vector2(3.0000002, 1.0000008)
+scale = Vector2(0.0768, 0.0768)
 texture = ExtResource("3_weyi2")
 
 [node name="HitBoxGhostling" type="CollisionShape2D" parent="Unholy Phantasm" unique_id=678368648]
@@ -316,7 +320,7 @@ scale = Vector2(1.2499999, 1.2499999)
 shape = SubResource("CapsuleShape2D_igdet")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Unholy Phantasm" unique_id=944319890]
-root_node = NodePath("../Unholy Phantasm")
+root_node = NodePath("../scaling node/Unholy Phantasm")
 libraries/Animations = ExtResource("4_64sus")
 
 [node name="POP" type="AnimatedSprite2D" parent="." unique_id=1086440092]

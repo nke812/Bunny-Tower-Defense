@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cp6m3adk1t0et"]
 
 [ext_resource type="Script" uid="uid://dwbgh800q35x4" path="res://Scripts/Enemies/Ghostling/enhanced_ghoul.gd" id="1_ordhr"]
-[ext_resource type="AudioStream" uid="uid://detqv5jo3t4by" path="res://Assets/SFXs/GhostlingDies.wav" id="2_hqtvj"]
+[ext_resource type="AudioStream" uid="uid://dp508xdpg20uj" path="res://Assets/SFXs/GhostlingDies.wav" id="2_hqtvj"]
 [ext_resource type="Texture2D" uid="uid://c05ej7ee6147" path="res://Assets/Enemies/Ghostlings/Enhanced Ghoul.png" id="3_mv86f"]
-[ext_resource type="AnimationLibrary" uid="uid://2l7nm16gxs37" path="res://Animations.res" id="4_iy3ck"]
+[ext_resource type="AnimationLibrary" uid="uid://2l7nm16gxs37" path="res://Others/Animations.res" id="4_iy3ck"]
 [ext_resource type="Texture2D" uid="uid://dy1up7pkfgkw" path="res://Assets/Enemies/Animations/GhostSplashVFXSpriteSheet.png" id="5_n710w"]
 [ext_resource type="Texture2D" uid="uid://8upo31eleqj" path="res://Assets/Bunnies/Animations/Paths/GooSplash01VFXSpriteSheet.png" id="6_yi8bd"]
 [ext_resource type="Texture2D" uid="uid://pbo82nncgqos" path="res://Assets/Bunnies/Animations/GooSplashVFXSpriteSheet.png" id="7_nmn3m"]
@@ -82,7 +82,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0e3yp")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 24.0
 }]
@@ -207,7 +207,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1x415")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Blue_Goo",
 "speed": 16.0
 }, {
@@ -233,7 +233,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ap7sq")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Green_Goo",
 "speed": 16.0
 }, {
@@ -259,7 +259,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1wqas")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Purple_Goo",
 "speed": 16.0
 }, {
@@ -285,7 +285,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u7g7k")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Void_Goo",
 "speed": 16.0
 }]
@@ -304,9 +304,13 @@ stream = ExtResource("2_hqtvj")
 volume_db = -12.355
 bus = &"SFX"
 
-[node name="Enhanced Ghoul" type="Sprite2D" parent="Enhanced Ghoul" unique_id=886288773]
-position = Vector2(2.5000002, 1.250001)
-scale = Vector2(0.096, 0.096)
+[node name="scaling node" type="Node2D" parent="Enhanced Ghoul" unique_id=1484561523]
+position = Vector2(-1.2499999, 0)
+scale = Vector2(2.5, 2.5)
+
+[node name="Enhanced Ghoul" type="Sprite2D" parent="Enhanced Ghoul/scaling node" unique_id=886288773]
+position = Vector2(3.0000002, 1.0000008)
+scale = Vector2(0.0768, 0.0768)
 texture = ExtResource("3_mv86f")
 
 [node name="HitBoxGhostling" type="CollisionShape2D" parent="Enhanced Ghoul" unique_id=678368648]
@@ -315,7 +319,7 @@ scale = Vector2(1.2499999, 1.2499999)
 shape = SubResource("CircleShape2D_3fy8i")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Enhanced Ghoul" unique_id=944319890]
-root_node = NodePath("../Enhanced Ghoul")
+root_node = NodePath("../scaling node/Enhanced Ghoul")
 libraries/Animations = ExtResource("4_iy3ck")
 
 [node name="POP" type="AnimatedSprite2D" parent="." unique_id=1086440092]

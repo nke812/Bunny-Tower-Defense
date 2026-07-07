@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drgcfy5rniced"
-path="res://.godot/imported/Ghazt.png-f2122fd07f098618d6ff889364da7fa7.ctex"
+uid="uid://cvr0q0eu6lhei"
+path="res://.godot/imported/f1.png-8dd367e6acc9510095c7b6d78ab8b966.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/Ghostlings/Ghazt.png"
-dest_files=["res://.godot/imported/Ghazt.png-f2122fd07f098618d6ff889364da7fa7.ctex"]
+source_file="res://Assets/Others/Others/searching for something new are you/f1.png"
+dest_files=["res://.godot/imported/f1.png-8dd367e6acc9510095c7b6d78ab8b966.ctex"]
 
 [params]
 
@@ -36,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=1024
+process/size_limit=0
 detect_3d/compress_to=1

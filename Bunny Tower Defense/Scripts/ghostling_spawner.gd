@@ -19,7 +19,7 @@ extends Node2D
 
 @onready var Undead_Ghostling = preload("res://Scenes/Enemies/Ghostling/undead_ghostling.tscn")
 
-var rodada_atual = 150
+var rodada_atual = 1
 var inimigos_vivos = 0
 var vaga_atual = []
 var ronda_a_decorrer = false

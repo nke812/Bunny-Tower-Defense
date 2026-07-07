@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://7ko1scy7m52u" path="res://Scripts/Enemies/Ghostling/ghazt.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://drgcfy5rniced" path="res://Assets/Enemies/Ghostlings/Ghazt.png" id="2"]
-[ext_resource type="AnimationLibrary" uid="uid://2l7nm16gxs37" path="res://Animations.res" id="3"]
-[ext_resource type="AudioStream" uid="uid://detqv5jo3t4by" path="res://Assets/SFXs/GhostlingDies.wav" id="3_6j4ly"]
+[ext_resource type="AnimationLibrary" uid="uid://2l7nm16gxs37" path="res://Others/Animations.res" id="3"]
+[ext_resource type="AudioStream" uid="uid://dp508xdpg20uj" path="res://Assets/SFXs/GhostlingDies.wav" id="3_6j4ly"]
 [ext_resource type="Texture2D" uid="uid://dy1up7pkfgkw" path="res://Assets/Enemies/Animations/GhostSplashVFXSpriteSheet.png" id="5_hdr0b"]
 [ext_resource type="Texture2D" uid="uid://8upo31eleqj" path="res://Assets/Bunnies/Animations/Paths/GooSplash01VFXSpriteSheet.png" id="6_xfc3b"]
 [ext_resource type="Texture2D" uid="uid://pbo82nncgqos" path="res://Assets/Bunnies/Animations/GooSplashVFXSpriteSheet.png" id="7_shedd"]
@@ -83,7 +83,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0e3yp")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 24.0
 }]
@@ -208,7 +208,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1x415")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Blue_Goo",
 "speed": 16.0
 }, {
@@ -234,7 +234,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ap7sq")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Green_Goo",
 "speed": 24.0
 }, {
@@ -260,7 +260,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1wqas")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Purple_Goo",
 "speed": 16.0
 }, {
@@ -286,7 +286,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u7g7k")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Void_Goo",
 "speed": 16.0
 }]
@@ -301,9 +301,13 @@ scale = Vector2(0.8, 0.8)
 script = ExtResource("1")
 speed = 211
 
-[node name="Ghazt" type="Sprite2D" parent="Ghazt" unique_id=868435450]
-position = Vector2(2.5000002, 1.250001)
-scale = Vector2(0.096, 0.096)
+[node name="scaling node" type="Node2D" parent="Ghazt" unique_id=457099893]
+position = Vector2(-1.2499999, 0)
+scale = Vector2(2.5, 2.5)
+
+[node name="Ghazt" type="Sprite2D" parent="Ghazt/scaling node" unique_id=868435450]
+position = Vector2(3.0000002, 1.0000008)
+scale = Vector2(0.0768, 0.0768)
 texture = ExtResource("2")
 
 [node name="Death" type="AudioStreamPlayer" parent="Ghazt" unique_id=1274901776]
@@ -317,7 +321,7 @@ scale = Vector2(10.556249, 10.556249)
 shape = SubResource("CapsuleShape2D_5f02t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Ghazt" unique_id=2086486209]
-root_node = NodePath("../Ghazt")
+root_node = NodePath("../scaling node/Ghazt")
 libraries/Animations = ExtResource("3")
 
 [node name="POP" type="AnimatedSprite2D" parent="." unique_id=990862593]

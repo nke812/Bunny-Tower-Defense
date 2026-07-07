@@ -38,8 +38,8 @@ func DMGED(quantidade):
         $"../POP".play("default")
         
         await $AnimationPlayer.animation_finished
-        $"Enhanced Ghoul".modulate = Color(0.957, 0.478, 0.965, 0.0)
-        
+        $"scaling node/Enhanced Ghoul".modulate = Color(0.957, 0.478, 0.965, 0.0)
+        $"scaling node/Enhanced Ghoul"
         await $"../POP".animation_finished
 
         var spawner_no = get_tree().get_first_node_in_group("spawner")
@@ -73,8 +73,8 @@ func aplicar_knockback(distancia: float) -> void:
             progresso_alvo = 0
             
         var tween_A = create_tween()   
-        tween_A.tween_property($"Enhanced Ghoul", "modulate", Color(2.0, 2.0, 0.289, 1.0), 0.3)
-        tween_A.tween_property($"Enhanced Ghoul", "modulate", Color(1, 1, 1, 1), 0.4)
+        tween_A.tween_property($"scaling node/Enhanced Ghoul", "modulate", Color(2.0, 2.0, 0.289, 1.0), 0.3)
+        tween_A.tween_property($"scaling node/Enhanced Ghoul", "modulate", Color(1, 1, 1, 1), 0.4)
         speed = speed_base / 10
         
         var tween_recuo = create_tween()

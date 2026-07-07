@@ -40,7 +40,7 @@ func DMGED(quantidade):
         $"../POP".play("default")
         
         await $AnimationPlayer.animation_finished
-        $Brute.modulate = Color(0.957, 0.478, 0.965, 0.0)
+        $"scaling node/Brute".modulate = Color(0.957, 0.478, 0.965, 0.0)
         
         await $"../POP".animation_finished
 
@@ -75,8 +75,8 @@ func aplicar_knockback(distancia: float) -> void:
             progresso_alvo = 0
             
         var tween_A = create_tween()   
-        tween_A.tween_property($Brute, "modulate", Color(2.0, 2.0, 0.289, 1.0), 0.3)
-        tween_A.tween_property($Brute, "modulate", Color(1, 1, 1, 1), 0.4)
+        tween_A.tween_property($"scaling node/Brute", "modulate", Color(2.0, 2.0, 0.289, 1.0), 0.3)
+        tween_A.tween_property($"scaling node/Brute", "modulate", Color(1, 1, 1, 1), 0.4)
         speed = speed_base / 10
         
         var tween_recuo = create_tween()
