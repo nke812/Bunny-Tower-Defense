@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca483pwed2uya"
-path.s3tc="res://.godot/imported/Gooey.png-59a08d301c42678b5577247a9a14ca67.s3tc.ctex"
-path.etc2="res://.godot/imported/Gooey.png-59a08d301c42678b5577247a9a14ca67.etc2.ctex"
+path="res://.godot/imported/Gooey.png-59a08d301c42678b5577247a9a14ca67.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Bunnies/Gooey.png"
-dest_files=["res://.godot/imported/Gooey.png-59a08d301c42678b5577247a9a14ca67.s3tc.ctex", "res://.godot/imported/Gooey.png-59a08d301c42678b5577247a9a14ca67.etc2.ctex"]
+dest_files=["res://.godot/imported/Gooey.png-59a08d301c42678b5577247a9a14ca67.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

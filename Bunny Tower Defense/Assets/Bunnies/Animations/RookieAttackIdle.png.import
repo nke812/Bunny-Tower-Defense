@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbmccfyfx8iky"
-path.s3tc="res://.godot/imported/RookieAttackIdle.png-8db04e88b2887ac4708a6e5a14347d33.s3tc.ctex"
-path.etc2="res://.godot/imported/RookieAttackIdle.png-8db04e88b2887ac4708a6e5a14347d33.etc2.ctex"
+path="res://.godot/imported/RookieAttackIdle.png-8db04e88b2887ac4708a6e5a14347d33.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Bunnies/Animations/RookieAttackIdle.png"
-dest_files=["res://.godot/imported/RookieAttackIdle.png-8db04e88b2887ac4708a6e5a14347d33.s3tc.ctex", "res://.godot/imported/RookieAttackIdle.png-8db04e88b2887ac4708a6e5a14347d33.etc2.ctex"]
+dest_files=["res://.godot/imported/RookieAttackIdle.png-8db04e88b2887ac4708a6e5a14347d33.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

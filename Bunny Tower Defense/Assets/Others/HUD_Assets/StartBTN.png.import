@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddkefcr0b17gg"
-path.s3tc="res://.godot/imported/StartBTN.png-ffbafe64d8c15461962b527155f1af93.s3tc.ctex"
-path.etc2="res://.godot/imported/StartBTN.png-ffbafe64d8c15461962b527155f1af93.etc2.ctex"
+path="res://.godot/imported/StartBTN.png-ffbafe64d8c15461962b527155f1af93.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Others/HUD_Assets/StartBTN.png"
-dest_files=["res://.godot/imported/StartBTN.png-ffbafe64d8c15461962b527155f1af93.s3tc.ctex", "res://.godot/imported/StartBTN.png-ffbafe64d8c15461962b527155f1af93.etc2.ctex"]
+dest_files=["res://.godot/imported/StartBTN.png-ffbafe64d8c15461962b527155f1af93.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

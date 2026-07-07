@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fog30i5sxhhy"
-path.s3tc="res://.godot/imported/Anarchist01AttackSpritesheet.png-94069c7ba6f7efbba1f0877ff1824a55.s3tc.ctex"
-path.etc2="res://.godot/imported/Anarchist01AttackSpritesheet.png-94069c7ba6f7efbba1f0877ff1824a55.etc2.ctex"
+path="res://.godot/imported/Anarchist01AttackSpritesheet.png-94069c7ba6f7efbba1f0877ff1824a55.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Bunnies/Animations/Paths/Anarchist01AttackSpritesheet.png"
-dest_files=["res://.godot/imported/Anarchist01AttackSpritesheet.png-94069c7ba6f7efbba1f0877ff1824a55.s3tc.ctex", "res://.godot/imported/Anarchist01AttackSpritesheet.png-94069c7ba6f7efbba1f0877ff1824a55.etc2.ctex"]
+dest_files=["res://.godot/imported/Anarchist01AttackSpritesheet.png-94069c7ba6f7efbba1f0877ff1824a55.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

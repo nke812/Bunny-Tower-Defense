@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1uehtl3p2gid"
-path.s3tc="res://.godot/imported/Reloading_Spritesheet.png-11ffaa3b463b31ebc182a440bf13cd90.s3tc.ctex"
-path.etc2="res://.godot/imported/Reloading_Spritesheet.png-11ffaa3b463b31ebc182a440bf13cd90.etc2.ctex"
+path="res://.godot/imported/Reloading_Spritesheet.png-11ffaa3b463b31ebc182a440bf13cd90.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Bunnies/Animations/Reloading_Spritesheet.png"
-dest_files=["res://.godot/imported/Reloading_Spritesheet.png-11ffaa3b463b31ebc182a440bf13cd90.s3tc.ctex", "res://.godot/imported/Reloading_Spritesheet.png-11ffaa3b463b31ebc182a440bf13cd90.etc2.ctex"]
+dest_files=["res://.godot/imported/Reloading_Spritesheet.png-11ffaa3b463b31ebc182a440bf13cd90.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

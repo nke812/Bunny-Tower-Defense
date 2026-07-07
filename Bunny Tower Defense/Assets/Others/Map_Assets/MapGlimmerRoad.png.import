@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq8jmy7ts8gex"
-path.s3tc="res://.godot/imported/MapGlimmerRoad.png-b0682d01d491e2fbe5e68b8e4e8eabec.s3tc.ctex"
-path.etc2="res://.godot/imported/MapGlimmerRoad.png-b0682d01d491e2fbe5e68b8e4e8eabec.etc2.ctex"
+path="res://.godot/imported/MapGlimmerRoad.png-b0682d01d491e2fbe5e68b8e4e8eabec.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Others/Map_Assets/MapGlimmerRoad.png"
-dest_files=["res://.godot/imported/MapGlimmerRoad.png-b0682d01d491e2fbe5e68b8e4e8eabec.s3tc.ctex", "res://.godot/imported/MapGlimmerRoad.png-b0682d01d491e2fbe5e68b8e4e8eabec.etc2.ctex"]
+dest_files=["res://.godot/imported/MapGlimmerRoad.png-b0682d01d491e2fbe5e68b8e4e8eabec.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bnkbkgni48ald"
-path.s3tc="res://.godot/imported/MapSelection_1.png-91722b2915c9d9621b395b920cc5dd4c.s3tc.ctex"
-path.etc2="res://.godot/imported/MapSelection_1.png-91722b2915c9d9621b395b920cc5dd4c.etc2.ctex"
+path="res://.godot/imported/MapSelection_1.png-91722b2915c9d9621b395b920cc5dd4c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Others/Menu_Assets/MapSelection_1.png"
-dest_files=["res://.godot/imported/MapSelection_1.png-91722b2915c9d9621b395b920cc5dd4c.s3tc.ctex", "res://.godot/imported/MapSelection_1.png-91722b2915c9d9621b395b920cc5dd4c.etc2.ctex"]
+dest_files=["res://.godot/imported/MapSelection_1.png-91722b2915c9d9621b395b920cc5dd4c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

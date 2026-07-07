@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cu11nm5yfjj2r"
-path.s3tc="res://.godot/imported/Gir.png-a9511a65a2a95d05aa2b1b3e5be09380.s3tc.ctex"
-path.etc2="res://.godot/imported/Gir.png-a9511a65a2a95d05aa2b1b3e5be09380.etc2.ctex"
+path="res://.godot/imported/Gir.png-a9511a65a2a95d05aa2b1b3e5be09380.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Bunnies/Skins/Gir.png"
-dest_files=["res://.godot/imported/Gir.png-a9511a65a2a95d05aa2b1b3e5be09380.s3tc.ctex", "res://.godot/imported/Gir.png-a9511a65a2a95d05aa2b1b3e5be09380.etc2.ctex"]
+dest_files=["res://.godot/imported/Gir.png-a9511a65a2a95d05aa2b1b3e5be09380.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

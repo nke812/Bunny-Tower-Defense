@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgfvnsyj8wyvh"
-path.s3tc="res://.godot/imported/UpgradeCarrot.png-24ff3fc3c1d64780a72e964ca871890f.s3tc.ctex"
-path.etc2="res://.godot/imported/UpgradeCarrot.png-24ff3fc3c1d64780a72e964ca871890f.etc2.ctex"
+path="res://.godot/imported/UpgradeCarrot.png-24ff3fc3c1d64780a72e964ca871890f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Others/HUD_Assets/UpgradeCarrot.png"
-dest_files=["res://.godot/imported/UpgradeCarrot.png-24ff3fc3c1d64780a72e964ca871890f.s3tc.ctex", "res://.godot/imported/UpgradeCarrot.png-24ff3fc3c1d64780a72e964ca871890f.etc2.ctex"]
+dest_files=["res://.godot/imported/UpgradeCarrot.png-24ff3fc3c1d64780a72e964ca871890f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

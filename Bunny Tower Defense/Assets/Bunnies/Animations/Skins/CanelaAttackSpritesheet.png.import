@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ce5y404mw35ru"
-path.s3tc="res://.godot/imported/CanelaAttackSpritesheet.png-1c178ec9b52ad5dce4395cd290366423.s3tc.ctex"
-path.etc2="res://.godot/imported/CanelaAttackSpritesheet.png-1c178ec9b52ad5dce4395cd290366423.etc2.ctex"
+path="res://.godot/imported/CanelaAttackSpritesheet.png-1c178ec9b52ad5dce4395cd290366423.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Bunnies/Animations/Skins/CanelaAttackSpritesheet.png"
-dest_files=["res://.godot/imported/CanelaAttackSpritesheet.png-1c178ec9b52ad5dce4395cd290366423.s3tc.ctex", "res://.godot/imported/CanelaAttackSpritesheet.png-1c178ec9b52ad5dce4395cd290366423.etc2.ctex"]
+dest_files=["res://.godot/imported/CanelaAttackSpritesheet.png-1c178ec9b52ad5dce4395cd290366423.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

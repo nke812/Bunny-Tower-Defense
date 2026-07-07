@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyq3do2v0mxm2"
-path.s3tc="res://.godot/imported/GameLogo.png-6a8dbeca94771306f5dc2711edf1c422.s3tc.ctex"
-path.etc2="res://.godot/imported/GameLogo.png-6a8dbeca94771306f5dc2711edf1c422.etc2.ctex"
+path="res://.godot/imported/GameLogo.png-6a8dbeca94771306f5dc2711edf1c422.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Others/Menu_Assets/GameLogo.png"
-dest_files=["res://.godot/imported/GameLogo.png-6a8dbeca94771306f5dc2711edf1c422.s3tc.ctex", "res://.godot/imported/GameLogo.png-6a8dbeca94771306f5dc2711edf1c422.etc2.ctex"]
+dest_files=["res://.godot/imported/GameLogo.png-6a8dbeca94771306f5dc2711edf1c422.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

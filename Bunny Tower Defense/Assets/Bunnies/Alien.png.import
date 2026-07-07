@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3abgvg8alws7"
-path.s3tc="res://.godot/imported/Alien.png-4d610386fbf08f24fe44d77941de1819.s3tc.ctex"
-path.etc2="res://.godot/imported/Alien.png-4d610386fbf08f24fe44d77941de1819.etc2.ctex"
+path="res://.godot/imported/Alien.png-4d610386fbf08f24fe44d77941de1819.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Bunnies/Alien.png"
-dest_files=["res://.godot/imported/Alien.png-4d610386fbf08f24fe44d77941de1819.s3tc.ctex", "res://.godot/imported/Alien.png-4d610386fbf08f24fe44d77941de1819.etc2.ctex"]
+dest_files=["res://.godot/imported/Alien.png-4d610386fbf08f24fe44d77941de1819.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

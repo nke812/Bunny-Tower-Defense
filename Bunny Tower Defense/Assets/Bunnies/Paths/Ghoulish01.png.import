@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkvrbr8yq1kxk"
-path.s3tc="res://.godot/imported/Ghoulish01.png-38644e6ba237be0b98fa285b12937e8b.s3tc.ctex"
-path.etc2="res://.godot/imported/Ghoulish01.png-38644e6ba237be0b98fa285b12937e8b.etc2.ctex"
+path="res://.godot/imported/Ghoulish01.png-38644e6ba237be0b98fa285b12937e8b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Bunnies/Paths/Ghoulish01.png"
-dest_files=["res://.godot/imported/Ghoulish01.png-38644e6ba237be0b98fa285b12937e8b.s3tc.ctex", "res://.godot/imported/Ghoulish01.png-38644e6ba237be0b98fa285b12937e8b.etc2.ctex"]
+dest_files=["res://.godot/imported/Ghoulish01.png-38644e6ba237be0b98fa285b12937e8b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

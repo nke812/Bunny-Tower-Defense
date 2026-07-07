@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://im5ltrb7661u"
-path.s3tc="res://.godot/imported/EyeGlowSlasher02SpriteSheet.png-53c892531be555cca64a88169bb9ef34.s3tc.ctex"
-path.etc2="res://.godot/imported/EyeGlowSlasher02SpriteSheet.png-53c892531be555cca64a88169bb9ef34.etc2.ctex"
+path="res://.godot/imported/EyeGlowSlasher02SpriteSheet.png-53c892531be555cca64a88169bb9ef34.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Bunnies/Animations/Paths/EyeGlowSlasher02SpriteSheet.png"
-dest_files=["res://.godot/imported/EyeGlowSlasher02SpriteSheet.png-53c892531be555cca64a88169bb9ef34.s3tc.ctex", "res://.godot/imported/EyeGlowSlasher02SpriteSheet.png-53c892531be555cca64a88169bb9ef34.etc2.ctex"]
+dest_files=["res://.godot/imported/EyeGlowSlasher02SpriteSheet.png-53c892531be555cca64a88169bb9ef34.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

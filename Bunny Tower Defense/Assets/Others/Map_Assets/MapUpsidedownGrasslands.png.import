@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxdjspq36w76"
-path.s3tc="res://.godot/imported/MapUpsidedownGrasslands.png-403021a1c700a91b607d7eedd35a806b.s3tc.ctex"
-path.etc2="res://.godot/imported/MapUpsidedownGrasslands.png-403021a1c700a91b607d7eedd35a806b.etc2.ctex"
+path="res://.godot/imported/MapUpsidedownGrasslands.png-403021a1c700a91b607d7eedd35a806b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Others/Map_Assets/MapUpsidedownGrasslands.png"
-dest_files=["res://.godot/imported/MapUpsidedownGrasslands.png-403021a1c700a91b607d7eedd35a806b.s3tc.ctex", "res://.godot/imported/MapUpsidedownGrasslands.png-403021a1c700a91b607d7eedd35a806b.etc2.ctex"]
+dest_files=["res://.godot/imported/MapUpsidedownGrasslands.png-403021a1c700a91b607d7eedd35a806b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

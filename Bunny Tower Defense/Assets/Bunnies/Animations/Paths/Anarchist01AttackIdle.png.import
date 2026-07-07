@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1h667synba5c"
-path.s3tc="res://.godot/imported/Anarchist01AttackIdle.png-af4180da6d35806991844bc387e98cd8.s3tc.ctex"
-path.etc2="res://.godot/imported/Anarchist01AttackIdle.png-af4180da6d35806991844bc387e98cd8.etc2.ctex"
+path="res://.godot/imported/Anarchist01AttackIdle.png-af4180da6d35806991844bc387e98cd8.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Bunnies/Animations/Paths/Anarchist01AttackIdle.png"
-dest_files=["res://.godot/imported/Anarchist01AttackIdle.png-af4180da6d35806991844bc387e98cd8.s3tc.ctex", "res://.godot/imported/Anarchist01AttackIdle.png-af4180da6d35806991844bc387e98cd8.etc2.ctex"]
+dest_files=["res://.godot/imported/Anarchist01AttackIdle.png-af4180da6d35806991844bc387e98cd8.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
@@ -28,7 +26,7 @@ compress/channel_pack=1
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
-roughness/src_normal=""
+roughness/src_normal="1024"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

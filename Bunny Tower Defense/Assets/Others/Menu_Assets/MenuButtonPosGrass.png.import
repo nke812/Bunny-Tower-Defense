@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqsn2fgp44l20"
-path.s3tc="res://.godot/imported/MenuButtonPosGrass.png-725b00940f47ad2a130f971ea5b81e63.s3tc.ctex"
-path.etc2="res://.godot/imported/MenuButtonPosGrass.png-725b00940f47ad2a130f971ea5b81e63.etc2.ctex"
+path="res://.godot/imported/MenuButtonPosGrass.png-725b00940f47ad2a130f971ea5b81e63.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Others/Menu_Assets/MenuButtonPosGrass.png"
-dest_files=["res://.godot/imported/MenuButtonPosGrass.png-725b00940f47ad2a130f971ea5b81e63.s3tc.ctex", "res://.godot/imported/MenuButtonPosGrass.png-725b00940f47ad2a130f971ea5b81e63.etc2.ctex"]
+dest_files=["res://.godot/imported/MenuButtonPosGrass.png-725b00940f47ad2a130f971ea5b81e63.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

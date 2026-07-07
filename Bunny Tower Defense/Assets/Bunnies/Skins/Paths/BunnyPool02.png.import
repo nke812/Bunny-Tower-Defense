@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mjx1a7q1uhsl"
-path.s3tc="res://.godot/imported/BunnyPool02.png-0846b05fb10c5285262a3ddc6fd578c7.s3tc.ctex"
-path.etc2="res://.godot/imported/BunnyPool02.png-0846b05fb10c5285262a3ddc6fd578c7.etc2.ctex"
+path="res://.godot/imported/BunnyPool02.png-0846b05fb10c5285262a3ddc6fd578c7.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Bunnies/Skins/Paths/BunnyPool02.png"
-dest_files=["res://.godot/imported/BunnyPool02.png-0846b05fb10c5285262a3ddc6fd578c7.s3tc.ctex", "res://.godot/imported/BunnyPool02.png-0846b05fb10c5285262a3ddc6fd578c7.etc2.ctex"]
+dest_files=["res://.godot/imported/BunnyPool02.png-0846b05fb10c5285262a3ddc6fd578c7.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

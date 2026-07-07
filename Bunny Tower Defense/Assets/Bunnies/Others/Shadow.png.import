@@ -3,23 +3,21 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkr53o6gmqvxf"
-path.s3tc="res://.godot/imported/Shadow.png-61e869c58c1ab53bcc6b13d1a0a94708.s3tc.ctex"
-path.etc2="res://.godot/imported/Shadow.png-61e869c58c1ab53bcc6b13d1a0a94708.etc2.ctex"
+path="res://.godot/imported/Shadow.png-61e869c58c1ab53bcc6b13d1a0a94708.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Bunnies/Others/Shadow.png"
-dest_files=["res://.godot/imported/Shadow.png-61e869c58c1ab53bcc6b13d1a0a94708.s3tc.ctex", "res://.godot/imported/Shadow.png-61e869c58c1ab53bcc6b13d1a0a94708.etc2.ctex"]
+dest_files=["res://.godot/imported/Shadow.png-61e869c58c1ab53bcc6b13d1a0a94708.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.5
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
