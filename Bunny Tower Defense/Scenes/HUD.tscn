@@ -819,7 +819,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 70
 max_value = 9999999.0
 step = 1.0
-value = 9999999.0
+value = 165.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Limits" type="Area2D" parent="HUD" unique_id=1224677807 groups=["no_place"]]
@@ -1776,12 +1776,16 @@ anchors_preset = -1
 anchor_left = 0.666
 anchor_right = 0.735
 anchor_bottom = 0.071
-offset_left = 1303.0001
-offset_top = 62.000008
-offset_right = 1461.0001
-offset_bottom = 127.000015
+offset_left = 1205.0001
+offset_top = 67.000015
+offset_right = 1366.0001
+offset_bottom = 111.28046
+scale = Vector2(1.55, 1.55)
+theme_override_fonts/font = ExtResource("9")
 theme_override_font_sizes/font_size = 21
 text = "Auto Play"
+icon_alignment = 1
+expand_icon = true
 
 [node name="Options" type="Panel" parent="HUD/UI_Selection" unique_id=2036140806]
 visible = false
@@ -1935,6 +1939,7 @@ text = "Fullscreen"
 script = ExtResource("8")
 
 [node name="Button" type="Button" parent="HUD/UI_Selection/Options" unique_id=1543474290]
+visible = false
 layout_mode = 0
 offset_left = 921.00006
 offset_top = 17.000002
@@ -1943,6 +1948,7 @@ offset_bottom = 84.0
 text = "+50$ "
 
 [node name="Button2" type="Button" parent="HUD/UI_Selection/Options" unique_id=186975066]
+visible = false
 layout_mode = 0
 offset_left = 761.00006
 offset_top = 18.000002

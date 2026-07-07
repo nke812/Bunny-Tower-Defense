@@ -658,13 +658,13 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_rrcx7")
 text = "NOVO JOGO"
 
 [node name="Continue" type="Button" parent="MainMenu_Left/Buttons" unique_id=615626795]
-offset_left = -3426.3594
-offset_top = 134.49525
-offset_right = -2914.2913
-offset_bottom = 311.40784
-rotation = -0.15882497
-pivot_offset = Vector2(0.275, 0)
-pivot_offset_ratio = Vector2(-0.04, -0.27)
+offset_left = -3408.3591
+offset_top = 93.49519
+offset_right = -2896.291
+offset_bottom = 270.40778
+rotation = -0.1850049
+pivot_offset = Vector2(273.89, 136)
+pivot_offset_ratio = Vector2(-0.032, -0.27)
 theme = SubResource("Theme_fh7cp")
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0.4, 0.3372549, 0.21568628, 1)
@@ -673,11 +673,12 @@ theme_override_colors/font_hover_color = Color(0.9024597, 0.83626944, 0.70885265
 theme_override_colors/font_hover_pressed_color = Color(0.4, 0.3372549, 0.21568628, 1)
 theme_override_colors/font_disabled_color = Color(0.4, 0.3372549, 0.21568628, 0.3529412)
 theme_override_fonts/font = ExtResource("17")
-theme_override_font_sizes/font_size = 58
+theme_override_font_sizes/font_size = 50
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_rrcx7")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_pjscj")
 disabled = true
-text = "CONTINUAR"
+text = "Rookie was here
+;p"
 
 [node name="Bestiario" type="Button" parent="MainMenu_Left/Buttons" unique_id=750961617]
 offset_left = -2171.3594
@@ -1225,8 +1226,6 @@ libraries/ = SubResource("AnimationLibrary_fipmv")
 [connection signal="pressed" from="MainMenu_Left/SillyBunny/easter egg" to="." method="_on_easter_egg_pressed"]
 [connection signal="pressed" from="MainMenu_Left/Buttons/BIG_Start" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="MainMenu_Left/Buttons/Start" to="." method="_on_start_pressed"]
-[connection signal="mouse_entered" from="MainMenu_Left/Buttons/Bestiario" to="." method="_on_bestiario_mouse_entered"]
-[connection signal="mouse_exited" from="MainMenu_Left/Buttons/Bestiario" to="." method="_on_bestiario_mouse_exited"]
 [connection signal="mouse_entered" from="MainMenu_Left/Buttons/Achievements" to="." method="_on_achievements_mouse_entered"]
 [connection signal="mouse_exited" from="MainMenu_Left/Buttons/Achievements" to="." method="_on_achievements_mouse_exited"]
 [connection signal="mouse_entered" from="MainMenu_Left/Buttons/Settings" to="." method="_on_settings_mouse_entered"]

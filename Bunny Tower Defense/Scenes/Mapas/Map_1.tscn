@@ -65,6 +65,7 @@ rotates = false
 loop = false
 
 [node name="Area_Path" type="Area2D" parent="." unique_id=655402903 groups=["no_place"]]
+visible = false
 y_sort_enabled = true
 position = Vector2(2.395214, 20.359285)
 collision_layer = 2
