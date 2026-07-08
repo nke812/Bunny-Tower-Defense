@@ -66,7 +66,6 @@ rotates = false
 loop = false
 
 [node name="Area_Path" type="Area2D" parent="." unique_id=655402903 groups=["no_place"]]
-visible = false
 y_sort_enabled = true
 position = Vector2(2.395214, 20.359285)
 collision_layer = 2
@@ -166,10 +165,11 @@ texture = ExtResource("8")
 offset = Vector2(-57.15918, 71.25659)
 
 [node name="Button" type="Button" parent="." unique_id=501447508]
-offset_left = 1549.7007
-offset_top = 161.67664
-offset_right = 1873.6399
-offset_bottom = 362.87424
+visible = false
+offset_left = 2897.006
+offset_top = 68.26348
+offset_right = 3220.9453
+offset_bottom = 269.4611
 icon = ExtResource("10_4vd4o")
 expand_icon = true
 
