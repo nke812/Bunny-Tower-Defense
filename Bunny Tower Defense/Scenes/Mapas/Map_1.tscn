@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ds673xketndkv" path="res://Assets/Others/Map_Assets/Bush02.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://dlceism21lgnt" path="res://Assets/Others/Map_Assets/Bush03.png" id="8"]
 [ext_resource type="PackedScene" uid="uid://cvtf3eidvbt76" path="res://Scenes/HUD.tscn" id="9"]
+[ext_resource type="Texture2D" uid="uid://dwdirgdi4666p" path="res://Assets/Enemies/Bosses/Fenrir.png" id="10_4vd4o"]
 
 [sub_resource type="Curve2D" id="Curve2D_lycfg"]
 _data = {
@@ -164,4 +165,13 @@ skew = -0.2617994
 texture = ExtResource("8")
 offset = Vector2(-57.15918, 71.25659)
 
+[node name="Button" type="Button" parent="." unique_id=501447508]
+offset_left = 1549.7007
+offset_top = 161.67664
+offset_right = 1873.6399
+offset_bottom = 362.87424
+icon = ExtResource("10_4vd4o")
+expand_icon = true
+
 [connection signal="timeout" from="GhostlingSpawner/Timer" to="GhostlingSpawner" method="_on_timer_timeout"]
+[connection signal="pressed" from="Button" to="GhostlingSpawner" method="_on_button_pressed"]

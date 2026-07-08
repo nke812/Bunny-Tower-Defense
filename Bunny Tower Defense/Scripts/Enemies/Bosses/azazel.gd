@@ -63,14 +63,14 @@ func gooey_stun(TimeSlimed: float, cor_ataque: String):
     if goo_stun: return 
     
     goo_stun = true
-    $"../Goo_Splash".visible = true
-    $"../Goo_Splash".play(cor_ataque)
+    $Azazel/Goo_Splash.visible = true
+    $Azazel/Goo_Splash.play(cor_ataque)
     
     speed = speed_base / 3
 
     await get_tree().create_timer(TimeSlimed).timeout
     
     if is_instance_valid(self):
-        $"../Goo_Splash".play_backwards(cor_ataque)
+        $Azazel/Goo_Splash.play_backwards(cor_ataque)
         speed = speed_base
         goo_stun = false

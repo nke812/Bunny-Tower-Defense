@@ -37,12 +37,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void :
     
-    $ProgressBar.value = contagem_ult
-    $ProgressBar/ProgressBar.value = contagem_ult
-
     if $Timer.is_stopped():
         pronto_para_atacar = true
-
 
     if pronto_para_atacar == true:
         verificar_e_atacar()
@@ -56,7 +52,6 @@ func verificar_e_atacar():
     var corpos = $Range.get_overlapping_bodies()
     
     if contagem_ult >= 20:
-        # --- ULTIMATE (SUPER GOLPE) ---
         for corpo in corpos:
             if corpo.is_in_group("Ghostlings"):
                 atacar(corpo)
@@ -115,34 +110,29 @@ func atacar(alvo):
         $SlasherAttackEffect.play()
         
         $Node2D/SlasherAttack.play()
-        
-        
         contagem_ult += 5
-        verificar_ult()
-     
             
         if contagem_ult >= 20: 
-                # Se a contagem subiu muito, dá mais um bónus de dano ao mesmo gajo
-            alvo.DMGED(dmg_total * 2) 
+            alvo.DMGED(dmg_total * 2)
             $Slash_Ult.play()
-            contagem_ult = 0
-            verificar_ult()
             
         else:
-            # Ataque básico normal
             alvo.DMGED(dmg_total)
             $Slash.play()
+
+        verificar_ult()
 
         pronto_para_atacar = false
         $Timer.start()
 
 func verificar_ult():
-    if contagem_ult >= 35 or contagem_ult == 0:
+    if contagem_ult >= 55:
         $Node2D/Slasher/Ult.visible = false
         $Node2D/Slasher/AppearUlt.play_backwards()
+        contagem_ult = 0
         
 
-    elif contagem_ult > 20:
+    elif contagem_ult >= 20:
         if not $Node2D/Slasher/Ult.visible and not $Node2D/Slasher/AppearUlt.is_playing():
             $Node2D/Slasher/AppearUlt.play()
             await $Node2D/Slasher/AppearUlt.animation_finished
@@ -325,20 +315,20 @@ func aplicar_upgrade(caminho):
 func verificar_posicao_skin():
     
     if skin:
-        $Node2D/SlasherAttack.position = Vector2(-78.0, -25.0)
-        $Node2D/Slasher/Ult.position = Vector2(284, -556)
-        $Node2D/Slasher/AppearUlt.position = Vector2(64, -1287)
+        $Node2D/SlasherAttack.position = Vector2(-83.0, -27.0)
+        $Node2D/Slasher/Ult.position = Vector2(133, -288)
+        $Node2D/Slasher/AppearUlt.position = Vector2(238, -288)
         
-        $Node2D/Slasher/AppearUlt.scale = Vector2(0.68, 0.68)
-        $Node2D/Slasher/Ult.scale = Vector2(0.68, 0.68)
+        $Node2D/Slasher/AppearUlt.scale = Vector2(0.35, 0.35)
+        $Node2D/Slasher/Ult.scale = Vector2(0.35, 0.35)
         
     elif skin == false:
         $Node2D/SlasherAttack.position = Vector2(-6.0, -39.0)
-        $Node2D/Slasher/AppearUlt.position = Vector2(-392, -1693)
-        $Node2D/Slasher/Ult.position = Vector2(-49, -584)
+        $Node2D/Slasher/AppearUlt.position = Vector2(137, -325)
+        $Node2D/Slasher/Ult.position = Vector2(-68, -320)
         
-        $Node2D/Slasher/AppearUlt.scale = Vector2(1, 1)
-        $Node2D/Slasher/Ult.scale = Vector2(1, 1)
+        $Node2D/Slasher/AppearUlt.scale = Vector2(0.68, 0.68)
+        $Node2D/Slasher/Ult.scale = Vector2(0.68, 0.68)
         
 func auraMAISego():
     $Node2D/Slasher.modulate = Color(1, 1, 1)

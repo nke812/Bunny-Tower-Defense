@@ -30,8 +30,6 @@ var BuffStatus2 = "+0s"
 
 func _process(delta: float) -> void :
     
-    #print("Normal: ", TimeSlimed, " Buff: ", TimeSlimed_buff, " Total: ", TimeSlimed_Total)
-    
     if focus == true:
         $ArrowStun.visible = true
     else:
@@ -46,23 +44,19 @@ func _process(delta: float) -> void :
 func receber_buff_mystical(mystical):
     var hud = get_tree().get_first_node_in_group("HUD")
     
-    # Se ele tiver o MysticalBuff ativo, vamos procurar se existe algum Mystical com nível maior por perto
     var maior_nivel_mystical = mystical
     
     if posicionado and MysticalBuff == true:
-        # Procura todos os Mysticals no mapa (ou podes usar o $Range.get_overlapping_areas() / bodies se preferires)
         var mysticals = get_tree().get_nodes_in_group("Mystical")
         for m in mysticals:
-            # Verifica se o Mystical m está dentro do alcance ou perto o suficiente (ou se já está a dar buff a este coelho)
-            # Nota: Se o teu Mystical já guarda as torres que bufa, garantimos que pegamos o maior nível disponível
-            if m.has_method("esta_a_bufar") and m.esta_a_bufar(self): # Ajusta para a tua lógica se necessário
+
+            if m.has_method("esta_a_bufar") and m.esta_a_bufar(self):
                 if m.nivel_mystical > maior_nivel_mystical:
                     maior_nivel_mystical = m.nivel_mystical
-            elif m.global_position.distance_to(global_position) < 200: # Exemplo usando distância se não usares áreas
+            elif m.global_position.distance_to(global_position) < 200:
                 if m.nivel_mystical > maior_nivel_mystical:
                     maior_nivel_mystical = m.nivel_mystical
 
-        # Agora sim, aplica o match baseado no maior nível encontrado!
         match maior_nivel_mystical:
             0:
                 TimeSlimed_buff = 0.5

@@ -9,192 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dy6xyvu8o3ear" path="res://Assets/Bunnies/Animations/Skins/VoidGooSplashVFXSpriteSheet.png" id="8_gxvwg"]
 [ext_resource type="Texture2D" uid="uid://cfd4e64q7fkpx" path="res://Assets/Enemies/Animations/BossSplashVFXSpriteSheet.png" id="9_kc1fl"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jogy7"]
-radius = 473.91052
-height = 2371.4834
-
-[sub_resource type="Animation" id="Animation_7qwgj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Leviathan/Leviathan:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-27.291672, -481.77197)]
-}
-
-[sub_resource type="Animation" id="Animation_qelmg"]
-resource_name = "idle"
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Leviathan/Leviathan:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1.5, 0.5),
-"update": 0,
-"values": [Vector2(-27.291672, -481.77197), Vector2(-27.292, -235.905)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_02hma"]
-_data = {
-&"RESET": SubResource("Animation_7qwgj"),
-&"idle": SubResource("Animation_qelmg")
-}
-
-[sub_resource type="Animation" id="Animation_agwtu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Leviathan/Leviathan:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-27.291672, -481.77197)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Leviathan/Leviathan:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.4016192, 1.4016188)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Leviathan/Leviathan:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_8i4eo"]
-resource_name = "dmg"
-length = 0.13333334
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Leviathan/Leviathan:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1.4016192, 1.4016188), Vector2(1.402, 1.312), Vector2(1.4016192, 1.4016188)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Leviathan/Leviathan:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.07183027, 0.13333334),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0.36078432, 0.5019608, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8i4eo"]
-_data = {
-&"RESET": SubResource("Animation_agwtu"),
-&"dmg": SubResource("Animation_8i4eo")
-}
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7dvle"]
-atlas = ExtResource("9_kc1fl")
-region = Rect2(0, 0, 210, 247)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pnxci"]
-atlas = ExtResource("9_kc1fl")
-region = Rect2(210, 0, 210, 247)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yoo5f"]
-atlas = ExtResource("9_kc1fl")
-region = Rect2(420, 0, 210, 247)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2qtoa"]
-atlas = ExtResource("9_kc1fl")
-region = Rect2(0, 247, 210, 247)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5iqw3"]
-atlas = ExtResource("9_kc1fl")
-region = Rect2(210, 247, 210, 247)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5owo6"]
-atlas = ExtResource("9_kc1fl")
-region = Rect2(420, 247, 210, 247)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dr4kn"]
-atlas = ExtResource("9_kc1fl")
-region = Rect2(0, 494, 210, 247)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t6l8a"]
-atlas = ExtResource("9_kc1fl")
-region = Rect2(210, 494, 210, 247)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8eqob"]
-atlas = ExtResource("9_kc1fl")
-region = Rect2(420, 494, 210, 247)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_w16gq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7dvle")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pnxci")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yoo5f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2qtoa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5iqw3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5owo6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dr4kn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t6l8a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8eqob")
-}],
-"loop": 0,
-"name": &"default",
-"speed": 16.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_m8hi3"]
 atlas = ExtResource("5_h0ok4")
 region = Rect2(0, 0, 210, 247)
@@ -398,6 +212,192 @@ animations = [{
 "speed": 16.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jogy7"]
+radius = 473.91052
+height = 2371.4834
+
+[sub_resource type="Animation" id="Animation_7qwgj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Leviathan/Leviathan:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-27.291672, -481.77197)]
+}
+
+[sub_resource type="Animation" id="Animation_qelmg"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Leviathan/Leviathan:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1.5, 0.5),
+"update": 0,
+"values": [Vector2(-27.291672, -481.77197), Vector2(-27.292, -235.905)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_02hma"]
+_data = {
+&"RESET": SubResource("Animation_7qwgj"),
+&"idle": SubResource("Animation_qelmg")
+}
+
+[sub_resource type="Animation" id="Animation_agwtu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Leviathan/Leviathan:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-27.291672, -481.77197)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Leviathan/Leviathan:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.4016192, 1.4016188)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Leviathan/Leviathan:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8i4eo"]
+resource_name = "dmg"
+length = 0.13333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Leviathan/Leviathan:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.4016192, 1.4016188), Vector2(1.402, 1.312), Vector2(1.4016192, 1.4016188)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Leviathan/Leviathan:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.07183027, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.36078432, 0.5019608, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8i4eo"]
+_data = {
+&"RESET": SubResource("Animation_agwtu"),
+&"dmg": SubResource("Animation_8i4eo")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dvle"]
+atlas = ExtResource("9_kc1fl")
+region = Rect2(0, 0, 210, 247)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnxci"]
+atlas = ExtResource("9_kc1fl")
+region = Rect2(210, 0, 210, 247)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoo5f"]
+atlas = ExtResource("9_kc1fl")
+region = Rect2(420, 0, 210, 247)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qtoa"]
+atlas = ExtResource("9_kc1fl")
+region = Rect2(0, 247, 210, 247)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iqw3"]
+atlas = ExtResource("9_kc1fl")
+region = Rect2(210, 247, 210, 247)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5owo6"]
+atlas = ExtResource("9_kc1fl")
+region = Rect2(420, 247, 210, 247)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr4kn"]
+atlas = ExtResource("9_kc1fl")
+region = Rect2(0, 494, 210, 247)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6l8a"]
+atlas = ExtResource("9_kc1fl")
+region = Rect2(210, 494, 210, 247)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eqob"]
+atlas = ExtResource("9_kc1fl")
+region = Rect2(420, 494, 210, 247)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w16gq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dvle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnxci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yoo5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qtoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5iqw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5owo6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr4kn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6l8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eqob")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 16.0
+}]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agwtu"]
 bg_color = Color(0.78009146, 0, 0.2125453, 1)
 corner_radius_top_left = 45
@@ -437,6 +437,12 @@ position = Vector2(-27.291672, -481.77197)
 scale = Vector2(1.4016192, 1.4016188)
 texture = ExtResource("3_qelmg")
 
+[node name="Goo_Splash" type="AnimatedSprite2D" parent="Leviathan/Leviathan" unique_id=608810858]
+position = Vector2(-111.47819, 148.63846)
+scale = Vector2(6.425038, 6.42504)
+sprite_frames = SubResource("SpriteFrames_arexb")
+animation = &"Green_Goo"
+
 [node name="HitBoxBoss" type="CollisionShape2D" parent="Leviathan" unique_id=1543695989]
 position = Vector2(-261.66675, -143.22937)
 rotation = 1.1903145
@@ -459,12 +465,6 @@ scale = Vector2(11.223956, 11.223956)
 sprite_frames = SubResource("SpriteFrames_w16gq")
 frame = 8
 frame_progress = 1.0
-
-[node name="Goo_Splash" type="AnimatedSprite2D" parent="." unique_id=608810858]
-position = Vector2(-145.83331, -218.75)
-scale = Vector2(7.204365, 7.2043653)
-sprite_frames = SubResource("SpriteFrames_arexb")
-animation = &"Green_Goo"
 
 [node name="BossHP" type="ProgressBar" parent="." unique_id=985845517]
 visible = false

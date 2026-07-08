@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var vida = 100
 var speed_base = 300
 
+var goo_stun = false
+
 func _physics_process(delta):
     var pf = get_parent() as PathFollow2D
     pf.progress += speed * delta

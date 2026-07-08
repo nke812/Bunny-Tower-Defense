@@ -16,7 +16,6 @@ func _ready() -> void:
     max_value = 1.0
     step = 0.05
     
-    # 1. Primeiro vamos buscar o ID correto pelo nome exato do Bus
     audio_bus_id = AudioServer.get_bus_index(audio_bus_name)
     
     if value_changed.is_connected(_on_value_changed):
@@ -26,7 +25,6 @@ func _ready() -> void:
     
     value_changed.connect(_on_value_changed)
     
-    # 2. Forçar a aplicação do volume diretamente ao ID que encontrámos
     _apply_volume(value)
     _atualizar_icone(value)
 
@@ -63,7 +61,6 @@ func revert() -> void:
 func save_settings() -> void:
     var config = ConfigFile.new()
     
-    # Carrega o ficheiro existente para não apagar outras definições (como gráficos ou controlos)
     if FileAccess.file_exists(SAVE_PATH):
         config.load(SAVE_PATH)
     

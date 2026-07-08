@@ -61,7 +61,7 @@ func atacar(alvo):
         $Timer.start()
 
 func receber_buff_mystical(nivel_mystical):
-    if posicionado and MysticalBuff == true:#
+    if posicionado and MysticalBuff == true:
         var dmg_buff = 0
         var scale_buff = Vector2(1.0, 1.0) 
     
@@ -104,7 +104,6 @@ func receber_buff_mystical(nivel_mystical):
             hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
 
 func remover_buff_mystical():
-    # Função extra para limpares o buff com segurança se a Mystical for vendida
     dmg_Mystical = 0
     MysticalBuff = false
     $Range/CollisionRange.scale = Vector2(1.0, 1.0)

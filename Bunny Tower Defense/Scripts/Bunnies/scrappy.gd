@@ -25,9 +25,6 @@ var P2status = "Chain Targets: " + str(alvos_cadeia[0])
 
 func _process(delta: float) -> void:
     
-    print(MysticalBuff)
-    print(dmg_Scrappy)
-    
     if focus == true:
         $ArrowStun.visible = true
     else:
@@ -84,7 +81,6 @@ func _on_button_button_down() -> void:
         hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
         hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
         
-        # Troca o asset no HUD para o Scrappy
         hud.get_node("HUD_Shop/HudBgDown/TextureButton").disabled = true
         hud.get_node("HUD_Shop/HudBgDown/TextureButton/lock").visible = true
         
@@ -94,7 +90,7 @@ func _on_button_button_down() -> void:
         
         if MysticalBuff == true:
             hud.get_node("HUD_Shop/BuffStatus/Buff3").text = str(BuffStatus1)
-            hud.get_node("HUD_Shop/BuffStatus/Buff4").text = "" # Limpa o buff 4 para não lixo visual
+            hud.get_node("HUD_Shop/BuffStatus/Buff4").text = ""
             hud.get_node("HUD_Shop/BuffStatus").visible = true
             
         hud.get_node("HUD_Shop/Shop_Appear").play("Shop_Appear")

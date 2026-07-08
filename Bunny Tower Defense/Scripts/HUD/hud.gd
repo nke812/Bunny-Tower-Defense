@@ -490,7 +490,3 @@ func victory():
         
     Engine.time_scale = 1.0
     $Pause.visible = false
-
-
-func _on_exit_pressed() -> void:
-    pass # Replace with function body.

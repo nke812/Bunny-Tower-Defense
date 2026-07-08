@@ -69,6 +69,8 @@
 [ext_resource type="Texture2D" uid="uid://cijlhaqtv3cbb" path="res://Assets/Others/HUD_Assets/ExtraSpeedBTNPressed.png" id="57_hl3i6"]
 [ext_resource type="Texture2D" uid="uid://bt122i8epengs" path="res://Assets/Others/HUD_Assets/NormalSpeedBTN.png" id="58_087co"]
 [ext_resource type="Texture2D" uid="uid://jik7hcrr2chw" path="res://Assets/Others/HUD_Assets/NormalSpeedBTNPressed.png" id="59_ag3a8"]
+[ext_resource type="Texture2D" uid="uid://dpvarth5jqfwd" path="res://Assets/Others/HUD_Assets/auto save OFF.png" id="60_cgiap"]
+[ext_resource type="Texture2D" uid="uid://26da0qhftns0" path="res://Assets/Others/HUD_Assets/auto save ON.png" id="60_ki85q"]
 [ext_resource type="Texture2D" uid="uid://de6l8cm0gsl02" path="res://Assets/Others/UI_Assets/GameOverScreen.png" id="67_jh456"]
 [ext_resource type="Texture2D" uid="uid://b150v8hgm7xxj" path="res://Assets/Enemies/Ghostlings/Brute.png" id="68_ynwmi"]
 [ext_resource type="Texture2D" uid="uid://dnpfk6l1itbih" path="res://Assets/Enemies/Ghostlings/Ghaztling.png" id="69_dr5ga"]
@@ -819,7 +821,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 70
 max_value = 9999999.0
 step = 1.0
-value = 165.0
+value = 1650000.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Limits" type="Area2D" parent="HUD" unique_id=1224677807 groups=["no_place"]]
@@ -1300,15 +1302,15 @@ region_enabled = true
 region_rect = Rect2(0, 0, 377.19507, 1080)
 
 [node name="HudSelectionFrame" type="Sprite2D" parent="HUD/UI_Selection" unique_id=887820282]
-position = Vector2(1759.1436, 662.47174)
+position = Vector2(1759.1436, 703.47174)
 scale = Vector2(0.5964735, 0.5970855)
 texture = ExtResource("20")
 
 [node name="Round" type="Label" parent="HUD/UI_Selection" unique_id=795597463]
 offset_left = 1573.0002
-offset_top = 60.000015
+offset_top = 59.00001
 offset_right = 1874.0002
-offset_bottom = 121.000015
+offset_bottom = 120.000015
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.627451)
 theme_override_constants/shadow_offset_x = 4
 theme_override_fonts/font = ExtResource("4")
@@ -1357,9 +1359,9 @@ bus = &"SFX"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HUD/UI_Selection/Bunnies" unique_id=1163235928]
 offset_left = 1513.0
-offset_top = 93.0
+offset_top = 132.0
 offset_right = 1920.0
-offset_bottom = 897.0
+offset_bottom = 936.0
 draw_focus_border = true
 vertical_scroll_mode = 2
 scroll_hint_mode = 1
@@ -1738,10 +1740,10 @@ theme_override_font_sizes/font_size = 23
 text = "1400"
 
 [node name="StartRound" type="TextureButton" parent="HUD/UI_Selection" unique_id=2131063499 groups=["start_button"]]
-offset_left = 1581.0002
-offset_top = 947.0001
-offset_right = 1757.0004
-offset_bottom = 1123.0001
+offset_left = 1597.0002
+offset_top = 985.0001
+offset_right = 1749.0004
+offset_bottom = 1137.0001
 texture_normal = ExtResource("50_q3bjx")
 texture_pressed = ExtResource("53_dsgg8")
 texture_disabled = ExtResource("53_dsgg8")
@@ -1749,10 +1751,10 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="ExtraSpeed" type="TextureButton" parent="HUD/UI_Selection" unique_id=2131972820 groups=["SpeedUp"]]
-offset_left = 1773.0001
-offset_top = 949.0001
-offset_right = 1949.0001
-offset_bottom = 1125.0001
+offset_left = 1781.0002
+offset_top = 985.0001
+offset_right = 1933.0002
+offset_bottom = 1137.0001
 texture_normal = ExtResource("58_087co")
 texture_pressed = ExtResource("59_ag3a8")
 texture_disabled = ExtResource("59_ag3a8")
@@ -1761,10 +1763,10 @@ stretch_mode = 0
 
 [node name="NormalSpeed" type="TextureButton" parent="HUD/UI_Selection" unique_id=834995313 groups=["SpeedDown"]]
 visible = false
-offset_left = 1773.0002
-offset_top = 949.0001
-offset_right = 1949.0002
-offset_bottom = 1125.0001
+offset_left = 1781.0002
+offset_top = 985.0001
+offset_right = 1933.0002
+offset_bottom = 1137.0001
 texture_normal = ExtResource("56_h0ww3")
 texture_pressed = ExtResource("57_hl3i6")
 texture_disabled = ExtResource("57_hl3i6")
@@ -1776,16 +1778,39 @@ anchors_preset = -1
 anchor_left = 0.666
 anchor_right = 0.735
 anchor_bottom = 0.071
-offset_left = 1205.0001
-offset_top = 67.000015
-offset_right = 1366.0001
-offset_bottom = 111.28046
+offset_left = 1573.0002
+offset_top = 112.000046
+offset_right = 1746.5487
+offset_bottom = 156.28049
 scale = Vector2(1.55, 1.55)
+pivot_offset = Vector2(2.5806274, 1.2903061)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9")
 theme_override_font_sizes/font_size = 21
-text = "Auto Play"
+theme_override_icons/checked = ExtResource("60_ki85q")
+theme_override_icons/unchecked = ExtResource("60_cgiap")
 icon_alignment = 1
 expand_icon = true
+
+[node name="Round" type="Label" parent="HUD/UI_Selection/AutoPlay" unique_id=1725015938]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -6.8830824
+anchor_top = -0.7510781
+anchor_right = 0.69900006
+anchor_bottom = 1.0
+offset_left = 1195.8386
+offset_top = 35.19354
+offset_right = -0.019859314
+offset_bottom = -11.377228
+pivot_offset = Vector2(0.27056885, 0.4578514)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.627451)
+theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 26
+text = "Autoplay"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Options" type="Panel" parent="HUD/UI_Selection" unique_id=2036140806]
 visible = false
@@ -1935,7 +1960,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4")
 theme_override_font_sizes/font_size = 39
 theme_override_icons/checked = SubResource("ImageTexture_q5dlx")
-text = "Fullscreen"
+text = "Tela Cheia"
 script = ExtResource("8")
 
 [node name="Button" type="Button" parent="HUD/UI_Selection/Options" unique_id=1543474290]
@@ -2050,8 +2075,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0.4392157)
 theme_override_fonts/font = ExtResource("4")
 theme_override_font_sizes/font_size = 107
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ornx7")
-text = "Obrigado por jogar a
- demonstração de 
+text = "Obrigado por jogar
 Bunny Tower Defense!"
 horizontal_alignment = 1
 vertical_alignment = 1

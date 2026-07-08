@@ -65,7 +65,6 @@ func _process(_delta: float) -> void:
 
 func atualizar_loja_botoes() -> void:
     
-    #kiss D;
     $ScrollContainer/GridContainer/Rookie_BG_dps.disabled = (moedas_atuais < 115)
     $ScrollContainer/GridContainer/Rookie_BG_dps/Rookie.disabled = (moedas_atuais < 115)
     if $ScrollContainer/GridContainer/Rookie_BG_dps.disabled == true:

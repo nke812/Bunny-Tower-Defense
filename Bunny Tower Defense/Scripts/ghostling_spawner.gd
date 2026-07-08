@@ -47,8 +47,7 @@ func iniciar_vaga():
      
     match rodada_atual:
         # --- FASE 1: O GRUPO BÁSICO (Rondas 1-10) ---
-        1:  #vaga_atual = [Ghazely]
-            vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
+        1: vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
         2: vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghazt, Ghazt, Ghostling, Ghostling, Ghazt, Ghazt]
         3: vaga_atual = [Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt]
         4: vaga_atual = [Ghostling, Ghoul, Ghostling, Ghoul, Ghostling, Ghoul, Ghostling, Ghoul]
@@ -300,19 +299,20 @@ func inimigo_morreu():
     if vaga_atual.size() == 0 and inimigos_vivos == 0 and ronda_a_decorrer:
         ronda_a_decorrer = false
         
-        if rodada_atual == 150 and hud.get_node("PGB_V").value >= 1:
-            hud.victory()
+        if rodada_atual == 150:
+            if hud:
+                hud.victory()
             return
+        
+        var moedas_no = get_tree().current_scene.find_child("Moedas")
+        if moedas_no:
+            moedas_no.text = str(int(moedas_no.text) + int(rodada_atual * 10) + moedas_fim_ronda_total)
         
         rodada_atual += 1
         atualizar_contador_rondas()
         
         if autoplay == true:
             iniciar_vaga()
-
-        var moedas_no = get_tree().current_scene.find_child("Moedas")
-        if moedas_no:
-            moedas_no.text = str(int(moedas_no.text) + int(rodada_atual * 10) + moedas_fim_ronda_total)
 
 func atualizar_contador_rondas() -> void:
     var contador_no = get_tree().get_first_node_in_group("Round_Counter")
@@ -321,3 +321,8 @@ func atualizar_contador_rondas() -> void:
 
 func atualizar_moedas_buff() -> void:
     moedas_fim_ronda_total = moedas_fim_ronda + moedas_fim_ronda_bonus
+
+
+func _on_button_pressed() -> void:
+    var novo_fantasma = Fenrir.instantiate()
+    get_node("../Path2D").add_child(novo_fantasma)
