@@ -611,6 +611,7 @@ flat = true
 
 [node name="Squeaky" type="AudioStreamPlayer2D" parent="MainMenu_Left/SillyBunny" unique_id=903571009]
 stream = ExtResource("15_m7n2d")
+bus = &"SFX"
 
 [node name="MenuButtonPosGrass" type="Sprite2D" parent="MainMenu_Left" unique_id=1454186594]
 position = Vector2(-200.00002, 540)

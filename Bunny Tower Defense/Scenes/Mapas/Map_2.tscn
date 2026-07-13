@@ -2,6 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://uh3ws1hfei76" path="res://Assets/SFXs/RoundStart.wav" id="1_edkja"]
 [ext_resource type="Script" uid="uid://cj5vuu45ii5tk" path="res://Scripts/ghostling_spawner.gd" id="2_tmeid"]
+[ext_resource type="AudioStream" uid="uid://gda01hgj8bbe" path="res://Assets/Music/GraveyardGroove.ogg" id="2_y1d7f"]
 [ext_resource type="Texture2D" uid="uid://ba34fmtgpt1b5" path="res://Assets/Others/Map_Assets/Pieces/Grass2.png" id="3_ct2q0"]
 [ext_resource type="Texture2D" uid="uid://dguexvso7ppy5" path="res://Assets/Others/Map_Assets/Pieces/MapBase2.png" id="3_d3i2g"]
 [ext_resource type="PackedScene" uid="uid://cvtf3eidvbt76" path="res://Scenes/HUD.tscn" id="4_25kso"]
@@ -32,7 +33,9 @@ volume_db = 1.0
 
 [node name="Map2Music" type="AudioStreamPlayer" parent="." unique_id=1453626938]
 process_mode = 3
+stream = ExtResource("2_y1d7f")
 volume_db = 1.0
+bus = &"Music"
 
 [node name="GhostlingSpawner" type="Node2D" parent="." unique_id=2109337534 groups=["spawner"]]
 y_sort_enabled = true

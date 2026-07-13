@@ -166,10 +166,10 @@ offset = Vector2(-57.15918, 71.25659)
 
 [node name="Button" type="Button" parent="." unique_id=501447508]
 visible = false
-offset_left = 2897.006
-offset_top = 68.26348
-offset_right = 3220.9453
-offset_bottom = 269.4611
+offset_left = 2910.1797
+offset_top = 89.820366
+offset_right = 3234.119
+offset_bottom = 291.01794
 icon = ExtResource("10_4vd4o")
 expand_icon = true
 

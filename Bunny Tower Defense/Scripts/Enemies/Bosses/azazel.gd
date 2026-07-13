@@ -32,7 +32,7 @@ func DMGED(quantidade):
 
     if vida <= 0:
         $Death.play()
-        $"../Goo_Splash".visible = false
+        $Azazel/Goo_Splash.visible = false
         $HitBoxBoss.set_deferred("disabled", true)
         
         

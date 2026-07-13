@@ -324,5 +324,5 @@ func atualizar_moedas_buff() -> void:
 
 
 func _on_button_pressed() -> void:
-    var novo_fantasma = Fenrir.instantiate()
+    var novo_fantasma = Lucifer.instantiate()
     get_node("../Path2D").add_child(novo_fantasma)
