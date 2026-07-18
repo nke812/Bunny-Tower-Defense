@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://deemh3xh6l078" path="res://Scripts/Maps/map_1.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://uh3ws1hfei76" path="res://Assets/SFXs/RoundStart.wav" id="2_4vd4o"]
+[ext_resource type="AudioStream" uid="uid://gda01hgj8bbe" path="res://Assets/Music/GraveyardGroove.ogg" id="2_etryv"]
 [ext_resource type="Script" uid="uid://cj5vuu45ii5tk" path="res://Scripts/ghostling_spawner.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://c7ef5y1mj2jvw" path="res://Assets/Others/Map_Assets/GrasslandsV2/Sign.png" id="5_0f4fa"]
 [ext_resource type="Texture2D" uid="uid://dtdu667t5nytr" path="res://Assets/Others/Map_Assets/GrasslandsV2/Base.png" id="5_cur0w"]
@@ -10,8 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://cd7dhmiqd1glj" path="res://Assets/Others/Map_Assets/GrasslandsV2/Portal.png" id="7_0f4fa"]
 [ext_resource type="Texture2D" uid="uid://bqeytc8re307m" path="res://Assets/Others/Map_Assets/GrasslandsV2/Tunnel.png" id="7_43eqa"]
 [ext_resource type="PackedScene" uid="uid://cvtf3eidvbt76" path="res://Scenes/HUD.tscn" id="9"]
+[ext_resource type="Texture2D" uid="uid://qvwfugrn8aal" path="res://Assets/Others/Map_Assets/GrasslandsV2/Bush1.png" id="9_656xa"]
+[ext_resource type="Texture2D" uid="uid://b66wvbi68wlsn" path="res://Assets/Others/Map_Assets/GrasslandsV2/Trees.png" id="9_jo21a"]
 [ext_resource type="Texture2D" uid="uid://dwdirgdi4666p" path="res://Assets/Enemies/Bosses/Fenrir.png" id="10_4vd4o"]
-[ext_resource type="AudioStream" uid="uid://bb2a6uou2m03y" path="res://Assets/Music/GlimmeryMelody.wav" id="19_656xa"]
+[ext_resource type="Texture2D" uid="uid://dt2rcr7sgxftb" path="res://Assets/Others/Map_Assets/GrasslandsV2/Bush2.png" id="10_43eqa"]
+[ext_resource type="Texture2D" uid="uid://bnrr7pa2euohi" path="res://Assets/Others/Map_Assets/GrasslandsV2/Bush3.png" id="11_416cr"]
+[ext_resource type="Texture2D" uid="uid://cjnk7oi72wd25" path="res://Assets/Others/Map_Assets/GrasslandsV2/Bush4.png" id="12_r2guh"]
+[ext_resource type="Texture2D" uid="uid://dpnxgqa3ef073" path="res://Assets/Others/Map_Assets/GrasslandsV2/Bush5.png" id="13_6uf4h"]
+[ext_resource type="Texture2D" uid="uid://28v50f7i7he1" path="res://Assets/Others/Map_Assets/GrasslandsV2/Bush6.png" id="14_se3bs"]
+[ext_resource type="Texture2D" uid="uid://clhqm563do31y" path="res://Assets/Others/Map_Assets/GrasslandsV2/Bush7.png" id="15_ipn2v"]
+[ext_resource type="Texture2D" uid="uid://cdqfsd718wbd" path="res://Assets/Others/Map_Assets/GrasslandsV2/Bush8.png" id="16_8xnfd"]
 
 [sub_resource type="Animation" id="Animation_656xa"]
 resource_name = "PortalAnim"
@@ -56,33 +65,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -541.3174, 158.0839, 0, 0, 0, 0, -118.562836, 153.29343, 0, 0, 0, 0, -124.55087, -317.3653, 0, 0, 0, 0, 1253.8923, -317.3653, 0, 0, 0, 0, 1262.2756, 154.491, 0, 0, 0, 0, 112.57489, 149.70059, 0, 0, 0, 0, 119.76056, -149.70062, 0, 0, 0, 0, 443.11383, -146.10782, 0, 0, 0, 0, 446.70667, 237.12576, 0, 0, 0, 0, -119.76044, 239.52097, 0, 0, 0, 0, -118.562836, 474.2515, 0, 0, 0, 0, 1368.8624, 477.84433)
 }
 point_count = 12
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5vxsa"]
-load_path = "res://.godot/imported/Bush1.png-dbe25e82d3f50eea1417954e33c41fd3.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jo21a"]
-load_path = "res://.godot/imported/Bush2.png-88b257ba591d38855f209bace429f93c.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l20pt"]
-load_path = "res://.godot/imported/Bush3.png-13a94b3c42e34ef485468c50e129ab11.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s8utj"]
-load_path = "res://.godot/imported/Bush4.png-794c603d6dabbbcac36848369c85477f.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7xxps"]
-load_path = "res://.godot/imported/Bush5.png-f1eec4e3656d9e8dae1d0c1512211ae5.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cur0w"]
-load_path = "res://.godot/imported/Bush6.png-ce0b9985b1c8ece72dfd7148b2c0ec45.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8nplo"]
-load_path = "res://.godot/imported/Bush7.png-2f9acc3137bae35ae3b0999f42e87133.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_purem"]
-load_path = "res://.godot/imported/Bush8.png-a19d29344e7c4e4b3641425740862523.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0f4fa"]
-load_path = "res://.godot/imported/Trees.png-e087c3f0fe0d07157d67a42e0659f3d3.ctex"
 
 [node name="Mapa_1" type="Node2D" unique_id=41714579]
 y_sort_enabled = true
@@ -185,57 +167,57 @@ scale = Vector2(0.5990241, 0.59902424)
 y_sort_enabled = true
 position = Vector2(-1303.5172, 667.75244)
 scale = Vector2(0.9336883, 0.933688)
-texture = SubResource("CompressedTexture2D_5vxsa")
+texture = ExtResource("9_656xa")
 offset = Vector2(13.743744, -77.359344)
 
 [node name="Bush02" type="Sprite2D" parent="Bushes" unique_id=80848341]
 position = Vector2(-297.88956, 1417.4747)
 scale = Vector2(1.1197895, 1.119789)
-texture = SubResource("CompressedTexture2D_jo21a")
+texture = ExtResource("10_43eqa")
 offset = Vector2(-19.592896, -45.479187)
 
 [node name="Bush03" type="Sprite2D" parent="Bushes" unique_id=2067311173]
 position = Vector2(-805.70154, 1989.2628)
 scale = Vector2(1.2333485, 1.2333485)
-texture = SubResource("CompressedTexture2D_l20pt")
+texture = ExtResource("11_416cr")
 offset = Vector2(3.1236877, 10.611816)
 
 [node name="Bush04" type="Sprite2D" parent="Bushes" unique_id=1157969287]
 y_sort_enabled = true
 position = Vector2(361.86618, 903.665)
 scale = Vector2(0.8834309, 0.8834309)
-texture = SubResource("CompressedTexture2D_s8utj")
+texture = ExtResource("12_r2guh")
 offset = Vector2(1.6804199, -1.1613159)
 
 [node name="Bush05" type="Sprite2D" parent="Bushes" unique_id=1811503792]
 position = Vector2(657.7568, 1345.5013)
 scale = Vector2(0.42331016, 0.42331007)
-texture = SubResource("CompressedTexture2D_7xxps")
+texture = ExtResource("13_6uf4h")
 offset = Vector2(-10.999603, 241.1712)
 
 [node name="Bush06" type="Sprite2D" parent="Bushes" unique_id=1912825880]
 position = Vector2(1055.6091, 1845.3159)
 scale = Vector2(1.2214992, 1.2214985)
-texture = SubResource("CompressedTexture2D_cur0w")
+texture = ExtResource("14_se3bs")
 offset = Vector2(-0.9923706, -29.862076)
 
 [node name="Bush07" type="Sprite2D" parent="Bushes" unique_id=591688402]
 position = Vector2(1547.4271, 1299.5183)
 scale = Vector2(1.4623325, 1.4623308)
-texture = SubResource("CompressedTexture2D_8nplo")
+texture = ExtResource("15_ipn2v")
 offset = Vector2(-21.392273, -236.91644)
 
 [node name="Bush08" type="Sprite2D" parent="Bushes" unique_id=99066940]
 position = Vector2(1845.9752, 505.81244)
 scale = Vector2(1.5624717, 1.545655)
-texture = SubResource("CompressedTexture2D_purem")
+texture = ExtResource("16_8xnfd")
 offset = Vector2(-20.984314, 132.47388)
 
 [node name="Trees" type="Sprite2D" parent="." unique_id=316923212]
 y_sort_enabled = true
 position = Vector2(1232.3353, 1480.2395)
 scale = Vector2(0.5990241, 0.59902424)
-texture = SubResource("CompressedTexture2D_0f4fa")
+texture = ExtResource("9_jo21a")
 offset = Vector2(-65.35376, -1307.9155)
 
 [node name="StarRound" type="AudioStreamPlayer" parent="." unique_id=397369011]
@@ -245,9 +227,10 @@ bus = &"SFX"
 
 [node name="Map1Music" type="AudioStreamPlayer" parent="." unique_id=1453626938]
 process_mode = 3
-stream = ExtResource("19_656xa")
+stream = ExtResource("2_etryv")
 autoplay = true
 bus = &"Music"
+parameters/looping = true
 
 [node name="HUD" parent="." unique_id=1805092987 instance=ExtResource("9")]
 
