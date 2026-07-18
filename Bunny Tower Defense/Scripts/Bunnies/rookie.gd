@@ -25,8 +25,8 @@ var preços_p1 = [140, 425, 2400, 5500]
 var preços_p2 = [140, 425, 2400, 5500]
 
 var P1status = "Damage: " + str(dmg_Rookie)
-var P2status = "Speed ATK: 1s"
-var BuffStatus1 = "Dmg: +0"
+var P2status = "ATK Speed: 1s"
+var BuffStatus1 = "DMG: +0"
 var BuffStatus2 = "Range: 1.0"
 
 

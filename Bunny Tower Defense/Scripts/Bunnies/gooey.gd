@@ -25,7 +25,7 @@ var preços_p1 = [250, 600, 2800, 7000]
 var preços_p2 = [250, 600, 2800, 7000]
 
 var P1status = "Stun Time: " + str(TimeSlimed_Total)
-var P2status = "Speed ATK: 2.5s"
+var P2status = "ATK Speed: 2.5s"
 var BuffStatus1 = "Stun Extra:"
 var BuffStatus2 = "+0s"
 

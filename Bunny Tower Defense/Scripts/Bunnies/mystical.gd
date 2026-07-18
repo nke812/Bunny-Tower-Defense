@@ -19,7 +19,7 @@ var preços_p2 = [650, 1400, 3500, 12000]
 
 var buffs = 0
 
-var P1status = "LV Buff: " + str(path1)
+var P1status = "LVL Buff: " + str(path1)
 var P2status = "Range: 1"
 
 

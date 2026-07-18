@@ -972,10 +972,10 @@ texture = ExtResource("15")
 offset = Vector2(-42.575317, -246.34229)
 
 [node name="Label" type="Label" parent="HUD/HUD_Shop/EventSign" unique_id=1670058315]
-offset_left = -305.08447
-offset_top = -317.7701
-offset_right = 54.915527
-offset_bottom = -211.85251
+offset_left = -310.70694
+offset_top = -308.78577
+offset_right = 73.29306
+offset_bottom = -208.57703
 rotation = -0.2443461
 theme_override_colors/font_color = Color(0.34509805, 0.2627451, 0.08235294, 1)
 theme_override_colors/font_shadow_color = Color(0.12027856, 0.0841201, 0.013171076, 1)
@@ -983,10 +983,10 @@ theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("9")
 theme_override_font_sizes/font_size = 60
-text = "Ronda 50:"
+text = "ROUND: 50"
 
 [node name="Sprite2D" type="Sprite2D" parent="HUD/HUD_Shop/EventSign" unique_id=1856453435]
-position = Vector2(145.12148, -342.71924)
+position = Vector2(146.5912, -334.09738)
 rotation = -0.08726646
 scale = Vector2(0.0864978, 0.086497776)
 texture = ExtResource("11_rkb15")
@@ -1280,7 +1280,7 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("9")
 theme_override_font_sizes/font_size = 18
-text = "Vender"
+text = "SELL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1317,7 +1317,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.627451)
 theme_override_constants/shadow_offset_x = 4
 theme_override_fonts/font = ExtResource("4")
 theme_override_font_sizes/font_size = 67
-text = "RONDA:"
+text = "ROUND:"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -1332,7 +1332,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.3647059)
 theme_override_constants/shadow_offset_x = 4
 theme_override_fonts/font = ExtResource("4")
 theme_override_font_sizes/font_size = 40
-text = "(SEM EVENTOS)"
+text = "(NO EVENTS)"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -1873,7 +1873,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0.4392157)
 theme_override_fonts/font = ExtResource("4")
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ornx7")
-text = "DEFINIÇÕES"
+text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1985,10 +1985,11 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4")
 theme_override_font_sizes/font_size = 39
 theme_override_icons/checked = SubResource("ImageTexture_q5dlx")
-text = "Tela Cheia"
+text = "Full Screen"
 script = ExtResource("8")
 
 [node name="Button" type="Button" parent="HUD/UI_Selection/Options" unique_id=1543474290]
+visible = false
 layout_mode = 0
 offset_left = 921.00006
 offset_top = 17.000002
@@ -1997,6 +1998,7 @@ offset_bottom = 84.0
 text = "+50$ "
 
 [node name="Button2" type="Button" parent="HUD/UI_Selection/Options" unique_id=186975066]
+visible = false
 layout_mode = 0
 offset_left = 761.00006
 offset_top = 18.000002
@@ -2177,7 +2179,7 @@ theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = ExtResource("72_k3q0p")
 theme_override_styles/pressed = ExtResource("73_cgiap")
 theme_override_styles/hover = ExtResource("74_ki85q")
-text = "Tentar de novo"
+text = "RESTART"
 
 [node name="BackMenu" type="Button" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=1345564730]
 anchors_preset = 8
@@ -2196,7 +2198,7 @@ theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = ExtResource("72_k3q0p")
 theme_override_styles/pressed = ExtResource("73_cgiap")
 theme_override_styles/hover = ExtResource("74_ki85q")
-text = "Voltar ao Menu"
+text = "EXIT"
 
 [node name="Label" type="Label" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=1319169810]
 anchors_preset = 10

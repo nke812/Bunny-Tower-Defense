@@ -20,10 +20,10 @@ var distancias_knockback = [1.0, 3.0, 5.0, 7.5, 10.0]
 var alvos_cadeia = [2, 5, 7, 10, 15]
 var dmg_Scrappy = 0
 
-var BuffStatus1 = "Dmg: +0"
+var BuffStatus1 = "DMG: +0"
 
 var P1status = "Knockback: " + str(distancias_knockback[0])
-var P2status = "Chain Targets: " + str(alvos_cadeia[0])
+var P2status = "Target Amount: " + str(alvos_cadeia[0])
 
 func _process(delta: float) -> void:
     

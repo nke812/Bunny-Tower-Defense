@@ -22,8 +22,8 @@ var path2 = 0
 var preços_p1 = [650, 1400, 3500, 12000]
 var preços_p2 = [650, 1400, 3500, 12000]
 
-var P1status = "Money " + str(valor_lucky) + "$:"
-var P2status = "Farm speed: 3.5s"
+var P1status = "Profit " + str(valor_lucky) + "$:"
+var P2status = "Farm Speed: 3.5s"
 
 var BuffStatus1 = "Bonus por"
 var BuffStatus2 = "ronda: " + str(moedas_bonus)

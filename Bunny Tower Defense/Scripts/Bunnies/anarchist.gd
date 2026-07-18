@@ -27,8 +27,8 @@ var preços_p2 = [500, 1300, 2000, 4550]
 
 var P1status = "Damage: " + str(dmg_Anarchist)
 var P2status = "Reload Speed: 3s"
-var BuffStatus1 = "Pente: +0"
-var BuffStatus2 = "Atk Speed: +0s"
+var BuffStatus1 = "Mag: +0"
+var BuffStatus2 = "ATK Speed: +0s"
 
 var StatusExtra = str(balas)
 
@@ -39,7 +39,7 @@ func _process(delta: float) -> void :
     
     if balas <= 0:
         if focus:
-            hud.get_node("HUD_Shop/HudBgDown/StatusExtra").text = "Recarregando..."
+            hud.get_node("HUD_Shop/HudBgDown/StatusExtra").text = "RELOADING..."
         if spawner.ronda_a_decorrer:
             $Reload.paused = false
             if $Reload.is_stopped():

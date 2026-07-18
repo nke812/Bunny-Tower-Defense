@@ -458,8 +458,8 @@ theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("17")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_7467j")
-text = "CLIQUE NA TELA 
-PARA COMEÇAR!"
+text = "PRESS ANY KEY
+TO START!"
 
 [node name="Start" type="Button" parent="MainMenu_Left/Buttons" unique_id=1809978150]
 offset_left = -2985.3596
@@ -479,7 +479,7 @@ theme_override_colors/font_disabled_color = Color(0.4, 0.3372549, 0.21568628, 1)
 theme_override_fonts/font = ExtResource("17")
 theme_override_font_sizes/font_size = 28
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_rrcx7")
-text = "NOVO JOGO"
+text = "NEW GAME"
 
 [node name="Continue" type="Button" parent="MainMenu_Left/Buttons" unique_id=615626795]
 offset_left = -3408.3591
@@ -502,7 +502,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_rrcx7")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_pjscj")
 disabled = true
-text = "Continuar"
+text = "CONTINUE"
 
 [node name="Bestiario" type="Button" parent="MainMenu_Left/Buttons" unique_id=750961617]
 offset_left = -2171.3594
@@ -558,7 +558,7 @@ theme_override_fonts/font = ExtResource("17")
 theme_override_font_sizes/font_size = 58
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_rrcx7")
 disabled = true
-text = "VOLTAR"
+text = "BACK"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1713408079]
 position = Vector2(961, 540)
@@ -658,9 +658,9 @@ anchor_top = -0.388
 anchor_right = 2.253
 anchor_bottom = 0.18400002
 offset_left = -88.54839
-offset_top = 24.046066
+offset_top = 16.046066
 offset_right = -211.59079
-offset_bottom = 1.950058
+offset_bottom = -6.049942
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7019608)
@@ -690,9 +690,9 @@ anchor_top = -0.388
 anchor_right = 2.253
 anchor_bottom = 0.18400002
 offset_left = -86.0484
-offset_top = 24.046066
+offset_top = 16.046066
 offset_right = -209.09106
-offset_bottom = 1.950058
+offset_bottom = -6.049942
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7019608)
@@ -717,16 +717,16 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7019608)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.4392157)
 theme_override_fonts/font = ExtResource("17")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 46
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fh7cp")
-text = "SELECIONE UM MAPA"
+text = "SELECT YOUR BATTLEGROUND!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ExitMenu" type="Button" parent="Select Map" unique_id=1165637249]
 layout_mode = 0
-offset_left = 761.80505
-offset_top = 525.86206
+offset_left = 659.0
+offset_top = 507.995
 offset_right = 928.80505
 offset_bottom = 583.86206
 theme_override_fonts/font = ExtResource("17")
@@ -736,7 +736,7 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_7467j")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7467j")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7467j")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rrcx7")
-text = "VOLTAR"
+text = "BACK"
 
 [node name="SelMapsMenu" type="AnimationPlayer" parent="Select Map" unique_id=1490800533]
 libraries/ = SubResource("AnimationLibrary_5hdia")
@@ -778,7 +778,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0.4392157)
 theme_override_fonts/font = ExtResource("17")
 theme_override_font_sizes/font_size = 38
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3u44c")
-text = "DEFINIÇÕES"
+text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 

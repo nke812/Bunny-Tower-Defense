@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dsceqd0jgdotq"]
 
-[ext_resource type="Script" uid="uid://fwmmmfsvxx5g" path="res://Scripts/loading.gd" id="1_k66n3"]
+[ext_resource type="Script" uid="uid://fwmmmfsvxx5g" path="res://Scripts/Maps/loading.gd" id="1_k66n3"]
 [ext_resource type="Texture2D" uid="uid://dkcxix4yanx14" path="res://Assets/Others/HUD_Assets/LoadingSpritesheet.png" id="2_31xe0"]
+[ext_resource type="Texture2D" uid="uid://derqrp2bm37ke" path="res://Assets/Others/Map_Assets/GrasslandsV2/GrassLandsLOADING.png" id="2_xrc7h"]
 [ext_resource type="FontFile" uid="uid://c4oqjtn2jr35r" path="res://FontText/Candy Planet.ttf" id="4_4tbtc"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_dlcsm"]
@@ -123,7 +124,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v6vye")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 19.0
 }]
@@ -139,6 +140,11 @@ position = Vector2(952, 467)
 rotation = 3.1415927
 scale = Vector2(1943.3505, -1107.3213)
 texture = SubResource("CanvasTexture_dlcsm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=410681099]
+position = Vector2(951.99994, 463.99997)
+scale = Vector2(0.52233803, 0.5223379)
+texture = ExtResource("2_xrc7h")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1184472391]
 offset_left = 702.0
@@ -164,6 +170,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("4_4tbtc")
 theme_override_font_sizes/font_size = 33
-text = "Loading..."
+text = "LOADING..."
 horizontal_alignment = 1
 vertical_alignment = 1

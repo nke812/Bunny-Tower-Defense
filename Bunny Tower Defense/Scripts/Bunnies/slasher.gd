@@ -31,9 +31,9 @@ var preços_p1 = [400, 1500, 3500, 7500]
 var preços_p2 = [400, 1500, 3500, 7500]
 
 
-var P1status = "Speed ATK: 3s"
+var P1status = "ATK Speed: 3s"
 var P2status = "Range: 1"
-var BuffStatus1 = "Dmg: " + "+" + str(dmg_Mystical)
+var BuffStatus1 = "DMG: " + "+" + str(dmg_Mystical)
 var BuffStatus2 = "Range: 0" + "+"
 
 
