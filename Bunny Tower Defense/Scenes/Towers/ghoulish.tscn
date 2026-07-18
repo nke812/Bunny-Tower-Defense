@@ -451,6 +451,7 @@ libraries/ = SubResource("AnimationLibrary_rvvcq")
 
 [node name="attack" type="AnimationPlayer" parent="." unique_id=823537111]
 libraries/ = SubResource("AnimationLibrary_s5cs0")
+speed_scale = 2.689
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="button_down" from="button" to="." method="_on_button_button_down"]

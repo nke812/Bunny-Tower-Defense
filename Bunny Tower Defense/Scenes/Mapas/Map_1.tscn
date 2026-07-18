@@ -2,26 +2,241 @@
 
 [ext_resource type="Script" uid="uid://deemh3xh6l078" path="res://Scripts/Maps/map_1.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://uh3ws1hfei76" path="res://Assets/SFXs/RoundStart.wav" id="2_4vd4o"]
-[ext_resource type="AudioStream" uid="uid://gda01hgj8bbe" path="res://Assets/Music/GraveyardGroove.ogg" id="2_etryv"]
 [ext_resource type="Script" uid="uid://cj5vuu45ii5tk" path="res://Scripts/ghostling_spawner.gd" id="3"]
-[ext_resource type="Texture2D" uid="uid://btpfuo1qi7tam" path="res://Assets/Others/Map_Assets/MapGrasslands.png" id="4"]
-[ext_resource type="Texture2D" uid="uid://blf41njwmhhrd" path="res://Assets/Others/Map_Assets/Bush01.png" id="6"]
-[ext_resource type="Texture2D" uid="uid://ds673xketndkv" path="res://Assets/Others/Map_Assets/Bush02.png" id="7"]
-[ext_resource type="Texture2D" uid="uid://dlceism21lgnt" path="res://Assets/Others/Map_Assets/Bush03.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://c7ef5y1mj2jvw" path="res://Assets/Others/Map_Assets/GrasslandsV2/Sign.png" id="5_0f4fa"]
+[ext_resource type="Texture2D" uid="uid://dtdu667t5nytr" path="res://Assets/Others/Map_Assets/GrasslandsV2/Base.png" id="5_cur0w"]
+[ext_resource type="Texture2D" uid="uid://c7jjx4qanqtqf" path="res://Assets/Others/Map_Assets/GrasslandsV2/Path.png" id="6_8nplo"]
+[ext_resource type="Texture2D" uid="uid://ct63ve2ec18w" path="res://Assets/Others/Map_Assets/GrasslandsV2/Grass.png" id="6_656xa"]
+[ext_resource type="Texture2D" uid="uid://cd7dhmiqd1glj" path="res://Assets/Others/Map_Assets/GrasslandsV2/Portal.png" id="7_0f4fa"]
+[ext_resource type="Texture2D" uid="uid://bqeytc8re307m" path="res://Assets/Others/Map_Assets/GrasslandsV2/Tunnel.png" id="7_43eqa"]
 [ext_resource type="PackedScene" uid="uid://cvtf3eidvbt76" path="res://Scenes/HUD.tscn" id="9"]
 [ext_resource type="Texture2D" uid="uid://dwdirgdi4666p" path="res://Assets/Enemies/Bosses/Fenrir.png" id="10_4vd4o"]
+[ext_resource type="AudioStream" uid="uid://bb2a6uou2m03y" path="res://Assets/Music/GlimmeryMelody.wav" id="19_656xa"]
+
+[sub_resource type="Animation" id="Animation_656xa"]
+resource_name = "PortalAnim"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.2831855, 6.2831855]
+}
+
+[sub_resource type="Animation" id="Animation_43eqa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_416cr"]
+_data = {
+&"PortalAnim": SubResource("Animation_656xa"),
+&"RESET": SubResource("Animation_43eqa")
+}
 
 [sub_resource type="Curve2D" id="Curve2D_lycfg"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -541.3174, 158.0839, 0, 0, 0, 0, 43.11377, 152.09586, 0, 0, 0, 0, 138.92218, -97.00595, 0, 0, 0, 0, 1250.2996, -87.42511, 0, 0, 0, 0, 1250.2996, 324.551, 0, 0, 0, 0, 320.95813, 324.551, 0, 0, 0, 0, 330.53894, 113.77252, 0, 0, 0, 0, 589.2216, 123.35336, 0, 0, 0, 0, 589.2216, 631.1378, 0, 0, 0, 0, 1566.4672, 621.557)
+"points": PackedVector2Array(0, 0, 0, 0, -541.3174, 158.0839, 0, 0, 0, 0, -118.562836, 153.29343, 0, 0, 0, 0, -124.55087, -317.3653, 0, 0, 0, 0, 1253.8923, -317.3653, 0, 0, 0, 0, 1262.2756, 154.491, 0, 0, 0, 0, 112.57489, 149.70059, 0, 0, 0, 0, 119.76056, -149.70062, 0, 0, 0, 0, 443.11383, -146.10782, 0, 0, 0, 0, 446.70667, 237.12576, 0, 0, 0, 0, -119.76044, 239.52097, 0, 0, 0, 0, -118.562836, 474.2515, 0, 0, 0, 0, 1368.8624, 477.84433)
 }
-point_count = 10
+point_count = 12
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5vxsa"]
+load_path = "res://.godot/imported/Bush1.png-dbe25e82d3f50eea1417954e33c41fd3.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jo21a"]
+load_path = "res://.godot/imported/Bush2.png-88b257ba591d38855f209bace429f93c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l20pt"]
+load_path = "res://.godot/imported/Bush3.png-13a94b3c42e34ef485468c50e129ab11.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s8utj"]
+load_path = "res://.godot/imported/Bush4.png-794c603d6dabbbcac36848369c85477f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7xxps"]
+load_path = "res://.godot/imported/Bush5.png-f1eec4e3656d9e8dae1d0c1512211ae5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cur0w"]
+load_path = "res://.godot/imported/Bush6.png-ce0b9985b1c8ece72dfd7148b2c0ec45.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8nplo"]
+load_path = "res://.godot/imported/Bush7.png-2f9acc3137bae35ae3b0999f42e87133.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_purem"]
+load_path = "res://.godot/imported/Bush8.png-a19d29344e7c4e4b3641425740862523.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0f4fa"]
+load_path = "res://.godot/imported/Trees.png-e087c3f0fe0d07157d67a42e0659f3d3.ctex"
 
 [node name="Mapa_1" type="Node2D" unique_id=41714579]
 y_sort_enabled = true
 position = Vector2(-36.000004, -42.000004)
 scale = Vector2(0.835, 0.835)
 script = ExtResource("1")
+
+[node name="GhostlingSpawner" type="Node2D" parent="." unique_id=2109337534 groups=["spawner"]]
+y_sort_enabled = true
+position = Vector2(-17.964067, 2.395214)
+script = ExtResource("3")
+
+[node name="Timer" type="Timer" parent="GhostlingSpawner" unique_id=1280611192]
+wait_time = 0.65
+autostart = true
+
+[node name="Map" type="Sprite2D" parent="." unique_id=2040754683]
+y_sort_enabled = true
+position = Vector2(922.15576, -29.940002)
+scale = Vector2(0.5990241, 0.59902424)
+texture = ExtResource("5_cur0w")
+offset = Vector2(292.51355, 1213.1501)
+
+[node name="Grass" type="Sprite2D" parent="." unique_id=1433807891]
+y_sort_enabled = true
+position = Vector2(919.76056, -14.371098)
+scale = Vector2(0.5990241, 0.59902424)
+texture = ExtResource("6_656xa")
+offset = Vector2(296.51184, 1187.1597)
+
+[node name="Path" type="Sprite2D" parent="." unique_id=1513536398]
+y_sort_enabled = true
+position = Vector2(922.15564, -29.940006)
+scale = Vector2(0.5990241, 0.59902424)
+texture = ExtResource("6_8nplo")
+offset = Vector2(292.51355, 1213.1501)
+
+[node name="Sign" type="Sprite2D" parent="." unique_id=1849004656]
+y_sort_enabled = true
+position = Vector2(1556.8862, 510.17963)
+scale = Vector2(0.43180367, 0.4318037)
+texture = ExtResource("5_0f4fa")
+offset = Vector2(-45.939697, -59.843384)
+
+[node name="Tunnel" type="Sprite2D" parent="." unique_id=1313899328]
+y_sort_enabled = true
+position = Vector2(922.1557, 43.113777)
+scale = Vector2(0.5990241, 0.59902424)
+texture = ExtResource("7_43eqa")
+offset = Vector2(292.51355, 1091.1956)
+
+[node name="Portal" type="Sprite2D" parent="." unique_id=540855202]
+y_sort_enabled = true
+position = Vector2(1879.0417, 985.6287)
+rotation = -6.2831855
+scale = Vector2(1.0421233, 1.0421237)
+texture = ExtResource("7_0f4fa")
+offset = Vector2(5.956543, -6.250824)
+
+[node name="PortalAnim" type="AnimationPlayer" parent="Portal" unique_id=1810926687]
+libraries/ = SubResource("AnimationLibrary_416cr")
+autoplay = &"PortalAnim"
+
+[node name="Area_Path" type="Area2D" parent="." unique_id=655402903 groups=["no_place"]]
+y_sort_enabled = true
+position = Vector2(2.395214, 20.359282)
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area_Path" unique_id=2045750682 groups=["no_place"]]
+position = Vector2(120.958084, 847.90424)
+scale = Vector2(0.99999994, 0.99999994)
+polygon = PackedVector2Array(-80.239525, -137.72461, -77.844315, -255.08984, 142.51498, -251.49707, 190.41916, -289.82043, 191.61679, -665.86835, 208.38324, -707.78455, 234.73056, -728.1438, 1611.9762, -730.539, 1679.0421, -699.4013, 1685.0302, -620.3594, 1685.0302, -207.18567, 1657.4852, -154.49109, 473.05392, -153.29346, 444.31143, -166.4671, 416.7665, -194.01202, 408.38327, -222.75452, 407.18567, -525.74854, 425.14972, -554.4911, 451.49704, -572.4552, 825.1498, -570.05994, 847.9043, -552.0959, 863.47314, -531.7366, 871.8564, -384.4312, 741.31744, -383.23358, 755.6887, -441.91623, 744.9103, -459.8803, 554.4911, -457.4851, 518.5629, -426.34738, 518.5629, -305.38928, 550.89825, -262.2755, 1538.9224, -263.47308, 1573.6528, -289.82043, 1573.6528, -594.0121, 1549.4742, -620.3594, 346.10782, -620.3594, 322.1557, -602.39526, 305.38925, -568.86237, 304.19165, -221.55695, 295.8084, -167.66473, 258.68265, -140.11981)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area_Path" unique_id=2115293809 groups=["no_place"]]
+position = Vector2(-655.08984, 5.9880276)
+scale = Vector2(0.99999994, 0.99999994)
+polygon = PackedVector2Array(947.3055, 850.29944, 952.09595, 970.05994, 984.4313, 1001.1977, 2299.4014, 1002.39526, 2297.0063, 892.21564, 1063.4731, 887.42523, 1075.4491, 841.91614, 1079.042, 821.55695, 1070.6588, 808.3833, 1062.2756, 797.60486, 1040.7188, 794.012, 997.6049, 791.6168, 961.67676, 791.6168, 937.7247, 797.60486, 928.1438, 811.97614)
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1947152330]
+y_sort_enabled = true
+position = Vector2(486.2275, 505.38922)
+scale = Vector2(0.9999999, 0.9999999)
+curve = SubResource("Curve2D_lycfg")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1755593801]
+y_sort_enabled = true
+position = Vector2(-119.60551, 269.8874)
+progress = 5496.54
+rotates = false
+loop = false
+
+[node name="Bushes" type="Node2D" parent="." unique_id=2130574630]
+light_mask = 2
+y_sort_enabled = true
+position = Vector2(922.1554, -29.940006)
+scale = Vector2(0.5990241, 0.59902424)
+
+[node name="Bush01" type="Sprite2D" parent="Bushes" unique_id=888204372]
+y_sort_enabled = true
+position = Vector2(-1303.5172, 667.75244)
+scale = Vector2(0.9336883, 0.933688)
+texture = SubResource("CompressedTexture2D_5vxsa")
+offset = Vector2(13.743744, -77.359344)
+
+[node name="Bush02" type="Sprite2D" parent="Bushes" unique_id=80848341]
+position = Vector2(-297.88956, 1417.4747)
+scale = Vector2(1.1197895, 1.119789)
+texture = SubResource("CompressedTexture2D_jo21a")
+offset = Vector2(-19.592896, -45.479187)
+
+[node name="Bush03" type="Sprite2D" parent="Bushes" unique_id=2067311173]
+position = Vector2(-805.70154, 1989.2628)
+scale = Vector2(1.2333485, 1.2333485)
+texture = SubResource("CompressedTexture2D_l20pt")
+offset = Vector2(3.1236877, 10.611816)
+
+[node name="Bush04" type="Sprite2D" parent="Bushes" unique_id=1157969287]
+y_sort_enabled = true
+position = Vector2(361.86618, 903.665)
+scale = Vector2(0.8834309, 0.8834309)
+texture = SubResource("CompressedTexture2D_s8utj")
+offset = Vector2(1.6804199, -1.1613159)
+
+[node name="Bush05" type="Sprite2D" parent="Bushes" unique_id=1811503792]
+position = Vector2(657.7568, 1345.5013)
+scale = Vector2(0.42331016, 0.42331007)
+texture = SubResource("CompressedTexture2D_7xxps")
+offset = Vector2(-10.999603, 241.1712)
+
+[node name="Bush06" type="Sprite2D" parent="Bushes" unique_id=1912825880]
+position = Vector2(1055.6091, 1845.3159)
+scale = Vector2(1.2214992, 1.2214985)
+texture = SubResource("CompressedTexture2D_cur0w")
+offset = Vector2(-0.9923706, -29.862076)
+
+[node name="Bush07" type="Sprite2D" parent="Bushes" unique_id=591688402]
+position = Vector2(1547.4271, 1299.5183)
+scale = Vector2(1.4623325, 1.4623308)
+texture = SubResource("CompressedTexture2D_8nplo")
+offset = Vector2(-21.392273, -236.91644)
+
+[node name="Bush08" type="Sprite2D" parent="Bushes" unique_id=99066940]
+position = Vector2(1845.9752, 505.81244)
+scale = Vector2(1.5624717, 1.545655)
+texture = SubResource("CompressedTexture2D_purem")
+offset = Vector2(-20.984314, 132.47388)
+
+[node name="Trees" type="Sprite2D" parent="." unique_id=316923212]
+y_sort_enabled = true
+position = Vector2(1232.3353, 1480.2395)
+scale = Vector2(0.5990241, 0.59902424)
+texture = SubResource("CompressedTexture2D_0f4fa")
+offset = Vector2(-65.35376, -1307.9155)
 
 [node name="StarRound" type="AudioStreamPlayer" parent="." unique_id=397369011]
 process_mode = 3
@@ -30,146 +245,17 @@ bus = &"SFX"
 
 [node name="Map1Music" type="AudioStreamPlayer" parent="." unique_id=1453626938]
 process_mode = 3
-stream = ExtResource("2_etryv")
+stream = ExtResource("19_656xa")
 autoplay = true
 bus = &"Music"
-parameters/looping = true
-
-[node name="GhostlingSpawner" type="Node2D" parent="." unique_id=2109337534 groups=["spawner"]]
-y_sort_enabled = true
-position = Vector2(-17.964067, 2.395214)
-script = ExtResource("3")
-
-[node name="Timer" type="Timer" parent="GhostlingSpawner" unique_id=1280611192]
-wait_time = 0.5
-autostart = true
-
-[node name="Map" type="Sprite2D" parent="." unique_id=2040754683]
-y_sort_enabled = true
-position = Vector2(1017.9642, -29.940002)
-scale = Vector2(0.5990241, 0.59902424)
-texture = ExtResource("4")
-offset = Vector2(292.51355, 1213.1501)
-
-[node name="MapSprites" type="Node2D" parent="Map" unique_id=1907962850]
-
-[node name="Path2D" type="Path2D" parent="." unique_id=1947152330]
-y_sort_enabled = true
-position = Vector2(450.2994, 310.17963)
-scale = Vector2(0.99999994, 0.99999994)
-curve = SubResource("Curve2D_lycfg")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1755593801]
-y_sort_enabled = true
-position = Vector2(-541.3174, 158.0839)
-rotates = false
-loop = false
-
-[node name="Area_Path" type="Area2D" parent="." unique_id=655402903 groups=["no_place"]]
-y_sort_enabled = true
-position = Vector2(2.395214, 20.359285)
-collision_layer = 2
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area_Path" unique_id=2045750682 groups=["no_place"]]
-position = Vector2(-1.1976051, -16.766468)
-scale = Vector2(0.99999994, 0.99999994)
-polygon = PackedVector2Array(40.718567, 417.96408, 43.113777, 508.98203, 456.2874, 507.78442, 482.63474, 507.78442, 510.17963, 501.79642, 525.74854, 491.01797, 542.51495, 477.8443, 558.0838, 461.07785, 608.38324, 275.4491, 621.5569, 267.06586, 1627.5449, 256.2874, 1641.9161, 262.27545, 1655.0898, 537.72455, 1649.1018, 559.28143, 1637.1257, 573.65265, 1622.7545, 577.2455, 1605.988, 584.4311, 978.4431, 577.2455, 952.09576, 588.0239, 929.3413, 598.80237, 905.3892, 588.0239, 871.85626, 583.2335, 844.31134, 573.65265, 822.75446, 560.479, 813.17365, 538.9221, 804.7904, 516.16766, 804.7904, 494.61078, 811.976, 476.6467, 833.5329, 457.48505, 859.88025, 449.1018, 934.1317, 450.2994, 952.09576, 459.88025, 967.6647, 473.0539, 1089.8203, 470.6587, 1087.4252, 452.6946, 1079.0419, 429.94012, 1056.2875, 404.79044, 1037.1257, 394.012, 995.2096, 386.82635, 773.6527, 388.02396, 753.2934, 404.79044, 734.1317, 432.33533, 723.3533, 477.8443, 726.9461, 664.67065, 737.72455, 677.8443, 744.91016, 688.62274, 964.07184, 695.80835, 982.0359, 702.99396, 1088.6227, 705.38916, 1111.3772, 689.8203, 1717.3652, 683.8323, 1741.3174, 663.473, 1754.491, 633.5329, 1758.0839, 233.53294, 1736.527, 201.19762, 1704.1917, 192.81438, 1633.533, 186.82635, 574.8503, 165.26947, 556.8862, 179.64072, 538.9222, 200, 471.8563, 400, 455.0898, 414.37125, 432.33533, 421.5569)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area_Path" unique_id=2115293809 groups=["no_place"]]
-position = Vector2(-3.5928154, -17.964077)
-scale = Vector2(0.99999994, 0.99999994)
-polygon = PackedVector2Array(1001.1976, 843.1137, 1001.1976, 950.8982, 1033.533, 967.6646, 1101.7964, 978.44305, 1411.9761, 982.0359, 1829.9401, 984.4311, 1831.1377, 897.006, 1233.533, 900.59875, 1140.1198, 910.1796, 1094.6107, 908.982, 1075.4491, 879.0419, 1075.4491, 841.91614)
 
 [node name="HUD" parent="." unique_id=1805092987 instance=ExtResource("9")]
 
-[node name="Bushes" type="Node2D" parent="." unique_id=2130574630]
-light_mask = 2
-y_sort_enabled = true
-position = Vector2(1017.96405, -29.940006)
-scale = Vector2(0.5990241, 0.59902424)
-
-[node name="Bush01" type="Sprite2D" parent="Bushes" unique_id=888204372]
-y_sort_enabled = true
-position = Vector2(-1303.5171, 1083.5981)
-scale = Vector2(0.5674879, 0.5674877)
-texture = ExtResource("6")
-offset = Vector2(-14.092224, 21.138184)
-
-[node name="Bush02" type="Sprite2D" parent="Bushes" unique_id=80848341]
-position = Vector2(-841.68823, 1305.5162)
-scale = Vector2(0.42129713, 0.42129695)
-texture = ExtResource("7")
-offset = Vector2(-14.236694, 75.927246)
-
-[node name="Bush10" type="Sprite2D" parent="Bushes" unique_id=2111480519]
-position = Vector2(1167.5675, 193.92796)
-scale = Vector2(0.4159648, 0.4159607)
-skew = -0.1850049
-texture = ExtResource("8")
-offset = Vector2(-44.45111, 77.10408)
-
-[node name="Bush11" type="Sprite2D" parent="Bushes" unique_id=2070052325]
-position = Vector2(1295.5205, 239.91093)
-scale = Vector2(0.40431288, 0.40430892)
-texture = ExtResource("6")
-offset = Vector2(-36.99701, 70.0394)
-
-[node name="Bush09" type="Sprite2D" parent="Bushes" unique_id=1118628604]
-position = Vector2(729.73, 869.6776)
-scale = Vector2(0.7101857, 0.71018225)
-texture = ExtResource("8")
-offset = Vector2(-24.168152, -50.04492)
-
-[node name="Bush08" type="Sprite2D" parent="Bushes" unique_id=99066940]
-position = Vector2(647.7602, 1293.5208)
-scale = Vector2(0.3799669, 0.379966)
-texture = ExtResource("8")
-offset = Vector2(-20.984314, 132.47388)
-
-[node name="Bush12" type="Sprite2D" parent="Bushes" unique_id=1835904433]
-position = Vector2(1343.5027, 1355.4977)
-scale = Vector2(0.49620494, 0.49620375)
-texture = ExtResource("7")
-offset = Vector2(-35.86859, 30.077393)
-
-[node name="Bush07" type="Sprite2D" parent="Bushes" unique_id=591688402]
-position = Vector2(-179.93332, 843.6872)
-scale = Vector2(0.53895664, 0.53895605)
-texture = ExtResource("6")
-offset = Vector2(-0.8847046, 20.11206)
-
-[node name="Bush06" type="Sprite2D" parent="Bushes" unique_id=1912825880]
-position = Vector2(-841.68823, 155.94205)
-scale = Vector2(0.32720914, 0.32720897)
-texture = ExtResource("6")
-offset = Vector2(-15.7230835, 179.6389)
-
-[node name="Bush05" type="Sprite2D" parent="Bushes" unique_id=1811503792]
-position = Vector2(-1479.4521, 491.81757)
-scale = Vector2(0.42331016, 0.42331007)
-texture = ExtResource("7")
-offset = Vector2(-6.2764587, 85.31476)
-
-[node name="Bush03" type="Sprite2D" parent="Bushes" unique_id=2067311173]
-position = Vector2(-1467.4565, 1355.4976)
-scale = Vector2(0.38146707, 0.38146707)
-texture = ExtResource("8")
-offset = Vector2(-20.963898, 115.30176)
-
-[node name="Bush04" type="Sprite2D" parent="Bushes" unique_id=1157969287]
-y_sort_enabled = true
-position = Vector2(1185.5612, 1627.397)
-scale = Vector2(0.46475047, 0.46475047)
-skew = -0.2617994
-texture = ExtResource("8")
-offset = Vector2(-57.15918, 71.25659)
-
 [node name="Button" type="Button" parent="." unique_id=501447508]
-visible = false
-offset_left = 2910.1797
-offset_top = 89.820366
-offset_right = 3234.119
-offset_bottom = 291.01794
+offset_left = 2886.2275
+offset_top = 63.47306
+offset_right = 3210.1667
+offset_bottom = 264.67062
 icon = ExtResource("10_4vd4o")
 expand_icon = true
 

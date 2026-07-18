@@ -17,7 +17,7 @@ func _process(_delta: float) -> void :
  
         if o_pai is PathFollow2D:
 
-           if o_pai.progress_ratio >= 0.72 and o_pai.progress_ratio <= 0.805:
+           if o_pai.progress_ratio >= 0.6425 and o_pai.progress_ratio <= 0.7671:
               ghostling.modulate.a = 0.1
               if goo: goo.modulate.a = 0.1 # Só mexe na opacidade se o goo existir!
 

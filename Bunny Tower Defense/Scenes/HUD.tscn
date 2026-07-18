@@ -1448,6 +1448,7 @@ theme_override_font_sizes/font_size = 23
 text = "250"
 
 [node name="Vivian_BG_dps" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=2074233990]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("35_63sul")
 texture_disabled = ExtResource("36_5r81r")
@@ -1988,7 +1989,6 @@ text = "Tela Cheia"
 script = ExtResource("8")
 
 [node name="Button" type="Button" parent="HUD/UI_Selection/Options" unique_id=1543474290]
-visible = false
 layout_mode = 0
 offset_left = 921.00006
 offset_top = 17.000002
@@ -1997,7 +1997,6 @@ offset_bottom = 84.0
 text = "+50$ "
 
 [node name="Button2" type="Button" parent="HUD/UI_Selection/Options" unique_id=186975066]
-visible = false
 layout_mode = 0
 offset_left = 761.00006
 offset_top = 18.000002
