@@ -270,7 +270,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Scrappy:scale")
+tracks/0/path = NodePath("Pega/Scrappy:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -285,7 +285,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Scrappy:scale")
+tracks/0/path = NodePath("Pega/Scrappy:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -334,13 +334,16 @@ scale = Vector2(0.32291663, 0.32291663)
 texture = ExtResource("2_kkioa")
 offset = Vector2(-3.0967743, 303.48386)
 
-[node name="Scrappy" type="Sprite2D" parent="." unique_id=799830229]
-position = Vector2(1.1599998, 76.94501)
+[node name="Pega" type="Node2D" parent="." unique_id=526594832]
+position = Vector2(0, -124.495)
+
+[node name="Scrappy" type="Sprite2D" parent="Pega" unique_id=799830229]
+position = Vector2(0.1599999, 194.44)
 scale = Vector2(0.222, 0.222)
 texture = ExtResource("3_j88ne")
-offset = Vector2(-50.06, -510.362)
+offset = Vector2(-45.555496, -478.83044)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Scrappy" unique_id=654749538]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pega/Scrappy" unique_id=654749538]
 libraries/ = SubResource("AnimationLibrary_j88ne")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1210907078 groups=["no_place"]]
@@ -356,8 +359,8 @@ shape = SubResource("CapsuleShape2D_lndst")
 
 [node name="button" type="Button" parent="." unique_id=1956728241]
 offset_left = -63.0
-offset_top = -93.0
-offset_right = 63.0
+offset_top = -161.055
+offset_right = 71.16
 offset_bottom = 77.0
 focus_mode = 0
 flat = true

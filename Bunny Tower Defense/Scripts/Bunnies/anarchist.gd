@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var Anarchist = $Pega/Node2D/Anarchist
+@onready var AnarchistHands = $Pega/Node2D/Anarchist_Animations
+
 var mostrar_range = false
 var pronto_para_atacar = false
 
@@ -73,17 +76,17 @@ func verificar_e_atacar():
         break
 
 func atacar(alvo):
-    var texture = $Node2D/Anarchist.texture.resource_path
+    var texture = Anarchist.texture.resource_path
     var hud = get_tree().get_first_node_in_group("HUD")
     
     if alvo.has_method("DMGED"):
-        $Node2D/Anarchist/AnimationPlayer.play("AttackAnarchist")
+        $Pega/Node2D/Anarchist/AnimationPlayer.play("AttackAnarchist")
         $Shot.play()
         
         match texture:
-            "res://Assets/Bunnies/Animations/AnarchistAttackIdle.png": $Node2D/Anarchist_Animations.play("Attack")
-            "res://Assets/Bunnies/Animations/Paths/Anarchist01AttackIdle.png": $Node2D/Anarchist_Animations.play("Attack01")
-            "res://Assets/Bunnies/Animations/Paths/Anarchist02AttackIdle.png": $Node2D/Anarchist_Animations.play("Attack02")
+            "res://Assets/Bunnies/Animations/AnarchistAttackIdle.png": AnarchistHands.play("Attack")
+            "res://Assets/Bunnies/Animations/Paths/Anarchist01AttackIdle.png": AnarchistHands.play("Attack01")
+            "res://Assets/Bunnies/Animations/Paths/Anarchist02AttackIdle.png": AnarchistHands.play("Attack02")
             
         
         alvo.DMGED(dmg_Anarchist)
@@ -95,7 +98,7 @@ func atacar(alvo):
         $Timer.start()
 
 func _on_reload_timeout() -> void :
-    var texture = $Node2D/Anarchist.texture.resource_path
+    var texture = Anarchist.texture.resource_path
     var hud = get_tree().get_first_node_in_group("HUD")
     
     balas = pente_de_balas
@@ -104,9 +107,9 @@ func _on_reload_timeout() -> void :
     $Reload2.play()
     
     match texture:
-        "res://Assets/Bunnies/Animations/AnarchistAttackIdle.png": $Node2D/Anarchist_Animations.play("Reload")
-        "res://Assets/Bunnies/Animations/Paths/Anarchist01AttackIdle.png": $Node2D/Anarchist_Animations.play("Reload01")
-        "res://Assets/Bunnies/Animations/Paths/Anarchist02AttackIdle.png": $Node2D/Anarchist_Animations.play("Reload02")
+        "res://Assets/Bunnies/Animations/AnarchistAttackIdle.png": AnarchistHands.play("Reload")
+        "res://Assets/Bunnies/Animations/Paths/Anarchist01AttackIdle.png": AnarchistHands.play("Reload01")
+        "res://Assets/Bunnies/Animations/Paths/Anarchist02AttackIdle.png": AnarchistHands.play("Reload02")
     
     
     pronto_para_atacar = false
@@ -250,8 +253,8 @@ func aplicar_upgrade(caminho):
                     valor_torre += 4550
                 
                     auraMAISego()
-                    $Node2D/Anarchist.texture = preload("res://Assets/Bunnies/Animations/Paths/Anarchist01AttackIdle.png")
-                    $Node2D/Anarchist_Animations.animation = "Attack01"
+                    Anarchist.texture = preload("res://Assets/Bunnies/Animations/Paths/Anarchist01AttackIdle.png")
+                    AnarchistHands.animation = "Attack01"
                         
             P1status = "Damage: " + str(dmg_Anarchist)
             hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
@@ -279,8 +282,8 @@ func aplicar_upgrade(caminho):
                     valor_torre += 4550
                     
                     auraMAISego()
-                    $Node2D/Anarchist.texture = preload("res://Assets/Bunnies/Animations/Paths/Anarchist02AttackIdle.png")
-                    $Node2D/Anarchist_Animations.animation = "Attack02"
+                    Anarchist.texture = preload("res://Assets/Bunnies/Animations/Paths/Anarchist02AttackIdle.png")
+                    AnarchistHands.animation = "Attack02"
                     
             atualizar_valorTorre()
             P2status = "Reload Speed: " + str($Reload.wait_time) + "s"
@@ -289,18 +292,18 @@ func aplicar_upgrade(caminho):
     return false
     
 func auraMAISego():
-    $Node2D/Anarchist.modulate = Color(1, 1, 1)
-    $Node2D/Anarchist_Animations.modulate = Color(1, 1, 1)
+    Anarchist.modulate = Color(1, 1, 1)
+    AnarchistHands.modulate = Color(1, 1, 1)
     $AURA.play("default")
     
     var tween = create_tween()
 
 
-    tween.tween_property($Node2D/Anarchist, "modulate", Color(2, 2, 2, 1), 0.3)
-    tween.parallel().tween_property($Node2D/Anarchist_Animations, "modulate", Color(2, 2, 2, 1), 0.3)
+    tween.tween_property(Anarchist, "modulate", Color(2, 2, 2, 1), 0.3)
+    tween.parallel().tween_property(AnarchistHands, "modulate", Color(2, 2, 2, 1), 0.3)
  
-    tween.tween_property($Node2D/Anarchist, "modulate", Color(1, 1, 1, 1), 0.4)
-    tween.parallel().tween_property($Node2D/Anarchist_Animations, "modulate", Color(1, 1, 1, 1), 0.4)
+    tween.tween_property(Anarchist, "modulate", Color(1, 1, 1, 1), 0.4)
+    tween.parallel().tween_property(AnarchistHands, "modulate", Color(1, 1, 1, 1), 0.4)
 
 
 func atualizar_valorTorre():

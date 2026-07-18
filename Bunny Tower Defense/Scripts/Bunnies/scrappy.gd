@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var Scrappy = $Pega/Scrappy
+
 var mostrar_range = false
 var pronto_para_atacar = false
 var focus = false
@@ -57,7 +59,7 @@ func verificar_e_atacar():
     atacar_em_cadeia(alvos_atingidos)
 
 func atacar_em_cadeia(alvos):
-    $Scrappy/AnimationPlayer.play("scrppy_Attack")
+    $Pega/Scrappy/AnimationPlayer.play("scrppy_Attack")
     $Attack.play()
     var forca_knockback = distancias_knockback[path1]
 
@@ -142,7 +144,7 @@ func aplicar_upgrade(caminho):
                 4:
                     valor_torre += 7000
                     auraMAISego()
-                    $Scrappy.texture = preload("res://Assets/Bunnies/Paths/Scrappy01.png")
+                    Scrappy.texture = preload("res://Assets/Bunnies/Paths/Scrappy01.png")
 
             
             atualizar_valorTorre()
@@ -162,7 +164,7 @@ func aplicar_upgrade(caminho):
                 4:
                     valor_torre += 7000
                     auraMAISego()
-                    $Scrappy.texture = preload("res://Assets/Bunnies/Paths/Scrappy02.png")
+                    Scrappy.texture = preload("res://Assets/Bunnies/Paths/Scrappy02.png")
                         
             atualizar_valorTorre()            
             P2status = "Chain Targets: " + str(alvos_cadeia[path2])
@@ -172,13 +174,13 @@ func aplicar_upgrade(caminho):
     return false
 
 func auraMAISego():
-    $Scrappy.modulate = Color(1, 1, 1)
+    Scrappy.modulate = Color(1, 1, 1)
     if has_node("AURA"):
         $AURA.play("default")
     
     var tween = create_tween()
-    tween.tween_property($Scrappy, "modulate", Color(2, 2, 2, 1), 0.3)
-    tween.tween_property($Scrappy, "modulate", Color(1, 1, 1, 1), 0.4)
+    tween.tween_property(Scrappy, "modulate", Color(2, 2, 2, 1), 0.3)
+    tween.tween_property(Scrappy, "modulate", Color(1, 1, 1, 1), 0.4)
 
 func _draw() -> void:
     if mostrar_range:

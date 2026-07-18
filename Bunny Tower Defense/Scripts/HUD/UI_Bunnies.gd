@@ -1,5 +1,6 @@
 extends Node2D
 
+                            # - TORRES - #
 @onready var rookie_scene = preload("res://Scenes/Towers/rookie.tscn")
 @onready var lucky_scene = preload("res://Scenes/Towers/lucky.tscn")
 @onready var slasher_scene = preload("res://Scenes/Towers/slasher.tscn")
@@ -9,6 +10,7 @@ extends Node2D
 @onready var mystical_scene = preload("res://Scenes/Towers/mystical.tscn")
 @onready var ghoulish_scene = preload("res://Scenes/Towers/ghoulish.tscn")
 
+@onready var vivian_scene = preload("res://VIVIAN/vivian.tscn")
 
 @onready var moedas_label = $"../../Moedas"
 @onready var moedas_barra = $"../../PGB_M"
@@ -21,21 +23,58 @@ var tipo_torre_atual = ""
 var temp_tower = null
 var local_proibido = false
 var custo_da_torre_atual = 0
-
+var ultima_posicao_rato: Vector2 = Vector2.ZERO
+var mola_rotacao: float = 0.0
+var mola_velocidade: float = 0.0
 
 func _ready() -> void:
     atualizar_loja_botoes()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
     var moedas_atuais_nova = int(moedas_label.text)
     
     if moedas_atuais_nova != moedas_atuais:
         moedas_atuais = moedas_atuais_nova
         atualizar_loja_botoes()
 
-
     if temp_tower != null:
-        temp_tower.global_position = get_global_mouse_position()
+        var BlackHolePos = get_global_mouse_position()
+        
+        # Faz com que a origem do "Pega" fique exatamente por baixo da ponta do rato
+        if temp_tower.has_node("Pega"):
+            var pega_pos_local = temp_tower.get_node("Pega").position
+            temp_tower.global_position = BlackHolePos - pega_pos_local
+        else:
+            temp_tower.global_position = BlackHolePos
+
+        # --- CÁLCULO DE MOVIMENTO ---
+        var vetor_movimento = BlackHolePos - ultima_posicao_rato
+        ultima_posicao_rato = BlackHolePos
+        
+        # --- FÍSICA DE MOLA E GRAVIDADE (PÊNDULO) ---
+        # 1. Aceleração baseada no arrasto do rato
+        var forca_arrasto = vetor_movimento.x * 0.30
+        
+        # 2. Força de retorno (gravidade a puxar para o centro 0)
+        var forca_retorno = -30.0 * mola_rotacao
+        
+        # 3. Amortecimento (para o boneco não balançar para sempre)
+        var amortecimento = -4.0 * mola_velocidade
+        
+        # Somamos as forças todas para dar a aceleração
+        var aceleracao = forca_arrasto + forca_retorno + amortecimento
+        
+        # Atualizamos a velocidade e a rotação com base no delta do jogo
+        mola_velocidade += aceleracao * delta
+        mola_rotacao += mola_velocidade * delta
+        
+        # Um pequeno limite para o boneco não dar uma cambalhota completa
+        mola_rotacao = clamp(mola_rotacao, -0.9, 0.9)
+        
+        # Aplica a rotação da mola ao nó "Pega"
+        if temp_tower.has_node("Pega"):
+            temp_tower.get_node("Pega").rotation = mola_rotacao
+        # --------------------------------------------
 
         var detector = temp_tower.get_node("HitBox")
         var areas_em_cima = detector.get_overlapping_areas()
@@ -46,21 +85,23 @@ func _process(_delta: float) -> void:
                 local_proibido = true
                 break
 
-
         if local_proibido:
             temp_tower.modulate = Color(1, 0.2, 0.2, 0.5)
         else:
             temp_tower.modulate = Color(1, 1, 1, 0.5)
 
-
         if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
             if not local_proibido:
                 largar_torre()
+                # Faz o reset das variáveis da mola para a próxima torre
+                mola_rotacao = 0.0
+                mola_velocidade = 0.0
             else:
-
                 temp_tower.queue_free()
                 temp_tower = null
                 custo_da_torre_atual = 0
+                mola_rotacao = 0.0
+                mola_velocidade = 0.0
 
 
 func atualizar_loja_botoes() -> void:
@@ -153,6 +194,18 @@ func atualizar_loja_botoes() -> void:
         $ScrollContainer/GridContainer/Ghoulish_BG_stun/Preço.add_theme_color_override("font_shadow_color", Color.from_string("d1a000df", Color.BLACK))
         $ScrollContainer/GridContainer/Ghoulish_BG_stun/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTag.png")
 
+    $ScrollContainer/GridContainer/Vivian_BG_dps.disabled = (moedas_atuais < 1600)
+    if $ScrollContainer/GridContainer/Vivian_BG_dps.disabled == true:
+        $"ScrollContainer/GridContainer/Vivian_BG_dps/Preço".add_theme_color_override("font_color", Color.from_string("afafaf", Color.WHITE))
+        $"ScrollContainer/GridContainer/Vivian_BG_dps/Preço".add_theme_color_override("font_shadow_color", Color.from_string("7c7c7c", Color.BLACK))
+        $ScrollContainer/GridContainer/Vivian_BG_dps/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTagDisabled.png")
+    else:
+        $"ScrollContainer/GridContainer/Vivian_BG_dps/Preço".add_theme_color_override("font_color", Color.from_string("ffc74d", Color.WHITE))
+        $"ScrollContainer/GridContainer/Vivian_BG_dps/Preço".add_theme_color_override("font_shadow_color", Color.from_string("d1a000df", Color.BLACK))
+        $ScrollContainer/GridContainer/Vivian_BG_dps/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTag.png")
+
+
+
 
 func _on_rookie_button_down() -> void :
     if temp_tower == null and moedas_atuais >= 115:
@@ -225,11 +278,22 @@ func largar_torre():
 
     if temp_tower:
         if moedas_atuais >= custo_da_torre_atual:
+            
+            if temp_tower.has_node("Pega"):
+                temp_tower.get_node("Pega").rotation = 0.0
+            
             temp_tower.get_node("Shadow").visible = true
-            temp_tower.get_node("SkinChange").play("ChangeSkin")
+            if temp_tower.get_node("SkinChange"):
+                temp_tower.get_node("SkinChange").play("ChangeSkin")
             temp_tower.modulate.a = 1.0
             temp_tower.process_mode = Node.PROCESS_MODE_INHERIT
-
+            
+            if temp_tower.get_node("Place"):
+                temp_tower.get_node("Place").play()
+            
+            if temp_tower.get_node("Idle"):
+                temp_tower.get_node("Idle").play("Idle animation")
+                
 
             var range_node = temp_tower.get_node("Range")
             range_node.monitoring = true
@@ -241,7 +305,6 @@ func largar_torre():
 
             range_node.get_node("CollisionRange").visible = true
 
-
             temp_tower = null
             custo_da_torre_atual = 0
             
@@ -249,3 +312,9 @@ func largar_torre():
             temp_tower.queue_free()
             temp_tower = null
             custo_da_torre_atual = 0
+
+func _on_vivian_bg_dps_button_down() -> void:
+    if temp_tower == null and moedas_atuais >= 1600:
+        temp_tower = vivian_scene.instantiate()
+        custo_da_torre_atual = 1600
+        configurar_torre_temp()

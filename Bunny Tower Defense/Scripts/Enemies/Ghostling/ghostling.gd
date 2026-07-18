@@ -48,20 +48,34 @@ func DMGED(quantidade):
         
 
 func gooey_stun(TimeSlimed: float, cor_ataque: String):
-    if goo_stun: return 
+    if goo_stun: return
+    var tween_B = create_tween()
     
     goo_stun = true
     $"../Goo_Splash".visible = true
     $"../Goo_Splash".play(cor_ataque)
+    
+    if cor_ataque == "Green_Goo":
+        tween_B.tween_property($Ghostling, "modulate", Color("22f367ff"), 0.3)
+    if cor_ataque == "Blue_Goo":
+        tween_B.tween_property($Ghostling, "modulate", Color("47ace0ff"), 0.3)
+    if cor_ataque == "Purple_Goo":
+        tween_B.tween_property($Ghostling, "modulate", Color("7e50f8ff"), 0.3)
+    if cor_ataque == "Void_Goo":
+        tween_B.tween_property($Ghostling, "modulate", Color("1a2938ff"), 0.3)
     
     speed = speed / 3
 
     await get_tree().create_timer(TimeSlimed).timeout
     
     if is_instance_valid(self):
+        goo_stun = false
         $"../Goo_Splash".play_backwards(cor_ataque)
+        await $"../Goo_Splash".animation_finished
+        
         speed = speed_base
-        goo_stun = false    
+        $Ghostling.modulate = Color(1, 1, 1, 1)
+          
             
 func aplicar_knockback(distancia: float) -> void:
     var pai = get_parent()

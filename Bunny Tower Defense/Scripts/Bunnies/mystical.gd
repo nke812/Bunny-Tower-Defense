@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var Mystical = $Pega/Mystical
+
 var posicionado = false
 var mostrar_range = false
 
@@ -99,27 +101,27 @@ func _on_button_button_down() -> void:
 
 func mudar_skin():
     skin = !skin
-    $AnimationPlayer.play("ChangeSkin")
+    $SkinChange.play("ChangeSkin")
     
-    var texture = $Mystical.texture.resource_path
+    var texture = Mystical.texture.resource_path
     match texture:
         "res://Assets/Bunnies/Mystical.png":
-            $Mystical.texture = preload("res://Assets/Bunnies/Skins/Catharsis.png")
+            Mystical.texture = preload("res://Assets/Bunnies/Skins/Catharsis.png")
             
         "res://Assets/Bunnies/Skins/Catharsis.png":
-            $Mystical.texture = preload("res://Assets/Bunnies/Mystical.png")
+            Mystical.texture = preload("res://Assets/Bunnies/Mystical.png")
             
         "res://Assets/Bunnies/Paths/Mystical01.png":
-            $Mystical.texture = preload("res://Assets/Bunnies/Skins/Paths/Catharsis01.png")
+            Mystical.texture = preload("res://Assets/Bunnies/Skins/Paths/Catharsis01.png")
             
         "res://Assets/Bunnies/Skins/Paths/Catharsis01.png":
-            $Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical01.png")
+            Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical01.png")
             
         "res://Assets/Bunnies/Paths/Mystical02.png":
-            $Mystical.texture = preload("res://Assets/Bunnies/Skins/Paths/Catharsis02.png")
+            Mystical.texture = preload("res://Assets/Bunnies/Skins/Paths/Catharsis02.png")
             
         "res://Assets/Bunnies/Skins/Paths/Catharsis02.png":
-            $Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical02.png")
+            Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical02.png")
 
 
 func aplicar_upgrade(caminho):
@@ -168,8 +170,8 @@ func aplicar_upgrade(caminho):
                     valor_torre += 12000
                     hud.get_node("HUD_Shop/HudBgDown/Status1").text = str(P1status)
                     
-                    if skin: $Mystical.texture = preload("res://Assets/Bunnies/Skins/Paths/Catharsis01.png")
-                    else: $Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical01.png")
+                    if skin: Mystical.texture = preload("res://Assets/Bunnies/Skins/Paths/Catharsis01.png")
+                    else: Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical01.png")
                     
                     
                     auraMAISego()
@@ -201,8 +203,8 @@ func aplicar_upgrade(caminho):
                     P2status = "Range: " + str(snapped($Range/CollisionRange.scale.x, 0.1))
                     hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
                     
-                    if skin: $Mystical.texture = preload("res://Assets/Bunnies/Skins/Paths/Catharsis02.png")
-                    else: $Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical02.png")
+                    if skin: Mystical.texture = preload("res://Assets/Bunnies/Skins/Paths/Catharsis02.png")
+                    else: Mystical.texture = preload("res://Assets/Bunnies/Paths/Mystical02.png")
                     
                     auraMAISego()
             atualizar_valorTorre()    
@@ -211,15 +213,15 @@ func aplicar_upgrade(caminho):
 
 
 func auraMAISego():
-    $Mystical.modulate = Color(1, 1, 1)
+    Mystical.modulate = Color(1, 1, 1)
     $AURA.play("default")
     
     var tween = create_tween()
 
 
-    tween.tween_property($Mystical, "modulate", Color(2, 2, 2, 1), 0.3)
+    tween.tween_property(Mystical, "modulate", Color(2, 2, 2, 1), 0.3)
  
-    tween.tween_property($Mystical, "modulate", Color(1, 1, 1, 1), 0.4)
+    tween.tween_property(Mystical, "modulate", Color(1, 1, 1, 1), 0.4)
 
 func _draw() -> void :
     if mostrar_range:

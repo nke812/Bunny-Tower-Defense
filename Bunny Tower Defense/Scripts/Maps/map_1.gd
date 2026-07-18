@@ -13,16 +13,19 @@ func _process(_delta: float) -> void :
     for ghostling in all_ghoztlings:
 
         var o_pai = ghostling.get_parent()
-
+        var goo = ghostling.get_node_or_null("Goo_Splash") # Usa get_node_or_null para não mandar erro logo aqui
+ 
         if o_pai is PathFollow2D:
 
-            if o_pai.progress_ratio >= 0.72 and o_pai.progress_ratio <= 0.805:
-                ghostling.modulate.a = 0.1
-                
+           if o_pai.progress_ratio >= 0.72 and o_pai.progress_ratio <= 0.805:
+              ghostling.modulate.a = 0.1
+              if goo: goo.modulate.a = 0.1 # Só mexe na opacidade se o goo existir!
 
-                ghostling.set_deferred("collision_layer", 0)
-                ghostling.set_deferred("collision_mask", 0)
-            else:
-                ghostling.modulate.a = 1.0
-                ghostling.set_deferred("collision_layer", 1)
-                ghostling.set_deferred("collision_mask", 1)
+              ghostling.set_deferred("collision_layer", 0)
+              ghostling.set_deferred("collision_mask", 0)
+           else:
+              ghostling.modulate.a = 1.0
+              if goo: goo.modulate.a = 1.0 # Só mexe na opacidade se o goo existir!
+        
+              ghostling.set_deferred("collision_layer", 1)
+              ghostling.set_deferred("collision_mask", 1)

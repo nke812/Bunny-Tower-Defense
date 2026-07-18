@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var moedas_node = $HUD/PGB_M
+@onready var Lucky = $Pega/Lucky
 
 var font = load("res://FontText/Coiny-Regular.ttf")
 var font_size = 40
@@ -54,7 +55,7 @@ func _on_timer_timeout() -> void:
     var valor_atual = int(moedas.text)
     moedas.text = str(valor_atual + valor_lucky)
     
-    $Lucky/AnimationPlayer.play("LuckyAction")
+    $Pega/Lucky/AnimationPlayer.play("LuckyAction")
     
     $Money.pitch_scale = randf_range(0.9, 1.1) 
     $Money.play()
@@ -67,22 +68,22 @@ func label_money():
     label_M.text = "+" + str(valor_lucky) + "$"
 
 
-    if $Lucky.texture.resource_path == "res://Assets/Bunnies/Lucky.png":
+    if Lucky.texture.resource_path == "res://Assets/Bunnies/Lucky.png":
         label_M.modulate = Color(1.0, 0.902, 0.392, 1.0)
 
-    elif $Lucky.texture.resource_path == "res://Assets/Bunnies/Skins/ZeRon.png":
+    elif Lucky.texture.resource_path == "res://Assets/Bunnies/Skins/ZeRon.png":
         label_M.modulate = Color(0.957, 0.478, 0.965, 1.0)
         
-    elif $Lucky.texture.resource_path == "res://Assets/Bunnies/Paths/Lucky01.png":
+    elif Lucky.texture.resource_path == "res://Assets/Bunnies/Paths/Lucky01.png":
         label_M.modulate = Color("143978ff")
         
-    elif $Lucky.texture.resource_path == "res://Assets/Bunnies/Skins/Lucky02.png":
+    elif Lucky.texture.resource_path == "res://Assets/Bunnies/Skins/Lucky02.png":
         label_M.modulate = Color(0.51, 0.54, 0.0, 1.0)
         
-    elif $Lucky.texture.resource_path == "res://Assets/Bunnies/Skins/Paths/ZeRon01.png":
+    elif Lucky.texture.resource_path == "res://Assets/Bunnies/Skins/Paths/ZeRon01.png":
         label_M.modulate = Color(0.811, 0.556, 0.866, 1.0)
         
-    elif $Lucky.texture.resource_path == "res://Assets/Bunnies/Skins/Paths/ZeRon02.png":
+    elif Lucky.texture.resource_path == "res://Assets/Bunnies/Skins/Paths/ZeRon02.png":
         label_M.modulate = Color(0.849, 0.262, 0.36, 1.0)
     
 
@@ -122,25 +123,25 @@ func mudar_skin():
     skin = !skin
     $SkinChange.play("ChangeSkin")
     
-    var path = $Lucky.texture.resource_path
+    var path = Lucky.texture.resource_path
     match path:
         "res://Assets/Bunnies/Lucky.png":
-            $Lucky.texture = load("res://Assets/Bunnies/Skins/ZeRon.png")
+            Lucky.texture = load("res://Assets/Bunnies/Skins/ZeRon.png")
             
         "res://Assets/Bunnies/Skins/ZeRon.png":
-            $Lucky.texture = load("res://Assets/Bunnies/Lucky.png")
+            Lucky.texture = load("res://Assets/Bunnies/Lucky.png")
             
         "res://Assets/Bunnies/Paths/Lucky01.png":
-            $Lucky.texture = load("res://Assets/Bunnies/Skins/Paths/ZeRon01.png")
+            Lucky.texture = load("res://Assets/Bunnies/Skins/Paths/ZeRon01.png")
             
         "res://Assets/Bunnies/Skins/Paths/ZeRon01.png":
-            $Lucky.texture = load("res://Assets/Bunnies/Paths/Lucky01.png")
+            Lucky.texture = load("res://Assets/Bunnies/Paths/Lucky01.png")
             
         "res://Assets/Bunnies/Paths/Lucky02.png":
-            $Lucky.texture = load("res://Assets/Bunnies/Skins/Paths/ZeRon02.png")
+            Lucky.texture = load("res://Assets/Bunnies/Skins/Paths/ZeRon02.png")
             
         "res://Assets/Bunnies/Skins/Paths/ZeRon02.png":
-            $Lucky.texture = load("res://Assets/Bunnies/Paths/Lucky02.png")
+            Lucky.texture = load("res://Assets/Bunnies/Paths/Lucky02.png")
 
 func _on_button_button_down() -> void:
     get_tree().call_group("Bunnies", "reset_focus")
@@ -238,9 +239,9 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
                     if skin:
-                        $Lucky.texture = preload("res://Assets/Bunnies/Skins/Paths/ZeRon01.png")
+                        Lucky.texture = preload("res://Assets/Bunnies/Skins/Paths/ZeRon01.png")
                     else:
-                        $Lucky.texture = preload("res://Assets/Bunnies/Paths/Lucky01.png")
+                        Lucky.texture = preload("res://Assets/Bunnies/Paths/Lucky01.png")
             atualizar_valorTorre()            
         else:
             path2 += 1
@@ -270,9 +271,9 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
                     if skin:
-                        $Lucky.texture = preload("res://Assets/Bunnies/Skins/Paths/ZeRon02.png")
+                        Lucky.texture = preload("res://Assets/Bunnies/Skins/Paths/ZeRon02.png")
                     else:
-                        $Lucky.texture = preload("res://Assets/Bunnies/Paths/Lucky02.png")
+                        Lucky.texture = preload("res://Assets/Bunnies/Paths/Lucky02.png")
             atualizar_valorTorre()
             
             if MysticalBuff:
@@ -282,15 +283,15 @@ func aplicar_upgrade(caminho):
 
 
 func auraMAISego():
-    $Lucky.modulate = Color(1, 1, 1)
+    Lucky.modulate = Color(1, 1, 1)
     $AURA.play("default")
     
     var tween = create_tween()
 
 
-    tween.tween_property($Lucky, "modulate", Color(2, 2, 2, 1), 0.3)
+    tween.tween_property(Lucky, "modulate", Color(2, 2, 2, 1), 0.3)
  
-    tween.tween_property($Lucky, "modulate", Color(1, 1, 1, 1), 0.4)
+    tween.tween_property(Lucky, "modulate", Color(1, 1, 1, 1), 0.4)
 
 
 

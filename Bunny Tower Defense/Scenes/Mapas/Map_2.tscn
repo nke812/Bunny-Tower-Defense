@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dguexvso7ppy5" path="res://Assets/Others/Map_Assets/Pieces/MapBase2.png" id="3_d3i2g"]
 [ext_resource type="PackedScene" uid="uid://cvtf3eidvbt76" path="res://Scenes/HUD.tscn" id="4_25kso"]
 [ext_resource type="Texture2D" uid="uid://c78t1k27uto6d" path="res://Assets/Others/Map_Assets/Pieces/Path2.png" id="4_ijloj"]
-[ext_resource type="Texture2D" uid="uid://cw8bvvn7jb141" path="res://Assets/Others/Map_Assets/Pieces/MushroomPosition.png" id="5_np52s"]
 [ext_resource type="Texture2D" uid="uid://c5sofkss2ul1l" path="res://Assets/Others/Map_Assets/MushroomPosition6.png" id="7_0ypbn"]
 [ext_resource type="Texture2D" uid="uid://dv3t8wttjkqqf" path="res://Assets/Others/Map_Assets/MushroomPosition5.png" id="8_y1d7f"]
 [ext_resource type="Texture2D" uid="uid://cmr3pisckoiu3" path="res://Assets/Others/Map_Assets/MushroomPosition4.png" id="9_or06t"]
@@ -35,7 +34,9 @@ volume_db = 1.0
 process_mode = 3
 stream = ExtResource("2_y1d7f")
 volume_db = 1.0
+autoplay = true
 bus = &"Music"
+parameters/looping = true
 
 [node name="GhostlingSpawner" type="Node2D" parent="." unique_id=2109337534 groups=["spawner"]]
 y_sort_enabled = true
@@ -77,14 +78,6 @@ y_sort_enabled = true
 position = Vector2(-247.90422, -340.11975)
 rotates = false
 loop = false
-
-[node name="Cogumelos" type="Sprite2D" parent="Path2D" unique_id=105800588]
-visible = false
-y_sort_enabled = true
-position = Vector2(641.91614, 2755.6885)
-scale = Vector2(1.1978915, 1.1978927)
-texture = ExtResource("5_np52s")
-offset = Vector2(85.25763, -1977.6544)
 
 [node name="Area_Path" type="Area2D" parent="." unique_id=2084109964 groups=["no_place"]]
 y_sort_enabled = true

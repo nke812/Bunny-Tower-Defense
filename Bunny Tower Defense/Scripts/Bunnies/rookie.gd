@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var Rookie = $Pega/Node2D/Rookie
+@onready var RookieHands = $Pega/Node2D/RookieHands_Attack
+
 var skin = false
 var valor_torre = 115
 
@@ -27,6 +30,7 @@ var BuffStatus1 = "Dmg: +0"
 var BuffStatus2 = "Range: 1.0"
 
 
+
 func _process(delta: float) -> void: 
 
     if focus == true:
@@ -49,8 +53,8 @@ func verificar_e_atacar():
 
 func atacar(alvo):
     if alvo.has_method("DMGED"):
-        $Node2D/Rookie/AnimationPlayer.play("RookieAttack")
-        $Node2D/RookieHands_Attack.play()
+        $Pega/Node2D/Rookie/AnimationPlayer.play("RookieAttack")
+        $Pega/Node2D/RookieHands_Attack.play()
         
         var sons_hit = [$Hit, $Hit2, $Hit3]
         var som_sorteado = sons_hit[randi() % sons_hit.size()]
@@ -136,31 +140,31 @@ func mudar_skin():
     skin = !skin
     $SkinChange.play("ChangeSkin")
     
-    var texture = $Node2D/Rookie.texture.resource_path
+    var texture = Rookie.texture.resource_path
     match texture:
         "res://Assets/Bunnies/Animations/RookieAttackIdle.png":
-            $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Skins/buny.png")
-            $Node2D/RookieHands_Attack.animation = "RookieSkin"
+            Rookie.texture = preload("res://Assets/Bunnies/Skins/buny.png")
+            RookieHands.animation = "RookieSkin"
             
         "res://Assets/Bunnies/Skins/buny.png":
-            $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Animations/RookieAttackIdle.png")
-            $Node2D/RookieHands_Attack.animation = "Rookie"
+            Rookie.texture = preload("res://Assets/Bunnies/Animations/RookieAttackIdle.png")
+            RookieHands.animation = "Rookie"
             
         "res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png":
-            $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny01.png")
-            $Node2D/RookieHands_Attack.animation = "RookieSkin01"
+            Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny01.png")
+            RookieHands.animation = "RookieSkin01"
             
         "res://Assets/Bunnies/Skins/Paths/buny01.png":
-            $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
-            $Node2D/RookieHands_Attack.animation = "Rookie01"
+            Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
+            RookieHands.animation = "Rookie01"
             
         "res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png":
-            $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny02.png")
-            $Node2D/RookieHands_Attack.animation = "RookieSkin02"
+            Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny02.png")
+            RookieHands.animation = "RookieSkin02"
             
         "res://Assets/Bunnies/Skins/Paths/buny02.png":
-            $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
-            $Node2D/RookieHands_Attack.animation = "Rookie02"
+            Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
+            RookieHands.animation = "Rookie02"
 
 func _on_button_button_down() -> void:
     get_tree().call_group("Bunnies", "reset_focus")
@@ -226,11 +230,11 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
                     if skin:
-                        $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny01.png")
-                        $Node2D/RookieHands_Attack.animation = "RookieSkin01"
+                        Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny01.png")
+                        RookieHands.animation = "RookieSkin01"
                     else:
-                        $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
-                        $Node2D/RookieHands_Attack.animation = "Rookie01"
+                        Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
+                        RookieHands.animation = "Rookie01"
             
             atualizar_valorTorre()
             dmg_total = dmg_Rookie + dmg_Mystical
@@ -255,11 +259,11 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
                     if skin:
-                        $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny02.png")
-                        $Node2D/RookieHands_Attack.animation = "RookieSkin02"
+                        Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny02.png")
+                        RookieHands.animation = "RookieSkin02"
                     else:
-                        $Node2D/Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
-                        $Node2D/RookieHands_Attack.animation = "Rookie02"
+                        Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
+                        RookieHands.animation = "Rookie02"
                         
             atualizar_valorTorre()            
             P2status = "Speed ATK: " + str($Timer.wait_time) + "s"
@@ -269,17 +273,17 @@ func aplicar_upgrade(caminho):
     return false 
     
 func auraMAISego():
-    $Node2D/Rookie.modulate = Color(1, 1, 1)
-    $Node2D/RookieHands_Attack.modulate = Color(1, 1, 1)
+    Rookie.modulate = Color(1, 1, 1)
+    RookieHands.modulate = Color(1, 1, 1)
     $AURA.play("default")
     
     var tween = create_tween()
 
-    tween.tween_property($Node2D/Rookie, "modulate", Color(2, 2, 2, 1), 0.3)
-    tween.parallel().tween_property($Node2D/RookieHands_Attack, "modulate", Color(2, 2, 2, 1), 0.3)
+    tween.tween_property(Rookie, "modulate", Color(2, 2, 2, 1), 0.3)
+    tween.parallel().tween_property(RookieHands, "modulate", Color(2, 2, 2, 1), 0.3)
  
-    tween.tween_property($Node2D/Rookie, "modulate", Color(1, 1, 1, 1), 0.4)
-    tween.parallel().tween_property($Node2D/RookieHands_Attack, "modulate", Color(1, 1, 1, 1), 0.4)
+    tween.tween_property(Rookie, "modulate", Color(1, 1, 1, 1), 0.4)
+    tween.parallel().tween_property(RookieHands, "modulate", Color(1, 1, 1, 1), 0.4)
 
 func atualizar_valorTorre():
     var hud = get_tree().get_first_node_in_group("HUD")

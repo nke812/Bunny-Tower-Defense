@@ -49,7 +49,9 @@
 [ext_resource type="Texture2D" uid="uid://efuwa2251qfa" path="res://Assets/Bunnies/AnarchistDisable.png" id="33"]
 [ext_resource type="Texture2D" uid="uid://c65cppgvhkoah" path="res://Assets/Others/HUD_Assets/BunnyBoxStun.png" id="34"]
 [ext_resource type="Texture2D" uid="uid://ca483pwed2uya" path="res://Assets/Bunnies/Gooey.png" id="35"]
+[ext_resource type="Texture2D" uid="uid://cnsm1nanbg62m" path="res://VIVIAN/VivianBoxDPS.png" id="35_63sul"]
 [ext_resource type="Texture2D" uid="uid://ch7sdj5is3vxp" path="res://Assets/Bunnies/GooeyDisable.png" id="36"]
+[ext_resource type="Texture2D" uid="uid://8o6wu4nb8fd" path="res://VIVIAN/VivianBoxDPSdisable.png" id="36_5r81r"]
 [ext_resource type="Texture2D" uid="uid://dmfwaotuoifff" path="res://Assets/Bunnies/Scrappy.png" id="37"]
 [ext_resource type="Texture2D" uid="uid://dkpsu2ymf1rbd" path="res://Assets/Bunnies/ScrappyDisable.png" id="38"]
 [ext_resource type="Texture2D" uid="uid://bwr6u0niwo2hx" path="res://Assets/Bunnies/Ghoulish.png" id="39"]
@@ -69,8 +71,8 @@
 [ext_resource type="Texture2D" uid="uid://cijlhaqtv3cbb" path="res://Assets/Others/HUD_Assets/ExtraSpeedBTNPressed.png" id="57_hl3i6"]
 [ext_resource type="Texture2D" uid="uid://bt122i8epengs" path="res://Assets/Others/HUD_Assets/NormalSpeedBTN.png" id="58_087co"]
 [ext_resource type="Texture2D" uid="uid://jik7hcrr2chw" path="res://Assets/Others/HUD_Assets/NormalSpeedBTNPressed.png" id="59_ag3a8"]
-[ext_resource type="Texture2D" uid="uid://dpvarth5jqfwd" path="res://Assets/Others/HUD_Assets/auto save OFF.png" id="60_cgiap"]
-[ext_resource type="Texture2D" uid="uid://26da0qhftns0" path="res://Assets/Others/HUD_Assets/auto save ON.png" id="60_ki85q"]
+[ext_resource type="Texture2D" uid="uid://ch165sv25nt36" path="res://Assets/Others/HUD_Assets/AutoplayON.png" id="62_63sul"]
+[ext_resource type="Texture2D" uid="uid://c1btd5nru5ld8" path="res://Assets/Others/HUD_Assets/AutoplayOFF.png" id="63_5r81r"]
 [ext_resource type="Texture2D" uid="uid://de6l8cm0gsl02" path="res://Assets/Others/UI_Assets/GameOverScreen.png" id="67_jh456"]
 [ext_resource type="Texture2D" uid="uid://b150v8hgm7xxj" path="res://Assets/Enemies/Ghostlings/Brute.png" id="68_ynwmi"]
 [ext_resource type="Texture2D" uid="uid://dnpfk6l1itbih" path="res://Assets/Enemies/Ghostlings/Ghaztling.png" id="69_dr5ga"]
@@ -821,7 +823,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 70
 max_value = 9999999.0
 step = 1.0
-value = 165.0
+value = 165000.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Limits" type="Area2D" parent="HUD" unique_id=1224677807 groups=["no_place"]]
@@ -1358,10 +1360,10 @@ volume_db = -3.0
 bus = &"SFX"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="HUD/UI_Selection/Bunnies" unique_id=1163235928]
-offset_left = 1513.0
+offset_left = 1514.0
 offset_top = 132.0
 offset_right = 1920.0
-offset_bottom = 936.0
+offset_bottom = 927.0
 draw_focus_border = true
 vertical_scroll_mode = 2
 scroll_hint_mode = 1
@@ -1445,7 +1447,31 @@ theme_override_fonts/font = ExtResource("4")
 theme_override_font_sizes/font_size = 23
 text = "250"
 
+[node name="Vivian_BG_dps" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=2074233990]
+layout_mode = 2
+texture_normal = ExtResource("35_63sul")
+texture_disabled = ExtResource("36_5r81r")
+
+[node name="Sprite2D" type="Sprite2D" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Vivian_BG_dps" unique_id=16256737]
+position = Vector2(124, 245)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("26")
+
+[node name="Preço" type="Label" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Vivian_BG_dps" unique_id=1183555909]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 236.0
+offset_right = 146.0
+offset_bottom = 259.0
+rotation = -0.05235988
+theme_override_colors/font_color = Color(1, 0.78039217, 0.3019608, 1)
+theme_override_colors/font_shadow_color = Color(0.81960785, 0.627451, 0, 0.8745098)
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 23
+text = "1600"
+
 [node name="Toasty_BG_dps" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=458300905]
+visible = false
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("22")
@@ -1522,6 +1548,7 @@ theme_override_font_sizes/font_size = 23
 text = "500"
 
 [node name="Alien_BG_dps" type="TextureButton" parent="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer" unique_id=831714472]
+visible = false
 layout_mode = 2
 disabled = true
 texture_normal = ExtResource("22")
@@ -1774,27 +1801,28 @@ anchors_preset = -1
 anchor_left = 0.666
 anchor_right = 0.735
 anchor_bottom = 0.071
-offset_left = 1573.0002
-offset_top = 112.000046
-offset_right = 1746.5487
-offset_bottom = 156.28049
+offset_left = 1582.0002
+offset_top = 91.00002
+offset_right = 1759.045
+offset_bottom = 163.00002
 scale = Vector2(1.55, 1.55)
 pivot_offset = Vector2(2.5806274, 1.2903061)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9")
 theme_override_font_sizes/font_size = 21
-theme_override_icons/checked = ExtResource("60_ki85q")
-theme_override_icons/unchecked = ExtResource("60_cgiap")
+theme_override_icons/checked = ExtResource("62_63sul")
+theme_override_icons/unchecked = ExtResource("63_5r81r")
+alignment = 1
 icon_alignment = 1
 expand_icon = true
 
 [node name="Round" type="Label" parent="HUD/UI_Selection/AutoPlay" unique_id=1725015938]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -6.8830824
-anchor_top = -0.7510781
-anchor_right = 0.69900006
-anchor_bottom = 1.0
+anchor_left = -6.7784214
+anchor_top = -0.59892774
+anchor_right = 0.8036608
+anchor_bottom = 1.1521503
 offset_left = 1195.8386
 offset_top = 35.19354
 offset_right = -0.019859314
@@ -2238,6 +2266,8 @@ bus = &"SFX"
 [connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Slasher_BG_dps/Slasher" to="HUD/UI_Selection/Bunnies" method="_on_slasher_button_down"]
 [connection signal="mouse_entered" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Slasher_BG_dps/Slasher" to="HUD/HUD_Shop" method="_on_slasher_mouse_entered"]
 [connection signal="mouse_exited" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Slasher_BG_dps/Slasher" to="HUD/HUD_Shop" method="_on_slasher_mouse_exited"]
+[connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Vivian_BG_dps" to="HUD/UI_Selection/Bunnies" method="_on_vivian_bg_dps_button_down"]
+[connection signal="pressed" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Vivian_BG_dps" to="HUD/UI_Selection/Bunnies" method="_on_vivian_bg_dps_pressed"]
 [connection signal="mouse_entered" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Toasty_BG_dps/Toasty" to="HUD/HUD_Shop" method="_on_toasty_mouse_entered"]
 [connection signal="mouse_exited" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Toasty_BG_dps/Toasty" to="HUD/HUD_Shop" method="_on_toasty_mouse_exited"]
 [connection signal="button_down" from="HUD/UI_Selection/Bunnies/ScrollContainer/GridContainer/Anarchist_BG_dps/Anarchist" to="HUD/UI_Selection/Bunnies" method="_on_anarchist_button_down"]

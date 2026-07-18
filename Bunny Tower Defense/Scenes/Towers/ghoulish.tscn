@@ -1,78 +1,23 @@
 [gd_scene format=3 uid="uid://bcymlmpgikqvv"]
 
 [ext_resource type="Texture2D" uid="uid://dkr53o6gmqvxf" path="res://Assets/Bunnies/Others/Shadow.png" id="1_33e2q"]
+[ext_resource type="Script" uid="uid://63thc4ov50tt" path="res://Scripts/Bunnies/ghoulish.gd" id="1_do0g2"]
 [ext_resource type="Texture2D" uid="uid://bwr6u0niwo2hx" path="res://Assets/Bunnies/Ghoulish.png" id="2_do0g2"]
 [ext_resource type="Texture2D" uid="uid://c0cfxvyhvvig4" path="res://Assets/Bunnies/Animations/UpgradeAuraSpriteSheet.png" id="3_rvvcq"]
 [ext_resource type="Texture2D" uid="uid://bje4pbemesb41" path="res://Assets/Others/UI_Assets/ArrowStun.png" id="4_6akmx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0g228"]
-radius = 224.08034
+radius = 270.02963
 
-[sub_resource type="Animation" id="Animation_cjkxh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-9.062502, -27.587305)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Shadow:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_s5cs0"]
-resource_name = "idle"
-length = 3.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1.4640855, 1.5691684),
-"update": 0,
-"values": [Vector2(-9.062502, -27.587305), Vector2(-9.063, -49.982)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Shadow:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.23529412)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6jg5a"]
+[sub_resource type="Curve2D" id="Curve2D_do0g2"]
 _data = {
-&"RESET": SubResource("Animation_cjkxh"),
-&"idle": SubResource("Animation_s5cs0")
+"points": PackedVector2Array(0, 0, 0, 0, -129, 19, 97.65398, -0.24584311, -97.65398, 0.24584311, -234, -33, 0, 0, 0.17435956, 43.723656, -346, 49, 0, 0, 117.35412, -0.62092125, -240, 134, 0, 0, 0, 0, -114, 47, -113.628586, 0, 113.628586, 0, 22, -30, 0, 0, 2.935264, 87.94503, 106, 46, 0, 0, -101.831085, -3.7255275, 25, 128, 0, 0, 0, 0, -98, 81, 0, 0, 0, 0, -129, 19)
 }
+point_count = 10
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dxprn"]
-radius = 28.7234
-height = 110.638306
+radius = 29.787231
+height = 138.29787
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_po2lr"]
 atlas = ExtResource("3_rvvcq")
@@ -244,7 +189,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 17.0
 }]
@@ -287,15 +232,141 @@ _data = {
 &"idle": SubResource("Animation_8lmgt")
 }
 
+[sub_resource type="Animation" id="Animation_6akmx"]
+resource_name = "ChangeSkin"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pega/Path2D/PathFollow2D/Ghoulish:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.228, 0.218), Vector2(0.268, 0.173), Vector2(0.173, 0.248), Vector2(0.228, 0.218)]
+}
+
+[sub_resource type="Animation" id="Animation_0g228"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pega/Path2D/PathFollow2D/Ghoulish:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.228, 0.218)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cjkxh"]
+_data = {
+&"ChangeSkin": SubResource("Animation_6akmx"),
+&"RESET": SubResource("Animation_0g228")
+}
+
+[sub_resource type="Animation" id="Animation_33e2q"]
+resource_name = "Idle animation"
+length = 3.0
+loop_mode = 2
+
+[sub_resource type="Animation" id="Animation_do0g2"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rvvcq"]
+_data = {
+&"Idle animation": SubResource("Animation_33e2q"),
+&"RESET": SubResource("Animation_do0g2")
+}
+
+[sub_resource type="Animation" id="Animation_rvvcq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shadow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.9847629)]
+}
+
+[sub_resource type="Animation" id="Animation_cjkxh"]
+resource_name = "attack"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pega/Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 1.3373829),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pega/Path2D/PathFollow2D/Ghoulish:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-108.127, -2.235), Vector2(-99.212, -38.975)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pega/Path2D/PathFollow2D/Ghoulish:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.703441349946466, 2.0350539078253886]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shadow:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.112178914, 1.3666667, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.9847629), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.9847629)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s5cs0"]
+_data = {
+&"RESET": SubResource("Animation_rvvcq"),
+&"attack": SubResource("Animation_cjkxh")
+}
+
 [node name="Ghoulish" type="StaticBody2D" unique_id=264265458 groups=["Bunnies"]]
 position = Vector2(0, -4)
+script = ExtResource("1_do0g2")
 
 [node name="Range" type="Area2D" parent="." unique_id=1824610563]
+visible = false
 position = Vector2(-36.999996, -79.99999)
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CollisionRange" type="CollisionShape2D" parent="Range" unique_id=339023906]
-position = Vector2(29.999994, 85.99999)
+position = Vector2(36.999996, 79.99999)
 shape = SubResource("CircleShape2D_0g228")
 debug_color = Color(0, 0.004019165, 0.0056171864, 0.41960785)
 
@@ -307,23 +378,36 @@ one_shot = true
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=679138837]
 visible = false
+modulate = Color(1, 1, 1, 0.9847629)
 self_modulate = Color(1, 1, 1, 0.5411765)
 y_sort_enabled = true
-position = Vector2(-2, -70)
-scale = Vector2(0.4218751, 0.42187512)
+position = Vector2(5, -87.00001)
+scale = Vector2(0.46786642, 0.46786642)
 texture = ExtResource("1_33e2q")
 offset = Vector2(-3.0967743, 303.48386)
 
-[node name="Ghoulish" type="Sprite2D" parent="." unique_id=799830229]
-position = Vector2(-9.062502, -27.587305)
-scale = Vector2(0.11124287, 0.10587178)
-texture = ExtResource("2_do0g2")
+[node name="Pega" type="Node2D" parent="." unique_id=2125320836]
+position = Vector2(0, -111.08)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Ghoulish" unique_id=382348426]
-libraries/ = SubResource("AnimationLibrary_6jg5a")
-autoplay = &"idle"
+[node name="Path2D" type="Path2D" parent="Pega" unique_id=860489967]
+position = Vector2(117, 56.08)
+curve = SubResource("Curve2D_do0g2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Pega/Path2D" unique_id=1507353726]
+position = Vector2(-129, 19)
+rotation = -2.0344439
+progress = 1227.4597
+loop = false
+
+[node name="Ghoulish" type="Sprite2D" parent="Pega/Path2D/PathFollow2D" unique_id=799830229]
+position = Vector2(-99.212, -38.975)
+rotation = 2.035054
+scale = Vector2(0.228, 0.218)
+texture = ExtResource("2_do0g2")
+offset = Vector2(0.4540081, -468.24332)
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1210907078 groups=["no_place"]]
+visible = false
 position = Vector2(107.93747, 42.91265)
 rotation = 1.5707964
 scale = Vector2(0.94, 0.94)
@@ -331,20 +415,22 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="HitBox" type="CollisionShape2D" parent="HitBox" unique_id=1738739729]
-position = Vector2(-0.97090054, 118.018585)
+position = Vector2(-5.22622, 109.50794)
 shape = SubResource("CapsuleShape2D_dxprn")
 
 [node name="button" type="Button" parent="." unique_id=1956728241]
-offset_left = -63.0
-offset_top = -93.0
-offset_right = 63.0
-offset_bottom = 77.0
+offset_left = -79.0
+offset_top = -148.0
+offset_right = 77.0
+offset_bottom = 74.47618
 flat = true
 
 [node name="AURA" type="AnimatedSprite2D" parent="." unique_id=1001402597]
 position = Vector2(-1.9073486e-06, -9.536743e-07)
 scale = Vector2(1.5186768, 1.4453512)
 sprite_frames = SubResource("SpriteFrames_esft3")
+frame = 24
+frame_progress = 1.0
 
 [node name="ArrowStun" type="Sprite2D" parent="." unique_id=1786001535]
 visible = false
@@ -355,6 +441,16 @@ texture = ExtResource("4_6akmx")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ArrowStun" unique_id=296521242]
 libraries/ = SubResource("AnimationLibrary_3y2c6")
 autoplay = &"idle"
+
+[node name="SkinChange" type="AnimationPlayer" parent="." unique_id=2096310741]
+libraries/ = SubResource("AnimationLibrary_cjkxh")
+
+[node name="Idle" type="AnimationPlayer" parent="." unique_id=1337812894]
+root_node = NodePath("../Pega/Path2D/PathFollow2D/Ghoulish")
+libraries/ = SubResource("AnimationLibrary_rvvcq")
+
+[node name="attack" type="AnimationPlayer" parent="." unique_id=823537111]
+libraries/ = SubResource("AnimationLibrary_s5cs0")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="button_down" from="button" to="." method="_on_button_button_down"]

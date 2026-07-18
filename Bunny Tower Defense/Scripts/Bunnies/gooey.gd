@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var Gooey = $Pega/Gooey
+
 var mostrar_range = false
 var pronto_para_atacar = false
 
@@ -102,7 +104,7 @@ func verificar_e_atacar():
 
 func atacar(alvo):
     if alvo.has_method("gooey_stun"):
-        $Gooey/AnimationPlayer.play("Gooey_Attack")
+        $Pega/Gooey/AnimationPlayer.play("Gooey_Attack")
         
         alvo.gooey_stun(TimeSlimed_Total, Goo_Color)
         
@@ -133,30 +135,30 @@ func mudar_skin():
     skin = !skin
     
     $SkinChange.play("ChangeSkin")
-    var path = $Gooey.texture.resource_path
+    var path = Gooey.texture.resource_path
     match path:
         "res://Assets/Bunnies/Gooey.png":
-            $Gooey.texture = load("res://Assets/Bunnies/Skins/Void.png")
+            Gooey.texture = load("res://Assets/Bunnies/Skins/Void.png")
             Goo_Color = "Void_Goo"
             
         "res://Assets/Bunnies/Skins/Void.png":
-            $Gooey.texture = load("res://Assets/Bunnies/Gooey.png")
+            Gooey.texture = load("res://Assets/Bunnies/Gooey.png")
             Goo_Color = "Green_Goo"
             
         "res://Assets/Bunnies/Paths/Gooey01.png":
-            $Gooey.texture = load("res://Assets/Bunnies/Skins/Paths/Void01.png")
+            Gooey.texture = load("res://Assets/Bunnies/Skins/Paths/Void01.png")
             Goo_Color = "Void_Goo"
             
         "res://Assets/Bunnies/Skins/Paths/Void01.png":
-            $Gooey.texture = load("res://Assets/Bunnies/Paths/Gooey01.png")
+            Gooey.texture = load("res://Assets/Bunnies/Paths/Gooey01.png")
             Goo_Color = "Blue_Goo"
             
         "res://Assets/Bunnies/Paths/Gooey02.png":
-            $Gooey.texture = load("res://Assets/Bunnies/Skins/Paths/Void02.png")
+            Gooey.texture = load("res://Assets/Bunnies/Skins/Paths/Void02.png")
             Goo_Color = "Void_Goo"
             
         "res://Assets/Bunnies/Skins/Paths/Void02.png":
-            $Gooey.texture = load("res://Assets/Bunnies/Paths/Gooey02.png")
+            Gooey.texture = load("res://Assets/Bunnies/Paths/Gooey02.png")
             Goo_Color = "Purple_Goo"
 
 func _on_button_button_down() -> void:
@@ -224,10 +226,10 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
                     if skin:
-                        $Gooey.texture = load("res://Assets/Bunnies/Skins/Paths/Void01.png")
+                        Gooey.texture = load("res://Assets/Bunnies/Skins/Paths/Void01.png")
                         Goo_Color = "Void_Goo"
                     else:
-                        $Gooey.texture = load("res://Assets/Bunnies/Paths/Gooey01.png")
+                        Gooey.texture = load("res://Assets/Bunnies/Paths/Gooey01.png")
                         Goo_Color = "Blue_Goo"
             
             TimeSlimed_Total = TimeSlimed + TimeSlimed_buff            
@@ -254,10 +256,10 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
                     if skin:
-                        $Gooey.texture = load("res://Assets/Bunnies/Skins/Paths/Void02.png")
+                        Gooey.texture = load("res://Assets/Bunnies/Skins/Paths/Void02.png")
                         Goo_Color = "Void_Goo"
                     else:
-                        $Gooey.texture = load("res://Assets/Bunnies/Paths/Gooey02.png")
+                        Gooey.texture = load("res://Assets/Bunnies/Paths/Gooey02.png")
                         Goo_Color = "Purple_Goo"
                         
             P2status = "Speed ATK: " + str($Timer.wait_time) + "s"
@@ -268,15 +270,15 @@ func aplicar_upgrade(caminho):
             
             
 func auraMAISego():
-    $Gooey.modulate = Color(1, 1, 1)
+    Gooey.modulate = Color(1, 1, 1)
     $AURA.play("default")
     
     var tween = create_tween()
 
 
-    tween.tween_property($Gooey, "modulate", Color(2, 2, 2, 1), 0.3)
+    tween.tween_property(Gooey, "modulate", Color(2, 2, 2, 1), 0.3)
  
-    tween.tween_property($Gooey, "modulate", Color(1, 1, 1, 1), 0.4)
+    tween.tween_property(Gooey, "modulate", Color(1, 1, 1, 1), 0.4)
 
 
 func atualizar_valorTorre():

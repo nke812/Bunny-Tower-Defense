@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://26da0qhftns0"
-path="res://.godot/imported/auto save ON.png-c6b013655b803599211e6d01a08d7442.ctex"
+uid="uid://cnsm1nanbg62m"
+path="res://.godot/imported/VivianBoxDPS.png-13864373ab2e737f96ab7cdd2e70eed4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Others/HUD_Assets/auto save ON.png"
-dest_files=["res://.godot/imported/auto save ON.png-c6b013655b803599211e6d01a08d7442.ctex"]
+source_file="res://VIVIAN/VivianBoxDPS.png"
+dest_files=["res://.godot/imported/VivianBoxDPS.png-13864373ab2e737f96ab7cdd2e70eed4.ctex"]
 
 [params]
 

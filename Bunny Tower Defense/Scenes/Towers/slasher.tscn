@@ -1038,7 +1038,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Node2D:scale")
+tracks/0/path = NodePath("../Pega/Node2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1053,7 +1053,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Node2D:scale")
+tracks/0/path = NodePath("../Pega/Node2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1075,7 +1075,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/Slasher:position")
+tracks/0/path = NodePath("Pega/Node2D/Slasher:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1087,7 +1087,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/Slasher:scale")
+tracks/1/path = NodePath("Pega/Node2D/Slasher:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1099,7 +1099,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D/SlasherAttack:position")
+tracks/2/path = NodePath("Pega/Node2D/SlasherAttack:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1111,7 +1111,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Node2D/SlasherAttack:scale")
+tracks/3/path = NodePath("Pega/Node2D/SlasherAttack:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1126,7 +1126,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D/Slasher:position")
+tracks/0/path = NodePath("Pega/Node2D/Slasher:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1138,7 +1138,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/Slasher:scale")
+tracks/1/path = NodePath("Pega/Node2D/Slasher:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1150,7 +1150,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D/SlasherAttack:position")
+tracks/2/path = NodePath("Pega/Node2D/SlasherAttack:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1162,7 +1162,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Node2D/SlasherAttack:scale")
+tracks/3/path = NodePath("Pega/Node2D/SlasherAttack:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1200,13 +1200,12 @@ stream = ExtResource("3_1vlif")
 volume_db = -15.152
 bus = &"SFX"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=842566302]
-
 [node name="Timer" type="Timer" parent="." unique_id=1837819135 groups=["Timers"]]
 wait_time = 3.0
 one_shot = true
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=76819889]
+visible = false
 self_modulate = Color(1, 1, 1, 0.5411765)
 y_sort_enabled = true
 position = Vector2(2.0000005, -29)
@@ -1214,19 +1213,22 @@ scale = Vector2(0.32291666, 0.32291666)
 texture = ExtResource("2")
 offset = Vector2(21.677416, 303.48383)
 
-[node name="Node2D" type="Node2D" parent="." unique_id=898977405]
-position = Vector2(0.655, 70.245)
+[node name="Pega" type="Node2D" parent="." unique_id=1461468161]
+position = Vector2(0, -98.145)
 
-[node name="Slasher" type="Sprite2D" parent="Node2D" unique_id=800201561]
+[node name="Node2D" type="Node2D" parent="Pega" unique_id=898977405]
+position = Vector2(0.655, 168.39)
+
+[node name="Slasher" type="Sprite2D" parent="Pega/Node2D" unique_id=800201561]
 position = Vector2(-13, -31)
 scale = Vector2(0.228, 0.216)
 texture = ExtResource("6_1vlif")
 offset = Vector2(-25.777, -308.591)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/Slasher" unique_id=1764540963]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pega/Node2D/Slasher" unique_id=1764540963]
 libraries/ = SubResource("AnimationLibrary_r1clt")
 
-[node name="Ult" type="AnimatedSprite2D" parent="Node2D/Slasher" unique_id=139699849]
+[node name="Ult" type="AnimatedSprite2D" parent="Pega/Node2D/Slasher" unique_id=139699849]
 visible = false
 position = Vector2(133.09209, -288.1713)
 scale = Vector2(0.35, 0.35)
@@ -1234,14 +1236,16 @@ sprite_frames = SubResource("SpriteFrames_8jeol")
 animation = &"Ult"
 frame_progress = 0.5278354
 
-[node name="AppearUlt" type="AnimatedSprite2D" parent="Node2D/Slasher" unique_id=274262831]
+[node name="AppearUlt" type="AnimatedSprite2D" parent="Pega/Node2D/Slasher" unique_id=274262831]
 position = Vector2(238.35527, -288.1713)
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_47s4e")
 animation = &"UltAppear"
+frame = 9
+frame_progress = 1.0
 offset = Vector2(-301, 0)
 
-[node name="SlasherAttack" type="AnimatedSprite2D" parent="Node2D" unique_id=1171230926]
+[node name="SlasherAttack" type="AnimatedSprite2D" parent="Pega/Node2D" unique_id=1171230926]
 position = Vector2(-6, -39)
 scale = Vector2(0.13158411, 0.13158411)
 sprite_frames = SubResource("SpriteFrames_4bjbh")
@@ -1272,12 +1276,11 @@ shape = SubResource("CapsuleShape2D_2dfxu")
 
 [node name="insp" type="Button" parent="." unique_id=478641266]
 offset_left = -49.0
-offset_top = -89.0
+offset_top = -142.0
 offset_right = 58.0
 offset_bottom = 74.0
 focus_mode = 0
 flat = true
-metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=2075950372]
 visible = false

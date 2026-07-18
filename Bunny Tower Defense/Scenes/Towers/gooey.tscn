@@ -294,7 +294,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Gooey:scale")
+tracks/0/path = NodePath("Pega/Gooey:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -309,7 +309,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Gooey:scale")
+tracks/0/path = NodePath("Pega/Gooey:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -361,13 +361,16 @@ scale = Vector2(0.32291663, 0.32291663)
 texture = ExtResource("2")
 offset = Vector2(-3.0967743, 303.48386)
 
-[node name="Gooey" type="Sprite2D" parent="." unique_id=799830229]
-position = Vector2(-3.665, 67)
+[node name="Pega" type="Node2D" parent="." unique_id=1797446512]
+position = Vector2(0, -110)
+
+[node name="Gooey" type="Sprite2D" parent="Pega" unique_id=799830229]
+position = Vector2(-3.665, 177)
 scale = Vector2(0.222, 0.212)
 texture = ExtResource("3")
 offset = Vector2(-19.957, -460.066)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Gooey" unique_id=942570530]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pega/Gooey" unique_id=942570530]
 libraries/ = SubResource("AnimationLibrary_lbqu6")
 
 [node name="HitBox" type="Area2D" parent="." unique_id=1210907078 groups=["no_place"]]
@@ -383,12 +386,11 @@ shape = SubResource("CapsuleShape2D_8q63j")
 
 [node name="button" type="Button" parent="." unique_id=1956728241]
 offset_left = -63.0
-offset_top = -93.0
+offset_top = -156.0
 offset_right = 63.0
 offset_bottom = 77.0
 focus_mode = 0
 flat = true
-metadata/_edit_use_anchors_ = true
 
 [node name="AURA" type="AnimatedSprite2D" parent="." unique_id=1001402597]
 position = Vector2(-1.9073486e-06, -9.536743e-07)

@@ -47,7 +47,9 @@ func iniciar_vaga():
      
     match rodada_atual:
         # --- FASE 1: O GRUPO BÁSICO (Rondas 1-10) ---
-        1: vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
+        1: 
+            vaga_atual = [Lucifer]
+            #vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
         2: vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghazt, Ghazt, Ghostling, Ghostling, Ghazt, Ghazt]
         3: vaga_atual = [Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt]
         4: vaga_atual = [Ghostling, Ghoul, Ghostling, Ghoul, Ghostling, Ghoul, Ghostling, Ghoul]

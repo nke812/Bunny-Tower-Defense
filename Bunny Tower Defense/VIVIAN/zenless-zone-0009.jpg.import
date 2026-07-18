@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpvarth5jqfwd"
-path="res://.godot/imported/auto save OFF.png-ba07949b07e225d4a7d8e119b8268bcb.ctex"
+uid="uid://bulh3tvck8j5r"
+path="res://.godot/imported/zenless-zone-0009.jpg-50a187147deb382510201c1e5d30d927.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Others/HUD_Assets/auto save OFF.png"
-dest_files=["res://.godot/imported/auto save OFF.png-ba07949b07e225d4a7d8e119b8268bcb.ctex"]
+source_file="res://VIVIAN/zenless-zone-0009.jpg"
+dest_files=["res://.godot/imported/zenless-zone-0009.jpg-50a187147deb382510201c1e5d30d927.ctex"]
 
 [params]
 
