@@ -18,12 +18,51 @@
 [ext_resource type="Texture2D" uid="uid://dg6c5ytmxndlc" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/GlimmerCrystal1.png" id="14_1syf6"]
 [ext_resource type="Texture2D" uid="uid://cutk62aji8xu" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/CaveTop.png" id="15_6mcp2"]
 [ext_resource type="AudioStream" uid="uid://bb2a6uou2m03y" path="res://Assets/Music/GlimmeryMelody.wav" id="17_it258"]
+[ext_resource type="Texture2D" uid="uid://cd7dhmiqd1glj" path="res://Assets/Others/Map_Assets/GrasslandsV2/Portal.png" id="19_sc7s4"]
 
 [sub_resource type="Curve2D" id="Curve2D_lycfg"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -247.90422, -340.11975, 0, 0, 0, 0, -255.08984, 47.904236, 0, 0, 0, 0, -213.17368, 91.018005, 0, 0, 0, 0, 89.82037, 91.018005, 0, 0, 0, 0, 124.5509, 125.748566, 0, 0, 0, 0, 123.35327, 283.83243, 0, 0, 0, 0, 73.053894, 310.17972, 0, 0, 0, 0, -240.71858, 310.17972, 0, 0, 0, 0, -298.2036, 352.09586, 0, 0, 0, 0, -300.59882, 591.6168, 0, 0, 0, 0, -252.69464, 628.74255, 0, 0, 0, 0, 361.6767, 643.1139, 0, 0, 0, 0, 407.18567, 597.60486, 0, 0, 0, 0, 403.59283, -126.946075, 0, 0, 0, 0, 450.29944, -174.85028, 0, 0, 0, 0, 891.01807, -170.05984, 0, 0, 0, 0, 943.71265, -124.55087, 0, 0, 0, 0, 944.9103, 154.49109, 0, 0, 0, 0, 905.3893, 208.3833, 0, 0, 0, 0, 662.2755, 226.34738, 0, 0, 0, 0, 616.76654, 282.6348, 0, 0, 0, 0, 616.76654, 586.8264, 0, 0, 0, 0, 669.4612, 640.7186, 0, 0, 0, 0, 1522.1558, 639.5211)
 }
 point_count = 24
+
+[sub_resource type="Animation" id="Animation_656xa"]
+resource_name = "PortalAnim"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.2831855, 6.2831855]
+}
+
+[sub_resource type="Animation" id="Animation_43eqa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qds0u"]
+_data = {
+&"PortalAnim": SubResource("Animation_656xa"),
+&"RESET": SubResource("Animation_43eqa")
+}
 
 [node name="Mapa_2" type="Node2D" unique_id=41714579]
 y_sort_enabled = true
@@ -95,24 +134,24 @@ offset = Vector2(2.297577, 1.4830856)
 
 [node name="MushroomSparkle2" type="Sprite2D" parent="Props" unique_id=1853021281]
 y_sort_enabled = true
-position = Vector2(1566.0002, 550.00006)
+position = Vector2(1551.0004, 1135.0002)
 scale = Vector2(1.0340248, 1.034308)
 texture = ExtResource("6_0dmdx")
-offset = Vector2(3.3564148, -190.0149)
+offset = Vector2(17.862762, -755.6106)
 
 [node name="Mushroom" type="Sprite2D" parent="Props" unique_id=1061172986]
 y_sort_enabled = true
-position = Vector2(578.00006, 605.00006)
+position = Vector2(578.00006, 658.00006)
 scale = Vector2(0.62066334, 0.62070584)
 texture = ExtResource("7_41i51")
-offset = Vector2(2.297577, 1.4830856)
+offset = Vector2(2.297577, -83.90357)
 
 [node name="MushroomSparkle" type="Sprite2D" parent="Props" unique_id=1825944230]
 y_sort_enabled = true
-position = Vector2(574.0001, 726.00006)
+position = Vector2(563.00006, 1128.0002)
 scale = Vector2(0.80584073, 0.80595106)
 texture = ExtResource("8_mq6hj")
-offset = Vector2(3.3564148, -190.0149)
+offset = Vector2(17.006805, -688.8046)
 
 [node name="RedCrystal" type="Sprite2D" parent="Props" unique_id=656952812]
 y_sort_enabled = true
@@ -123,10 +162,10 @@ offset = Vector2(-2.6645813, -11.462952)
 
 [node name="RedCrystalSparkle" type="Sprite2D" parent="Props" unique_id=1435090033]
 y_sort_enabled = true
-position = Vector2(671.00006, 104.00001)
+position = Vector2(683.00006, 1138)
 scale = Vector2(0.48776558, 0.4877739)
 texture = ExtResource("10_ski3c")
-offset = Vector2(-0.6911926, -62.339844)
+offset = Vector2(-25.293121, -2182.1746)
 
 [node name="GreenCrystal" type="Sprite2D" parent="Props" unique_id=738222427]
 y_sort_enabled = true
@@ -137,22 +176,22 @@ offset = Vector2(0.29919434, -34.568115)
 
 [node name="GreenCrystalSparkle" type="Sprite2D" parent="Props" unique_id=796843813]
 y_sort_enabled = true
-position = Vector2(291.00003, 325.00006)
+position = Vector2(273.00006, 1133.0002)
 scale = Vector2(0.47888422, 0.4587859)
 texture = ExtResource("12_q1370")
-offset = Vector2(1.2991638, -19.55658)
+offset = Vector2(38.886505, -1780.727)
 
 [node name="PinkCrystal" type="Sprite2D" parent="Props" unique_id=1241515499]
-position = Vector2(1085.1388, 331.8159)
+position = Vector2(1087.0001, 389.00006)
 scale = Vector2(0.78948754, 0.7894892)
 texture = ExtResource("13_bdurf")
-offset = Vector2(6.29541, -19.595306)
+offset = Vector2(3.9377441, -92.02716)
 
 [node name="PinkCrytalSparkle" type="Sprite2D" parent="Props" unique_id=880881705]
-position = Vector2(1108, 342.0001)
+position = Vector2(1080.0002, 1112.0001)
 scale = Vector2(0.92593247, 0.92593634)
 texture = ExtResource("14_1syf6")
-offset = Vector2(6.29541, -19.595306)
+offset = Vector2(36.535034, -851.18604)
 
 [node name="CaveTop" type="Sprite2D" parent="." unique_id=83713347]
 y_sort_enabled = true
@@ -174,5 +213,17 @@ autoplay = true
 bus = &"Music"
 
 [node name="HUD" parent="." unique_id=1805092987 instance=ExtResource("4_25kso")]
+
+[node name="Portal" type="Sprite2D" parent="." unique_id=952366673]
+y_sort_enabled = true
+position = Vector2(1034.7305, 1188.0239)
+rotation = -6.2831855
+scale = Vector2(1.0421233, 1.0421237)
+texture = ExtResource("19_sc7s4")
+offset = Vector2(5.956543, -6.250824)
+
+[node name="PortalAnim" type="AnimationPlayer" parent="Portal" unique_id=978394186]
+libraries/ = SubResource("AnimationLibrary_qds0u")
+autoplay = &"PortalAnim"
 
 [connection signal="timeout" from="GhostlingSpawner/Timer" to="GhostlingSpawner" method="_on_timer_timeout"]
