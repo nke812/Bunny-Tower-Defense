@@ -4,9 +4,12 @@ extends Control
 @onready var main_buttons: VBoxContainer = $MainButtons
 @onready var options: Panel = $Options
 
+@onready var botao_continuar = $MainMenu_Left/Buttons/Continue
+
 var MapSel = null
 var map1 = "res://Scenes/Mapas/Map_1.tscn"
 var map2 = "res://Scenes/Mapas/Map_2.tscn"
+
 
 func _on_start_pressed() -> void :
     $"Select Map/SelMapsMenu".play("SelMapsAnim")
@@ -90,9 +93,9 @@ func _on_easter_egg_pressed() -> void :
 
     $"MainMenu_Left/SillyBunny/easter egg".disabled = false
 
-
 func _on_grass_lands_pressed() -> void:
     get_tree().change_scene_to_file("res://Scenes/loading.tscn")
+
 
 func _on_glimmer_road_pressed() -> void:
     get_tree().change_scene_to_file("res://Scenes/loading2.tscn")
@@ -151,3 +154,21 @@ func _on_sfx_control_value_changed(value: float) -> void:
         $Options/SFXControl/SFXIcon.texture_normal = preload("res://Assets/Others/UI_Assets/AudioMute.png")
 
     
+
+
+func _on_continue_pressed() -> void:
+    if not SaveManager.tem_save():
+        return
+        
+    var dados = SaveManager.carregar_jogo()
+    var info_jogador = dados.get("jogador", {})
+    
+    # 1. Descobrir qual era o mapa guardado (com um mapa predefinido de segurança caso esteja vazio)
+    var caminho_mapa = info_jogador.get("mapa_atual", "res://cenas/mapas/mapa_padrao.tscn")
+    
+    # 2. Mudar para a cena do mapa guardado
+    get_tree().change_scene_to_file(caminho_mapa)
+    
+    # Nota importante: Como mudar de cena é instantâneo mas a árvore demora um frame a carregar, 
+    # deves colocar a parte de recriar as torres e as moedas num script dentro do próprio mapa (no _ready()),
+    # lendo novamente o SaveManager assim que o mapa arrancar!

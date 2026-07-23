@@ -19,6 +19,7 @@ extends Node2D
 
 @onready var Undead_Ghostling = preload("res://Scenes/Enemies/Ghostling/undead_ghostling.tscn")
 
+
 var rodada_atual = 1
 var inimigos_vivos = 0
 var vaga_atual = []
@@ -314,6 +315,7 @@ func inimigo_morreu():
         
         rodada_atual += 1
         atualizar_contador_rondas()
+        salvar_progresso_atual()
         
         if autoplay == true:
             iniciar_vaga()
@@ -330,3 +332,34 @@ func atualizar_moedas_buff() -> void:
 func _on_button_pressed() -> void:
     var novo_fantasma = Lucifer.instantiate()
     get_node("../Path2D").add_child(novo_fantasma)
+
+
+
+func salvar_progresso_atual():
+    var dados_jogador = {
+            #"vida": vida_atual,       # A tua variável real de vida
+            #"moedas": moedas_atuais,  # A tua variável real de moedas
+            "vida": 100,
+            "moedas": 500,
+            "rodada": rodada_atual,   # A tua variável de ronda
+            "mapa_atual": get_tree().current_scene.scene_file_path
+        }
+    
+    var lista_torres = []
+    
+    # Procura por todos os nós que pertencem ao grupo "torres"
+    for torre in get_tree().get_nodes_in_group("torres"):
+        var hitbox = torre.get_node_or_null("HitBox")
+        var pos_a_guardar = hitbox.global_position if hitbox else torre.global_position
+        var dados_torre = {
+            "tipo": torre.cena_path,
+            "pos_x": torre.global_position.x,
+            "pos_y": torre.global_position.y,
+            "path1_nivel": torre.path1,
+            "path2_nivel": torre.path2
+        }
+        lista_torres.append(dados_torre)
+        
+    # Grava o dicionário completo com as torres preenchidas
+        SaveManager.guardar_jogo(dados_jogador, lista_torres)
+        print("Jogo guardado com sucesso! Torres guardadas: ", lista_torres.size())

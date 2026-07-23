@@ -29,7 +29,11 @@ var P2status = "ATK Speed: 1s"
 var BuffStatus1 = "DMG: +0"
 var BuffStatus2 = "Range: 1.0"
 
-
+#const cena_path = "res://Scenes/Towers/rookie.tscn"
+#
+#
+#func _ready():
+    #add_to_group("torres")
 
 func _process(delta: float) -> void: 
 
@@ -266,7 +270,7 @@ func aplicar_upgrade(caminho):
                         RookieHands.animation = "Rookie02"
                         
             atualizar_valorTorre()            
-            P2status = "Speed ATK: " + str($Timer.wait_time) + "s"
+            P2status = "ATK Speed: " + str($Timer.wait_time) + "s"
             hud.get_node("HUD_Shop/HudBgDown/Status2").text = str(P2status)
             
         return true 

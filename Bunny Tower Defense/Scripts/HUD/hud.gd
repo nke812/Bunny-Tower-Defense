@@ -28,6 +28,7 @@ func _process(_delta: float) -> void:
     $HUD_Shop/HudBgDown/Control/BTNsell/Anim_Sell.speed_scale = 1 / Engine.time_scale
     $HUD_Shop/EventSign/Placa.speed_scale = 1 / Engine.time_scale
     
+    
 func take_dmg(dmg):
     if GameOver:
         return
@@ -73,11 +74,12 @@ func _on_options_pressed():
 
 func _on_back_menu_pressed():
     get_tree().paused = false
+    Engine.time_scale = 1.0
     get_tree().change_scene_to_file("res://Scenes/loading_Menu.tscn")
 
 
 
-func _on_exit_settings_pressed() -> void :
+func _on_exit_settings_pressed() -> void:
     $UI_Selection/Options.visible = false
     $Pause.visible = true
     get_tree().paused = false
@@ -85,6 +87,7 @@ func _on_exit_settings_pressed() -> void :
 
 func _on_restart_pressed() -> void :
     get_tree().paused = false
+    Engine.time_scale = 1.0
     get_tree().reload_current_scene()
 
 func _on_start_round_pressed() -> void :

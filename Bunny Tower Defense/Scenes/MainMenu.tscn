@@ -882,6 +882,7 @@ libraries/ = SubResource("AnimationLibrary_fipmv")
 [connection signal="pressed" from="MainMenu_Left/SillyBunny/easter egg" to="." method="_on_easter_egg_pressed"]
 [connection signal="pressed" from="MainMenu_Left/Buttons/BIG_Start" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="MainMenu_Left/Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainMenu_Left/Buttons/Continue" to="." method="_on_continue_pressed"]
 [connection signal="mouse_entered" from="MainMenu_Left/Buttons/Bestiario" to="." method="_on_bestiario_mouse_entered"]
 [connection signal="mouse_exited" from="MainMenu_Left/Buttons/Bestiario" to="." method="_on_bestiario_mouse_exited"]
 [connection signal="mouse_entered" from="MainMenu_Left/Buttons/Achievements" to="." method="_on_achievements_mouse_entered"]

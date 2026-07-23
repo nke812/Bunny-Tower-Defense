@@ -56,6 +56,7 @@ func _on_timer_timeout() -> void:
     moedas.text = str(valor_atual + valor_lucky)
     
     $Pega/Lucky/AnimationPlayer.play("LuckyAction")
+    label_money()
     
     $Money.pitch_scale = randf_range(0.9, 1.1) 
     $Money.play()
@@ -66,7 +67,7 @@ func label_money():
 
 
     label_M.text = "+" + str(valor_lucky) + "$"
-
+    
 
     if Lucky.texture.resource_path == "res://Assets/Bunnies/Lucky.png":
         label_M.modulate = Color(1.0, 0.902, 0.392, 1.0)

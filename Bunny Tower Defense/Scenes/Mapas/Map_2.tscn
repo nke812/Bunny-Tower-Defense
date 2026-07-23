@@ -1,30 +1,229 @@
 [gd_scene format=3 uid="uid://d3o0qgqxkupje"]
 
 [ext_resource type="AudioStream" uid="uid://uh3ws1hfei76" path="res://Assets/SFXs/RoundStart.wav" id="1_edkja"]
+[ext_resource type="Script" uid="uid://cvalobldy87w3" path="res://Scripts/Maps/map_2.gd" id="1_q1370"]
 [ext_resource type="Texture2D" uid="uid://bqg1gwujcntft" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Base.png" id="2_mrkoi"]
 [ext_resource type="Script" uid="uid://cj5vuu45ii5tk" path="res://Scripts/ghostling_spawner.gd" id="2_tmeid"]
 [ext_resource type="Texture2D" uid="uid://d4a3tfbxtqy7h" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Path.png" id="3_sc7s4"]
 [ext_resource type="PackedScene" uid="uid://cvtf3eidvbt76" path="res://Scenes/HUD.tscn" id="4_25kso"]
-[ext_resource type="Texture2D" uid="uid://5dtcab64bmg1" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Grass.png" id="4_qds0u"]
 [ext_resource type="Texture2D" uid="uid://q88q60ymm7ys" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Mushroom2.png" id="5_kdfe2"]
+[ext_resource type="Texture2D" uid="uid://f3uxbymnpcj0" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Grass/Grass1.png" id="5_q1370"]
 [ext_resource type="Texture2D" uid="uid://dw30ohf1mvgsg" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/GlimmerMushroom2.png" id="6_0dmdx"]
+[ext_resource type="Texture2D" uid="uid://c48qd7u37a5lr" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Grass/Grass2.png" id="6_bdurf"]
+[ext_resource type="Texture2D" uid="uid://b6ob5wmih7wh" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Grass/Grass3.png" id="7_1syf6"]
 [ext_resource type="Texture2D" uid="uid://cs2r6tmvv5blp" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Mushroom1.png" id="7_41i51"]
+[ext_resource type="Texture2D" uid="uid://cjpc3ooh453iu" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Grass/Grass4.png" id="8_6mcp2"]
 [ext_resource type="Texture2D" uid="uid://b3w1r3v7la6dp" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/GlimmerMushroom1.png" id="8_mq6hj"]
 [ext_resource type="Texture2D" uid="uid://dujtonc41yc7n" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Crystal3.png" id="9_1jgnj"]
+[ext_resource type="Texture2D" uid="uid://dr2dkdigidx0v" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Grass/Grass6.png" id="9_it258"]
+[ext_resource type="Texture2D" uid="uid://3p81b8113bpi" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Grass/Grass7.png" id="10_5ftgq"]
 [ext_resource type="Texture2D" uid="uid://kdd41rl4jhww" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/GlimmerCrystal3.png" id="10_ski3c"]
 [ext_resource type="Texture2D" uid="uid://gr6651m1prqx" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Crystal2.png" id="11_43n0m"]
+[ext_resource type="Texture2D" uid="uid://cbinl7k07t2i7" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Grass/Grass8.png" id="11_eo1bo"]
+[ext_resource type="Texture2D" uid="uid://bl4j8ojodoc12" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Grass/Grass9.png" id="12_0dkkc"]
 [ext_resource type="Texture2D" uid="uid://0t1ol13c6cf4" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/GlimmerCrystal2.png" id="12_q1370"]
+[ext_resource type="Texture2D" uid="uid://03b0atcyxpuy" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Grass/Grass10.png" id="13_aie6i"]
 [ext_resource type="Texture2D" uid="uid://dui8ow21voigi" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Crystal1.png" id="13_bdurf"]
 [ext_resource type="Texture2D" uid="uid://dg6c5ytmxndlc" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/GlimmerCrystal1.png" id="14_1syf6"]
 [ext_resource type="Texture2D" uid="uid://cutk62aji8xu" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/CaveTop.png" id="15_6mcp2"]
-[ext_resource type="AudioStream" uid="uid://bb2a6uou2m03y" path="res://Assets/Music/GlimmeryMelody.wav" id="17_it258"]
 [ext_resource type="Texture2D" uid="uid://cd7dhmiqd1glj" path="res://Assets/Others/Map_Assets/GrasslandsV2/Portal.png" id="19_sc7s4"]
+[ext_resource type="AudioStream" uid="uid://dbdg1h0tk3odx" path="res://Assets/Music/GlimmeryMelody.ogg" id="25_43n0m"]
 
 [sub_resource type="Curve2D" id="Curve2D_lycfg"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -247.90422, -340.11975, 0, 0, 0, 0, -255.08984, 47.904236, 0, 0, 0, 0, -213.17368, 91.018005, 0, 0, 0, 0, 89.82037, 91.018005, 0, 0, 0, 0, 124.5509, 125.748566, 0, 0, 0, 0, 123.35327, 283.83243, 0, 0, 0, 0, 73.053894, 310.17972, 0, 0, 0, 0, -240.71858, 310.17972, 0, 0, 0, 0, -298.2036, 352.09586, 0, 0, 0, 0, -300.59882, 591.6168, 0, 0, 0, 0, -252.69464, 628.74255, 0, 0, 0, 0, 361.6767, 643.1139, 0, 0, 0, 0, 407.18567, 597.60486, 0, 0, 0, 0, 403.59283, -126.946075, 0, 0, 0, 0, 450.29944, -174.85028, 0, 0, 0, 0, 891.01807, -170.05984, 0, 0, 0, 0, 943.71265, -124.55087, 0, 0, 0, 0, 944.9103, 154.49109, 0, 0, 0, 0, 905.3893, 208.3833, 0, 0, 0, 0, 662.2755, 226.34738, 0, 0, 0, 0, 616.76654, 282.6348, 0, 0, 0, 0, 616.76654, 586.8264, 0, 0, 0, 0, 669.4612, 640.7186, 0, 0, 0, 0, 1522.1558, 639.5211)
+"points": PackedVector2Array(0, 0, 0, 0, -227.5448, -346.10782, 0, 0, 0, 0, -229.94006, -154.49104, 0, 0, 0, 0, -681.4371, -150.89822, 0, 0, 0, 0, -680.2395, 493.4132, 0, 0, 0, 0, -289.82025, 491.018, 0, 0, 0, 0, -281.43707, 106.58682, 0, 0, 0, 0, 128.1438, 105.38922, 0, 0, 0, 0, 131.73663, -172.45512, 0, 0, 0, 0, 794.0122, -171.2575, 0, 0, 0, 0, 794.0122, 468.2635, 0, 0, 0, 0, 167.6648, 476.64673, 0, 0, 0, 0, 165.26959, 797.60486)
 }
-point_count = 24
+point_count = 12
+
+[sub_resource type="Animation" id="Animation_sc7s4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qds0u"]
+resource_name = "Sparkle"
+length = 4.5666666
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.12, 4.5666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.6666667), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kdfe2"]
+_data = {
+&"RESET": SubResource("Animation_sc7s4"),
+&"Sparkle": SubResource("Animation_qds0u")
+}
+
+[sub_resource type="Animation" id="Animation_0dmdx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_41i51"]
+resource_name = "Sparkle"
+length = 3.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.0666667, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.46666667), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mq6hj"]
+_data = {
+&"RESET": SubResource("Animation_0dmdx"),
+&"Sparkle": SubResource("Animation_41i51")
+}
+
+[sub_resource type="Animation" id="Animation_1jgnj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ski3c"]
+resource_name = "Sparkle"
+length = 2.7333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7333333, 2.7333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.34509805), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_43n0m"]
+_data = {
+&"RESET": SubResource("Animation_1jgnj"),
+&"Sparkle": SubResource("Animation_ski3c")
+}
+
+[sub_resource type="Animation" id="Animation_q1370"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bdurf"]
+resource_name = "Sparkle"
+length = 3.0666666
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.32, 3.0666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.42352942), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1syf6"]
+_data = {
+&"RESET": SubResource("Animation_q1370"),
+&"Sparkle": SubResource("Animation_bdurf")
+}
+
+[sub_resource type="Animation" id="Animation_6mcp2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_it258"]
+resource_name = "Sparkle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.38039216), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ftgq"]
+_data = {
+&"RESET": SubResource("Animation_6mcp2"),
+&"Sparkle": SubResource("Animation_it258")
+}
 
 [sub_resource type="Animation" id="Animation_656xa"]
 resource_name = "PortalAnim"
@@ -68,6 +267,7 @@ _data = {
 y_sort_enabled = true
 position = Vector2(-36.000004, -42.000004)
 scale = Vector2(0.835, 0.835)
+script = ExtResource("1_q1370")
 
 [node name="GhostlingSpawner" type="Node2D" parent="." unique_id=2109337534 groups=["spawner"]]
 y_sort_enabled = true
@@ -80,45 +280,117 @@ autostart = true
 
 [node name="Map" type="Sprite2D" parent="." unique_id=2040754683]
 y_sort_enabled = true
-position = Vector2(1058.6826, -279.0419)
+position = Vector2(1167.6647, -147.30536)
 scale = Vector2(0.5991487, 0.5991488)
 texture = ExtResource("2_mrkoi")
-offset = Vector2(224.8971, 1628.4333)
+offset = Vector2(43.002197, 1408.5605)
 
 [node name="Path" type="Sprite2D" parent="." unique_id=1742651141]
 y_sort_enabled = true
-position = Vector2(1137.8176, 275.1446)
+position = Vector2(1080.2395, -10.778564)
 scale = Vector2(0.5991211, 0.5991215)
 texture = ExtResource("3_sc7s4")
-offset = Vector2(92.47833, 703.5581)
+offset = Vector2(188.58258, 1180.7954)
 
-[node name="Grass" type="Sprite2D" parent="." unique_id=100368002]
+[node name="Grass" type="Node2D" parent="." unique_id=628421663]
 y_sort_enabled = true
-position = Vector2(1200, 1473.0538)
+position = Vector2(1101.7963, 26.347408)
 scale = Vector2(0.5991487, 0.5991488)
-texture = ExtResource("4_qds0u")
-offset = Vector2(-10.966553, -1295.8748)
+
+[node name="Grass1" type="Sprite2D" parent="Grass" unique_id=54430536]
+y_sort_enabled = true
+position = Vector2(-1537.1108, 33.98018)
+scale = Vector2(0.96876466, 0.96876484)
+texture = ExtResource("5_q1370")
+offset = Vector2(-1.7966919, 182.20865)
+
+[node name="Grass2" type="Sprite2D" parent="Grass" unique_id=2020835627]
+y_sort_enabled = true
+position = Vector2(-349.79745, 495.71307)
+scale = Vector2(0.9385049, 0.93850523)
+texture = ExtResource("6_bdurf")
+offset = Vector2(0.3996582, 34.91574)
+
+[node name="Grass3" type="Sprite2D" parent="Grass" unique_id=1966419887]
+y_sort_enabled = true
+position = Vector2(-1169.3236, 1107.3593)
+scale = Vector2(0.9870136, 0.9870139)
+texture = ExtResource("7_1syf6")
+offset = Vector2(-3.8599854, 81.53027)
+
+[node name="Grass4" type="Sprite2D" parent="Grass" unique_id=1771391899]
+y_sort_enabled = true
+position = Vector2(-1173.3212, 1701.0159)
+scale = Vector2(1.0138364, 1.0138366)
+texture = ExtResource("8_6mcp2")
+offset = Vector2(5.997925, 41.766724)
+
+[node name="Grass5" type="Sprite2D" parent="Grass" unique_id=14224857]
+y_sort_enabled = true
+position = Vector2(391.77368, 1736.9949)
+scale = Vector2(0.96876466, 0.96876484)
+texture = ExtResource("9_it258")
+offset = Vector2(-3.8599854, -5.5507813)
+
+[node name="Grass6" type="Sprite2D" parent="Grass" unique_id=929422061]
+y_sort_enabled = true
+position = Vector2(1177.3195, 13.99173)
+scale = Vector2(0.96876466, 0.96876484)
+texture = ExtResource("10_5ftgq")
+offset = Vector2(-12.113159, 206.96817)
+
+[node name="Grass7" type="Sprite2D" parent="Grass" unique_id=1023640356]
+y_sort_enabled = true
+position = Vector2(1069.3818, 1371.2067)
+scale = Vector2(1.023975, 1.0239753)
+texture = ExtResource("11_eo1bo")
+offset = Vector2(0.044067383, 64.722534)
+
+[node name="Grass8" type="Sprite2D" parent="Grass" unique_id=1979062392]
+y_sort_enabled = true
+position = Vector2(797.5391, 1157.3302)
+scale = Vector2(0.96876466, 0.96876484)
+texture = ExtResource("12_0dkkc")
+offset = Vector2(-14.176636, 39.841675)
+
+[node name="Grass9" type="Sprite2D" parent="Grass" unique_id=2081006989]
+y_sort_enabled = true
+position = Vector2(-243.85873, 997.4228)
+scale = Vector2(0.96876466, 0.96876484)
+texture = ExtResource("13_aie6i")
+offset = Vector2(8.519775, 33.651672)
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1947152330]
-visible = false
 y_sort_enabled = true
-position = Vector2(450.2994, 310.17963)
+position = Vector2(885.0299, 392.8144)
 scale = Vector2(0.99999994, 0.99999994)
 curve = SubResource("Curve2D_lycfg")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1755593801]
 y_sort_enabled = true
-position = Vector2(-247.90422, -340.11975)
+position = Vector2(-227.5448, -346.10782)
 rotates = false
 loop = false
 
 [node name="Area_Path" type="Area2D" parent="." unique_id=2084109964 groups=["no_place"]]
 y_sort_enabled = true
-position = Vector2(2.395214, 20.359282)
+position = Vector2(505.38922, 198.8024)
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 2
 
+[node name="PinkCrystal" type="CollisionPolygon2D" parent="Area_Path" unique_id=122818343]
+polygon = PackedVector2Array(679.042, 360.47906, 816.7665, 356.88623, 931.7366, 365.26953, 976.048, 395.20966, 974.85034, 417.9641, 935.32935, 429.9402, 894.61084, 417.9641, 823.95215, 413.1737, 761.05725, 445.05795, 708.98206, 461.07788, 667.0659, 431.13776)
+
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area_Path" unique_id=1178223808]
+polygon = PackedVector2Array(107.784454, -88.62276, 107.784454, -47.904198, 80.23953, -13.17366, -305.38922, -13.17366, -336.52698, 2.395218, -352.09583, 32.335327, -353.29343, 697.00604, -338.92218, 722.15576, -312.5749, 736.52704, 111.37729, 737.7246, 141.31741, 705.3893, 153.29343, 659.8803, 153.29343, 427.54498, 178.44315, 379.64075, 228.74252, 348.50305, 526.94617, 348.50305, 556.8862, 329.34137, 566.46704, 293.4132, 566.46704, 150.89821, 596.4072, 102.99402, 631.1377, 73.053894, 1059.8802, 73.053894, 1093.4132, 98.2036, 1125.7485, 140.11977, 1124.551, 562.8743, 1111.3773, 584.4312, 1071.8563, 613.1737, 512.57495, 611.97614, 488.62283, 635.9282, 452.69467, 746.10785, 428.74258, 800.00006, 365.2695, 858.68274, 323.3533, 929.3414, 190.41916, 1143.7126, 846.70667, 1143.7126, 762.87427, 956.8863, 724.5509, 886.2276, 665.8683, 814.37134, 617.9641, 784.4312, 633.53296, 755.6887, 659.88025, 731.73663, 698.2036, 717.36536, 1160.4791, 717.36536, 1192.8145, 717.36536, 1220.3594, 698.2037, 1228.7426, 676.6468, 1228.7426, 40.718567, 1232.3354, 15.568863, 1225.1498, -8.38324, 1205.9882, -23.952095, 1188.024, -31.137726, 507.78445, -31.137726, 475.44913, -15.568863, 461.0779, 14.371262, 461.0779, 176.04793, 443.1138, 209.58086, 408.38327, 244.31139, 87.42514, 245.50902, 53.892242, 265.8683, 47.904205, 307.7845, 47.904205, 591.6168, 31.137726, 614.37134, 8.38324, 632.3354, -215.56888, 632.3354, -237.12576, 598.8025, -247.9042, 562.8743, -247.9042, 153.29344, -220.3593, 111.37724, -198.8024, 92.215576, 148.50302, 92.215576, 190.41916, 83.83234, 210.77847, 53.892227, 209.58084, -79.04192, 264.6707, -148.503, 55.089813, -148.503)
+
+[node name="RedCrystal" type="CollisionPolygon2D" parent="Area_Path" unique_id=515261862]
+position = Vector2(373.65277, -33.532936)
+polygon = PackedVector2Array(11.976013, 22.754494, 15.568848, -2.3952103, -11.976074, -11.976051, -52.69464, -10.778442, -92.215576, -3.5928116, -104.03693, 18.273407, -88.62274, 49.1018, -44.3114, 33.532936)
+
+[node name="GreenCrystal" type="CollisionPolygon2D" parent="Area_Path" unique_id=140720870]
+position = Vector2(-79.04187, 291.018)
+polygon = PackedVector2Array(31.137665, 31.137726, 28.742432, 2.3952026, 5.9879456, -11.976044, -39.521027, -15.568878, -81.437195, -3.592804, -95.80847, 16.76648, -83.83243, 37.125763, -32.33542, 26.34732)
 
 [node name="Props" type="Node2D" parent="." unique_id=1574497388]
 y_sort_enabled = true
@@ -127,10 +399,10 @@ scale = Vector2(1.1976047, 1.1976047)
 
 [node name="Mushroom2" type="Sprite2D" parent="Props" unique_id=1793945711]
 y_sort_enabled = true
-position = Vector2(1565.0002, 378)
+position = Vector2(1600.0002, 1109.0001)
 scale = Vector2(0.9232249, 0.9234145)
 texture = ExtResource("5_kdfe2")
-offset = Vector2(2.297577, 1.4830856)
+offset = Vector2(-35.612946, -790.1442)
 
 [node name="MushroomSparkle2" type="Sprite2D" parent="Props" unique_id=1853021281]
 y_sort_enabled = true
@@ -138,6 +410,10 @@ position = Vector2(1551.0004, 1135.0002)
 scale = Vector2(1.0340248, 1.034308)
 texture = ExtResource("6_0dmdx")
 offset = Vector2(17.862762, -755.6106)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Props/MushroomSparkle2" unique_id=2116006797]
+libraries/ = SubResource("AnimationLibrary_kdfe2")
+autoplay = &"Sparkle"
 
 [node name="Mushroom" type="Sprite2D" parent="Props" unique_id=1061172986]
 y_sort_enabled = true
@@ -153,6 +429,10 @@ scale = Vector2(0.80584073, 0.80595106)
 texture = ExtResource("8_mq6hj")
 offset = Vector2(17.006805, -688.8046)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Props/MushroomSparkle" unique_id=343369588]
+libraries/ = SubResource("AnimationLibrary_mq6hj")
+autoplay = &"Sparkle"
+
 [node name="RedCrystal" type="Sprite2D" parent="Props" unique_id=656952812]
 y_sort_enabled = true
 position = Vector2(671.0001, 82)
@@ -166,6 +446,10 @@ position = Vector2(683.00006, 1138)
 scale = Vector2(0.48776558, 0.4877739)
 texture = ExtResource("10_ski3c")
 offset = Vector2(-25.293121, -2182.1746)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Props/RedCrystalSparkle" unique_id=654289347]
+libraries/ = SubResource("AnimationLibrary_43n0m")
+autoplay = &"Sparkle"
 
 [node name="GreenCrystal" type="Sprite2D" parent="Props" unique_id=738222427]
 y_sort_enabled = true
@@ -181,6 +465,10 @@ scale = Vector2(0.47888422, 0.4587859)
 texture = ExtResource("12_q1370")
 offset = Vector2(38.886505, -1780.727)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Props/GreenCrystalSparkle" unique_id=488328952]
+libraries/ = SubResource("AnimationLibrary_1syf6")
+autoplay = &"Sparkle"
+
 [node name="PinkCrystal" type="Sprite2D" parent="Props" unique_id=1241515499]
 position = Vector2(1087.0001, 389.00006)
 scale = Vector2(0.78948754, 0.7894892)
@@ -193,6 +481,10 @@ scale = Vector2(0.92593247, 0.92593634)
 texture = ExtResource("14_1syf6")
 offset = Vector2(36.535034, -851.18604)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Props/PinkCrytalSparkle" unique_id=1271555499]
+libraries/ = SubResource("AnimationLibrary_5ftgq")
+autoplay = &"Sparkle"
+
 [node name="CaveTop" type="Sprite2D" parent="." unique_id=83713347]
 y_sort_enabled = true
 position = Vector2(1170.0598, 1499.4012)
@@ -204,13 +496,15 @@ offset = Vector2(39.004517, -1339.8494)
 process_mode = 3
 stream = ExtResource("1_edkja")
 volume_db = 1.0
+bus = &"SFX"
 
 [node name="Map2Music" type="AudioStreamPlayer" parent="." unique_id=1453626938]
 process_mode = 3
-stream = ExtResource("17_it258")
+stream = ExtResource("25_43n0m")
 volume_db = 1.0
 autoplay = true
 bus = &"Music"
+parameters/looping = true
 
 [node name="HUD" parent="." unique_id=1805092987 instance=ExtResource("4_25kso")]
 
