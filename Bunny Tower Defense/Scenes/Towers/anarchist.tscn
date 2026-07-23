@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dkr53o6gmqvxf" path="res://Assets/Bunnies/Others/Shadow.png" id="2"]
 [ext_resource type="AudioStream" uid="uid://dibrwjb4jpmik" path="res://Assets/SFXs/AnarchistShot.wav" id="2_56475"]
 [ext_resource type="AudioStream" uid="uid://bklkqlump8nse" path="res://Assets/SFXs/AnarchistReload.wav" id="3_k2aot"]
-[ext_resource type="Texture2D" uid="uid://dtot615v2mkpx" path="res://Assets/Others/UI_Assets/Hit.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bx5k5iiqp5yaq" path="res://Assets/Others/UI_Assets/Hit.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://ca83s3ak6hio3" path="res://Assets/Bunnies/Animations/AnarchistAttackIdle.png" id="5_3yj7i"]
 [ext_resource type="Texture2D" uid="uid://8s3xfvankkkk" path="res://Assets/Bunnies/Animations/AnarchistAttackSpritesheet.png" id="6_2hr0n"]
 [ext_resource type="Texture2D" uid="uid://fog30i5sxhhy" path="res://Assets/Bunnies/Animations/Paths/Anarchist01AttackSpritesheet.png" id="7_56475"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ok0tifysu1qx" path="res://Assets/Bunnies/Animations/Paths/Anarchist02AttackSpritesheet.png" id="8_k2aot"]
 [ext_resource type="Texture2D" uid="uid://c7uln4i1l7g12" path="res://Assets/Bunnies/Animations/Paths/Anarchist01ReloadSpritesheet.png" id="10_y1exf"]
 [ext_resource type="Texture2D" uid="uid://bmre7bucgjdlu" path="res://Assets/Bunnies/Animations/Paths/Anarchist02ReloadSpritesheet.png" id="11_eleo8"]
-[ext_resource type="Texture2D" uid="uid://dwrbtgkce4l1u" path="res://Assets/Others/UI_Assets/ArrowDPS.png" id="14_eleo8"]
+[ext_resource type="Texture2D" uid="uid://4k5vra8yk73w" path="res://Assets/Others/UI_Assets/ArrowDPS.png" id="14_eleo8"]
 [ext_resource type="Texture2D" uid="uid://c0cfxvyhvvig4" path="res://Assets/Bunnies/Animations/UpgradeAuraSpriteSheet.png" id="14_ln5iw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a4dix"]

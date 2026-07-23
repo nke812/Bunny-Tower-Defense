@@ -2,29 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bje4pbemesb41"
-path.s3tc="res://.godot/imported/ArrowStun.png-fb0d957fff5e91b4b5bfc696045c3ac7.s3tc.ctex"
-path.etc2="res://.godot/imported/ArrowStun.png-fb0d957fff5e91b4b5bfc696045c3ac7.etc2.ctex"
+uid="uid://ccl7d1ewpscsd"
+path="res://.godot/imported/ArrowStun.png-fb0d957fff5e91b4b5bfc696045c3ac7.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Others/UI_Assets/ArrowStun.png"
-dest_files=["res://.godot/imported/ArrowStun.png-fb0d957fff5e91b4b5bfc696045c3ac7.s3tc.ctex", "res://.godot/imported/ArrowStun.png-fb0d957fff5e91b4b5bfc696045c3ac7.etc2.ctex"]
+dest_files=["res://.godot/imported/ArrowStun.png-fb0d957fff5e91b4b5bfc696045c3ac7.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=1
+compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0

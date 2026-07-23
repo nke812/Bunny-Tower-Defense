@@ -1,33 +1,34 @@
 [gd_scene format=3 uid="uid://cvtf3eidvbt76"]
 
 [ext_resource type="Script" uid="uid://bpsbggr0grq8c" path="res://Scripts/HUD/hud.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://da5nglivj1jrf" path="res://Assets/Others/UI_Assets/Settings.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://cdwjmcfq4tcud" path="res://Assets/Others/UI_Assets/SettingsScreen.png" id="3_yrvoj"]
+[ext_resource type="Texture2D" uid="uid://cb4pfppxxwtyc" path="res://Assets/Others/UI_Assets/Settings.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dlow6mv1dvgqf" path="res://Assets/Others/UI_Assets/SettingsScreen.png" id="3_yrvoj"]
 [ext_resource type="FontFile" uid="uid://v56c1vt506yg" path="res://FontText/Coiny-Regular.ttf" id="4"]
-[ext_resource type="Texture2D" uid="uid://des567rskajt0" path="res://Assets/Others/UI_Assets/ExitBTN.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://b7owbksq7jwoe" path="res://Assets/Others/UI_Assets/XBTN.png" id="6"]
-[ext_resource type="Texture2D" uid="uid://rorjm52vtgle" path="res://Assets/Others/UI_Assets/ExitBTNPressed.png" id="6_e0yge"]
+[ext_resource type="Texture2D" uid="uid://cxmunh01dip1y" path="res://Assets/Others/UI_Assets/ExitBTN.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://trv47mvlrm3l" path="res://Assets/Others/UI_Assets/XBTN.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bk12sm2paanou" path="res://Assets/Others/UI_Assets/ExitBTNPressed.png" id="6_e0yge"]
 [ext_resource type="Script" uid="uid://dd7n0bwv0j1ap" path="res://Scripts/music_control.gd" id="7"]
 [ext_resource type="Script" uid="uid://cdcnh7mikbgwk" path="res://Scripts/fullscreen_cb.gd" id="8"]
-[ext_resource type="Texture2D" uid="uid://bniy7tb6xrmtx" path="res://Assets/Others/UI_Assets/XBTNPressed.png" id="8_iivpx"]
+[ext_resource type="Texture2D" uid="uid://bpxjfumwy5l05" path="res://Assets/Others/UI_Assets/XBTNPressed.png" id="8_iivpx"]
 [ext_resource type="FontFile" uid="uid://c4oqjtn2jr35r" path="res://FontText/Candy Planet.ttf" id="9"]
 [ext_resource type="Script" uid="uid://bgpptnikuhqpt" path="res://Scripts/HUD/vidas.gd" id="10"]
-[ext_resource type="Texture2D" uid="uid://bi20o5s68f2f5" path="res://Assets/Others/UI_Assets/Music.png" id="10_w3j15"]
-[ext_resource type="Texture2D" uid="uid://da5dymvx25kdi" path="res://Assets/Others/UI_Assets/Heart01.png" id="11"]
-[ext_resource type="Texture2D" uid="uid://bc32xeabxhvne" path="res://Assets/Others/UI_Assets/Audio.png" id="11_1fefx"]
+[ext_resource type="Texture2D" uid="uid://xni113mjidgh" path="res://Assets/Others/UI_Assets/Music.png" id="10_w3j15"]
+[ext_resource type="Texture2D" uid="uid://d0vy86gmf7dvv" path="res://Assets/Others/UI_Assets/Heart01.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://dm2c8fmqvmfmb" path="res://Assets/Others/UI_Assets/Audio.png" id="11_1fefx"]
 [ext_resource type="Texture2D" uid="uid://dxjcr53dpiljr" path="res://Assets/Enemies/Bosses/Leviathan.png" id="11_rkb15"]
-[ext_resource type="Texture2D" uid="uid://cl0nvonsbewnh" path="res://Assets/Others/UI_Assets/Heart02.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://d4lai0hf06gny" path="res://Assets/Others/UI_Assets/Heart02.png" id="12"]
 [ext_resource type="Script" uid="uid://bhib51smh7pvo" path="res://Scripts/HUD/hud_buff_status.gd" id="12_h7oxq"]
-[ext_resource type="Texture2D" uid="uid://bivibntbcpj1u" path="res://Assets/Others/UI_Assets/Carrot.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://bygxg3ivks25i" path="res://Assets/Others/UI_Assets/Carrot.png" id="13"]
 [ext_resource type="Script" uid="uid://cht6cv0atxuhh" path="res://Scripts/HUD/moedas.gd" id="14"]
 [ext_resource type="AudioStream" uid="uid://cjdb7qigpeqqn" path="res://Assets/SFXs/Upgrade.wav" id="14_rywlk"]
 [ext_resource type="Texture2D" uid="uid://v5cqqbouu0o4" path="res://Assets/Others/HUD_Assets/EventSign.png" id="15"]
 [ext_resource type="Script" uid="uid://b51nkp55iw5n2" path="res://Scripts/HUD/hud_shop.gd" id="16"]
 [ext_resource type="Texture2D" uid="uid://dae14h81gcb60" path="res://Assets/Others/HUD_Assets/HUD_BG_Down.png" id="17"]
-[ext_resource type="Texture2D" uid="uid://b4d2lu4cmckvs" path="res://Assets/Others/UI_Assets/AmmunitionIcon.png" id="17_1fefx"]
+[ext_resource type="Texture2D" uid="uid://bqicbvmhk6k53" path="res://Assets/Others/UI_Assets/AmmunitionIcon.png" id="17_1fefx"]
 [ext_resource type="Texture2D" uid="uid://vxkjonrw4twr" path="res://Assets/Others/HUD_Assets/HUD_ShopFrame.png" id="18"]
 [ext_resource type="Texture2D" uid="uid://462ieyr1y7lp" path="res://Assets/Others/HUD_Assets/HUD_BG_Right.png" id="19"]
-[ext_resource type="Texture2D" uid="uid://ckvva502ud7bw" path="res://Assets/Others/UI_Assets/SellButton.png" id="19_1fefx"]
+[ext_resource type="Texture2D" uid="uid://cuyu8s674k2iq" path="res://Assets/Others/UI_Assets/SellButton.png" id="19_1fefx"]
+[ext_resource type="Texture2D" uid="uid://doxlslar0uqnn" path="res://Assets/Others/Debug_Assets/PissRookie.png" id="19_5r81r"]
 [ext_resource type="AudioStream" uid="uid://di45cl2j45a5e" path="res://Assets/SFXs/Sell.wav" id="19_dr5ga"]
 [ext_resource type="Texture2D" uid="uid://dhgypn83cpoo0" path="res://Assets/Others/HUD_Assets/HUD_SelectionFrame.png" id="20"]
 [ext_resource type="Texture2D" uid="uid://spg0ledfpuqm" path="res://Assets/Others/HUD_Assets/Skin.png" id="20_4hkqd"]
@@ -73,14 +74,9 @@
 [ext_resource type="Texture2D" uid="uid://jik7hcrr2chw" path="res://Assets/Others/HUD_Assets/NormalSpeedBTNPressed.png" id="59_ag3a8"]
 [ext_resource type="Texture2D" uid="uid://ch165sv25nt36" path="res://Assets/Others/HUD_Assets/AutoplayON.png" id="62_63sul"]
 [ext_resource type="Texture2D" uid="uid://c1btd5nru5ld8" path="res://Assets/Others/HUD_Assets/AutoplayOFF.png" id="63_5r81r"]
-[ext_resource type="Texture2D" uid="uid://de6l8cm0gsl02" path="res://Assets/Others/UI_Assets/GameOverScreen.png" id="67_jh456"]
-[ext_resource type="Texture2D" uid="uid://b150v8hgm7xxj" path="res://Assets/Enemies/Ghostlings/Brute.png" id="68_ynwmi"]
-[ext_resource type="Texture2D" uid="uid://dnpfk6l1itbih" path="res://Assets/Enemies/Ghostlings/Ghaztling.png" id="69_dr5ga"]
+[ext_resource type="Texture2D" uid="uid://dajarfqem07qp" path="res://Assets/Others/UI_Assets/GameOverScreen.png" id="67_jh456"]
 [ext_resource type="AudioStream" uid="uid://brjj841aeq5se" path="res://Assets/SFXs/Victory.wav" id="70_h7oxq"]
 [ext_resource type="AudioStream" uid="uid://b4vqgn5pnsxoo" path="res://Assets/SFXs/GameOver.wav" id="70_rkb15"]
-[ext_resource type="Texture2D" uid="uid://c05ej7ee6147" path="res://Assets/Enemies/Ghostlings/Enhanced Ghoul.png" id="70_rywlk"]
-[ext_resource type="Texture2D" uid="uid://bg6qjkuandfwb" path="res://Assets/Enemies/Ghostlings/Ghostling.png" id="71_rkb15"]
-[ext_resource type="Texture2D" uid="uid://drgcfy5rniced" path="res://Assets/Enemies/Ghostlings/Ghazt.png" id="72_h7oxq"]
 [ext_resource type="StyleBox" uid="uid://c780cu0wjs70y" path="res://Others/new_style_box_flat.tres" id="72_k3q0p"]
 [ext_resource type="StyleBox" uid="uid://dwu10cfsa422d" path="res://Others/new_style_box_flat2.tres" id="73_cgiap"]
 [ext_resource type="StyleBox" uid="uid://36cm41bhp6jn" path="res://Others/new_style_box_flat3.tres" id="74_ki85q"]
@@ -729,7 +725,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.17902349),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(0.39, 0.39)]
+"values": [Vector2(1e-05, 1e-05), Vector2(0.95, 0.95)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dr5ga"]
@@ -785,18 +781,18 @@ script = ExtResource("10")
 
 [node name="Heart" type="Sprite2D" parent="HUD" unique_id=1880252046]
 position = Vector2(97.21374, 103.16768)
-scale = Vector2(0.08047904, 0.08047904)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("11")
 
 [node name="HeartBroke" type="Sprite2D" parent="HUD" unique_id=869311774]
 visible = false
 position = Vector2(97.106995, 103.10701)
-scale = Vector2(0.0803057, 0.0803057)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("12")
 
 [node name="Coin" type="Sprite2D" parent="HUD" unique_id=771336608]
 position = Vector2(97.21373, 167.1677)
-scale = Vector2(0.08061068, 0.08061068)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("13")
 
 [node name="Moedas" type="Label" parent="HUD" unique_id=432508488]
@@ -1061,9 +1057,9 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Upgrade 2-1" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=1471342410]
-offset_left = 27.169857
+offset_left = 31.624386
 offset_top = -54.280235
-offset_right = 77.283295
+offset_right = 81.73782
 offset_bottom = -4.1668015
 texture_normal = ExtResource("13")
 texture_disabled = ExtResource("21_iivpx")
@@ -1118,22 +1114,22 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="BunnySel" type="Sprite2D" parent="HUD/HUD_Shop/HudBgDown" unique_id=2059092966]
-position = Vector2(-323.06763, -96.06152)
+position = Vector2(-314.15857, -96.06152)
 scale = Vector2(0.194, 0.182)
+texture = ExtResource("19_5r81r")
 
 [node name="TextureButton" type="TextureButton" parent="HUD/HUD_Shop/HudBgDown" unique_id=521091660]
-offset_left = -411.04413
-offset_top = -45.316696
-offset_right = -360.37393
-offset_bottom = 5.353504
+offset_left = -401.57828
+offset_top = -42.60845
+offset_right = -365.94208
+offset_bottom = -6.9722404
 texture_normal = ExtResource("20_4hkqd")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="lock" type="Sprite2D" parent="HUD/HUD_Shop/HudBgDown/TextureButton" unique_id=2023219171]
-visible = false
-position = Vector2(23.943045, 24.990696)
-scale = Vector2(0.046983793, 0.046983793)
+position = Vector2(17.261255, 19.629807)
+scale = Vector2(0.2777557, 0.2777557)
 texture = ExtResource("31")
 
 [node name="LabelCusto" type="Label" parent="HUD/HUD_Shop/HudBgDown" unique_id=470586143]
@@ -1173,21 +1169,24 @@ theme_override_font_sizes/font_size = 24
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="AmmunitionIcon" type="Sprite2D" parent="HUD/HUD_Shop/HudBgDown" unique_id=1674266700]
+visible = false
+position = Vector2(-256.44714, -22.944786)
+scale = Vector2(0.24921703, 0.24921703)
+texture = ExtResource("17_1fefx")
+
 [node name="StatusExtra" type="Label" parent="HUD/HUD_Shop/HudBgDown" unique_id=754986492]
-offset_left = -235.6472
-offset_top = -33.05881
-offset_right = -146.55669
-offset_bottom = 0.36489487
+visible = false
+offset_left = -263.12894
+offset_top = -33.02498
+offset_right = -234.73135
+offset_bottom = 0.39872742
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.21176471)
 theme_override_fonts/font = ExtResource("9")
 theme_override_font_sizes/font_size = 20
+text = "."
+horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="AmmunitionIcon" type="Sprite2D" parent="HUD/HUD_Shop/HudBgDown" unique_id=1674266700]
-visible = false
-position = Vector2(-253.46533, -20.326012)
-scale = Vector2(0.03754947, 0.03754947)
-texture = ExtResource("17_1fefx")
 
 [node name="Control" type="Control" parent="HUD/HUD_Shop/HudBgDown" unique_id=1558673895]
 layout_mode = 3
@@ -1211,9 +1210,10 @@ anchor_bottom = 16.261002
 offset_left = -0.0029907227
 offset_top = 38.183167
 offset_right = -6.6989136
-offset_bottom = 38.194458
+offset_bottom = 33.419556
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.92, 0.92)
 pivot_offset = Vector2(57.908813, 18.568848)
 
 [node name="precoSell" type="Label" parent="HUD/HUD_Shop/HudBgDown/Control/PanelSell" unique_id=686555823]
@@ -1804,13 +1804,12 @@ anchor_right = 0.735
 anchor_bottom = 0.071
 offset_left = 1582.0002
 offset_top = 91.00002
-offset_right = 1759.045
-offset_bottom = 163.00002
+offset_right = 1841.0002
+offset_bottom = 224.00003
 scale = Vector2(1.55, 1.55)
 pivot_offset = Vector2(2.5806274, 1.2903061)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("9")
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 4
 theme_override_icons/checked = ExtResource("62_63sul")
 theme_override_icons/unchecked = ExtResource("63_5r81r")
 alignment = 1
@@ -2132,54 +2131,26 @@ position = Vector2(1000.0001, 494.00006)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("67_jh456")
 
-[node name="MenuSettings5" type="Sprite2D" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=528633972]
-modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
-position = Vector2(-715.4712, 581.62445)
-scale = Vector2(0.20880012, 0.19937226)
-texture = ExtResource("68_ynwmi")
-
-[node name="MenuSettings4" type="Sprite2D" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=181355863]
-modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
-position = Vector2(829.59534, -561.7209)
-scale = Vector2(0.14219007, 0.13377346)
-texture = ExtResource("69_dr5ga")
-
-[node name="MenuSettings3" type="Sprite2D" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=913714206]
-modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
-position = Vector2(787.89606, 488.74133)
-scale = Vector2(0.26375467, 0.25582942)
-texture = ExtResource("70_rywlk")
-
-[node name="MenuSettings2" type="Sprite2D" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=1323355483]
-modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
-position = Vector2(-423.57648, -513.06793)
-scale = Vector2(0.20285466, 0.19978376)
-texture = ExtResource("71_rkb15")
-
-[node name="MenuSettings" type="Sprite2D" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=430107304]
-modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
-position = Vector2(-798.86945, -183.55447)
-scale = Vector2(0.24978337, 0.24788553)
-texture = ExtResource("72_h7oxq")
-
 [node name="Restart" type="Button" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=1066697129]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1467.3287
-offset_top = -1066.8235
-offset_right = -596.7091
-offset_bottom = -792.59753
+offset_left = -853.5114
+offset_top = -651.37726
+offset_right = 17.108215
+offset_bottom = -377.15146
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.73, 0.73)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9")
-theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = ExtResource("72_k3q0p")
+theme_override_font_sizes/font_size = 153
 theme_override_styles/pressed = ExtResource("73_cgiap")
 theme_override_styles/hover = ExtResource("74_ki85q")
 text = "RESTART"
+flat = true
 
 [node name="BackMenu" type="Button" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=1345564730]
 anchors_preset = 8
@@ -2187,34 +2158,39 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1467.5898
-offset_top = -698.20496
-offset_right = -596.5485
-offset_bottom = -423.84595
+offset_left = -853.7725
+offset_top = -410.65875
+offset_right = 17.268799
+offset_bottom = -136.29968
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.73, 0.73)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("9")
-theme_override_font_sizes/font_size = 64
-theme_override_styles/normal = ExtResource("72_k3q0p")
+theme_override_font_sizes/font_size = 153
 theme_override_styles/pressed = ExtResource("73_cgiap")
 theme_override_styles/hover = ExtResource("74_ki85q")
 text = "EXIT"
+flat = true
 
 [node name="Label" type="Label" parent="HUD/UI_Selection/GameOver/MenuSettings" unique_id=1319169810]
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 70.23038
-offset_top = -597.10486
-offset_right = -1413.7697
-offset_bottom = -477.68378
+offset_left = 22.754517
+offset_top = -471.85632
+offset_right = -527.2455
+offset_bottom = -344.85632
 grow_horizontal = 2
+rotation = 0.2572143
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7019608)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 0.4392157)
+theme_override_constants/line_spacing = 26
 theme_override_fonts/font = ExtResource("4")
-theme_override_font_sizes/font_size = 82
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ornx7")
-text = "GAME OVER"
+text = "GAME 
+OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 

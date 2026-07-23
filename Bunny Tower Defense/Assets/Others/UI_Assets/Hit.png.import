@@ -2,29 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtot615v2mkpx"
-path.s3tc="res://.godot/imported/Hit.png-1990e585b3395c498ca44fd4c6d6edd2.s3tc.ctex"
-path.etc2="res://.godot/imported/Hit.png-1990e585b3395c498ca44fd4c6d6edd2.etc2.ctex"
+uid="uid://bx5k5iiqp5yaq"
+path="res://.godot/imported/Hit.png-1990e585b3395c498ca44fd4c6d6edd2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Others/UI_Assets/Hit.png"
-dest_files=["res://.godot/imported/Hit.png-1990e585b3395c498ca44fd4c6d6edd2.s3tc.ctex", "res://.godot/imported/Hit.png-1990e585b3395c498ca44fd4c6d6edd2.etc2.ctex"]
+dest_files=["res://.godot/imported/Hit.png-1990e585b3395c498ca44fd4c6d6edd2.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=1
+compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
