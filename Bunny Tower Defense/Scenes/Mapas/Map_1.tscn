@@ -118,9 +118,9 @@ offset = Vector2(292.51355, 1091.1956)
 
 [node name="Portal" type="Sprite2D" parent="." unique_id=540855202]
 y_sort_enabled = true
-position = Vector2(1879.0417, 985.6287)
+position = Vector2(1964.0719, 979.6407)
 rotation = -6.2831855
-scale = Vector2(1.0421233, 1.0421237)
+scale = Vector2(1.4205916, 1.4205921)
 texture = ExtResource("7_0f4fa")
 offset = Vector2(5.956543, -6.250824)
 

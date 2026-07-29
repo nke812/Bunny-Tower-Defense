@@ -14,7 +14,14 @@ var GameOver : bool = false
 
 @onready var moedas_atuais = int(moedas_label.text)
 
-
+func _ready():
+    var autoplay = SaveManager.load_PlayerSettings()
+    
+    if autoplay == true:
+        $UI_Selection/AutoPlay.texture_normal = preload("res://Assets/Others/HUD_Assets/AutoplayON.png")
+    else:
+        $UI_Selection/AutoPlay.texture_normal = preload("res://Assets/Others/HUD_Assets/AutoplayOFF.png")
+        
 func _process(_delta: float) -> void:
     var moedas_atuais_nova = int(moedas_label.text)
     if moedas_atuais_nova != moedas_atuais:
@@ -460,11 +467,16 @@ func _on_sfx_control_value_changed(value: float) -> void:
 
 
 func _on_auto_play_pressed() -> void:
-    var script_spawner = get_tree().get_first_node_in_group("spawner")
+    var autoplay = !SaveManager.autoplay
     
-    if script_spawner:
-        script_spawner.autoplay = !script_spawner.autoplay
+    SaveManager.save_PlayerSettings(autoplay)
 
+    if autoplay == true:
+        $UI_Selection/AutoPlay.texture_normal = preload("res://Assets/Others/HUD_Assets/AutoplayON.png")
+    else:
+        $UI_Selection/AutoPlay.texture_normal = preload("res://Assets/Others/HUD_Assets/AutoplayOFF.png")
+            
+            
 
 func _on_button_2_pressed() -> void:
     var moedas = get_tree().current_scene.find_child("Moedas")

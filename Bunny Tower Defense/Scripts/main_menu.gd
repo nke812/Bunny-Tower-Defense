@@ -10,96 +10,53 @@ var MapSel = null
 var map1 = "res://Scenes/Mapas/Map_1.tscn"
 var map2 = "res://Scenes/Mapas/Map_2.tscn"
 
+func _on_title_screen_start_pressed() -> void:
+    $TitleScreenSound.play()
+    $Camera2D/MenuGoLeft.play("MenuGoLeft")
+    
+    await $Camera2D/MenuGoLeft.animation_finished
+    $"Bunny???/SlenderBunnyQuit".play("anim")
+
 
 func _on_start_pressed() -> void :
     $"Select Map/SelMapsMenu".play("SelMapsAnim")
-    $MainMenu_Left/Buttons/Voltar.disabled = true
-    $MainMenu_Left/Buttons/Bestiario.disabled = true
     
 var SettingsUP = false
-func _on_settings_pressed() -> void :
-    $MainMenu_Left/Buttons/Start.disabled = true
 
+func _on_settings_pressed() -> void :
     if SettingsUP == false:
         $Options/SettingsAnim.play("settings")
         SettingsUP = true
 
 
-func _on_exit_menu_pressed() -> void :
-    if SettingsUP == true:
-        $Options/SettingsAnim.play_backwards("settings")
-        await $Options/SettingsAnim.animation_finished
-
-        $MainMenu_Left/Buttons/Start.disabled = false
-
-        SettingsUP = false
-
-
-
-func _on_settings_mouse_entered() -> void :
-    $MainMenu_Left/Settings.modulate = Color(1.211, 1.211, 1.211)
-    $MainMenu_Left/Buttons/Settings/AnimationPlayer.play("settings")
-
-func _on_settings_mouse_exited() -> void :
-    $MainMenu_Left / Settings.modulate = Color(1.0, 1.0, 1.0, 1.0)
-    $MainMenu_Left/Buttons/Settings/AnimationPlayer.play_backwards("settings")
-
-
-func _on_bestiario_mouse_entered() -> void :
-    if $MainMenu_Left/Buttons/Bestiario:
-        $MainMenu_Left / Bestiario.modulate = Color(1.211, 1.211, 1.211)
-        $MainMenu_Left/Buttons/Bestiario/AnimationPlayer.play("definiçoes")
-
-func _on_bestiario_mouse_exited() -> void :
-    $MainMenu_Left / Bestiario.modulate = Color(1.0, 1.0, 1.0, 1.0)
-    $MainMenu_Left/Buttons/Bestiario/AnimationPlayer.play_backwards("definiçoes")
-
-
-func _on_achievements_mouse_entered() -> void :
-    $MainMenu_Left / Achievements.modulate = Color(1.211, 1.211, 1.211)
-
-func _on_achievements_mouse_exited() -> void :
-    $MainMenu_Left / Achievements.modulate = Color(1.0, 1.0, 1.0, 1.0)
-
-
-
-
-func _on_exit_pressed() -> void :
-    $MainMenu_Left / Buttons / BIG_Start.disabled = true
-    $MainMenu_Left / Buttons / Voltar.disabled = true
-    $StartGame_Sound.play()
-    $Camera2D / MenuGoLeft.play("MenuGoLeft")
-
-    await $Camera2D/MenuGoLeft.animation_finished
-    $MainMenu_Left/Buttons/BIG_Start.disabled = false
-    $MainMenu_Left/Buttons/Voltar.disabled = false
-
 func _on_voltar_pressed() -> void :
     $Camera2D/MenuGoLeft.play_backwards("MenuGoLeft")
-
+    
     
 func _on_exit_menu_map_pressed() -> void:
     $"Select Map/SelMapsMenu".play_backwards("SelMapsAnim")
-    $MainMenu_Left/Buttons/Voltar.disabled = false
-    $MainMenu_Left/Buttons/Bestiario.disabled = false
 
 
 func _on_easter_egg_pressed() -> void :
-    $"MainMenu_Left/SillyBunny/easter egg".disabled = true
-    $MainMenu_Left/SillyBunny/Squeaky.play()
+    $Rookienho/A_COISA_MAIS_FODA.disabled = true
+    $Rookienho/Squeaky.play()
+    $Rookienho.texture = load("res://Assets/Others/Menu_Assets/Buttons/RookienhoHappy.png")
 
-    $MainMenu_Left/SillyBunny/AnimationPlayer.play("Squeaky")
-    await $MainMenu_Left/SillyBunny/AnimationPlayer.animation_finished
+    $Rookienho/A_COISA_MAIS_FODA2.play("Anim")
+    await $Rookienho/A_COISA_MAIS_FODA2.animation_finished
 
-    $"MainMenu_Left/SillyBunny/easter egg".disabled = false
+    $Rookienho/A_COISA_MAIS_FODA.disabled = false
+    $Rookienho.texture = load("res://Assets/Others/Menu_Assets/Buttons/Rookienho.png")
 
+
+
+#MENU DE MAPAS
 func _on_grass_lands_pressed() -> void:
     get_tree().change_scene_to_file("res://Scenes/loading.tscn")
-
-
 func _on_glimmer_road_pressed() -> void:
     get_tree().change_scene_to_file("res://Scenes/loading2.tscn")
-
+func _on_sandy_streets_pressed() -> void:
+    get_tree().change_scene_to_file("res://Scenes/loading3.tscn")
 
 func _on_grass_lands_mouse_entered() -> void:
     $"Select Map/GrassLands".modulate = Color(1.211, 1.211, 1.211)
@@ -109,21 +66,27 @@ func _on_glimmer_road_mouse_entered() -> void:
     $"Select Map/GlimmerRoad".modulate = Color(1.211, 1.211, 1.211)
 func _on_glimmer_road_mouse_exited() -> void:
     $"Select Map/GlimmerRoad".modulate = Color(1.0, 1.0, 1.0, 1.0)
-
+func _on_sandy_streets_mouse_entered() -> void:
+    $"Select Map/Sandy Streets".modulate = Color(1.211, 1.211, 1.211)
+func _on_sandy_streets_mouse_exited() -> void:
+    $"Select Map/Sandy Streets".modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 
 func _on_glimmer_road_button_down() -> void:
     $"Select Map/GlimmerRoad".modulate = Color(0.632, 0.632, 0.632, 1.0)
-
 func _on_grass_lands_button_down() -> void:
     $"Select Map/GrassLands".modulate = Color(0.632, 0.632, 0.632, 1.0)
+func _on_sandy_streets_button_down() -> void:
+    $"Select Map/Sandy Streets".modulate = Color(0.632, 0.632, 0.632, 1.0)
+
+
 
 
 func _on_music_icon_pressed() -> void:
     var slider_sfx = $Options/MusicControl
     var icon = $Options/MusicControl/MusicIcon.texture_normal.resource_path
     
-    $Options/Click_AnimMusic.play("click")
+    $Options/MusicControl/Click_AnimMusic.play("click")
     match icon:
         "res://Assets/Others/UI_Assets/Music.png":
             slider_sfx.value = 0
@@ -134,7 +97,7 @@ func _on_sfx_icon_pressed() -> void:
     var slider_sfx = $Options/SFXControl
     var icon = $Options/SFXControl/SFXIcon.texture_normal.resource_path
     
-    $Options/Click_AnimSFX.play("click")
+    $Options/SFXControl/Click_AnimSFX.play("click")
     match icon:
         "res://Assets/Others/UI_Assets/Audio.png":
             slider_sfx.value = 0
@@ -153,22 +116,69 @@ func _on_sfx_control_value_changed(value: float) -> void:
     else:
         $Options/SFXControl/SFXIcon.texture_normal = preload("res://Assets/Others/UI_Assets/AudioMute.png")
 
-    
 
 
-func _on_continue_pressed() -> void:
-    if not SaveManager.tem_save():
-        return
-        
-    var dados = SaveManager.carregar_jogo()
-    var info_jogador = dados.get("jogador", {})
+# Brilhos nos botões do Menu
+func _on_start_mouse_entered() -> void:
+    $SunSetEuGostoMuito.texture = load("res://Assets/Others/Menu_Assets/Buttons/Start_SunSelected.png")
     
-    # 1. Descobrir qual era o mapa guardado (com um mapa predefinido de segurança caso esteja vazio)
-    var caminho_mapa = info_jogador.get("mapa_atual", "res://cenas/mapas/mapa_padrao.tscn")
-    
-    # 2. Mudar para a cena do mapa guardado
-    get_tree().change_scene_to_file(caminho_mapa)
-    
-    # Nota importante: Como mudar de cena é instantâneo mas a árvore demora um frame a carregar, 
-    # deves colocar a parte de recriar as torres e as moedas num script dentro do próprio mapa (no _ready()),
-    # lendo novamente o SaveManager assim que o mapa arrancar!
+func _on_start_mouse_exited() -> void:
+    $SunSetEuGostoMuito.texture = load("res://Assets/Others/Menu_Assets/Buttons/Start_Sun.png")
+
+
+
+func _on_extras_mouse_entered() -> void:
+    $Extras.texture = load("res://Assets/Others/Menu_Assets/Buttons/ExtrasSelected.png")
+
+func _on_extras_mouse_exited() -> void:
+    $Extras.texture = load("res://Assets/Others/Menu_Assets/Buttons/Extras.png")
+
+
+
+func _on_shop_mouse_entered() -> void:
+    $Shop.texture = load("res://Assets/Others/Menu_Assets/Buttons/Shop_Selected.png")
+    $Shop/ShopEye/AnimShopEye.play("ShopEye")
+
+func _on_shop_mouse_exited() -> void:
+    $Shop.texture = load("res://Assets/Others/Menu_Assets/Buttons/Shop.png")
+    $Shop/ShopEye/AnimShopEye.play_backwards("ShopEye")
+
+
+
+func _on_settings_mouse_entered() -> void:
+    $Settings.texture = load("res://Assets/Others/Menu_Assets/Buttons/Settings_Selected.png")
+
+func _on_settings_mouse_exited() -> void:
+    $Settings.texture = load("res://Assets/Others/Menu_Assets/Buttons/Settings.png")
+
+
+
+func _on_achievements_mouse_entered() -> void:
+    $Achievements.texture = load("res://Assets/Others/Menu_Assets/Buttons/Achievements_Selected.png")
+
+func _on_achievements_mouse_exited() -> void:
+    $Achievements.texture = load("res://Assets/Others/Menu_Assets/Buttons/Achievements.png")
+
+
+
+func _on_news_mouse_entered() -> void:
+    $News.texture = load("res://Assets/Others/Menu_Assets/Buttons/News_Selected.png")
+
+func _on_news_mouse_exited() -> void:
+    $News.texture = load("res://Assets/Others/Menu_Assets/Buttons/News.png")
+
+
+func _on_news_btn_pressed() -> void:
+    $NewsScreen/NewsAnim.play("Anim")
+
+func _on_exit_pressed() -> void:
+    $NewsScreen/NewsAnim.play_backwards("Anim")
+
+
+func _on_exit_settings_pressed() -> void:
+    $Options/SettingsAnim.play_backwards("settings")
+    await $Options/SettingsAnim.animation_finished
+
+func _on_exit_menu_pressed() -> void:
+    $"Select Map/SelMapsMenu".play_backwards("SelMapsAnim")
+    await $"Select Map/SelMapsMenu".animation_finished

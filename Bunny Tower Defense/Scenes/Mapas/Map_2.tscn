@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://d3o0qgqxkupje"]
 
 [ext_resource type="AudioStream" uid="uid://uh3ws1hfei76" path="res://Assets/SFXs/RoundStart.wav" id="1_edkja"]
-[ext_resource type="Script" uid="uid://cvalobldy87w3" path="res://Scripts/Maps/map_2.gd" id="1_q1370"]
 [ext_resource type="Texture2D" uid="uid://bqg1gwujcntft" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Base.png" id="2_mrkoi"]
 [ext_resource type="Script" uid="uid://cj5vuu45ii5tk" path="res://Scripts/ghostling_spawner.gd" id="2_tmeid"]
 [ext_resource type="Texture2D" uid="uid://d4a3tfbxtqy7h" path="res://Assets/Others/Map_Assets/GlimmerRoadV2/Path.png" id="3_sc7s4"]
@@ -31,9 +30,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_lycfg"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -227.5448, -346.10782, 0, 0, 0, 0, -229.94006, -154.49104, 0, 0, 0, 0, -681.4371, -150.89822, 0, 0, 0, 0, -680.2395, 493.4132, 0, 0, 0, 0, -289.82025, 491.018, 0, 0, 0, 0, -281.43707, 106.58682, 0, 0, 0, 0, 128.1438, 105.38922, 0, 0, 0, 0, 131.73663, -172.45512, 0, 0, 0, 0, 794.0122, -171.2575, 0, 0, 0, 0, 794.0122, 468.2635, 0, 0, 0, 0, 167.6648, 476.64673, 0, 0, 0, 0, 165.26959, 797.60486)
+"points": PackedVector2Array(0, 0, 0, 0, -785.6287, 964.0719, 0, 0, 0, 0, -783.2335, 249.1018, 0, 0, 0, 0, -529.34125, 249.1018, 0, 0, 0, 0, -528.1437, 540.1198, 0, 0, 0, 0, -239.52087, 540.1198, 0, 0, 0, 0, -237.12567, -152.09584, 0, 0, 0, 0, 128.1438, -152.09584, 0, 0, 0, 0, 135.32947, 740.11975, 0, 0, 0, 0, 571.2577, 740.11975, 0, 0, 0, 0, 571.2577, 325.74854, 0, 0, 0, 0, 397.60498, 325.74854, 0, 0, 0, 0, 398.8025, -171.2575, 0, 0, 0, 0, 1046.7068, -174.85033)
 }
-point_count = 12
+point_count = 13
 
 [sub_resource type="Animation" id="Animation_sc7s4"]
 length = 0.001
@@ -267,7 +266,6 @@ _data = {
 y_sort_enabled = true
 position = Vector2(-36.000004, -42.000004)
 scale = Vector2(0.835, 0.835)
-script = ExtResource("1_q1370")
 
 [node name="GhostlingSpawner" type="Node2D" parent="." unique_id=2109337534 groups=["spawner"]]
 y_sort_enabled = true
@@ -368,7 +366,7 @@ curve = SubResource("Curve2D_lycfg")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1755593801]
 y_sort_enabled = true
-position = Vector2(-227.5448, -346.10782)
+position = Vector2(-785.6287, 964.0719)
 rotates = false
 loop = false
 

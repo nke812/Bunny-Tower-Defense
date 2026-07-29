@@ -39,6 +39,7 @@ func _process(delta: float) -> void :
     
     if balas <= 0:
         if focus:
+            hud.get_node("HUD_Shop/HudBgDown/AmmunitionIcon").texture = preload("res://Assets/Others/UI_Assets/AmmunitionIconReloading.png")
             hud.get_node("HUD_Shop/HudBgDown/StatusExtra").text = "..."
         if spawner.ronda_a_decorrer:
             $Reload.paused = false

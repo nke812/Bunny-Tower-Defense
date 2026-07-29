@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://8lc8y87fyf1p" path="res://Assets/SFXs/Hit3.wav" id="2_3mwti"]
 [ext_resource type="Texture2D" uid="uid://cbmccfyfx8iky" path="res://Assets/Bunnies/Animations/RookieAttackIdle.png" id="3_a4dix"]
 [ext_resource type="AudioStream" uid="uid://uwc0b7s8li2l" path="res://Assets/SFXs/Hit2.wav" id="3_xji2b"]
-[ext_resource type="Texture2D" uid="uid://dwrbtgkce4l1u" path="res://Assets/Others/UI_Assets/ArrowDPS.png" id="4_55yyg"]
+[ext_resource type="Texture2D" uid="uid://4k5vra8yk73w" path="res://Assets/Others/UI_Assets/ArrowDPS.png" id="4_55yyg"]
 [ext_resource type="AudioStream" uid="uid://io1g8h7qicq5" path="res://Assets/SFXs/Hit1.wav" id="4_cfd32"]
 [ext_resource type="Texture2D" uid="uid://xr85dx8vd5rc" path="res://Assets/Bunnies/Animations/RookieAttackSpriteSheet.png" id="5_8lmgt"]
 [ext_resource type="Texture2D" uid="uid://bo45wgu6fj2yc" path="res://Assets/Bunnies/Animations/Paths/Rookie01AttackSpriteSheet.png" id="8_vxsyi"]
