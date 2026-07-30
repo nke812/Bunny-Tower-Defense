@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var loading = $ProgressBar
-@export var ProxCena: String = "res://Scenes/Mapas/Map_3.tscn"
+@export var ProxCena: String = "res://Scenes/Mapas/Map_2.tscn"
 var progress: Array[float] = []
 
 func _ready():
