@@ -49,9 +49,9 @@
 [ext_resource type="Texture2D" uid="uid://efuwa2251qfa" path="res://Assets/Bunnies/AnarchistDisable.png" id="33"]
 [ext_resource type="Texture2D" uid="uid://c65cppgvhkoah" path="res://Assets/Others/HUD_Assets/BunnyBoxStun.png" id="34"]
 [ext_resource type="Texture2D" uid="uid://ca483pwed2uya" path="res://Assets/Bunnies/Gooey.png" id="35"]
-[ext_resource type="Texture2D" uid="uid://cnsm1nanbg62m" path="res://VIVIAN/VivianBoxDPS.png" id="35_63sul"]
+[ext_resource type="Texture2D" uid="uid://cnsm1nanbg62m" path="res://Mods/VIVIAN/VivianBoxDPS.png" id="35_63sul"]
 [ext_resource type="Texture2D" uid="uid://ch7sdj5is3vxp" path="res://Assets/Bunnies/GooeyDisable.png" id="36"]
-[ext_resource type="Texture2D" uid="uid://8o6wu4nb8fd" path="res://VIVIAN/VivianBoxDPSdisable.png" id="36_5r81r"]
+[ext_resource type="Texture2D" uid="uid://8o6wu4nb8fd" path="res://Mods/VIVIAN/VivianBoxDPSdisable.png" id="36_5r81r"]
 [ext_resource type="Texture2D" uid="uid://dmfwaotuoifff" path="res://Assets/Bunnies/Scrappy.png" id="37"]
 [ext_resource type="Texture2D" uid="uid://dkpsu2ymf1rbd" path="res://Assets/Bunnies/ScrappyDisable.png" id="38"]
 [ext_resource type="Texture2D" uid="uid://bwr6u0niwo2hx" path="res://Assets/Bunnies/Ghoulish.png" id="39"]
@@ -79,6 +79,7 @@
 [ext_resource type="StyleBox" uid="uid://c780cu0wjs70y" path="res://Others/new_style_box_flat.tres" id="72_k3q0p"]
 [ext_resource type="StyleBox" uid="uid://dwu10cfsa422d" path="res://Others/new_style_box_flat2.tres" id="73_cgiap"]
 [ext_resource type="StyleBox" uid="uid://36cm41bhp6jn" path="res://Others/new_style_box_flat3.tres" id="74_ki85q"]
+[ext_resource type="Script" uid="uid://sgwgl2mldwee" path="res://Scripts/HUD/debug_menu.gd" id="80_k3q0p"]
 
 [sub_resource type="Theme" id="Theme_c4wnb"]
 default_font = ExtResource("4")
@@ -738,6 +739,91 @@ _data = {
 &"go_appear": SubResource("Animation_ynwmi")
 }
 
+[sub_resource type="Animation" id="Animation_pimpp"]
+resource_name = "IntroPanel"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(704, -312.83), Vector2(704, 28.515), Vector2(704, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Seta:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["\\/", "/\\"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/Seta:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0005, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_j0o38"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(704, -312.46)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Seta:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["\\/"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/Seta:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_45eqa"]
+_data = {
+&"IntroPanel": SubResource("Animation_pimpp"),
+&"RESET": SubResource("Animation_j0o38")
+}
+
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1805092987]
 
 [node name="HUD" type="Node2D" parent="." unique_id=1971829007 groups=["HP", "HUD"]]
@@ -817,13 +903,13 @@ text = "100"
 script = ExtResource("14")
 
 [node name="PGB_M" type="ProgressBar" parent="HUD" unique_id=1840660125]
-offset_left = 301.9403
-offset_top = -505.00006
-offset_right = 519.90466
-offset_bottom = -396.018
+offset_left = -171.00003
+offset_top = -509.0
+offset_right = 46.964325
+offset_bottom = -400.01794
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 70
-max_value = 9999999.0
+max_value = 999999999.0
 step = 1.0
 value = 165.0
 metadata/_edit_use_anchors_ = true
@@ -832,6 +918,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(52.999992, 59.000004)
 
 [node name="Up" type="CollisionPolygon2D" parent="HUD/Limits" unique_id=320004685]
+visible = false
 position = Vector2(1093.0211, -318)
 scale = Vector2(0.9999999, 0.9999998)
 skew = 1.56907
@@ -1823,7 +1910,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Options" type="Panel" parent="HUD/UI_Selection" unique_id=2036140806]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1959,7 +2045,6 @@ expand_icon = true
 script = ExtResource("8")
 
 [node name="Button" type="Button" parent="HUD/UI_Selection/Options" unique_id=1543474290]
-visible = false
 layout_mode = 0
 offset_left = 921.00006
 offset_top = 17.000002
@@ -1968,7 +2053,6 @@ offset_bottom = 84.0
 text = "+50$ "
 
 [node name="Button2" type="Button" parent="HUD/UI_Selection/Options" unique_id=186975066]
-visible = false
 layout_mode = 0
 offset_left = 761.00006
 offset_top = 18.000002
@@ -2194,8 +2278,129 @@ stream = ExtResource("70_rkb15")
 volume_db = -5.0
 bus = &"SFX"
 
+[node name="Debug Menu" type="Node2D" parent="." unique_id=557738769]
+script = ExtResource("80_k3q0p")
+
+[node name="Panel" type="Panel" parent="Debug Menu" unique_id=1416554692]
+offset_left = 704.0
+offset_top = -312.46
+offset_right = 1408.0002
+offset_bottom = 0.5819397
+
+[node name="LabelMoney" type="Label" parent="Debug Menu/Panel" unique_id=1393935302]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 24.829987
+offset_right = 101.0
+offset_bottom = 58.829987
+theme_override_font_sizes/font_size = 24
+text = "Money:"
+
+[node name="SpinBoxMoney" type="SpinBox" parent="Debug Menu/Panel" unique_id=1585169885]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 16.829987
+offset_right = 281.0
+offset_bottom = 64.82999
+max_value = 999999999.0
+value = 500.0
+rounded = true
+alignment = 1
+
+[node name="SetMoney" type="Button" parent="Debug Menu/Panel" unique_id=823456687]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 76.82999
+offset_right = 120.0
+offset_bottom = 122.82999
+text = "Set Money"
+
+[node name="Money -" type="Button" parent="Debug Menu/Panel" unique_id=5516619]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 77.45999
+offset_right = 262.0
+offset_bottom = 123.45999
+theme_override_font_sizes/font_size = 27
+text = "-"
+
+[node name="Money +" type="Button" parent="Debug Menu/Panel" unique_id=2057856252]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 77.45999
+offset_right = 192.0
+offset_bottom = 123.45999
+theme_override_font_sizes/font_size = 27
+text = "+"
+
+[node name="LabelLifes" type="Label" parent="Debug Menu/Panel" unique_id=1864629988]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 168.82999
+offset_right = 101.0
+offset_bottom = 202.82999
+theme_override_font_sizes/font_size = 24
+text = "Lifes:"
+
+[node name="SpinBoxLifes" type="SpinBox" parent="Debug Menu/Panel" unique_id=1297981862]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 168.82999
+offset_right = 281.0
+offset_bottom = 216.82999
+max_value = 999999999.0
+value = 500.0
+rounded = true
+alignment = 1
+
+[node name="SetLifes" type="Button" parent="Debug Menu/Panel" unique_id=1654174194]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 228.82999
+offset_right = 120.0
+offset_bottom = 274.83
+text = "Set Lifes"
+
+[node name="LabelRound" type="Label" parent="Debug Menu/Panel" unique_id=1064405432]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 24.829987
+offset_right = 421.0
+offset_bottom = 58.829987
+theme_override_font_sizes/font_size = 24
+text = "Round:"
+
+[node name="SpinBoxRound" type="SpinBox" parent="Debug Menu/Panel" unique_id=1745848350]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 24.829987
+offset_right = 601.0
+offset_bottom = 72.82999
+max_value = 150.0
+value = 1.0
+rounded = true
+alignment = 1
+
+[node name="SetRound" type="Button" parent="Debug Menu/Panel" unique_id=2045269412]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 84.82999
+offset_right = 440.0
+offset_bottom = 130.82999
+text = "Set Round"
+
+[node name="Seta" type="Button" parent="Debug Menu/Panel" unique_id=218959555]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 311.0
+offset_right = 391.3235
+offset_bottom = 342.0
+text = "\\/"
+
+[node name="PanelIntro" type="AnimationPlayer" parent="Debug Menu" unique_id=162359770]
+libraries/ = SubResource("AnimationLibrary_45eqa")
+
 [connection signal="pressed" from="HUD/Pause" to="HUD" method="_on_button_pressed"]
-[connection signal="theme_changed" from="HUD/Moedas" to="HUD/UI_Selection/Bunnies" method="_on_moedas_theme_changed"]
 [connection signal="mouse_entered" from="HUD/HUD_Shop/BuffStatus/Area2D" to="HUD/HUD_Shop/BuffStatus" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="HUD/HUD_Shop/BuffStatus/Area2D" to="HUD/HUD_Shop/BuffStatus" method="_on_area_2d_mouse_exited"]
 [connection signal="mouse_entered" from="HUD/HUD_Shop/HudBgDown/Upgrade 1-1" to="HUD" method="mostrar_preco_1_1"]
@@ -2282,3 +2487,7 @@ bus = &"SFX"
 [connection signal="pressed" from="HUD/UI_Selection/Victory/MenuSettings/Exit" to="HUD" method="_on_back_menu_pressed"]
 [connection signal="pressed" from="HUD/UI_Selection/GameOver/MenuSettings/Restart" to="HUD" method="_on_restart_pressed"]
 [connection signal="pressed" from="HUD/UI_Selection/GameOver/MenuSettings/BackMenu" to="HUD" method="_on_back_menu_pressed"]
+[connection signal="pressed" from="Debug Menu/Panel/SetMoney" to="Debug Menu" method="_on_set_money_pressed"]
+[connection signal="pressed" from="Debug Menu/Panel/Money -" to="Debug Menu" method="_on_minus_pressed"]
+[connection signal="pressed" from="Debug Menu/Panel/Money +" to="Debug Menu" method="_on_plus_pressed"]
+[connection signal="pressed" from="Debug Menu/Panel/Seta" to="Debug Menu" method="_on_seta_pressed"]

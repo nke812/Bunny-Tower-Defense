@@ -475,21 +475,6 @@ func _on_auto_play_pressed() -> void:
         $UI_Selection/AutoPlay.texture_normal = preload("res://Assets/Others/HUD_Assets/AutoplayON.png")
     else:
         $UI_Selection/AutoPlay.texture_normal = preload("res://Assets/Others/HUD_Assets/AutoplayOFF.png")
-            
-            
-
-func _on_button_2_pressed() -> void:
-    var moedas = get_tree().current_scene.find_child("Moedas")
-    var valor_atual = int(moedas.text)
-    
-    moedas.text = str(valor_atual - 500)
-
-
-func MAIS_50kk() -> void:
-    var moedas = get_tree().current_scene.find_child("Moedas")
-    var valor_atual = int(moedas.text)
-    
-    moedas.text = str(valor_atual + 500)
 
 
 func _on_bt_nsell_mouse_entered() -> void:

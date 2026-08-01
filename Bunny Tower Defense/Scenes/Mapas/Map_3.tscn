@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dmegxfqrdj5nw" path="res://PINK/Sprites/Attack.png" id="18_58drs"]
 [ext_resource type="AudioStream" uid="uid://bk6vwn10iu1rk" path="res://PINK/MUSICA-FODA-PRA-CRLH.wav" id="18_g3mxa"]
 [ext_resource type="AudioStream" uid="uid://4wgtcsoacy8l" path="res://PINK/Cutie Mew Mew Magic.ogg" id="18_mpk1w"]
-[ext_resource type="Script" uid="uid://def03tp0xh6hr" path="res://Scenes/Mapas/static_body_2d.gd" id="18_xiyrn"]
+[ext_resource type="Script" uid="uid://def03tp0xh6hr" path="res://PINK/static_body_2d.gd" id="18_xiyrn"]
 [ext_resource type="Texture2D" uid="uid://dkr53o6gmqvxf" path="res://Assets/Bunnies/Others/Shadow.png" id="19_g3mxa"]
 [ext_resource type="Texture2D" uid="uid://b5akpnhge6fnp" path="res://PINK/Sprites/UltAttack.png" id="19_j3x0n"]
 [ext_resource type="Texture2D" uid="uid://rftfal7oth5q" path="res://PINK/Sprites/FootSlam.png" id="20_xiyrn"]

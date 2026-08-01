@@ -323,8 +323,3 @@ func atualizar_contador_rondas() -> void:
 
 func atualizar_moedas_buff() -> void:
     moedas_fim_ronda_total = moedas_fim_ronda + moedas_fim_ronda_bonus
-
-
-func _on_button_pressed() -> void:
-    var novo_fantasma = Lucifer.instantiate()
-    get_node("../Path2D").add_child(novo_fantasma)

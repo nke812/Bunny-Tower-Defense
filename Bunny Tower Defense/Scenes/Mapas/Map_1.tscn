@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://cvtf3eidvbt76" path="res://Scenes/HUD.tscn" id="9"]
 [ext_resource type="Texture2D" uid="uid://qvwfugrn8aal" path="res://Assets/Others/Map_Assets/GrasslandsV2/Bush1.png" id="9_656xa"]
 [ext_resource type="Texture2D" uid="uid://b66wvbi68wlsn" path="res://Assets/Others/Map_Assets/GrasslandsV2/Trees.png" id="9_jo21a"]
-[ext_resource type="Texture2D" uid="uid://dwdirgdi4666p" path="res://Assets/Enemies/Bosses/Fenrir.png" id="10_4vd4o"]
 [ext_resource type="Texture2D" uid="uid://dt2rcr7sgxftb" path="res://Assets/Others/Map_Assets/GrasslandsV2/Bush2.png" id="10_43eqa"]
 [ext_resource type="Texture2D" uid="uid://bnrr7pa2euohi" path="res://Assets/Others/Map_Assets/GrasslandsV2/Bush3.png" id="11_416cr"]
 [ext_resource type="Texture2D" uid="uid://cjnk7oi72wd25" path="res://Assets/Others/Map_Assets/GrasslandsV2/Bush4.png" id="12_r2guh"]
@@ -234,13 +233,4 @@ parameters/looping = true
 
 [node name="HUD" parent="." unique_id=1805092987 instance=ExtResource("9")]
 
-[node name="Button" type="Button" parent="." unique_id=501447508]
-offset_left = 2886.2275
-offset_top = 63.47306
-offset_right = 3210.1667
-offset_bottom = 264.67062
-icon = ExtResource("10_4vd4o")
-expand_icon = true
-
 [connection signal="timeout" from="GhostlingSpawner/Timer" to="GhostlingSpawner" method="_on_timer_timeout"]
-[connection signal="pressed" from="Button" to="GhostlingSpawner" method="_on_button_pressed"]
