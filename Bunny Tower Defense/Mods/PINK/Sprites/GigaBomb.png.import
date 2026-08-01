@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://rser3o888d1j"
-path="res://.godot/imported/GigaBomb.png-cfe4ab94f55338ba762898a401938f03.ctex"
+path="res://.godot/imported/GigaBomb.png-e131ac12ef9e20e42a7f3e210e1ed271.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PINK/Sprites/GigaBomb.png"
-dest_files=["res://.godot/imported/GigaBomb.png-cfe4ab94f55338ba762898a401938f03.ctex"]
+source_file="res://Mods/PINK/Sprites/GigaBomb.png"
+dest_files=["res://.godot/imported/GigaBomb.png-e131ac12ef9e20e42a7f3e210e1ed271.ctex"]
 
 [params]
 
