@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cn0ttxd0wokxu" path="res://Assets/Others/Menu_Assets/Foreground_Nature.png" id="6_fipmv"]
 [ext_resource type="Texture2D" uid="uid://l7epf46uh7vf" path="res://Assets/Others/Menu_Assets/Buttons/Start_Text.png" id="6_jvcv6"]
 [ext_resource type="AudioStream" uid="uid://c1qhl82y0q8ly" path="res://Assets/SFXs/GameStart.wav" id="6_pjscj"]
-[ext_resource type="StyleBox" uid="uid://1p8p51j014uf" path="res://InvisibleButton.tres" id="6_ux20s"]
+[ext_resource type="StyleBox" uid="uid://1p8p51j014uf" path="res://Others/InvisibleButton.tres" id="6_ux20s"]
 [ext_resource type="AudioStream" uid="uid://c6k3kvqe5iiw8" path="res://Assets/Music/MainTheme.ogg" id="7_6byu3"]
 [ext_resource type="Texture2D" uid="uid://lo42orxm5ged" path="res://Assets/Others/Menu_Assets/Buttons/Start_Bunnies.png" id="7_rplfc"]
 [ext_resource type="Texture2D" uid="uid://biua7o4wct4ik" path="res://Assets/Others/Menu_Assets/Bunnies.png" id="7_ydmd8"]
@@ -38,7 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://dm2c8fmqvmfmb" path="res://Assets/Others/UI_Assets/Audio.png" id="23_ux20s"]
 [ext_resource type="Texture2D" uid="uid://djbm03fab8mc7" path="res://Assets/Others/UI_Assets/NewsScreen.png" id="25_fipmv"]
 [ext_resource type="Texture2D" uid="uid://cedo6utiaw60" path="res://Assets/Others/UI_Assets/Fullscreen.png" id="27_3u44c"]
-[ext_resource type="Texture2D" uid="uid://dtuir6bgm4ixu" path="res://PINK.png" id="28_pbfag"]
+[ext_resource type="Texture2D" uid="uid://dtuir6bgm4ixu" path="res://Mods/PINK/PINK.png" id="28_pbfag"]
 [ext_resource type="Texture2D" uid="uid://cf2cntmbqd0oe" path="res://Assets/Others/Menu_Assets/Maps/MapSandyStreets_Sel.png" id="31_f3d0c"]
 
 [sub_resource type="Animation" id="Animation_fipmv"]
@@ -1084,12 +1084,34 @@ position = Vector2(509.0331, 202.94264)
 scale = Vector2(1.2460612, 1.2418939)
 texture = ExtResource("21_leunp")
 
+[node name="???2" type="TextureButton" parent="Select Map" unique_id=1154141805]
+layout_mode = 0
+offset_left = 345.4354
+offset_top = 396.58914
+offset_right = 686.02014
+offset_bottom = 588.16797
+scale = Vector2(0.98921967, 0.99482906)
+texture_normal = ExtResource("21_6byu3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="???3" type="TextureButton" parent="Select Map" unique_id=1489297236]
+layout_mode = 0
+offset_left = 16.023811
+offset_top = 396.58905
+offset_right = 356.60852
+offset_bottom = 588.16785
+scale = Vector2(0.98921967, 0.99482906)
+texture_normal = ExtResource("21_6byu3")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="Sandy Streets" type="TextureButton" parent="Select Map" unique_id=1947786836]
 layout_mode = 0
 offset_left = 675.05884
-offset_top = 180.1185
+offset_top = 180.11847
 offset_right = 1015.64355
-offset_bottom = 371.69736
+offset_bottom = 371.69733
 scale = Vector2(0.98921967, 0.99482906)
 texture_normal = ExtResource("31_f3d0c")
 ignore_texture_size = true
@@ -1116,28 +1138,6 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_fh7cp")
 text = "Sandy Streets"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="???2" type="TextureButton" parent="Select Map" unique_id=1154141805]
-layout_mode = 0
-offset_left = 345.4354
-offset_top = 396.58914
-offset_right = 686.02014
-offset_bottom = 588.16797
-scale = Vector2(0.98921967, 0.99482906)
-texture_normal = ExtResource("21_6byu3")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="???3" type="TextureButton" parent="Select Map" unique_id=1489297236]
-layout_mode = 0
-offset_left = 16.023811
-offset_top = 396.58905
-offset_right = 356.60852
-offset_bottom = 588.16785
-scale = Vector2(0.98921967, 0.99482906)
-texture_normal = ExtResource("21_6byu3")
-ignore_texture_size = true
-stretch_mode = 0
 
 [node name="GlimmerRoad" type="TextureButton" parent="Select Map" unique_id=1740790150 groups=["escolha de mapa"]]
 layout_mode = 0

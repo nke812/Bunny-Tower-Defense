@@ -27,6 +27,7 @@ func _process(_delta: float) -> void:
 
 # --- ATAQUE NORMAL ---
 func verificar_e_atacar():
+    
     var corpos = $Range.get_overlapping_bodies()
     for corpo in corpos:
         if corpo.is_in_group("Ghostlings"):
@@ -86,30 +87,7 @@ func atacar_ult(corpos):
     
     $Timer.start()
     esta_a_atacar = false
-
-
-# --- ATAQUE DA ULTRA ULT (AoE) ---
-func verificar_e_atacar_ultra_ult():
-    var corpos = $Range.get_overlapping_bodies()
-    var tem_alvos = false
     
-    for corpo in corpos:
-        if corpo.is_in_group("Ghostlings"):
-            tem_alvos = true
-            break
-            
-    if tem_alvos:
-        esta_a_atacar = true
-        atacar_ultra_ult(corpos)
-
-func atacar_ultra_ult(corpos):
-    for corpo in corpos:
-        if is_instance_valid(corpo) and corpo.is_in_group("Ghostlings") and corpo.has_method("DMGED"):
-            corpo.DMGED(60) 
-    
-    $Timer.start()
-    esta_a_atacar = false
-
 
 # --- AÇÃO DO BOTÃO ---
 func _on_button_pressed() -> void:
@@ -190,17 +168,14 @@ func EXPLOSION2():
 
 
 
-# --- CORREÇÃO DA EXPLOSÃO ULTRA ULT ---
-func attack_explosion():
-    $Range.scale = Vector2(10.0, 10.0)
+func dar_dano_global() -> void:
+    # Procura todos os nós vivos no grupo "inimigos"
+    var Ghostlings = get_tree().get_nodes_in_group("Ghostlings")
     
-    await get_tree().physics_frame
-    
-    verificar_e_atacar_ultra_ult()
-    attack_explosion_exit()
+    for Ghostling in Ghostlings:
+        if Ghostling.has_method("DMGED"):
+            Ghostling.DMGED(60)
 
-func attack_explosion_exit():
-    $Range.scale = Vector2(1.0, 1.0)
 
 
 # --- DESENHAR RANGE ---

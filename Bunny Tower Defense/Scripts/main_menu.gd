@@ -52,11 +52,11 @@ func _on_easter_egg_pressed() -> void :
 
 #MENU DE MAPAS
 func _on_grass_lands_pressed() -> void:
-    get_tree().change_scene_to_file("res://Scenes/loading.tscn")
+    get_tree().change_scene_to_file("res://Scenes/Mapas/Map_1.tscn")
 func _on_glimmer_road_pressed() -> void:
-    get_tree().change_scene_to_file("res://Scenes/loading2.tscn")
+    get_tree().change_scene_to_file("res://Scenes/Mapas/Map_2.tscn")
 func _on_sandy_streets_pressed() -> void:
-    get_tree().change_scene_to_file("res://Scenes/loading3.tscn")
+    get_tree().change_scene_to_file("res://Scenes/Mapas/Map_3.tscn")
 
 func _on_grass_lands_mouse_entered() -> void:
     $"Select Map/GrassLands".modulate = Color(1.211, 1.211, 1.211)

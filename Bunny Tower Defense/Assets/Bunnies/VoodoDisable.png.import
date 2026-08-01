@@ -2,29 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://olpspx8xl11r"
-path.s3tc="res://.godot/imported/Bunnies.png-08acc169814cbe768c8ee7c668619361.s3tc.ctex"
-path.etc2="res://.godot/imported/Bunnies.png-08acc169814cbe768c8ee7c668619361.etc2.ctex"
+uid="uid://bta1gp5raooex"
+path="res://.godot/imported/VoodoDisable.png-f3869249cb75715c7574ebb2660c90d1.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Others/Others/Bunnies.png"
-dest_files=["res://.godot/imported/Bunnies.png-08acc169814cbe768c8ee7c668619361.s3tc.ctex", "res://.godot/imported/Bunnies.png-08acc169814cbe768c8ee7c668619361.etc2.ctex"]
+source_file="res://Assets/Bunnies/VoodoDisable.png"
+dest_files=["res://.godot/imported/VoodoDisable.png-f3869249cb75715c7574ebb2660c90d1.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=1
+compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0

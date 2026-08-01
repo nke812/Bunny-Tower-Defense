@@ -10,7 +10,7 @@ extends Node2D
 @onready var mystical_scene = preload("res://Scenes/Towers/mystical.tscn")
 @onready var ghoulish_scene = preload("res://Scenes/Towers/ghoulish.tscn")
 
-@onready var vivian_scene = preload("res://VIVIAN/vivian.tscn")
+@onready var vivian_scene = preload("res://Mods/VIVIAN/vivian.tscn")
 
 @onready var moedas_label = $"../../Moedas"
 @onready var moedas_barra = $"../../PGB_M"

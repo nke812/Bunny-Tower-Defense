@@ -132,7 +132,7 @@ func aplicar_upgrade(caminho):
                     valor_torre += 5500
                     auraMAISego()
                     
-                    Vivian.texture = preload("res://VIVIAN/Vivian1.png")
+                    Vivian.texture = preload("res://Mods/VIVIAN/Vivian1.png")
                     $Path1.play()
             atualizar_valorTorre()
             P1status = "Damage: " + str(dmg_Vivian)
@@ -157,7 +157,7 @@ func aplicar_upgrade(caminho):
                     valor_torre += 5500
                     auraMAISego()
                 
-                    Vivian.texture = preload("res://VIVIAN/Vivian2.png")
+                    Vivian.texture = preload("res://Mods/VIVIAN/Vivian2.png")
                     $Path2.play()
                     
             atualizar_valorTorre()            

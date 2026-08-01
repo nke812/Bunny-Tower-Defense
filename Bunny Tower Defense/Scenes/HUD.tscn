@@ -1910,6 +1910,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Options" type="Panel" parent="HUD/UI_Selection" unique_id=2036140806]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -2043,22 +2044,6 @@ icon = ExtResource("70_umgxi")
 flat = true
 expand_icon = true
 script = ExtResource("8")
-
-[node name="Button" type="Button" parent="HUD/UI_Selection/Options" unique_id=1543474290]
-layout_mode = 0
-offset_left = 921.00006
-offset_top = 17.000002
-offset_right = 1073.0
-offset_bottom = 84.0
-text = "+50$ "
-
-[node name="Button2" type="Button" parent="HUD/UI_Selection/Options" unique_id=186975066]
-layout_mode = 0
-offset_left = 761.00006
-offset_top = 18.000002
-offset_right = 913.00006
-offset_bottom = 85.0
-text = "-50$ "
 
 [node name="Restart" type="TextureButton" parent="HUD/UI_Selection/Options" unique_id=1910244448]
 layout_mode = 0
@@ -2481,8 +2466,6 @@ libraries/ = SubResource("AnimationLibrary_45eqa")
 [connection signal="value_changed" from="HUD/UI_Selection/Options/SFXControl" to="HUD" method="_on_sfx_control_value_changed"]
 [connection signal="pressed" from="HUD/UI_Selection/Options/SFXControl/SFXIcon" to="HUD" method="_on_sfx_icon_pressed"]
 [connection signal="toggled" from="HUD/UI_Selection/Options/Fullscreen_CB" to="HUD/UI_Selection/Options/Fullscreen_CB" method="_on_toggled"]
-[connection signal="pressed" from="HUD/UI_Selection/Options/Button" to="HUD" method="MAIS_50kk"]
-[connection signal="pressed" from="HUD/UI_Selection/Options/Button2" to="HUD" method="_on_button_2_pressed"]
 [connection signal="pressed" from="HUD/UI_Selection/Options/Restart" to="HUD" method="_on_restart_pressed"]
 [connection signal="pressed" from="HUD/UI_Selection/Victory/MenuSettings/Exit" to="HUD" method="_on_back_menu_pressed"]
 [connection signal="pressed" from="HUD/UI_Selection/GameOver/MenuSettings/Restart" to="HUD" method="_on_restart_pressed"]

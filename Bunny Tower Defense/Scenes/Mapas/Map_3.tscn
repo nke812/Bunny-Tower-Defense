@@ -11,46 +11,81 @@
 [ext_resource type="Texture2D" uid="uid://chl1g4rhovjdy" path="res://Assets/Others/Map_Assets/SandyStreets/Cactus2.png" id="10_58drs"]
 [ext_resource type="Texture2D" uid="uid://bw1b1x0itkv31" path="res://Assets/Others/Map_Assets/SandyStreets/Cactus3.png" id="11_j3x0n"]
 [ext_resource type="Texture2D" uid="uid://bpxghq267ha6m" path="res://Assets/Others/Map_Assets/SandyStreets/Cactus5.png" id="12_xiyrn"]
+[ext_resource type="Texture2D" uid="uid://cd7dhmiqd1glj" path="res://Assets/Others/Map_Assets/GrasslandsV2/Portal.png" id="13_8imod"]
 [ext_resource type="Texture2D" uid="uid://cbg3iyueee1si" path="res://Assets/Others/Map_Assets/SandyStreets/Ground.png" id="13_mpk1w"]
 [ext_resource type="AudioStream" uid="uid://uh3ws1hfei76" path="res://Assets/SFXs/RoundStart.wav" id="14_5vtap"]
 [ext_resource type="AudioStream" uid="uid://c6lg5n7lxpiam" path="res://Assets/Music/SandStorm.ogg" id="15_g3mxa"]
 [ext_resource type="PackedScene" uid="uid://cvtf3eidvbt76" path="res://Scenes/HUD.tscn" id="16_d8md1"]
-[ext_resource type="StyleBox" uid="uid://1p8p51j014uf" path="res://InvisibleButton.tres" id="17_5vtap"]
-[ext_resource type="Texture2D" uid="uid://dmegxfqrdj5nw" path="res://PINK/Sprites/Attack.png" id="18_58drs"]
-[ext_resource type="AudioStream" uid="uid://bk6vwn10iu1rk" path="res://PINK/MUSICA-FODA-PRA-CRLH.wav" id="18_g3mxa"]
-[ext_resource type="AudioStream" uid="uid://4wgtcsoacy8l" path="res://PINK/Cutie Mew Mew Magic.ogg" id="18_mpk1w"]
-<<<<<<< Updated upstream
-[ext_resource type="Script" uid="uid://def03tp0xh6hr" path="res://PINK/static_body_2d.gd" id="18_xiyrn"]
-=======
+[ext_resource type="StyleBox" uid="uid://1p8p51j014uf" path="res://Others/InvisibleButton.tres" id="17_5vtap"]
+[ext_resource type="Texture2D" uid="uid://dmegxfqrdj5nw" path="res://Mods/PINK/Sprites/Attack.png" id="18_58drs"]
+[ext_resource type="AudioStream" uid="uid://bk6vwn10iu1rk" path="res://Mods/PINK/MUSICA-FODA-PRA-CRLH.wav" id="18_g3mxa"]
+[ext_resource type="AudioStream" uid="uid://4wgtcsoacy8l" path="res://Mods/PINK/Cutie Mew Mew Magic.ogg" id="18_mpk1w"]
 [ext_resource type="FontFile" uid="uid://v56c1vt506yg" path="res://FontText/Coiny-Regular.ttf" id="18_wql10"]
-[ext_resource type="Script" uid="uid://def03tp0xh6hr" path="res://Scenes/Mapas/static_body_2d.gd" id="18_xiyrn"]
->>>>>>> Stashed changes
+[ext_resource type="Script" uid="uid://def03tp0xh6hr" path="res://Mods/PINK/static_body_2d.gd" id="18_xiyrn"]
 [ext_resource type="Texture2D" uid="uid://dkr53o6gmqvxf" path="res://Assets/Bunnies/Others/Shadow.png" id="19_g3mxa"]
-[ext_resource type="Texture2D" uid="uid://b5akpnhge6fnp" path="res://PINK/Sprites/UltAttack.png" id="19_j3x0n"]
-[ext_resource type="Texture2D" uid="uid://rftfal7oth5q" path="res://PINK/Sprites/FootSlam.png" id="20_xiyrn"]
-[ext_resource type="Texture2D" uid="uid://dx7prrlr8riye" path="res://PINK/Sprites/Idle.png" id="21_mpk1w"]
-[ext_resource type="Texture2D" uid="uid://eopykt1plj7d" path="res://PINK/Sprites/Kick.png" id="22_5vtap"]
-[ext_resource type="Texture2D" uid="uid://rser3o888d1j" path="res://PINK/Sprites/GigaBomb.png" id="22_b655l"]
-[ext_resource type="Texture2D" uid="uid://degtbw8u4ukvh" path="res://PINK/Sprites/Laugh.png" id="23_g3mxa"]
-[ext_resource type="Texture2D" uid="uid://cmfo3a1hq5y38" path="res://PINK/Sprites/Push.png" id="24_d8md1"]
-[ext_resource type="Texture2D" uid="uid://bkuv6kfblcer" path="res://PINK/Sprites/Running.png" id="25_obe6o"]
-[ext_resource type="Texture2D" uid="uid://dj8n6dt7xfc6c" path="res://PINK/Sprites/AttackUltraUlt.png" id="26_baqxv"]
-[ext_resource type="Texture2D" uid="uid://c0fdxtyemyyis" path="res://PINK/Sprites/Exploded.png" id="27_baqxv"]
-[ext_resource type="Texture2D" uid="uid://jo0yrqeoxe0a" path="res://PINK/RealisticExplosion.png" id="27_mpk1w"]
-[ext_resource type="Texture2D" uid="uid://ddvbnqyq75p62" path="res://PINK/Sprites/ExplodedClean.png" id="28_6762g"]
-[ext_resource type="AudioStream" uid="uid://cpgn6rtbbgkhc" path="res://PINK/explosion.wav" id="28_mpk1w"]
-[ext_resource type="AudioStream" uid="uid://cewnlrjkp6uem" path="res://PINK/running.mp3" id="31_lx3r5"]
-[ext_resource type="AudioStream" uid="uid://tju4jdpkhwf3" path="res://PINK/kick.mp3" id="32_tjdcu"]
-[ext_resource type="AudioStream" uid="uid://brrpm4i5ekagh" path="res://PINK/laugh.mp3" id="33_082dg"]
-[ext_resource type="Texture2D" uid="uid://1oaj5gh0xwu5" path="res://PINK/Sprites/Release.png" id="33_6762g"]
-[ext_resource type="AudioStream" uid="uid://dh88cm4vknbfn" path="res://PINK/foot.mp3" id="34_wql10"]
-[ext_resource type="AudioStream" uid="uid://rv654ojua5kj" path="res://PINK/attackult.mp3" id="35_b655l"]
+[ext_resource type="Texture2D" uid="uid://b5akpnhge6fnp" path="res://Mods/PINK/Sprites/UltAttack.png" id="19_j3x0n"]
+[ext_resource type="Texture2D" uid="uid://rftfal7oth5q" path="res://Mods/PINK/Sprites/FootSlam.png" id="20_xiyrn"]
+[ext_resource type="Texture2D" uid="uid://dx7prrlr8riye" path="res://Mods/PINK/Sprites/Idle.png" id="21_mpk1w"]
+[ext_resource type="Texture2D" uid="uid://eopykt1plj7d" path="res://Mods/PINK/Sprites/Kick.png" id="22_5vtap"]
+[ext_resource type="Texture2D" uid="uid://rser3o888d1j" path="res://Mods/PINK/Sprites/GigaBomb.png" id="22_b655l"]
+[ext_resource type="Texture2D" uid="uid://degtbw8u4ukvh" path="res://Mods/PINK/Sprites/Laugh.png" id="23_g3mxa"]
+[ext_resource type="Texture2D" uid="uid://cmfo3a1hq5y38" path="res://Mods/PINK/Sprites/Push.png" id="24_d8md1"]
+[ext_resource type="Texture2D" uid="uid://bkuv6kfblcer" path="res://Mods/PINK/Sprites/Running.png" id="25_obe6o"]
+[ext_resource type="Texture2D" uid="uid://dj8n6dt7xfc6c" path="res://Mods/PINK/Sprites/AttackUltraUlt.png" id="26_baqxv"]
+[ext_resource type="Texture2D" uid="uid://c0fdxtyemyyis" path="res://Mods/PINK/Sprites/Exploded.png" id="27_baqxv"]
+[ext_resource type="Texture2D" uid="uid://jo0yrqeoxe0a" path="res://Mods/PINK/RealisticExplosion.png" id="27_mpk1w"]
+[ext_resource type="Texture2D" uid="uid://ddvbnqyq75p62" path="res://Mods/PINK/Sprites/ExplodedClean.png" id="28_6762g"]
+[ext_resource type="AudioStream" uid="uid://cpgn6rtbbgkhc" path="res://Mods/PINK/explosion.wav" id="28_mpk1w"]
+[ext_resource type="AudioStream" uid="uid://cewnlrjkp6uem" path="res://Mods/PINK/running.mp3" id="31_lx3r5"]
+[ext_resource type="AudioStream" uid="uid://tju4jdpkhwf3" path="res://Mods/PINK/kick.mp3" id="32_tjdcu"]
+[ext_resource type="AudioStream" uid="uid://brrpm4i5ekagh" path="res://Mods/PINK/laugh.mp3" id="33_082dg"]
+[ext_resource type="Texture2D" uid="uid://1oaj5gh0xwu5" path="res://Mods/PINK/Sprites/Release.png" id="33_6762g"]
+[ext_resource type="AudioStream" uid="uid://dh88cm4vknbfn" path="res://Mods/PINK/foot.mp3" id="34_wql10"]
+[ext_resource type="AudioStream" uid="uid://rv654ojua5kj" path="res://Mods/PINK/attackult.mp3" id="35_b655l"]
 
 [sub_resource type="Curve2D" id="Curve2D_lycfg"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -785.6287, 964.0719, 0, 0, 0, 0, -783.2335, 249.1018, 0, 0, 0, 0, -529.34125, 249.1018, 0, 0, 0, 0, -528.1437, 540.1198, 0, 0, 0, 0, -239.52087, 540.1198, 0, 0, 0, 0, -237.12567, -152.09584, 0, 0, 0, 0, 128.1438, -152.09584, 0, 0, 0, 0, 135.32947, 740.11975, 0, 0, 0, 0, 571.2577, 740.11975, 0, 0, 0, 0, 571.2577, 325.74854, 0, 0, 0, 0, 397.60498, 325.74854, 0, 0, 0, 0, 398.8025, -171.2575, 0, 0, 0, 0, 1046.7068, -174.85033)
 }
 point_count = 13
+
+[sub_resource type="Animation" id="Animation_656xa"]
+resource_name = "PortalAnim"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.2831855, 6.2831855]
+}
+
+[sub_resource type="Animation" id="Animation_43eqa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4sunx"]
+_data = {
+&"PortalAnim": SubResource("Animation_656xa"),
+&"RESET": SubResource("Animation_43eqa")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vtap"]
 atlas = ExtResource("27_mpk1w")
@@ -190,7 +225,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yrhe4"]
-radius = 302.1419
+radius = 297.05978
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_efmt5"]
 atlas = ExtResource("18_58drs")
@@ -722,7 +757,7 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_lx3r5"]
 resource_name = "PinkCutscene"
-length = 10.0
+length = 10.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -815,6 +850,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [0.0, -13.857914]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../ULTRAULT:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(10, 10.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(605.98804, -63.47305), Vector2(605.988, 51.496998)]
+}
 
 [sub_resource type="Animation" id="Animation_tjdcu"]
 length = 0.001
@@ -902,6 +949,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(5.4417725, -1546.9502)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../ULTRAULT:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(605.98804, -63.47305)]
+}
 
 [sub_resource type="Animation" id="Animation_mq3tp"]
 resource_name = "UltraUlt"
@@ -913,8 +972,8 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.6666666, 1.7, 1.8333334, 3.2333333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.6666666, 1.6837928, 1.7020453, 1.8333334, 3.2333333, 3.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"AttackUltraUlt"
@@ -926,10 +985,16 @@ tracks/0/keys = {
 "method": &"EXPLOSION2"
 }, {
 "args": [],
+"method": &"dar_dano_global"
+}, {
+"args": [],
 "method": &"Exploded"
 }, {
 "args": [],
 "method": &"ExplodedClean"
+}, {
+"args": [],
+"method": &"anim_idle"
 }]
 }
 tracks/1/type = "value"
@@ -963,7 +1028,7 @@ tracks/3/path = NodePath("GIGABOMB:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.76666665, 1.72),
+"times": PackedFloat32Array(0, 0.76666665, 1.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -1141,6 +1206,18 @@ scale = Vector2(1.1123663, 1.112369)
 texture = ExtResource("8_37q87")
 offset = Vector2(-9.623413, -38.664368)
 
+[node name="Portal" type="Sprite2D" parent="." unique_id=918367897]
+y_sort_enabled = true
+position = Vector2(1868.2635, 80.239525)
+rotation = -6.2831855
+scale = Vector2(1.1913601, 1.1913638)
+texture = ExtResource("13_8imod")
+offset = Vector2(5.956543, -6.250824)
+
+[node name="PortalAnim" type="AnimationPlayer" parent="Portal" unique_id=602523216]
+libraries/ = SubResource("AnimationLibrary_4sunx")
+autoplay = &"PortalAnim"
+
 [node name="StarRound" type="AudioStreamPlayer" parent="." unique_id=615667039]
 process_mode = 3
 stream = ExtResource("14_5vtap")
@@ -1166,21 +1243,21 @@ frame_progress = 1.0
 offset = Vector2(40.391373, -0.3506527)
 
 [node name="ULTRAULT" type="Button" parent="." unique_id=543750111]
-offset_left = 850.29944
-offset_top = 51.497013
-offset_right = 1124.5509
-offset_bottom = 160.47894
+offset_left = 605.98804
+offset_top = -63.47305
+offset_right = 880.2395
+offset_bottom = 45.5089
 pivot_offset = Vector2(275.44916, 140.11969)
 theme_override_fonts/font = ExtResource("18_wql10")
 theme_override_font_sizes/font_size = 60
 text = "DATE"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=388299707]
+[node name="Pink" type="StaticBody2D" parent="." unique_id=388299707]
 position = Vector2(2129.3413, 914.9701)
 scale = Vector2(0.99999994, 0.99999994)
 script = ExtResource("18_xiyrn")
 
-[node name="pink" type="Button" parent="StaticBody2D" unique_id=875516622]
+[node name="pink" type="Button" parent="Pink" unique_id=875516622]
 offset_left = -69.46118
 offset_top = -104.19165
 offset_right = 39.520996
@@ -1193,7 +1270,7 @@ theme_override_styles/disabled = ExtResource("17_5vtap")
 theme_override_styles/focus = ExtResource("17_5vtap")
 disabled = true
 
-[node name="Button" type="Button" parent="StaticBody2D" unique_id=303923899]
+[node name="Button" type="Button" parent="Pink" unique_id=303923899]
 offset_left = -1277.8445
 offset_top = -470.6587
 offset_right = -1240.7188
@@ -1205,32 +1282,32 @@ theme_override_styles/hover = ExtResource("17_5vtap")
 theme_override_styles/disabled = ExtResource("17_5vtap")
 theme_override_styles/focus = ExtResource("17_5vtap")
 
-[node name="MUSICA-FODA-PRA-CRLH" type="AudioStreamPlayer" parent="StaticBody2D" unique_id=1837390179]
+[node name="MUSICA-FODA-PRA-CRLH" type="AudioStreamPlayer" parent="Pink" unique_id=1837390179]
 process_mode = 3
 stream = ExtResource("18_g3mxa")
 bus = &"Music"
 
-[node name="MAGICMEWMEWCUTIE" type="AudioStreamPlayer" parent="StaticBody2D" unique_id=164233687]
+[node name="MAGICMEWMEWCUTIE" type="AudioStreamPlayer" parent="Pink" unique_id=164233687]
 stream = ExtResource("18_mpk1w")
 bus = &"Music"
 parameters/looping = true
 
-[node name="Range" type="Area2D" parent="StaticBody2D" unique_id=50985157]
+[node name="Range" type="Area2D" parent="Pink" unique_id=50985157]
 position = Vector2(-37.000004, -80.000015)
 scale = Vector2(1.0000001, 1.0000001)
 monitoring = false
 monitorable = false
 
-[node name="CollisionRange" type="CollisionShape2D" parent="StaticBody2D/Range" unique_id=1260812456]
+[node name="CollisionRange" type="CollisionShape2D" parent="Pink/Range" unique_id=1260812456]
 position = Vector2(31, 73)
 shape = SubResource("CircleShape2D_yrhe4")
 debug_color = Color(0, 0, 0, 0.41960785)
 
-[node name="Timer" type="Timer" parent="StaticBody2D" unique_id=1700833798 groups=["Timers"]]
+[node name="Timer" type="Timer" parent="Pink" unique_id=1700833798 groups=["Timers"]]
 wait_time = 0.578
 one_shot = true
 
-[node name="Shadow" type="Sprite2D" parent="StaticBody2D" unique_id=1439144233]
+[node name="Shadow" type="Sprite2D" parent="Pink" unique_id=1439144233]
 self_modulate = Color(1, 1, 1, 0.5411765)
 y_sort_enabled = true
 position = Vector2(-14.371256, -57.48502)
@@ -1238,7 +1315,7 @@ scale = Vector2(0.32291663, 0.32291663)
 texture = ExtResource("19_g3mxa")
 offset = Vector2(-3.0967743, 303.48386)
 
-[node name="PINK" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=439863798]
+[node name="PINK" type="AnimatedSprite2D" parent="Pink" unique_id=439863798]
 position = Vector2(13.173653, -111.37725)
 scale = Vector2(4.333651, 4.333651)
 sprite_frames = SubResource("SpriteFrames_dr0b7")
@@ -1247,7 +1324,7 @@ frame = 3
 frame_progress = 1.0
 offset = Vector2(-4.858639, -7.4764404)
 
-[node name="GIGABOMB" type="Sprite2D" parent="StaticBody2D" unique_id=841292775]
+[node name="GIGABOMB" type="Sprite2D" parent="Pink" unique_id=841292775]
 visible = false
 y_sort_enabled = true
 position = Vector2(5.4417725, -1546.9502)
@@ -1255,37 +1332,37 @@ scale = Vector2(4.3230224, 4.323023)
 texture = ExtResource("22_b655l")
 offset = Vector2(-3.0967743, 303.48386)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D" unique_id=1918020195]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pink" unique_id=1918020195]
 libraries/ = SubResource("AnimationLibrary_082dg")
 
-[node name="EXPLOSION" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=762236579]
+[node name="EXPLOSION" type="AnimatedSprite2D" parent="Pink" unique_id=762236579]
 position = Vector2(-100.59912, -25.14973)
 scale = Vector2(3.7513306, 3.7513301)
 sprite_frames = SubResource("SpriteFrames_38gty")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StaticBody2D/EXPLOSION" unique_id=274238299]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Pink/EXPLOSION" unique_id=274238299]
 stream = ExtResource("28_mpk1w")
 bus = &"SFX"
 
-[node name="running" type="AudioStreamPlayer" parent="StaticBody2D" unique_id=1100200228]
+[node name="running" type="AudioStreamPlayer" parent="Pink" unique_id=1100200228]
 stream = ExtResource("31_lx3r5")
 
-[node name="kick" type="AudioStreamPlayer" parent="StaticBody2D" unique_id=1368668785]
+[node name="kick" type="AudioStreamPlayer" parent="Pink" unique_id=1368668785]
 stream = ExtResource("32_tjdcu")
 
-[node name="laugh" type="AudioStreamPlayer" parent="StaticBody2D" unique_id=1967858548]
+[node name="laugh" type="AudioStreamPlayer" parent="Pink" unique_id=1967858548]
 stream = ExtResource("33_082dg")
 
-[node name="foot" type="AudioStreamPlayer" parent="StaticBody2D" unique_id=104815836]
+[node name="foot" type="AudioStreamPlayer" parent="Pink" unique_id=104815836]
 stream = ExtResource("34_wql10")
 
-[node name="attackUlt" type="AudioStreamPlayer" parent="StaticBody2D" unique_id=1095321777]
+[node name="attackUlt" type="AudioStreamPlayer" parent="Pink" unique_id=1095321777]
 stream = ExtResource("35_b655l")
 
 [connection signal="timeout" from="GhostlingSpawner/Timer" to="GhostlingSpawner" method="_on_timer_timeout"]
-[connection signal="pressed" from="ULTRAULT" to="StaticBody2D" method="_on_ultrault_pressed"]
-[connection signal="mouse_entered" from="StaticBody2D" to="StaticBody2D" method="_on_button_mouse_entered"]
-[connection signal="mouse_exited" from="StaticBody2D" to="StaticBody2D" method="_on_button_mouse_exited"]
-[connection signal="mouse_entered" from="StaticBody2D/pink" to="StaticBody2D" method="_on_pink_mouse_entered"]
-[connection signal="mouse_exited" from="StaticBody2D/pink" to="StaticBody2D" method="_on_pink_mouse_exited"]
-[connection signal="pressed" from="StaticBody2D/Button" to="StaticBody2D" method="_on_button_pressed"]
+[connection signal="pressed" from="ULTRAULT" to="Pink" method="_on_ultrault_pressed"]
+[connection signal="mouse_entered" from="Pink" to="Pink" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Pink" to="Pink" method="_on_button_mouse_exited"]
+[connection signal="mouse_entered" from="Pink/pink" to="Pink" method="_on_pink_mouse_entered"]
+[connection signal="mouse_exited" from="Pink/pink" to="Pink" method="_on_pink_mouse_exited"]
+[connection signal="pressed" from="Pink/Button" to="Pink" method="_on_button_pressed"]
