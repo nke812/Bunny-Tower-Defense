@@ -2,6 +2,8 @@ extends Node2D
 
 func _process(_delta: float) -> void :
 
+    $Bushes/Bush01/Rookienho/AnimRookienho.speed_scale = 1 / Engine.time_scale
+
     # Puxa a lista dos inimigos normais e a lista dos bosses separadamente
     var normais = get_tree().get_nodes_in_group("Ghostlings")
     var bosses = get_tree().get_nodes_in_group("Bosses")
@@ -29,3 +31,8 @@ func _process(_delta: float) -> void :
         
               ghostling.set_deferred("collision_layer", 1)
               ghostling.set_deferred("collision_mask", 1)
+
+
+func _on_button_pressed() -> void:
+    $Sign/Button.disabled = true
+    $Bushes/Bush01/Rookienho/AnimRookienho.play("AnimRookienho")

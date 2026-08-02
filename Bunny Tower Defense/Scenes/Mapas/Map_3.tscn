@@ -23,6 +23,7 @@
 [ext_resource type="FontFile" uid="uid://v56c1vt506yg" path="res://FontText/Coiny-Regular.ttf" id="18_wql10"]
 [ext_resource type="Script" uid="uid://def03tp0xh6hr" path="res://Mods/PINK/static_body_2d.gd" id="18_xiyrn"]
 [ext_resource type="Texture2D" uid="uid://dkr53o6gmqvxf" path="res://Assets/Bunnies/Others/Shadow.png" id="19_g3mxa"]
+[ext_resource type="StyleBox" uid="uid://dojseb2jg3o5a" path="res://Mods/PINK/pink_button.tres" id="19_gejq1"]
 [ext_resource type="Texture2D" uid="uid://b5akpnhge6fnp" path="res://Mods/PINK/Sprites/UltAttack.png" id="19_j3x0n"]
 [ext_resource type="Texture2D" uid="uid://rftfal7oth5q" path="res://Mods/PINK/Sprites/FootSlam.png" id="20_xiyrn"]
 [ext_resource type="Texture2D" uid="uid://dx7prrlr8riye" path="res://Mods/PINK/Sprites/Idle.png" id="21_mpk1w"]
@@ -42,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://1oaj5gh0xwu5" path="res://Mods/PINK/Sprites/Release.png" id="33_6762g"]
 [ext_resource type="AudioStream" uid="uid://dh88cm4vknbfn" path="res://Mods/PINK/foot.mp3" id="34_wql10"]
 [ext_resource type="AudioStream" uid="uid://rv654ojua5kj" path="res://Mods/PINK/attackult.mp3" id="35_b655l"]
+[ext_resource type="AudioStream" uid="uid://bcsl25hu3o3li" path="res://Mods/PINK/UltraUlt.wav" id="38_4sunx"]
 
 [sub_resource type="Curve2D" id="Curve2D_lycfg"]
 _data = {
@@ -223,6 +225,61 @@ animations = [{
 "name": &"default",
 "speed": 17.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2832"]
+bg_color = Color(1, 0.5411765, 0.5647059, 1)
+border_color = Color(1, 0.18039216, 0.3372549, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugh0f"]
+bg_color = Color(0.8352941, 0.5411765, 0.5647059, 1)
+border_width_left = 8
+border_width_bottom = 8
+border_color = Color(0.8392157, 0.18039216, 0.3372549, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Animation" id="Animation_gejq1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b24q5"]
+resource_name = "bounce"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.4999999, 0.59460366),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.085, 1.085)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_15mha"]
+_data = {
+&"RESET": SubResource("Animation_gejq1"),
+&"bounce": SubResource("Animation_b24q5")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yrhe4"]
 radius = 297.05978
@@ -860,7 +917,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(10, 10.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(605.98804, -63.47305), Vector2(605.988, 51.496998)]
+"values": [Vector2(947.305, -63.473), Vector2(947.305, 62.645)]
 }
 
 [sub_resource type="Animation" id="Animation_tjdcu"]
@@ -972,7 +1029,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.6666666, 1.6837928, 1.7020453, 1.8333334, 3.2333333, 3.9666667),
+"times": PackedFloat32Array(0, 1.6666666, 1.6837928, 1.7020453, 1.8333334, 3.2333333, 4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [],
@@ -1000,62 +1057,62 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Range:monitorable")
+tracks/1/path = NodePath("GIGABOMB:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Range:monitoring")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("GIGABOMB:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.76666665, 1.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("GIGABOMB:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GIGABOMB:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 1.6666666, 1.7),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(5.4417725, -1546.9502), Vector2(5.4417725, -1546.9502), Vector2(5.4417725, -1326.5908)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 3.0666666, 3.1333334, 3.1666667, 3.2333333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1267, 914.97), Vector2(1267, 914.97), Vector2(1254.275, 914.97), Vector2(1278.275, 914.97), Vector2(1267, 914.97)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Range:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Range:monitorable")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_082dg"]
@@ -1102,10 +1159,10 @@ offset = Vector2(0.647522, -310.4806)
 
 [node name="PyramidBg" type="Sprite2D" parent="." unique_id=547157641]
 y_sort_enabled = true
-position = Vector2(1026.3474, 137.72461)
+position = Vector2(458.68262, 20.359291)
 scale = Vector2(1.1538032, 1.1538049)
 texture = ExtResource("6_40ei2")
-offset = Vector2(-507.32727, 16.986084)
+offset = Vector2(-15.332825, 118.70633)
 
 [node name="Cactus1" type="Sprite2D" parent="." unique_id=1321102742]
 y_sort_enabled = true
@@ -1227,6 +1284,7 @@ bus = &"SFX"
 [node name="Map3Music" type="AudioStreamPlayer" parent="." unique_id=1453626938]
 process_mode = 3
 stream = ExtResource("15_g3mxa")
+volume_db = -6.582
 autoplay = true
 bus = &"Music"
 parameters/looping = true
@@ -1234,6 +1292,7 @@ parameters/looping = true
 [node name="HUD" parent="." unique_id=1805092987 instance=ExtResource("16_d8md1")]
 
 [node name="EXPLOSION2" type="AnimatedSprite2D" parent="." unique_id=1336320716]
+visible = false
 position = Vector2(1063.2538, 2255.3032)
 rotation = -1.5707964
 scale = Vector2(40.35895, 40.35894)
@@ -1245,12 +1304,25 @@ offset = Vector2(40.391373, -0.3506527)
 [node name="ULTRAULT" type="Button" parent="." unique_id=543750111]
 offset_left = 605.98804
 offset_top = -63.47305
-offset_right = 880.2395
-offset_bottom = 45.5089
-pivot_offset = Vector2(275.44916, 140.11969)
+offset_right = 880.2392
+offset_bottom = 45.511906
+pivot_offset = Vector2(140.11981, 53.892204)
+theme_override_colors/font_color = Color(0.8363522, 3.3210217e-05, 0.6116109, 1)
+theme_override_colors/font_disabled_color = Color(0.6, 0, 0.6117647, 0.6862745)
+theme_override_colors/font_outline_color = Color(1, 0.6392157, 0.77254903, 1)
+theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("18_wql10")
 theme_override_font_sizes/font_size = 60
-text = "DATE"
+theme_override_styles/normal = ExtResource("19_gejq1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g2832")
+theme_override_styles/hover = ExtResource("19_gejq1")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ugh0f")
+disabled = true
+text = "GIGA 
+BOMB"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ULTRAULT" unique_id=738150921]
+libraries/ = SubResource("AnimationLibrary_15mha")
 
 [node name="Pink" type="StaticBody2D" parent="." unique_id=388299707]
 position = Vector2(2129.3413, 914.9701)
@@ -1271,10 +1343,11 @@ theme_override_styles/focus = ExtResource("17_5vtap")
 disabled = true
 
 [node name="Button" type="Button" parent="Pink" unique_id=303923899]
-offset_left = -1277.8445
-offset_top = -470.6587
-offset_right = -1240.7188
-offset_bottom = -425.14972
+visible = false
+offset_left = -1283.8325
+offset_top = -479.04196
+offset_right = -1237.126
+offset_bottom = -421.78876
 pivot_offset = Vector2(20.359375, 20.359283)
 theme_override_styles/normal = ExtResource("17_5vtap")
 theme_override_styles/pressed = ExtResource("17_5vtap")
@@ -1343,6 +1416,9 @@ sprite_frames = SubResource("SpriteFrames_38gty")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Pink/EXPLOSION" unique_id=274238299]
 stream = ExtResource("28_mpk1w")
 bus = &"SFX"
+
+[node name="UltraUltReady" type="AudioStreamPlayer" parent="Pink" unique_id=1458216730]
+stream = ExtResource("38_4sunx")
 
 [node name="running" type="AudioStreamPlayer" parent="Pink" unique_id=1100200228]
 stream = ExtResource("31_lx3r5")

@@ -24,7 +24,6 @@ func DMGED(quantidade):
     
     vida -= quantidade
 
-
     if vida <= 0:
         $Death.play()
         $"../Goo_Splash".visible = false

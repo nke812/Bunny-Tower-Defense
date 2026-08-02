@@ -8,11 +8,16 @@ var esta_a_atacar = false
 var tamanho_range = Vector2(1.0, 1.0)
 
 var pink_ult = 3
+var pink_mega_ult = 0
 
 func _ready() -> void:
     anim_idle()
 
 func _process(_delta: float) -> void: 
+    
+    $AnimationPlayer.speed_scale = 1 / Engine.time_scale
+    $PINK.speed_scale = 1 / Engine.time_scale
+    
     if esta_a_atacar:
         return
         
@@ -40,14 +45,22 @@ func atacar(alvo):
     $PINK.play("PreAttack")
     await $PINK.animation_finished
     
-    if is_instance_valid(alvo) and alvo.has_method("DMGED"):
+    # 🛡️ VERIFICAÇÃO DE SEGURANÇA: O alvo ainda existe/está vivo?
+    if not is_instance_valid(alvo):
+        # Se o inimigo morreu durante o PreAttack, cancela o ataque e volta ao normal!
+        anim_idle()
+        esta_a_atacar = false
+        return
+
+    # Se chegou aqui, o alvo ainda está vivo!
+    if alvo.has_method("DMGED"):
         $PINK.play("Attack")
         alvo.DMGED(5)
-        
-    await $PINK.animation_finished
+        pink_ult += 1
+        await $PINK.animation_finished
+    
     anim_idle()
     
-    pink_ult += 1
     print("Cargas Ult: ", pink_ult)
     
     $Timer.start()
@@ -75,8 +88,10 @@ func atacar_ult(corpos):
     await $PINK.animation_finished
     
     $PINK.play("AttackUlt")
+
+    var corpos_atuais = $Range.get_overlapping_bodies()
     
-    for corpo in corpos:
+    for corpo in corpos_atuais:
         if is_instance_valid(corpo) and corpo.is_in_group("Ghostlings") and corpo.has_method("DMGED"):
             corpo.DMGED(15)
             
@@ -84,9 +99,12 @@ func atacar_ult(corpos):
     anim_idle()
     
     pink_ult = 0 
+    pink_mega_ult += 5
+    varificar_mega_ult()
     
     $Timer.start()
     esta_a_atacar = false
+    
     
 
 # --- AÇÃO DO BOTÃO ---
@@ -105,11 +123,7 @@ func _on_button_pressed() -> void:
 
 # --- ANIMAÇÕES E POSIÇÕES ---
 func anim_idle():
-    $Range.monitorable = true
-    $Range.monitoring = true
-    
-    tamanho_range = Vector2(1.0, 1.0)
-    $Range.scale = tamanho_range
+    $Timer.start()
     $PINK.position = Vector2(0, 0)
     $PINK.play("Idle")
     
@@ -141,6 +155,7 @@ func Running():
     $running.play()
 
 func AttackUltraUlt():
+    $Timer.stop()
     $PINK.play("AttackUltraUlt")
     $laugh.play()
     $PINK.position = Vector2(13, -111)
@@ -194,5 +209,16 @@ func _on_pink_mouse_exited() -> void:
     mostrar_range = false
     queue_redraw()
 
-func _on_ultrault_pressed() -> void:
+
+func varificar_mega_ult():
+    if pink_mega_ult == 20:
+        $"../ULTRAULT".disabled = false
+        $UltraUltReady.play()
+        $"../ULTRAULT/AnimationPlayer".play("bounce")
+        
+
+func _on_ultrault_pressed() -> void: 
     $AnimationPlayer.play("UltraUlt")
+    $"../ULTRAULT".disabled = true
+    $"../ULTRAULT/AnimationPlayer".play("RESET")
+    pink_mega_ult = 0

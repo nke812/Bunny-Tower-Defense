@@ -1030,24 +1030,28 @@ offset_right = 268.73657
 offset_bottom = 175.74109
 rotation = -0.064577185
 theme_override_colors/font_color = Color(0.64705884, 0.5686275, 0.2627451, 1)
+theme_override_colors/font_shadow_color = Color(0.47092474, 0.37769395, 0.18372881, 1)
 theme_override_fonts/font = ExtResource("17")
 theme_override_font_sizes/font_size = 33
 text = "
 
 ! REWORK do Main Menu
 
-
 Remake dos Mapas:
-! Grass Lands;
+! Grass Lands + Rookienho;
 ! Glimmer Road.
 
 + Mapa Sandy Streets
 
 
 - Bug Fixes
++ Debug Menu
 
 
-+ a cat...?"
++ a cat...? and now with
+a Ultimate?
+
+Have fun ;)"
 
 [node name="Exit" type="TextureButton" parent="NewsScreen" unique_id=2147255417]
 offset_left = 647.65063
