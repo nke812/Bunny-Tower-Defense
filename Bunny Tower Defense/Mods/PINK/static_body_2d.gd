@@ -24,10 +24,11 @@ func _process(_delta: float) -> void:
     if not $Timer.is_stopped():
         return
 
-    if pink_ult >= 7:
-        verificar_e_atacar_ult()
-    else:
-        verificar_e_atacar()
+    if $Range.monitoring:
+        if pink_ult >= 7:
+            verificar_e_atacar_ult()
+        else:
+            verificar_e_atacar()
 
 
 # --- ATAQUE NORMAL ---
