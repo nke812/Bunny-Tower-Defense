@@ -106,15 +106,15 @@ func _on_sfx_icon_pressed() -> void:
 
 func _on_music_control_value_changed(value: float) -> void: 
     if $Options/MusicControl.value >= 0.01:
-        $Options/MusicControl/MusicIcon.texture_normal = preload("res://Assets/Others/UI_Assets/Music.png")
+        $Options/MusicControl/MusicIcon.texture_normal = load("res://Assets/Others/UI_Assets/Music.png")
     else:
-        $Options/MusicControl/MusicIcon.texture_normal = preload("res://Assets/Others/UI_Assets/MusicMute.png")
+        $Options/MusicControl/MusicIcon.texture_normal = load("res://Assets/Others/UI_Assets/MusicMute.png")
         
 func _on_sfx_control_value_changed(value: float) -> void:
     if $Options/SFXControl.value >= 0.01:
-        $Options/SFXControl/SFXIcon.texture_normal = preload("res://Assets/Others/UI_Assets/Audio.png")
+        $Options/SFXControl/SFXIcon.texture_normal = load("res://Assets/Others/UI_Assets/Audio.png")
     else:
-        $Options/SFXControl/SFXIcon.texture_normal = preload("res://Assets/Others/UI_Assets/AudioMute.png")
+        $Options/SFXControl/SFXIcon.texture_normal = load("res://Assets/Others/UI_Assets/AudioMute.png")
 
 
 

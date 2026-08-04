@@ -191,7 +191,7 @@ func aplicar_upgrade(caminho):
                     valor_torre += 5500
                     auraMAISego()
                     
-                    Ghoulish.texture = preload("res://Assets/Bunnies/Paths/Ghoulish01.png")
+                    Ghoulish.texture = load("res://Assets/Bunnies/Paths/Ghoulish01.png")
             
             atualizar_valorTorre()
             dmg_total = dmg_Rookie + dmg_Mystical
@@ -216,7 +216,7 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
 
-                    Ghoulish.texture = preload("res://Assets/Bunnies/Paths/Ghoulish02.png")
+                    Ghoulish.texture = load("res://Assets/Bunnies/Paths/Ghoulish02.png")
 
                         
             atualizar_valorTorre()            

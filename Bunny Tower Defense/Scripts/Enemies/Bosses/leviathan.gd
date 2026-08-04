@@ -28,7 +28,7 @@ func DMGED(quantidade):
 
     
     if vida <= 50 and $Leviathan.texture.resource_path == "res://Assets/Enemies/Bosses/Leviathan.png":
-        $Leviathan.texture = preload("res://Assets/Enemies/Bosses/LeviathanDamaged.png")
+        $Leviathan.texture = load("res://Assets/Enemies/Bosses/LeviathanDamaged.png")
 
     if vida <= 0:
         $Death.play()

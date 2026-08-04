@@ -1,23 +1,23 @@
 extends Node2D
 
-@onready var Ghostling = preload("res://Scenes/Enemies/Ghostling/ghostling.tscn")
-@onready var Ghazt = preload("res://Scenes/Enemies/Ghostling/ghazt.tscn")
-@onready var Ghoul = preload("res://Scenes/Enemies/Ghostling/ghoul.tscn")
-@onready var Ghaztling = preload("res://Scenes/Enemies/Ghostling/ghaztling.tscn")
-@onready var Ghazely = preload("res://Scenes/Enemies/Ghostling/ghazely.tscn")
+@onready var Ghostling = load("res://Scenes/Enemies/Ghostling/ghostling.tscn")
+@onready var Ghazt = load("res://Scenes/Enemies/Ghostling/ghazt.tscn")
+@onready var Ghoul = load("res://Scenes/Enemies/Ghostling/ghoul.tscn")
+@onready var Ghaztling = load("res://Scenes/Enemies/Ghostling/ghaztling.tscn")
+@onready var Ghazely = load("res://Scenes/Enemies/Ghostling/ghazely.tscn")
 
-@onready var Enhanced_Ghaztling = preload("res://Scenes/Enemies/Ghostling/enhanced_ghaztling.tscn")
-@onready var Enhanced_Ghoul = preload("res://Scenes/Enemies/Ghostling/enhanced_ghoul.tscn")
-@onready var Unholy_Phantasm = preload("res://Scenes/Enemies/Ghostling/unholy_phantasm.tscn")
-@onready var Brute = preload("res://Scenes/Enemies/Ghostling/brute.tscn")
+@onready var Enhanced_Ghaztling = load("res://Scenes/Enemies/Ghostling/enhanced_ghaztling.tscn")
+@onready var Enhanced_Ghoul = load("res://Scenes/Enemies/Ghostling/enhanced_ghoul.tscn")
+@onready var Unholy_Phantasm = load("res://Scenes/Enemies/Ghostling/unholy_phantasm.tscn")
+@onready var Brute = load("res://Scenes/Enemies/Ghostling/brute.tscn")
 
-@onready var Leviathan = preload("res://Scenes/Enemies/Bosses/Leviathan.tscn")
-@onready var Azazel = preload("res://Scenes/Enemies/Bosses/Azazel.tscn")
-@onready var Belzebu = preload("res://Scenes/Enemies/Bosses/Belzebu.tscn")
-@onready var Fenrir = preload("res://Scenes/Enemies/Bosses/Fenrir.tscn")
-@onready var Lucifer = preload("res://Scenes/Enemies/Bosses/Lucifer.tscn")
+@onready var Leviathan = load("res://Scenes/Enemies/Bosses/Leviathan.tscn")
+@onready var Azazel = load("res://Scenes/Enemies/Bosses/Azazel.tscn")
+@onready var Belzebu = load("res://Scenes/Enemies/Bosses/Belzebu.tscn")
+@onready var Fenrir = load("res://Scenes/Enemies/Bosses/Fenrir.tscn")
+@onready var Lucifer = load("res://Scenes/Enemies/Bosses/Lucifer.tscn")
 
-@onready var Undead_Ghostling = preload("res://Scenes/Enemies/Ghostling/undead_ghostling.tscn")
+@onready var Undead_Ghostling = load("res://Scenes/Enemies/Ghostling/undead_ghostling.tscn")
 
 
 var rodada_atual = 1
@@ -137,7 +137,7 @@ func iniciar_vaga():
         65: 
             vaga_atual = [Brute, Brute, Brute, Enhanced_Ghaztling, Enhanced_Ghaztling]
             
-            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = preload("res://Assets/Enemies/Bosses/Azazel.png")
+            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = load("res://Assets/Enemies/Bosses/Azazel.png")
             hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 70:"
             
             hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
@@ -167,7 +167,7 @@ func iniciar_vaga():
         80: 
             vaga_atual = [Azazel, Brute, Brute, Leviathan, Enhanced_Ghoul]
             
-            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = preload("res://Assets/Enemies/Bosses/Belzebu.png")
+            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = load("res://Assets/Enemies/Bosses/Belzebu.png")
             hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 85:"
             
             hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
@@ -208,7 +208,7 @@ func iniciar_vaga():
         105: 
             vaga_atual = [Brute, Brute, Brute, Brute, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm]
             
-            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = preload("res://Assets/Enemies/Bosses/Fenrir.png")
+            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = load("res://Assets/Enemies/Bosses/Fenrir.png")
             hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 110:"
             
             hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
@@ -266,7 +266,7 @@ func iniciar_vaga():
         145: 
             vaga_atual = [Belzebu, Belzebu, Belzebu, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
             
-            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = preload("res://Assets/Enemies/Bosses/Lucifer.png")
+            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = load("res://Assets/Enemies/Bosses/Lucifer.png")
             hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 150:"
             
             hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")

@@ -1,25 +1,27 @@
 extends Node2D
 
-                            # - TORRES - #
-@onready var rookie_scene = preload("res://Scenes/Towers/rookie.tscn")
-@onready var lucky_scene = preload("res://Scenes/Towers/lucky.tscn")
-@onready var slasher_scene = preload("res://Scenes/Towers/slasher.tscn")
-@onready var gooey_scene = preload("res://Scenes/Towers/gooey.tscn")
-@onready var anarchist_scene = preload("res://Scenes/Towers/anarchist.tscn")
-@onready var scrappy_scene = preload("res://Scenes/Towers/scrappy.tscn")
-@onready var mystical_scene = preload("res://Scenes/Towers/mystical.tscn")
-@onready var ghoulish_scene = preload("res://Scenes/Towers/ghoulish.tscn")
+# - TORRES (Apenas caminhos em String, sem carregar nada para a VRAM) - #
+var torres_paths = {
+    "rookie": "res://Scenes/Towers/rookie.tscn",
+    "lucky": "res://Scenes/Towers/lucky.tscn",
+    "slasher": "res://Scenes/Towers/slasher.tscn",
+    "gooey": "res://Scenes/Towers/gooey.tscn",
+    "anarchist": "res://Scenes/Towers/anarchist.tscn",
+    "scrappy": "res://Scenes/Towers/scrappy.tscn",
+    "mystical": "res://Scenes/Towers/mystical.tscn",
+    "ghoulish": "res://Scenes/Towers/ghoulish.tscn",
+    "vivian": "res://Mods/VIVIAN/vivian.tscn"
+}
 
-@onready var vivian_scene = preload("res://Mods/VIVIAN/vivian.tscn")
+# Pre-carregar apenas as texturas leves da interface
+var tex_price_enabled = preload("res://Assets/Others/HUD_Assets/PriceTag.png")
+var tex_price_disabled = preload("res://Assets/Others/HUD_Assets/PriceTagDisabled.png")
 
 @onready var moedas_label = $"../../Moedas"
 @onready var moedas_barra = $"../../PGB_M"
-
 @onready var moedas_atuais = int(moedas_label.text)
 
-
 var tipo_torre_atual = ""
-
 var temp_tower = null
 var local_proibido = false
 var custo_da_torre_atual = 0
@@ -32,49 +34,32 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
     var moedas_atuais_nova = int(moedas_label.text)
-    
     if moedas_atuais_nova != moedas_atuais:
         moedas_atuais = moedas_atuais_nova
         atualizar_loja_botoes()
 
     if temp_tower != null:
         var BlackHolePos = get_global_mouse_position()
-        
-        # Faz com que a origem do "Pega" fique exatamente por baixo da ponta do rato
         if temp_tower.has_node("Pega"):
             var pega_pos_local = temp_tower.get_node("Pega").position
             temp_tower.global_position = BlackHolePos - pega_pos_local
         else:
             temp_tower.global_position = BlackHolePos
 
-        # --- CÁLCULO DE MOVIMENTO ---
         var vetor_movimento = BlackHolePos - ultima_posicao_rato
         ultima_posicao_rato = BlackHolePos
         
-        # --- FÍSICA DE MOLA E GRAVIDADE (PÊNDULO) ---
-        # 1. Aceleração baseada no arrasto do rato
         var forca_arrasto = vetor_movimento.x * 0.30
-        
-        # 2. Força de retorno (gravidade a puxar para o centro 0)
         var forca_retorno = -30.0 * mola_rotacao
-        
-        # 3. Amortecimento (para o boneco não balançar para sempre)
         var amortecimento = -4.0 * mola_velocidade
-        
-        # Somamos as forças todas para dar a aceleração
         var aceleracao = forca_arrasto + forca_retorno + amortecimento
         
-        # Atualizamos a velocidade e a rotação com base no delta do jogo
         mola_velocidade += aceleracao * delta
         mola_rotacao += mola_velocidade * delta
-        
-        # Um pequeno limite para o boneco não dar uma cambalhota completa
         mola_rotacao = clamp(mola_rotacao, -0.9, 0.9)
         
-        # Aplica a rotação da mola ao nó "Pega"
         if temp_tower.has_node("Pega"):
             temp_tower.get_node("Pega").rotation = mola_rotacao
-        # --------------------------------------------
 
         var detector = temp_tower.get_node("HitBox")
         var areas_em_cima = detector.get_overlapping_areas()
@@ -93,7 +78,6 @@ func _process(delta: float) -> void:
         if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
             if not local_proibido:
                 largar_torre()
-                # Faz o reset das variáveis da mola para a próxima torre
                 mola_rotacao = 0.0
                 mola_velocidade = 0.0
             else:
@@ -103,163 +87,72 @@ func _process(delta: float) -> void:
                 mola_rotacao = 0.0
                 mola_velocidade = 0.0
 
-
 func atualizar_loja_botoes() -> void:
+    # Usa as variáveis carregadas uma única vez em vez de fazer preload no loop
+    _atualizar_botao_preco($ScrollContainer/GridContainer/Rookie_BG_dps, $ScrollContainer/GridContainer/Rookie_BG_dps/Rookie, 115)
+    _atualizar_botao_preco($ScrollContainer/GridContainer/Lucky_BG_support, $ScrollContainer/GridContainer/Lucky_BG_support/Lucky, 750)
+    _atualizar_botao_preco($ScrollContainer/GridContainer/Slasher_BG_dps, $ScrollContainer/GridContainer/Slasher_BG_dps/Slasher, 250)
+    _atualizar_botao_preco($ScrollContainer/GridContainer/Gooey_BG_stun, $ScrollContainer/GridContainer/Gooey_BG_stun/Gooey, 225)
+    _atualizar_botao_preco($ScrollContainer/GridContainer/Anarchist_BG_dps, $ScrollContainer/GridContainer/Anarchist_BG_dps/Anarchist, 500)
+    _atualizar_botao_preco($ScrollContainer/GridContainer/Scrappy_BG_stun, $ScrollContainer/GridContainer/Scrappy_BG_stun/Scrappy, 330)
+    _atualizar_botao_preco($ScrollContainer/GridContainer/Mystical_BG_support, $ScrollContainer/GridContainer/Mystical_BG_support/Mystical, 1400)
+    _atualizar_botao_preco($ScrollContainer/GridContainer/Ghoulish_BG_stun, $ScrollContainer/GridContainer/Ghoulish_BG_stun/Ghoulish, 700)
+    _atualizar_botao_preco($ScrollContainer/GridContainer/Vivian_BG_dps, null, 1600)
+
+func _atualizar_botao_preco(container, btn_child, custo: int):
+    var esta_desativado = (moedas_atuais < custo)
+    container.disabled = esta_desativado
+    if btn_child:
+        btn_child.disabled = esta_desativado
     
-    $ScrollContainer/GridContainer/Rookie_BG_dps.disabled = (moedas_atuais < 115)
-    $ScrollContainer/GridContainer/Rookie_BG_dps/Rookie.disabled = (moedas_atuais < 115)
-    if $ScrollContainer/GridContainer/Rookie_BG_dps.disabled == true:
-        $"ScrollContainer/GridContainer/Rookie_BG_dps/Preço".add_theme_color_override("font_color", Color.from_string("afafaf", Color.WHITE))
-        $"ScrollContainer/GridContainer/Rookie_BG_dps/Preço".add_theme_color_override("font_shadow_color", Color.from_string("7c7c7c", Color.BLACK))
-        $ScrollContainer/GridContainer/Rookie_BG_dps/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTagDisabled.png")
-    else:
-        $"ScrollContainer/GridContainer/Rookie_BG_dps/Preço".add_theme_color_override("font_color", Color.from_string("ffc74d", Color.WHITE))
-        $"ScrollContainer/GridContainer/Rookie_BG_dps/Preço".add_theme_color_override("font_shadow_color", Color.from_string("d1a000df", Color.BLACK))
-        $ScrollContainer/GridContainer/Rookie_BG_dps/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTag.png")
-        
-    $ScrollContainer/GridContainer/Lucky_BG_support.disabled = (moedas_atuais < 750)
-    $ScrollContainer/GridContainer/Lucky_BG_support/Lucky.disabled = (moedas_atuais < 750)
-    if $ScrollContainer/GridContainer/Lucky_BG_support.disabled == true:
-        $ScrollContainer/GridContainer/Lucky_BG_support/Preço.add_theme_color_override("font_color", Color.from_string("afafaf", Color.WHITE))
-        $ScrollContainer/GridContainer/Lucky_BG_support/Preço.add_theme_color_override("font_shadow_color", Color.from_string("7c7c7c", Color.BLACK))
-        $ScrollContainer/GridContainer/Lucky_BG_support/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTagDisabled.png")
-    else:
-        $ScrollContainer/GridContainer/Lucky_BG_support/Preço.add_theme_color_override("font_color", Color.from_string("ffc74d", Color.WHITE))
-        $ScrollContainer/GridContainer/Lucky_BG_support/Preço.add_theme_color_override("font_shadow_color", Color.from_string("d1a000df", Color.BLACK))
-        $ScrollContainer/GridContainer/Lucky_BG_support/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTag.png")
-
-    $ScrollContainer/GridContainer/Slasher_BG_dps.disabled = (moedas_atuais < 250)
-    $ScrollContainer/GridContainer/Slasher_BG_dps/Slasher.disabled = (moedas_atuais < 250)
-    if $ScrollContainer/GridContainer/Slasher_BG_dps.disabled == true:
-        $ScrollContainer/GridContainer/Slasher_BG_dps/Preço.add_theme_color_override("font_color", Color.from_string("afafaf", Color.WHITE))
-        $ScrollContainer/GridContainer/Slasher_BG_dps/Preço.add_theme_color_override("font_shadow_color", Color.from_string("7c7c7c", Color.BLACK))
-        $ScrollContainer/GridContainer/Slasher_BG_dps/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTagDisabled.png")
-    else:
-        $ScrollContainer/GridContainer/Slasher_BG_dps/Preço.add_theme_color_override("font_color", Color.from_string("ffc74d", Color.WHITE))
-        $ScrollContainer/GridContainer/Slasher_BG_dps/Preço.add_theme_color_override("font_shadow_color", Color.from_string("d1a000df", Color.BLACK))
-        $ScrollContainer/GridContainer/Slasher_BG_dps/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTag.png")
-
-    $ScrollContainer/GridContainer/Gooey_BG_stun.disabled = (moedas_atuais < 225)
-    $ScrollContainer/GridContainer/Gooey_BG_stun/Gooey.disabled = (moedas_atuais < 225)
-    if $ScrollContainer/GridContainer/Gooey_BG_stun.disabled == true:
-        $ScrollContainer/GridContainer/Gooey_BG_stun/Preço.add_theme_color_override("font_color", Color.from_string("afafaf", Color.WHITE))
-        $ScrollContainer/GridContainer/Gooey_BG_stun/Preço.add_theme_color_override("font_shadow_color", Color.from_string("7c7c7c", Color.BLACK))
-        $ScrollContainer/GridContainer/Gooey_BG_stun/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTagDisabled.png")
-    else:
-        $ScrollContainer/GridContainer/Gooey_BG_stun/Preço.add_theme_color_override("font_color", Color.from_string("ffc74d", Color.WHITE))
-        $ScrollContainer/GridContainer/Gooey_BG_stun/Preço.add_theme_color_override("font_shadow_color", Color.from_string("d1a000df", Color.BLACK))
-        $ScrollContainer/GridContainer/Gooey_BG_stun/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTag.png")
-
-    $ScrollContainer/GridContainer/Anarchist_BG_dps.disabled = (moedas_atuais < 500)
-    $ScrollContainer/GridContainer/Anarchist_BG_dps/Anarchist.disabled = (moedas_atuais < 500)
-    if $ScrollContainer/GridContainer/Anarchist_BG_dps.disabled == true:
-        $ScrollContainer/GridContainer/Anarchist_BG_dps/Preço.add_theme_color_override("font_color", Color.from_string("afafaf", Color.WHITE))
-        $ScrollContainer/GridContainer/Anarchist_BG_dps/Preço.add_theme_color_override("font_shadow_color", Color.from_string("7c7c7c", Color.BLACK))
-        $ScrollContainer/GridContainer/Anarchist_BG_dps/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTagDisabled.png")
-    else:
-        $ScrollContainer/GridContainer/Anarchist_BG_dps/Preço.add_theme_color_override("font_color", Color.from_string("ffc74d", Color.WHITE))
-        $ScrollContainer/GridContainer/Anarchist_BG_dps/Preço.add_theme_color_override("font_shadow_color", Color.from_string("d1a000df", Color.BLACK))
-        $ScrollContainer/GridContainer/Anarchist_BG_dps/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTag.png")
+    var label_preco = container.get_node("Preço")
+    var sprite_tag = container.get_node("Sprite2D")
     
-    $ScrollContainer/GridContainer/Scrappy_BG_stun.disabled = (moedas_atuais < 330)
-    $ScrollContainer/GridContainer/Scrappy_BG_stun/Scrappy.disabled = (moedas_atuais < 330)
-    if $ScrollContainer/GridContainer/Scrappy_BG_stun.disabled == true:
-        $ScrollContainer/GridContainer/Scrappy_BG_stun/Preço.add_theme_color_override("font_color", Color.from_string("afafaf", Color.WHITE))
-        $ScrollContainer/GridContainer/Scrappy_BG_stun/Preço.add_theme_color_override("font_shadow_color", Color.from_string("7c7c7c", Color.BLACK))
-        $ScrollContainer/GridContainer/Scrappy_BG_stun/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTagDisabled.png")
+    if esta_desativado:
+        label_preco.add_theme_color_override("font_color", Color.from_string("afafaf", Color.WHITE))
+        label_preco.add_theme_color_override("font_shadow_color", Color.from_string("7c7c7c", Color.BLACK))
+        sprite_tag.texture = tex_price_disabled
     else:
-        $ScrollContainer/GridContainer/Scrappy_BG_stun/Preço.add_theme_color_override("font_color", Color.from_string("ffc74d", Color.WHITE))
-        $ScrollContainer/GridContainer/Scrappy_BG_stun/Preço.add_theme_color_override("font_shadow_color", Color.from_string("d1a000df", Color.BLACK))
-        $ScrollContainer/GridContainer/Scrappy_BG_stun/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTag.png")
-    
-    $ScrollContainer/GridContainer/Mystical_BG_support.disabled = (moedas_atuais < 1400)
-    $ScrollContainer/GridContainer/Mystical_BG_support/Mystical.disabled = (moedas_atuais < 1400)
-    if $ScrollContainer/GridContainer/Mystical_BG_support.disabled == true:
-        $ScrollContainer/GridContainer/Mystical_BG_support/Preço.add_theme_color_override("font_color", Color.from_string("afafaf", Color.WHITE))
-        $ScrollContainer/GridContainer/Mystical_BG_support/Preço.add_theme_color_override("font_shadow_color", Color.from_string("7c7c7c", Color.BLACK))
-        $ScrollContainer/GridContainer/Mystical_BG_support/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTagDisabled.png")
-    else:
-        $ScrollContainer/GridContainer/Mystical_BG_support/Preço.add_theme_color_override("font_color", Color.from_string("ffc74d", Color.WHITE))
-        $ScrollContainer/GridContainer/Mystical_BG_support/Preço.add_theme_color_override("font_shadow_color", Color.from_string("d1a000df", Color.BLACK))
-        $ScrollContainer/GridContainer/Mystical_BG_support/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTag.png")
-    
-    $ScrollContainer/GridContainer/Ghoulish_BG_stun.disabled = (moedas_atuais < 700)
-    $ScrollContainer/GridContainer/Ghoulish_BG_stun/Ghoulish.disabled = (moedas_atuais < 700)
-    if $ScrollContainer/GridContainer/Ghoulish_BG_stun.disabled == true:
-        $ScrollContainer/GridContainer/Ghoulish_BG_stun/Preço.add_theme_color_override("font_color", Color.from_string("afafaf", Color.WHITE))
-        $ScrollContainer/GridContainer/Ghoulish_BG_stun/Preço.add_theme_color_override("font_shadow_color", Color.from_string("7c7c7c", Color.BLACK))
-        $ScrollContainer/GridContainer/Ghoulish_BG_stun/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTagDisabled.png")
-    else:
-        $ScrollContainer/GridContainer/Ghoulish_BG_stun/Preço.add_theme_color_override("font_color", Color.from_string("ffc74d", Color.WHITE))
-        $ScrollContainer/GridContainer/Ghoulish_BG_stun/Preço.add_theme_color_override("font_shadow_color", Color.from_string("d1a000df", Color.BLACK))
-        $ScrollContainer/GridContainer/Ghoulish_BG_stun/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTag.png")
+        label_preco.add_theme_color_override("font_color", Color.from_string("ffc74d", Color.WHITE))
+        label_preco.add_theme_color_override("font_shadow_color", Color.from_string("d1a000df", Color.BLACK))
+        sprite_tag.texture = tex_price_enabled
 
-    $ScrollContainer/GridContainer/Vivian_BG_dps.disabled = (moedas_atuais < 1600)
-    if $ScrollContainer/GridContainer/Vivian_BG_dps.disabled == true:
-        $"ScrollContainer/GridContainer/Vivian_BG_dps/Preço".add_theme_color_override("font_color", Color.from_string("afafaf", Color.WHITE))
-        $"ScrollContainer/GridContainer/Vivian_BG_dps/Preço".add_theme_color_override("font_shadow_color", Color.from_string("7c7c7c", Color.BLACK))
-        $ScrollContainer/GridContainer/Vivian_BG_dps/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTagDisabled.png")
-    else:
-        $"ScrollContainer/GridContainer/Vivian_BG_dps/Preço".add_theme_color_override("font_color", Color.from_string("ffc74d", Color.WHITE))
-        $"ScrollContainer/GridContainer/Vivian_BG_dps/Preço".add_theme_color_override("font_shadow_color", Color.from_string("d1a000df", Color.BLACK))
-        $ScrollContainer/GridContainer/Vivian_BG_dps/Sprite2D.texture = preload("res://Assets/Others/HUD_Assets/PriceTag.png")
+# --- BOTOES (Só instanciam e carregam quando são realmente clicados!) ---
 
-
-
-
-func _on_rookie_button_down() -> void :
-    if temp_tower == null and moedas_atuais >= 115:
-        temp_tower = rookie_scene.instantiate()
-        custo_da_torre_atual = 115
+func _comprar_torre(chave: String, custo: int):
+    if temp_tower == null and moedas_atuais >= custo:
+        tipo_torre_atual = chave
+        var cena = load(torres_paths[chave]) # <--- O LOAD SÓ ACONTECE AQUI!
+        temp_tower = cena.instantiate()
+        custo_da_torre_atual = custo
         configurar_torre_temp()
 
-func _on_slasher_button_down() -> void :
-    if temp_tower == null and moedas_atuais >= 250:
-        temp_tower = slasher_scene.instantiate()
-        custo_da_torre_atual = 250
-        configurar_torre_temp()
+func _on_rookie_button_down() -> void:
+    _comprar_torre("rookie", 115)
 
-func _on_lucky_button_down() -> void :
-    if temp_tower == null and moedas_atuais >= 750:
-        tipo_torre_atual = "lucky"
-        temp_tower = lucky_scene.instantiate()
-        custo_da_torre_atual = 750
-        configurar_torre_temp()
+func _on_slasher_button_down() -> void:
+    _comprar_torre("slasher", 250)
 
-func _on_gooey_button_down() -> void :
-    if temp_tower == null and moedas_atuais >= 225:
-        tipo_torre_atual = "gooey"
-        temp_tower = gooey_scene.instantiate()
-        custo_da_torre_atual = 225
-        configurar_torre_temp()
+func _on_lucky_button_down() -> void:
+    _comprar_torre("lucky", 750)
 
-func _on_anarchist_button_down() -> void :
-    if temp_tower == null and moedas_atuais >= 500:
-        tipo_torre_atual = "anarchist"
-        temp_tower = anarchist_scene.instantiate()
-        custo_da_torre_atual = 500
-        configurar_torre_temp()
+func _on_gooey_button_down() -> void:
+    _comprar_torre("gooey", 225)
+
+func _on_anarchist_button_down() -> void:
+    _comprar_torre("anarchist", 500)
 
 func _on_scrappy_button_down() -> void:
-    if temp_tower == null and moedas_atuais >= 330:
-        tipo_torre_atual = "scrapy"
-        temp_tower = scrappy_scene.instantiate()
-        custo_da_torre_atual = 330
-        configurar_torre_temp()
-        
+    _comprar_torre("scrappy", 330)
+
 func _on_mystical_button_down() -> void:
-    if temp_tower == null and moedas_atuais >= 1400:
-        tipo_torre_atual = "mystical"
-        temp_tower = mystical_scene.instantiate()
-        custo_da_torre_atual = 1400
-        configurar_torre_temp()
+    _comprar_torre("mystical", 1400)
 
 func _on_ghoulish_button_down() -> void:
-    if temp_tower == null and moedas_atuais >= 700:
-        tipo_torre_atual = "ghoulish"
-        temp_tower = ghoulish_scene.instantiate()
-        custo_da_torre_atual = 700
-        configurar_torre_temp()
+    _comprar_torre("ghoulish", 700)
+
+func _on_vivian_bg_dps_button_down() -> void:
+    _comprar_torre("vivian", 1600)
 
 func configurar_torre_temp():
     temp_tower.modulate.a = 0.5
@@ -278,22 +171,20 @@ func largar_torre():
 
     if temp_tower:
         if moedas_atuais >= custo_da_torre_atual:
-            
             if temp_tower.has_node("Pega"):
                 temp_tower.get_node("Pega").rotation = 0.0
             
             temp_tower.get_node("Shadow").visible = true
-            if temp_tower.get_node("SkinChange"):
+            if temp_tower.has_node("SkinChange"):
                 temp_tower.get_node("SkinChange").play("ChangeSkin")
             temp_tower.modulate.a = 1.0
             temp_tower.process_mode = Node.PROCESS_MODE_INHERIT
             
-            if temp_tower.get_node("Place"):
+            if temp_tower.has_node("Place"):
                 temp_tower.get_node("Place").play()
             
-            if temp_tower.get_node("Idle"):
+            if temp_tower.has_node("Idle"):
                 temp_tower.get_node("Idle").play("Idle animation")
-                
 
             var range_node = temp_tower.get_node("Range")
             range_node.monitoring = true
@@ -307,14 +198,7 @@ func largar_torre():
 
             temp_tower = null
             custo_da_torre_atual = 0
-            
         else:
             temp_tower.queue_free()
             temp_tower = null
             custo_da_torre_atual = 0
-
-func _on_vivian_bg_dps_button_down() -> void:
-    if temp_tower == null and moedas_atuais >= 1600:
-        temp_tower = vivian_scene.instantiate()
-        custo_da_torre_atual = 1600
-        configurar_torre_temp()

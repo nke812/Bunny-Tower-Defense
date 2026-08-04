@@ -23,8 +23,6 @@ func debug():
     else:
         $PanelIntro.play_backwards("IntroPanel")
         
-func _on_icon_toggled(toggled_on: bool) -> void:
-    $Panel/GNG.visible = toggled_on
 
 # -----   DEBUG   ----- #
 func _on_set_money_pressed() -> void:
@@ -134,7 +132,6 @@ func _on_lucifer_pressed() -> void:
 func _on_ghostlings_pressed() -> void:
     $Panel/Status.visible = false
     $Panel/Ghostlings.visible = true
-    
     
 func _on_voltar_pressed() -> void:
     $Panel/Status.visible = true

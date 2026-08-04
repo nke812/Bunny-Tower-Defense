@@ -3,26 +3,28 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://3p81b8113bpi"
-path="res://.godot/imported/Grass7.png-e4c7d2d823da789349099b584aa79d80.ctex"
+path.s3tc="res://.godot/imported/Grass7.png-e4c7d2d823da789349099b584aa79d80.s3tc.ctex"
+path.etc2="res://.godot/imported/Grass7.png-e4c7d2d823da789349099b584aa79d80.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Others/Map_Assets/GlimmerRoadV2/Grass/Grass7.png"
-dest_files=["res://.godot/imported/Grass7.png-e4c7d2d823da789349099b584aa79d80.ctex"]
+dest_files=["res://.godot/imported/Grass7.png-e4c7d2d823da789349099b584aa79d80.s3tc.ctex", "res://.godot/imported/Grass7.png-e4c7d2d823da789349099b584aa79d80.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=0
+compress/channel_pack=1
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0

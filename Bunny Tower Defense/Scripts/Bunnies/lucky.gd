@@ -240,9 +240,9 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
                     if skin:
-                        Lucky.texture = preload("res://Assets/Bunnies/Skins/Paths/ZeRon01.png")
+                        Lucky.texture = load("res://Assets/Bunnies/Skins/Paths/ZeRon01.png")
                     else:
-                        Lucky.texture = preload("res://Assets/Bunnies/Paths/Lucky01.png")
+                        Lucky.texture = load("res://Assets/Bunnies/Paths/Lucky01.png")
             atualizar_valorTorre()            
         else:
             path2 += 1
@@ -272,9 +272,9 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
                     if skin:
-                        Lucky.texture = preload("res://Assets/Bunnies/Skins/Paths/ZeRon02.png")
+                        Lucky.texture = load("res://Assets/Bunnies/Skins/Paths/ZeRon02.png")
                     else:
-                        Lucky.texture = preload("res://Assets/Bunnies/Paths/Lucky02.png")
+                        Lucky.texture = load("res://Assets/Bunnies/Paths/Lucky02.png")
             atualizar_valorTorre()
             
             if MysticalBuff:

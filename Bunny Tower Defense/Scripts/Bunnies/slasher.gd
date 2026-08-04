@@ -177,28 +177,28 @@ func mudar_skin():
     var texture = Slasher.texture.resource_path
     match texture:
         "res://Assets/Bunnies/Animations/SlasherAttackIdle.png":
-            Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/CanelaAttackIdle.png")
+            Slasher.texture = load("res://Assets/Bunnies/Animations/Skins/CanelaAttackIdle.png")
             SlasherHand.animation = "SlasherSkin"
             
             
         "res://Assets/Bunnies/Animations/Skins/CanelaAttackIdle.png":
-            Slasher.texture = preload("res://Assets/Bunnies/Animations/SlasherAttackIdle.png")
+            Slasher.texture = load("res://Assets/Bunnies/Animations/SlasherAttackIdle.png")
             SlasherHand.animation = "Slasher"
             
         "res://Assets/Bunnies/Animations/Paths/Slasher01AttackIdle.png":
-            Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/Paths/Canela01AttackIdle.png")
+            Slasher.texture = load("res://Assets/Bunnies/Animations/Skins/Paths/Canela01AttackIdle.png")
             SlasherHand.animation = "SlasherSkin01"
             
         "res://Assets/Bunnies/Animations/Skins/Paths/Canela01AttackIdle.png":
-            Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher01AttackIdle.png")
+            Slasher.texture = load("res://Assets/Bunnies/Animations/Paths/Slasher01AttackIdle.png")
             SlasherHand.animation = "Slasher01"
             
         "res://Assets/Bunnies/Animations/Paths/Slasher02AttackIdle.png":
-            Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/Paths/Canela02AttackIdle.png")
+            Slasher.texture = load("res://Assets/Bunnies/Animations/Skins/Paths/Canela02AttackIdle.png")
             SlasherHand.animation = "SlasherSkin02"
             
         "res://Assets/Bunnies/Animations/Skins/Paths/Canela02AttackIdle.png":
-            Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher02AttackIdle.png")
+            Slasher.texture = load("res://Assets/Bunnies/Animations/Paths/Slasher02AttackIdle.png")
             SlasherHand.animation = "Slasher02"
 
 func _on_insp_button_down() -> void:
@@ -273,10 +273,10 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
                     if skin:
-                        Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/Paths/Canela01AttackIdle.png")
+                        Slasher.texture = load("res://Assets/Bunnies/Animations/Skins/Paths/Canela01AttackIdle.png")
                         SlasherHand.animation = "SlasherSkin01"
                     else:
-                        Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher01AttackIdle.png")
+                        Slasher.texture = load("res://Assets/Bunnies/Animations/Paths/Slasher01AttackIdle.png")
                         SlasherHand.animation = "Slasher01"
                         
             atualizar_valorTorre()
@@ -301,10 +301,10 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
                     if skin:
-                        Slasher.texture = preload("res://Assets/Bunnies/Animations/Skins/Paths/Canela02AttackIdle.png")
+                        Slasher.texture = load("res://Assets/Bunnies/Animations/Skins/Paths/Canela02AttackIdle.png")
                         SlasherHand.animation = "SlasherSkin02"
                     else:
-                        Slasher.texture = preload("res://Assets/Bunnies/Animations/Paths/Slasher02AttackIdle.png")
+                        Slasher.texture = load("res://Assets/Bunnies/Animations/Paths/Slasher02AttackIdle.png")
                         SlasherHand.animation = "Slasher02"
 
 

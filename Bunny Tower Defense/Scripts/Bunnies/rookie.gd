@@ -147,27 +147,27 @@ func mudar_skin():
     var texture = Rookie.texture.resource_path
     match texture:
         "res://Assets/Bunnies/Animations/RookieAttackIdle.png":
-            Rookie.texture = preload("res://Assets/Bunnies/Skins/buny.png")
+            Rookie.texture = load("res://Assets/Bunnies/Skins/buny.png")
             RookieHands.animation = "RookieSkin"
             
         "res://Assets/Bunnies/Skins/buny.png":
-            Rookie.texture = preload("res://Assets/Bunnies/Animations/RookieAttackIdle.png")
+            Rookie.texture = load("res://Assets/Bunnies/Animations/RookieAttackIdle.png")
             RookieHands.animation = "Rookie"
             
         "res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png":
-            Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny01.png")
+            Rookie.texture = load("res://Assets/Bunnies/Skins/Paths/buny01.png")
             RookieHands.animation = "RookieSkin01"
             
         "res://Assets/Bunnies/Skins/Paths/buny01.png":
-            Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
+            Rookie.texture = load("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
             RookieHands.animation = "Rookie01"
             
         "res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png":
-            Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny02.png")
+            Rookie.texture = load("res://Assets/Bunnies/Skins/Paths/buny02.png")
             RookieHands.animation = "RookieSkin02"
             
         "res://Assets/Bunnies/Skins/Paths/buny02.png":
-            Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
+            Rookie.texture = load("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
             RookieHands.animation = "Rookie02"
 
 func _on_button_button_down() -> void:
@@ -234,10 +234,10 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
                     if skin:
-                        Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny01.png")
+                        Rookie.texture = load("res://Assets/Bunnies/Skins/Paths/buny01.png")
                         RookieHands.animation = "RookieSkin01"
                     else:
-                        Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
+                        Rookie.texture = load("res://Assets/Bunnies/Animations/Paths/Rookie01AttackIdle.png")
                         RookieHands.animation = "Rookie01"
             
             atualizar_valorTorre()
@@ -263,10 +263,10 @@ func aplicar_upgrade(caminho):
                     auraMAISego()
                     
                     if skin:
-                        Rookie.texture = preload("res://Assets/Bunnies/Skins/Paths/buny02.png")
+                        Rookie.texture = load("res://Assets/Bunnies/Skins/Paths/buny02.png")
                         RookieHands.animation = "RookieSkin02"
                     else:
-                        Rookie.texture = preload("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
+                        Rookie.texture = load("res://Assets/Bunnies/Animations/Paths/Rookie02AttackIdle.png")
                         RookieHands.animation = "Rookie02"
                         
             atualizar_valorTorre()            

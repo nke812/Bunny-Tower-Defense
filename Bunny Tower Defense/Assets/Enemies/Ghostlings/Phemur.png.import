@@ -3,26 +3,28 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://08fo781b1lto"
-path="res://.godot/imported/Phemur.png-9838342f1b9201f82d00d8a509eeafc8.ctex"
+path.s3tc="res://.godot/imported/Phemur.png-9838342f1b9201f82d00d8a509eeafc8.s3tc.ctex"
+path.etc2="res://.godot/imported/Phemur.png-9838342f1b9201f82d00d8a509eeafc8.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/Enemies/Ghostlings/Phemur.png"
-dest_files=["res://.godot/imported/Phemur.png-9838342f1b9201f82d00d8a509eeafc8.ctex"]
+dest_files=["res://.godot/imported/Phemur.png-9838342f1b9201f82d00d8a509eeafc8.s3tc.ctex", "res://.godot/imported/Phemur.png-9838342f1b9201f82d00d8a509eeafc8.etc2.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=0
+compress/channel_pack=1
 mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0

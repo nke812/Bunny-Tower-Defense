@@ -28,7 +28,7 @@ func DMGED(quantidade):
 
     
     if vida <= 50 and $Belzebu.texture.resource_path == "res://Assets/Enemies/Bosses/Belzebu.png":
-        $Belzebu.texture = preload("res://Assets/Enemies/Bosses/BelzebuDamaged.png")
+        $Belzebu.texture = load("res://Assets/Enemies/Bosses/BelzebuDamaged.png")
 
     if vida <= 0:
         $Death.play()

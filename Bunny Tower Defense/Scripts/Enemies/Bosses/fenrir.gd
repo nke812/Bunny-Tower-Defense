@@ -25,7 +25,7 @@ func DMGED(quantidade):
     $Dmg.play("Dmg")
     
     if vida <= 50 and $Fenrir.texture.resource_path == "res://Assets/Enemies/Bosses/Fenrir.png":
-        $Fenrir.texture = preload("res://Assets/Enemies/Bosses/FenrirDamaged.png")
+        $Fenrir.texture = load("res://Assets/Enemies/Bosses/FenrirDamaged.png")
 
     if vida <= 0:
         $Death.play()

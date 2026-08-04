@@ -28,7 +28,7 @@ func DMGED(quantidade):
 
     
     if vida <= 50 and $Lucifer.texture.resource_path == "res://Assets/Enemies/Bosses/Lucifer.png":
-        $Lucifer.texture = preload("res://Assets/Enemies/Bosses/LuciferDamaged.png")
+        $Lucifer.texture = load("res://Assets/Enemies/Bosses/LuciferDamaged.png")
 
     if vida <= 0:
         $Death.play()

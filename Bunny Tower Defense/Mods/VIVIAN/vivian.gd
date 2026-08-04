@@ -90,7 +90,7 @@ func _on_button_button_down() -> void:
         hud.get_node("HUD_Shop/HudBgDown/TextureButton").disabled = true
         hud.get_node("HUD_Shop/HudBgDown/TextureButton/lock").visible = true 
         
-        hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://VIVIAN/VivianIcon.png")
+        hud.get_node("HUD_Shop/HudBgDown/BunnySel").texture = load("res://Mods/VIVIAN/VivianIcon.png")
         atualizar_valorTorre()
         hud.get_node("HUD_Shop/HudBgDown/ExitShop").disabled = false
         
@@ -132,7 +132,7 @@ func aplicar_upgrade(caminho):
                     valor_torre += 5500
                     auraMAISego()
                     
-                    Vivian.texture = preload("res://Mods/VIVIAN/Vivian1.png")
+                    Vivian.texture = load("res://Mods/VIVIAN/Vivian1.png")
                     $Path1.play()
             atualizar_valorTorre()
             P1status = "Damage: " + str(dmg_Vivian)
@@ -157,7 +157,7 @@ func aplicar_upgrade(caminho):
                     valor_torre += 5500
                     auraMAISego()
                 
-                    Vivian.texture = preload("res://Mods/VIVIAN/Vivian2.png")
+                    Vivian.texture = load("res://Mods/VIVIAN/Vivian2.png")
                     $Path2.play()
                     
             atualizar_valorTorre()            

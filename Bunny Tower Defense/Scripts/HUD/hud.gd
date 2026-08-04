@@ -3,9 +3,9 @@ extends Node2D
 @onready var spawner = get_node("../../GhostlingSpawner")
 var torre_em_foco = null
 
-var UpgradeLocked = preload("res://Assets/Others/HUD_Assets/LockedUpgrade.png")
-var UpgradeCheck = preload("res://Assets/Others/HUD_Assets/UpgradeCarrot.png")
-var LastUpgradeCheck = preload("res://Assets/Others/HUD_Assets/UpgradeCrown.png")
+var UpgradeLocked = load("res://Assets/Others/HUD_Assets/LockedUpgrade.png")
+var UpgradeCheck = load("res://Assets/Others/HUD_Assets/UpgradeCarrot.png")
+var LastUpgradeCheck = load("res://Assets/Others/HUD_Assets/UpgradeCrown.png")
 
 var GameOver : bool = false
 
@@ -18,9 +18,9 @@ func _ready():
     var autoplay = SaveManager.load_PlayerSettings()
     
     if autoplay == true:
-        $UI_Selection/AutoPlay.texture_normal = preload("res://Assets/Others/HUD_Assets/AutoplayON.png")
+        $UI_Selection/AutoPlay.texture_normal = load("res://Assets/Others/HUD_Assets/AutoplayON.png")
     else:
-        $UI_Selection/AutoPlay.texture_normal = preload("res://Assets/Others/HUD_Assets/AutoplayOFF.png")
+        $UI_Selection/AutoPlay.texture_normal = load("res://Assets/Others/HUD_Assets/AutoplayOFF.png")
         
 func _process(_delta: float) -> void:
     var moedas_atuais_nova = int(moedas_label.text)
@@ -156,9 +156,9 @@ func atualizar_visual_upgrades():
             var custo_1_1 = torre_em_foco.preços_p1[0]
             
             if moedas_atuais >= custo_1_1:
-                $"HUD_Shop/HudBgDown/Upgrade 1-1".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+                $"HUD_Shop/HudBgDown/Upgrade 1-1".texture_normal = load("res://Assets/Others/UI_Assets/Carrot.png")
             else:
-                $"HUD_Shop/HudBgDown/Upgrade 1-1".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+                $"HUD_Shop/HudBgDown/Upgrade 1-1".texture_normal = load("res://Assets/Others/UI_Assets/CarrotDisabled.png")
                 
     
     $"HUD_Shop/HudBgDown/Upgrade 1-2".disabled = (torre_em_foco.path1 != 1)
@@ -168,9 +168,9 @@ func atualizar_visual_upgrades():
         if torre_em_foco.path1 == 1:
             var custo_1_2 = torre_em_foco.preços_p1[1]
             if moedas_atuais >= custo_1_2:
-                $"HUD_Shop/HudBgDown/Upgrade 1-2".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+                $"HUD_Shop/HudBgDown/Upgrade 1-2".texture_normal = load("res://Assets/Others/UI_Assets/Carrot.png")
             else:
-                $"HUD_Shop/HudBgDown/Upgrade 1-2".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+                $"HUD_Shop/HudBgDown/Upgrade 1-2".texture_normal = load("res://Assets/Others/UI_Assets/CarrotDisabled.png")
         else:
             $"HUD_Shop/HudBgDown/Upgrade 1-2".texture_disabled = UpgradeLocked
     
@@ -182,9 +182,9 @@ func atualizar_visual_upgrades():
         if torre_em_foco.path1 == 2:
             var custo_1_3 = torre_em_foco.preços_p1[2]
             if moedas_atuais >= custo_1_3:
-                $"HUD_Shop/HudBgDown/Upgrade 1-3".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+                $"HUD_Shop/HudBgDown/Upgrade 1-3".texture_normal = load("res://Assets/Others/UI_Assets/Carrot.png")
             else:
-                $"HUD_Shop/HudBgDown/Upgrade 1-3".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+                $"HUD_Shop/HudBgDown/Upgrade 1-3".texture_normal = load("res://Assets/Others/UI_Assets/CarrotDisabled.png")
         else:
             $"HUD_Shop/HudBgDown/Upgrade 1-3".texture_disabled = UpgradeLocked
     
@@ -196,9 +196,9 @@ func atualizar_visual_upgrades():
         if torre_em_foco.path1 == 3:
             var custo_1_4 = torre_em_foco.preços_p1[3]
             if moedas_atuais >= custo_1_4:
-                $"HUD_Shop/HudBgDown/Upgrade 1-4".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+                $"HUD_Shop/HudBgDown/Upgrade 1-4".texture_normal = load("res://Assets/Others/UI_Assets/Carrot.png")
             else:
-                $"HUD_Shop/HudBgDown/Upgrade 1-4".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+                $"HUD_Shop/HudBgDown/Upgrade 1-4".texture_normal = load("res://Assets/Others/UI_Assets/CarrotDisabled.png")
         else:
             $"HUD_Shop/HudBgDown/Upgrade 1-4".texture_disabled = UpgradeLocked
 
@@ -213,9 +213,9 @@ func atualizar_visual_upgrades():
             var custo_2_1 = torre_em_foco.preços_p2[0]
             
             if moedas_atuais >= custo_2_1:
-                $"HUD_Shop/HudBgDown/Upgrade 2-1".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+                $"HUD_Shop/HudBgDown/Upgrade 2-1".texture_normal = load("res://Assets/Others/UI_Assets/Carrot.png")
             else:
-                $"HUD_Shop/HudBgDown/Upgrade 2-1".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+                $"HUD_Shop/HudBgDown/Upgrade 2-1".texture_normal = load("res://Assets/Others/UI_Assets/CarrotDisabled.png")
     
     
     $"HUD_Shop/HudBgDown/Upgrade 2-2".disabled = (torre_em_foco.path2 != 1)
@@ -225,9 +225,9 @@ func atualizar_visual_upgrades():
         if torre_em_foco.path2 == 1:
             var custo_2_2 = torre_em_foco.preços_p2[1]
             if moedas_atuais >= custo_2_2:
-                $"HUD_Shop/HudBgDown/Upgrade 2-2".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+                $"HUD_Shop/HudBgDown/Upgrade 2-2".texture_normal = load("res://Assets/Others/UI_Assets/Carrot.png")
             else:
-                $"HUD_Shop/HudBgDown/Upgrade 2-2".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+                $"HUD_Shop/HudBgDown/Upgrade 2-2".texture_normal = load("res://Assets/Others/UI_Assets/CarrotDisabled.png")
         else:
             $"HUD_Shop/HudBgDown/Upgrade 2-2".texture_disabled = UpgradeLocked
     
@@ -239,9 +239,9 @@ func atualizar_visual_upgrades():
         if torre_em_foco.path2 == 2:
             var custo_2_3 = torre_em_foco.preços_p2[2]
             if moedas_atuais >= custo_2_3:
-                $"HUD_Shop/HudBgDown/Upgrade 2-3".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+                $"HUD_Shop/HudBgDown/Upgrade 2-3".texture_normal = load("res://Assets/Others/UI_Assets/Carrot.png")
             else:
-                $"HUD_Shop/HudBgDown/Upgrade 2-3".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+                $"HUD_Shop/HudBgDown/Upgrade 2-3".texture_normal = load("res://Assets/Others/UI_Assets/CarrotDisabled.png")
         else:
             $"HUD_Shop/HudBgDown/Upgrade 2-3".texture_disabled = UpgradeLocked
     
@@ -253,9 +253,9 @@ func atualizar_visual_upgrades():
         if torre_em_foco.path2 == 3:
             var custo_2_4 = torre_em_foco.preços_p2[3]
             if moedas_atuais >= custo_2_4:
-                $"HUD_Shop/HudBgDown/Upgrade 2-4".texture_normal = preload("res://Assets/Others/UI_Assets/Carrot.png")
+                $"HUD_Shop/HudBgDown/Upgrade 2-4".texture_normal = load("res://Assets/Others/UI_Assets/Carrot.png")
             else:
-                $"HUD_Shop/HudBgDown/Upgrade 2-4".texture_normal = preload("res://Assets/Others/UI_Assets/CarrotDisabled.png")
+                $"HUD_Shop/HudBgDown/Upgrade 2-4".texture_normal = load("res://Assets/Others/UI_Assets/CarrotDisabled.png")
         else:
             $"HUD_Shop/HudBgDown/Upgrade 2-4".texture_disabled = UpgradeLocked
 
@@ -455,15 +455,15 @@ func _on_sfx_icon_pressed() -> void:
 
 func _on_music_control_value_changed(value: float) -> void: 
     if $UI_Selection/Options/MusicControl.value >= 0.01:
-        $UI_Selection/Options/MusicControl/MusicIcon.texture_normal = preload("res://Assets/Others/UI_Assets/Music.png")
+        $UI_Selection/Options/MusicControl/MusicIcon.texture_normal = load("res://Assets/Others/UI_Assets/Music.png")
     else:
-        $UI_Selection/Options/MusicControl/MusicIcon.texture_normal = preload("res://Assets/Others/UI_Assets/MusicMute.png")
+        $UI_Selection/Options/MusicControl/MusicIcon.texture_normal = load("res://Assets/Others/UI_Assets/MusicMute.png")
         
 func _on_sfx_control_value_changed(value: float) -> void:
     if $UI_Selection/Options/SFXControl.value >= 0.01:
-        $UI_Selection/Options/SFXControl/SFXIcon.texture_normal = preload("res://Assets/Others/UI_Assets/Audio.png")
+        $UI_Selection/Options/SFXControl/SFXIcon.texture_normal = load("res://Assets/Others/UI_Assets/Audio.png")
     else:
-        $UI_Selection/Options/SFXControl/SFXIcon.texture_normal = preload("res://Assets/Others/UI_Assets/AudioMute.png")
+        $UI_Selection/Options/SFXControl/SFXIcon.texture_normal = load("res://Assets/Others/UI_Assets/AudioMute.png")
 
 
 func _on_auto_play_pressed() -> void:
@@ -472,9 +472,9 @@ func _on_auto_play_pressed() -> void:
     SaveManager.save_PlayerSettings(autoplay)
 
     if autoplay == true:
-        $UI_Selection/AutoPlay.texture_normal = preload("res://Assets/Others/HUD_Assets/AutoplayON.png")
+        $UI_Selection/AutoPlay.texture_normal = load("res://Assets/Others/HUD_Assets/AutoplayON.png")
     else:
-        $UI_Selection/AutoPlay.texture_normal = preload("res://Assets/Others/HUD_Assets/AutoplayOFF.png")
+        $UI_Selection/AutoPlay.texture_normal = load("res://Assets/Others/HUD_Assets/AutoplayOFF.png")
 
 
 func _on_bt_nsell_mouse_entered() -> void:

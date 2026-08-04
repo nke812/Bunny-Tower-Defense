@@ -144,7 +144,7 @@ func aplicar_upgrade(caminho):
                 4:
                     valor_torre += 7000
                     auraMAISego()
-                    Scrappy.texture = preload("res://Assets/Bunnies/Paths/Scrappy01.png")
+                    Scrappy.texture = load("res://Assets/Bunnies/Paths/Scrappy01.png")
 
             
             atualizar_valorTorre()
@@ -164,7 +164,7 @@ func aplicar_upgrade(caminho):
                 4:
                     valor_torre += 7000
                     auraMAISego()
-                    Scrappy.texture = preload("res://Assets/Bunnies/Paths/Scrappy02.png")
+                    Scrappy.texture = load("res://Assets/Bunnies/Paths/Scrappy02.png")
                         
             atualizar_valorTorre()            
             P2status = "Chain Targets: " + str(alvos_cadeia[path2])
