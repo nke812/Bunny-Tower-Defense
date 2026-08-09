@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdfsu62tdg4av"
-path="res://.godot/imported/GameIcon2.png-58e0e21686e73ac5265a994ab03000ba.ctex"
+uid="uid://bf3h1sw25q0ga"
+path="res://.godot/imported/LunieSpritesheet.png-57391e8079f3ab868b14088bfd53b42e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Others/Others/GameIcon2.png"
-dest_files=["res://.godot/imported/GameIcon2.png-58e0e21686e73ac5265a994ab03000ba.ctex"]
+source_file="res://Assets/Others/Menu_Assets/Shop/LunieSpritesheet.png"
+dest_files=["res://.godot/imported/LunieSpritesheet.png-57391e8079f3ab868b14088bfd53b42e.ctex"]
 
 [params]
 
