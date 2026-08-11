@@ -41,6 +41,115 @@
 [ext_resource type="Texture2D" uid="uid://dtuir6bgm4ixu" path="res://Mods/PINK/PINK.png" id="28_pbfag"]
 [ext_resource type="Texture2D" uid="uid://cf2cntmbqd0oe" path="res://Assets/Others/Menu_Assets/Maps/MapSandyStreets_Sel.png" id="31_f3d0c"]
 
+[sub_resource type="Animation" id="Animation_jvcv6"]
+resource_name = "AnimCursorHoverSun"
+length = 0.33333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LilBunnies:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(0.5, 1, 0.5),
+"update": 0,
+"values": [Vector2(-991, 327), Vector2(-991, 263.00003), Vector2(-991, 270.765)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Shader:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-990, 347.00003)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Shader:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.13333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.69411767, 0, 0), Color(1, 0.69411767, 0, 0.69411767)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(-987, 263), Vector2(-987, 231)]
+}
+
+[sub_resource type="Animation" id="Animation_lcy8p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LilBunnies:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-991, 327)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Shader:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-990, 347.00003)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Shader:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.69411767, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-987, 263)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jhlh1"]
+_data = {
+&"AnimCursorHoverSun": SubResource("Animation_jvcv6"),
+&"RESET": SubResource("Animation_lcy8p")
+}
+
 [sub_resource type="Animation" id="Animation_fipmv"]
 length = 0.001
 tracks/0/type = "value"
@@ -674,7 +783,7 @@ scale = Vector2(0.9621936, 0.96219337)
 texture = ExtResource("3_pnils")
 
 [node name="SunSetEuGostoMuito" type="Sprite2D" parent="." unique_id=764933657]
-position = Vector2(-987, 231)
+position = Vector2(-987, 263)
 scale = Vector2(0.5478515, 0.54785144)
 texture = ExtResource("4_7xub0")
 
@@ -697,8 +806,11 @@ theme_override_styles/pressed = ExtResource("6_ux20s")
 theme_override_styles/hover = ExtResource("6_ux20s")
 theme_override_styles/focus = ExtResource("6_ux20s")
 
+[node name="AnimCursorHoverSun" type="AnimationPlayer" parent="SunSetEuGostoMuito" unique_id=1958846711]
+libraries/ = SubResource("AnimationLibrary_jhlh1")
+
 [node name="LilBunnies" type="Sprite2D" parent="." unique_id=390999514]
-position = Vector2(-992.00006, 271)
+position = Vector2(-991, 327)
 scale = Vector2(0.31069836, 0.31069815)
 texture = ExtResource("7_rplfc")
 
@@ -708,8 +820,8 @@ scale = Vector2(0.98157126, 0.9657672)
 texture = ExtResource("4_ow4wq")
 
 [node name="Shader" type="Sprite2D" parent="." unique_id=1601189851]
-modulate = Color(1, 0.69411767, 0, 0.6627451)
-position = Vector2(-990, 251)
+modulate = Color(1, 0.69411767, 0, 0)
+position = Vector2(-990, 347.00003)
 scale = Vector2(0.6239212, 0.623921)
 texture = ExtResource("9_f3d0c")
 
@@ -1425,6 +1537,7 @@ libraries/ = SubResource("AnimationLibrary_fipmv")
 [connection signal="pressed" from="News/NewsBTN" to="." method="_on_news_btn_pressed"]
 [connection signal="mouse_entered" from="Shop/ShopBTN" to="." method="_on_shop_mouse_entered"]
 [connection signal="mouse_exited" from="Shop/ShopBTN" to="." method="_on_shop_mouse_exited"]
+[connection signal="pressed" from="Shop/ShopBTN" to="." method="_on_shop_btn_pressed"]
 [connection signal="mouse_entered" from="Settings/SettingsBTN" to="." method="_on_settings_mouse_entered"]
 [connection signal="mouse_exited" from="Settings/SettingsBTN" to="." method="_on_settings_mouse_exited"]
 [connection signal="pressed" from="Settings/SettingsBTN" to="." method="_on_settings_pressed"]

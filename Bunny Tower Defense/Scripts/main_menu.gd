@@ -121,10 +121,16 @@ func _on_sfx_control_value_changed(value: float) -> void:
 # Brilhos nos botões do Menu
 func _on_start_mouse_entered() -> void:
     $SunSetEuGostoMuito.texture = load("res://Assets/Others/Menu_Assets/Buttons/Start_SunSelected.png")
+    $SunSetEuGostoMuito/AnimCursorHoverSun.play("AnimCursorHoverSun")
+    
+    await $SunSetEuGostoMuito/AnimCursorHoverSun.animation_finished
+    
     
 func _on_start_mouse_exited() -> void:
     $SunSetEuGostoMuito.texture = load("res://Assets/Others/Menu_Assets/Buttons/Start_Sun.png")
+    $SunSetEuGostoMuito/AnimCursorHoverSun.play_backwards("AnimCursorHoverSun")
 
+    await $SunSetEuGostoMuito/AnimCursorHoverSun.animation_finished
 
 
 func _on_extras_mouse_entered() -> void:
@@ -182,3 +188,7 @@ func _on_exit_settings_pressed() -> void:
 func _on_exit_menu_pressed() -> void:
     $"Select Map/SelMapsMenu".play_backwards("SelMapsAnim")
     await $"Select Map/SelMapsMenu".animation_finished
+
+
+func _on_shop_btn_pressed() -> void:
+    get_tree().change_scene_to_file("res://Scenes/shop.tscn")
