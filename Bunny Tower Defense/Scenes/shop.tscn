@@ -2,11 +2,25 @@
 
 [ext_resource type="Texture2D" uid="uid://c1q8r5odyavba" path="res://Assets/Others/Menu_Assets/Shop/ShopBackground.png" id="1_fdj0q"]
 [ext_resource type="Script" uid="uid://cbcntm81liyh0" path="res://Scripts/shop.gd" id="1_ymrm4"]
+[ext_resource type="AudioStream" uid="uid://b8x65u6pnl7i1" path="res://Assets/Music/ShopMusic_TEMPLATE.ogg" id="2_5xp22"]
+[ext_resource type="AudioStream" uid="uid://14xufr5fl6xl" path="res://Assets/SFXs/EnterShop.wav" id="2_cuuv1"]
 [ext_resource type="Texture2D" uid="uid://ccb2obl058ty7" path="res://Assets/Others/Menu_Assets/Shop/ShopShelves.png" id="2_k6jq0"]
 [ext_resource type="Texture2D" uid="uid://b5widxiw07oea" path="res://Assets/Others/Menu_Assets/Shop/ShopBench.png" id="3_3ps1r"]
 [ext_resource type="Texture2D" uid="uid://bf3h1sw25q0ga" path="res://Assets/Others/Menu_Assets/Shop/LunieSpritesheet.png" id="4_s8dlv"]
 [ext_resource type="Texture2D" uid="uid://bycvxb1136o1f" path="res://Assets/Others/Menu_Assets/Shop/ShopCurtains.png" id="4_ymrm4"]
 [ext_resource type="Texture2D" uid="uid://b1tp4mkfwpc7b" path="res://Assets/Others/Menu_Assets/Shop/LunieHandSpritesheet.png" id="6_tyrku"]
+[ext_resource type="Texture2D" uid="uid://b1bwpf24hqfv3" path="res://Assets/Resources/BeachyPalms/Kelp.png" id="8_3568l"]
+[ext_resource type="Texture2D" uid="uid://qa7d2icd5rji" path="res://Assets/Resources/BasaltPlains/Obsidian.png" id="8_k6pkm"]
+[ext_resource type="Texture2D" uid="uid://bab5q00girpk4" path="res://Assets/Others/Menu_Assets/Shop/Paw.png" id="8_ow1eo"]
+[ext_resource type="Texture2D" uid="uid://dxv257lcchsbf" path="res://Assets/Others/Menu_Assets/Shop/Arrow.png" id="8_tyrku"]
+[ext_resource type="Texture2D" uid="uid://cnjmgb4ou6umi" path="res://Assets/Others/Menu_Assets/Shop/ArrowSelected.png" id="9_5xp22"]
+[ext_resource type="Texture2D" uid="uid://cyn1lms6k0n25" path="res://Assets/Resources/GlimmerRoads/GlimmerRock.png" id="9_mjtuy"]
+[ext_resource type="Texture2D" uid="uid://cwg1grx61mprd" path="res://Assets/Resources/NeoCity/CorruptedCore.png" id="11_mjtuy"]
+[ext_resource type="Texture2D" uid="uid://bxdm41k1j4a2m" path="res://Assets/Bunnies/Skins/Void.png" id="13_1sjcd"]
+[ext_resource type="AudioStream" uid="uid://bxxfvhbqya3lh" path="res://Assets/SFXs/CorruptedCoreShop.wav" id="13_m13ki"]
+[ext_resource type="Texture2D" uid="uid://dky88yfaa0uyc" path="res://Assets/Others/HUD_Assets/PriceTag.png" id="15_cuuv1"]
+[ext_resource type="FontFile" uid="uid://c4oqjtn2jr35r" path="res://FontText/Candy Planet.ttf" id="19_3mbjb"]
+[ext_resource type="Texture2D" uid="uid://b5le7dshj7l87" path="res://Assets/Others/Others/GameIcon.png" id="23_6rctg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xp22"]
 atlas = ExtResource("4_s8dlv")
@@ -127,6 +141,268 @@ animations = [{
 "name": &"default",
 "speed": 42.0
 }]
+
+[sub_resource type="Animation" id="Animation_5xp22"]
+resource_name = "LunieIdle"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.48),
+"transitions": PackedFloat32Array(0.5, 1, 0.5),
+"update": 0,
+"values": [Vector2(0.9146205, 0.9146205), Vector2(0.885, 0.925), Vector2(0.915, 0.92)]
+}
+
+[sub_resource type="Animation" id="Animation_ow1eo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.9146205, 0.9146205)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k6pkm"]
+_data = {
+&"LunieIdle": SubResource("Animation_5xp22"),
+&"RESET": SubResource("Animation_ow1eo")
+}
+
+[sub_resource type="Animation" id="Animation_k6pkm"]
+resource_name = "NoMoney"
+length = 0.36666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LuniePaw:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.28091362),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(735, 542.05), Vector2(773, 416.00003)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../LunieHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.28091362),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(490.83743, 476.16257), Vector2(426.99997, 421.00003)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../LuniePaw:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3575803),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.1415927]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../LunieHand:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3575803),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -3.1415927]
+}
+
+[sub_resource type="Animation" id="Animation_1sjcd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../LuniePaw:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(735, 540.99)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../LunieHand:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(490.83743, 476.16257)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../LuniePaw:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../LunieHand:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1cyt5"]
+resource_name = "Talk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1sjcd"]
+_data = {
+&"NoMoney": SubResource("Animation_k6pkm"),
+&"RESET": SubResource("Animation_1sjcd"),
+&"Talk": SubResource("Animation_1cyt5")
+}
+
+[sub_resource type="Animation" id="Animation_yl1pv"]
+resource_name = "CorruptedCoreAnim"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.2831855, -6.2831855]
+}
+
+[sub_resource type="Animation" id="Animation_m13ki"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3mbjb"]
+_data = {
+&"CorruptedCoreAnim": SubResource("Animation_yl1pv"),
+&"RESET": SubResource("Animation_m13ki")
+}
+
+[sub_resource type="Animation" id="Animation_jhx1v"]
+resource_name = "CorruptedCoreAnim"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.000002, 0.5),
+"update": 0,
+"values": [Vector2(-1487.6324, -1040.0098), Vector2(-1487.632, -944.325)]
+}
+
+[sub_resource type="Animation" id="Animation_dvu38"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1487.6324, -1040.0098)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k7yfq"]
+_data = {
+&"CorruptedCoreAnim": SubResource("Animation_jhx1v"),
+&"RESET": SubResource("Animation_dvu38")
+}
+
+[sub_resource type="Animation" id="Animation_1shhe"]
+resource_name = "pum"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.26666668, 0.4),
+"transitions": PackedFloat32Array(1, 0.5, 0.5, 1, 0.5),
+"update": 0,
+"values": [Vector2(0.6412506, 0.6412506), Vector2(3.106, 0.446), Vector2(0.461, 2.941), Vector2(0.796, 1.026), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6rctg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.6412506, 0.6412506)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n1qjt"]
+_data = {
+&"CorruptedCore": SubResource("Animation_1shhe"),
+&"RESET": SubResource("Animation_6rctg")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ymrm4"]
 atlas = ExtResource("6_tyrku")
@@ -365,8 +641,118 @@ animations = [{
 "speed": 42.0
 }]
 
+[sub_resource type="Animation" id="Animation_mjtuy"]
+resource_name = "ChangeItemShop"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033447977, 0.10012242, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.135, 0.825), Vector2(0.905, 1.14), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cuuv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yl1pv"]
+_data = {
+&"ChangeItemShop": SubResource("Animation_mjtuy"),
+&"RESET": SubResource("Animation_cuuv1")
+}
+
+[sub_resource type="Animation" id="Animation_3mbjb"]
+resource_name = "FadeOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0001, 0.4999),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_k7yfq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6rctg"]
+_data = {
+&"FadeOut": SubResource("Animation_3mbjb"),
+&"RESET": SubResource("Animation_k7yfq")
+}
+
 [node name="ShopNode" type="Node2D" unique_id=1018724071]
 script = ExtResource("1_ymrm4")
+
+[node name="ShopSFX" type="AudioStreamPlayer" parent="." unique_id=550996105]
+stream = ExtResource("2_cuuv1")
+volume_db = 3.0
+bus = &"SFX"
+
+[node name="ShopMusic" type="AudioStreamPlayer" parent="." unique_id=150688681]
+stream = ExtResource("2_5xp22")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [node name="Background" type="Sprite2D" parent="." unique_id=563629876]
 position = Vector2(960, 540)
@@ -377,15 +763,87 @@ position = Vector2(960, 540)
 texture = ExtResource("2_k6jq0")
 
 [node name="Lunie" type="AnimatedSprite2D" parent="." unique_id=1187494915]
-position = Vector2(511.99994, 334.99997)
+position = Vector2(589, 424.99997)
 scale = Vector2(0.9146205, 0.9146205)
 sprite_frames = SubResource("SpriteFrames_38gty")
 frame = 15
 frame_progress = 1.0
+offset = Vector2(-82.00128, -91.8414)
+
+[node name="LunieIdle" type="AnimationPlayer" parent="Lunie" unique_id=2112633191]
+libraries/ = SubResource("AnimationLibrary_k6pkm")
+autoplay = &"LunieIdle"
+speed_scale = 0.25
+
+[node name="NoMoney" type="AnimationPlayer" parent="Lunie" unique_id=1780973554]
+libraries/ = SubResource("AnimationLibrary_1sjcd")
+
+[node name="LuniePaw" type="Sprite2D" parent="." unique_id=489497583]
+position = Vector2(735, 540.99)
+scale = Vector2(0.1800926, 0.1800926)
+texture = ExtResource("8_ow1eo")
+flip_h = true
 
 [node name="ShopBench" type="Sprite2D" parent="." unique_id=870118261]
 position = Vector2(960, 540)
 texture = ExtResource("3_3ps1r")
+
+[node name="Items" type="Node2D" parent="." unique_id=474176942]
+position = Vector2(1715, 476.99997)
+rotation = -0.06256211
+scale = Vector2(0.29101563, 0.29101563)
+
+[node name="Kelp" type="Sprite2D" parent="Items" unique_id=1402458063]
+modulate = Color(0.4506483, 0.4506483, 0.45064825, 1)
+position = Vector2(-5047.2827, -1101.1799)
+rotation = 0.07853982
+scale = Vector2(0.80607164, 0.80607164)
+texture = ExtResource("8_3568l")
+
+[node name="GlimmerRock" type="Sprite2D" parent="Items" unique_id=1097733493]
+modulate = Color(0.6789437, 0.6789437, 0.6789437, 1)
+position = Vector2(-73.73071, -32.1625)
+scale = Vector2(0.8051053, 0.8051053)
+texture = ExtResource("9_mjtuy")
+flip_h = true
+
+[node name="Obsidian" type="Sprite2D" parent="Items" unique_id=1722927537]
+modulate = Color(0.7121294, 0.7121294, 0.71212935, 1)
+position = Vector2(55.079338, 55.095135)
+scale = Vector2(1.0911865, 1.0911865)
+texture = ExtResource("8_k6pkm")
+
+[node name="CorruptedCore" type="Sprite2D" parent="Items" unique_id=602712544]
+modulate = Color(0.41981313, 0.41981313, 0.4198131, 1)
+position = Vector2(-1487.6324, -1040.0098)
+rotation = 6.2831855
+scale = Vector2(0.6412506, 0.6412506)
+texture = ExtResource("11_mjtuy")
+
+[node name="gira-gira" type="AnimationPlayer" parent="Items/CorruptedCore" unique_id=788284947]
+libraries/ = SubResource("AnimationLibrary_3mbjb")
+autoplay = &"CorruptedCoreAnim"
+speed_scale = 0.05
+
+[node name="cima-baixo" type="AnimationPlayer" parent="Items/CorruptedCore" unique_id=2140256469]
+libraries/ = SubResource("AnimationLibrary_k7yfq")
+autoplay = &"CorruptedCoreAnim"
+speed_scale = 0.5
+
+[node name="CorruptedCore" type="Button" parent="Items/CorruptedCore" unique_id=485055000]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -144.2583
+offset_top = -159.24603
+offset_right = 161.31885
+offset_bottom = 160.0438
+
+[node name="CorruptedCoreGone" type="AnimationPlayer" parent="Items/CorruptedCore" unique_id=1997283085]
+libraries/ = SubResource("AnimationLibrary_n1qjt")
+
+[node name="CorruptedCoreSFX" type="AudioStreamPlayer" parent="Items/CorruptedCore" unique_id=344306833]
+stream = ExtResource("13_m13ki")
+pitch_scale = 0.01
+bus = &"SFX"
 
 [node name="LunieHand" type="AnimatedSprite2D" parent="." unique_id=298815523]
 position = Vector2(490.83743, 476.16257)
@@ -396,13 +854,88 @@ sprite_frames = SubResource("SpriteFrames_rignr")
 position = Vector2(960, 540)
 texture = ExtResource("4_ymrm4")
 
-[node name="Button" type="Button" parent="." unique_id=175035865]
-offset_left = 485.0
-offset_top = 693.0
-offset_right = 841.0
-offset_bottom = 1049.0
+[node name="ChangeSection" type="TextureButton" parent="." unique_id=1022510504]
+offset_left = 201.0
+offset_top = 675.0
+offset_right = 279.3688
+offset_bottom = 750.0
+texture_normal = ExtResource("23_6rctg")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Button2" type="Button" parent="." unique_id=847975384]
+[node name="PanelItemShop" type="Panel" parent="." unique_id=1810449480]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 487.0
+offset_top = 684.0
+offset_right = 850.0
+offset_bottom = 1047.0
+
+[node name="ItemShop" type="TextureButton" parent="PanelItemShop" unique_id=1745265972]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -177.57977
+offset_right = 137.0
+offset_bottom = 177.57977
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(133.5, 330.07977)
+texture_normal = ExtResource("13_1sjcd")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ChangeItemShop" type="AnimationPlayer" parent="PanelItemShop/ItemShop" unique_id=1446161912]
+libraries/ = SubResource("AnimationLibrary_yl1pv")
+
+[node name="PriceTag" type="Sprite2D" parent="PanelItemShop" unique_id=58341556]
+position = Vector2(229, 340)
+scale = Vector2(0.34000003, 0.34000003)
+texture = ExtResource("15_cuuv1")
+
+[node name="Price" type="Label" parent="PanelItemShop/PriceTag" unique_id=1143696724]
+offset_left = -200.56989
+offset_top = -48.31308
+offset_right = 161.43011
+offset_bottom = 57.039948
+rotation = -0.06806784
+pivot_offset = Vector2(185.03271, 48.854004)
+theme_override_colors/font_color = Color(0.9098039, 0.70980394, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.5372549, 0.47843137, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("19_3mbjb")
+theme_override_font_sizes/font_size = 84
+text = "5.500"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArrowSelectLeft" type="TextureButton" parent="." unique_id=335416599]
+offset_left = 240.0
+offset_top = 792.0
+offset_right = 403.0
+offset_bottom = 955.0
+texture_normal = ExtResource("8_tyrku")
+texture_hover = ExtResource("9_5xp22")
+ignore_texture_size = true
+stretch_mode = 0
+flip_v = true
+
+[node name="ArrowSelectRight" type="TextureButton" parent="." unique_id=1526541908]
+offset_left = 928.0
+offset_top = 792.0
+offset_right = 1091.0
+offset_bottom = 955.0
+texture_normal = ExtResource("8_tyrku")
+texture_hover = ExtResource("9_5xp22")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+
+[node name="Exit" type="Button" parent="." unique_id=847975384]
 offset_left = 1490.0
 offset_top = 915.0
 offset_right = 1904.0
@@ -410,5 +943,23 @@ offset_bottom = 1065.0
 theme_override_font_sizes/font_size = 39
 text = "Voltar Menu"
 
-[connection signal="pressed" from="Button" to="." method="test_btn"]
-[connection signal="pressed" from="Button2" to="." method="Voltar_Menu"]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=135317638]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="FadeOut" type="AnimationPlayer" parent="ColorRect" unique_id=437520783]
+libraries/ = SubResource("AnimationLibrary_6rctg")
+
+[node name="___" type="ColorRect" parent="." unique_id=587842733]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Items/CorruptedCore/CorruptedCore" to="." method="_on_corrupted_core_pressed"]
+[connection signal="pressed" from="ChangeSection" to="." method="change_section"]
+[connection signal="pressed" from="PanelItemShop/ItemShop" to="." method="_on_item_shop_pressed"]
+[connection signal="pressed" from="ArrowSelectLeft" to="." method="Item_shop_anterior"]
+[connection signal="pressed" from="ArrowSelectRight" to="." method="Item_shop_seguinte"]
+[connection signal="pressed" from="Exit" to="." method="Voltar_Menu"]

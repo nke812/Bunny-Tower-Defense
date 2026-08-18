@@ -1,10 +1,13 @@
 extends Node
 
+var title_screen: bool = false
+
 func _ready() -> void :
     process_mode = Node.PROCESS_MODE_ALWAYS
 
 var cursor_point = load("res://Assets/Others/Others/CursorPoint.png")
 var cursor_pressed = load("res://Assets/Others/Others/CursorPressed.png")
+
 
 
 func _input(event):

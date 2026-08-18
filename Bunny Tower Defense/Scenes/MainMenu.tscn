@@ -760,6 +760,67 @@ _data = {
 &"settings": SubResource("Animation_o66vf")
 }
 
+[sub_resource type="Animation" id="Animation_jhlh1"]
+resource_name = "FadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_oor3o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h64ul"]
+_data = {
+&"FadeIn": SubResource("Animation_jhlh1"),
+&"RESET": SubResource("Animation_oor3o")
+}
+
 [node name="MainMenu" type="Control" unique_id=85335859 groups=["escolha de mapa"]]
 process_mode = 3
 layout_mode = 3
@@ -1528,6 +1589,17 @@ script = ExtResource("20")
 
 [node name="SettingsAnim" type="AnimationPlayer" parent="Options" unique_id=789157789]
 libraries/ = SubResource("AnimationLibrary_fipmv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1372942293]
+visible = false
+layout_mode = 0
+offset_left = -2056.0
+offset_top = -2.0
+offset_bottom = 1081.0
+color = Color(0, 0, 0, 1)
+
+[node name="FadeIn" type="AnimationPlayer" parent="ColorRect" unique_id=669144130]
+libraries/ = SubResource("AnimationLibrary_h64ul")
 
 [connection signal="mouse_entered" from="SunSetEuGostoMuito/StartBTN" to="." method="_on_start_mouse_entered"]
 [connection signal="mouse_exited" from="SunSetEuGostoMuito/StartBTN" to="." method="_on_start_mouse_exited"]

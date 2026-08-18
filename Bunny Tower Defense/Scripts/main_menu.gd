@@ -10,7 +10,15 @@ var MapSel = null
 var map1 = "res://Scenes/Mapas/Map_1.tscn"
 var map2 = "res://Scenes/Mapas/Map_2.tscn"
 
+
+func _ready() -> void:
+    if Global.title_screen == true:
+        $"Bunny???".position = Vector2(-505, -40)
+        $Camera2D.offset = Vector2(-2057, 27)
+        
+
 func _on_title_screen_start_pressed() -> void:
+    Global.title_screen = true
     $TitleScreenSound.play()
     $Camera2D/MenuGoLeft.play("MenuGoLeft")
     
@@ -191,4 +199,7 @@ func _on_exit_menu_pressed() -> void:
 
 
 func _on_shop_btn_pressed() -> void:
+    $ColorRect/FadeIn.play("FadeIn")
+    await $ColorRect/FadeIn.animation_finished
+    
     get_tree().change_scene_to_file("res://Scenes/shop.tscn")

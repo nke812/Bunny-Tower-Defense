@@ -270,6 +270,7 @@ texture = ExtResource("10_416cr")
 offset = Vector2(-8.264557, -144.30557)
 
 [node name="Squeshy" type="AudioStreamPlayer" parent="Bushes/Bush01/Rookienho" unique_id=204100053]
+bus = &"SFX"
 
 [node name="AnimRookienho" type="AnimationPlayer" parent="Bushes/Bush01/Rookienho" unique_id=7600574]
 libraries/ = SubResource("AnimationLibrary_ipn2v")
