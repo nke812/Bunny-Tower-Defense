@@ -28,7 +28,6 @@ buses/default_bus_layout="uid://nmgfdd07x3mb"
 
 Global="*uid://cnlfbn1iabtdk"
 SaveManager="*uid://ddc7jvjer35mp"
-Dialogic="*uid://ds2q0uclmolvu"
 Transitions="*uid://do2b00biehsxo"
 
 [dialogic]
@@ -83,10 +82,6 @@ mouse_cursor/custom_image="uid://dfdo8udp78a56"
 [editor_overrides]
 
 text_editor/behavior/indent/type=1
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 [file_customization]
 

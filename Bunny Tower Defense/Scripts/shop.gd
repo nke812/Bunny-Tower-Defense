@@ -12,6 +12,7 @@ var skins = [
     {"nome": "Catharsis", "preco": 2870, "textura": load("res://Assets/Bunnies/Skins/Catharsis.png")}
 ]
 
+
 var bunnies = [
     {"nome": "Scrappy", "preco": 4900, "textura": load("res://Assets/Bunnies/Scrappy.png")},
     {"nome": "Ghoulish", "preco": 5750, "textura": load("res://Assets/Bunnies/Ghoulish.png")},
@@ -19,8 +20,6 @@ var bunnies = [
 ]
 
 # ------------------------- #
-
-
 
 @onready var ItemShop = $PanelItemShop/ItemShop
 
