@@ -2596,6 +2596,7 @@ text = "VOLTAR"
 expand_icon = true
 
 [node name="Seta" type="Button" parent="Debug Menu/Panel" unique_id=218959555]
+visible = false
 layout_mode = 0
 offset_left = 274.0
 offset_top = 310.83
