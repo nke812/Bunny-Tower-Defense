@@ -10,6 +10,7 @@ var torres_paths = {
     "scrappy": "res://Scenes/Towers/scrappy.tscn",
     "mystical": "res://Scenes/Towers/mystical.tscn",
     "ghoulish": "res://Scenes/Towers/ghoulish.tscn",
+    "corrupted": "res://Scenes/Towers/corrupted.tscn",
     "vivian": "res://Mods/VIVIAN/vivian.tscn"
 }
 
@@ -30,6 +31,11 @@ var mola_rotacao: float = 0.0
 var mola_velocidade: float = 0.0
 
 func _ready() -> void:
+    SaveManager.carregar_dados()
+    
+    if SaveManager.CorruptedUnlocked == true: $ScrollContainer/GridContainer/Corrupted_BG_stun.visible = true
+    else: $ScrollContainer/GridContainer/Corrupted_BG_stun.visible = false   
+    
     atualizar_loja_botoes()
 
 func _process(delta: float) -> void:
@@ -150,6 +156,9 @@ func _on_mystical_button_down() -> void:
 
 func _on_ghoulish_button_down() -> void:
     _comprar_torre("ghoulish", 700)
+    
+func _on_corrupted_button_down() -> void:
+    _comprar_torre("corrupted", 970)
 
 func _on_vivian_bg_dps_button_down() -> void:
     _comprar_torre("vivian", 1600)

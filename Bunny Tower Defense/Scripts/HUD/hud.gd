@@ -15,7 +15,7 @@ var GameOver : bool = false
 @onready var moedas_atuais = int(moedas_label.text)
 
 func _ready():
-    var autoplay = SaveManager.load_PlayerSettings()
+    var autoplay = SaveManager.autoplay
     
     if autoplay == true:
         $UI_Selection/AutoPlay.texture_normal = load("res://Assets/Others/HUD_Assets/AutoplayON.png")
@@ -23,6 +23,10 @@ func _ready():
         $UI_Selection/AutoPlay.texture_normal = load("res://Assets/Others/HUD_Assets/AutoplayOFF.png")
         
 func _process(_delta: float) -> void:
+    
+    if Input.is_action_just_pressed("DebugMenu"):
+        $"../Debug Menu".visible = !$"../Debug Menu".visible
+    
     var moedas_atuais_nova = int(moedas_label.text)
     if moedas_atuais_nova != moedas_atuais:
         moedas_atuais = moedas_atuais_nova
@@ -467,14 +471,13 @@ func _on_sfx_control_value_changed(value: float) -> void:
 
 
 func _on_auto_play_pressed() -> void:
-    var autoplay = !SaveManager.autoplay
-    
-    SaveManager.save_PlayerSettings(autoplay)
+    SaveManager.autoplay = !SaveManager.autoplay
+    SaveManager.guardar_dados()
 
-    if autoplay == true:
-        $UI_Selection/AutoPlay.texture_normal = load("res://Assets/Others/HUD_Assets/AutoplayON.png")
+    if SaveManager.autoplay == true:
+        $UI_Selection/AutoPlay.texture_normal = preload("res://Assets/Others/HUD_Assets/AutoplayON.png")
     else:
-        $UI_Selection/AutoPlay.texture_normal = load("res://Assets/Others/HUD_Assets/AutoplayOFF.png")
+        $UI_Selection/AutoPlay.texture_normal = preload("res://Assets/Others/HUD_Assets/AutoplayOFF.png")
 
 
 func _on_bt_nsell_mouse_entered() -> void:

@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://14xufr5fl6xl" path="res://Assets/SFXs/EnterShop.wav" id="2_cuuv1"]
 [ext_resource type="Texture2D" uid="uid://ccb2obl058ty7" path="res://Assets/Others/Menu_Assets/Shop/ShopShelves.png" id="2_k6jq0"]
 [ext_resource type="Texture2D" uid="uid://b5widxiw07oea" path="res://Assets/Others/Menu_Assets/Shop/ShopBench.png" id="3_3ps1r"]
+[ext_resource type="AudioStream" uid="uid://cvn3ldwwrk5bn" path="res://Assets/SFXs/BuyItem.wav" id="3_n1qjt"]
+[ext_resource type="AudioStream" uid="uid://2eyjk2ew4sou" path="res://Assets/SFXs/queres_é_mel.wav" id="4_ik0jt"]
 [ext_resource type="Texture2D" uid="uid://bf3h1sw25q0ga" path="res://Assets/Others/Menu_Assets/Shop/LunieSpritesheet.png" id="4_s8dlv"]
 [ext_resource type="Texture2D" uid="uid://bycvxb1136o1f" path="res://Assets/Others/Menu_Assets/Shop/ShopCurtains.png" id="4_ymrm4"]
 [ext_resource type="Texture2D" uid="uid://b1tp4mkfwpc7b" path="res://Assets/Others/Menu_Assets/Shop/LunieHandSpritesheet.png" id="6_tyrku"]
@@ -18,9 +20,13 @@
 [ext_resource type="Texture2D" uid="uid://cwg1grx61mprd" path="res://Assets/Resources/NeoCity/CorruptedCore.png" id="11_mjtuy"]
 [ext_resource type="Texture2D" uid="uid://bxdm41k1j4a2m" path="res://Assets/Bunnies/Skins/Void.png" id="13_1sjcd"]
 [ext_resource type="AudioStream" uid="uid://bxxfvhbqya3lh" path="res://Assets/SFXs/CorruptedCoreShop.wav" id="13_m13ki"]
-[ext_resource type="Texture2D" uid="uid://dky88yfaa0uyc" path="res://Assets/Others/HUD_Assets/PriceTag.png" id="15_cuuv1"]
+[ext_resource type="Texture2D" uid="uid://kkfxx07kuik6" path="res://Assets/Bunnies/Animations/CorruptedBunnyIdle.png" id="17_k7yfq"]
 [ext_resource type="FontFile" uid="uid://c4oqjtn2jr35r" path="res://FontText/Candy Planet.ttf" id="19_3mbjb"]
+[ext_resource type="Texture2D" uid="uid://bcoy4q1yvehe" path="res://Assets/Others/HUD_Assets/CoinPriceTag.png" id="19_6rctg"]
+[ext_resource type="Texture2D" uid="uid://s0yr0b137hpl" path="res://Assets/Bunnies/Animations/CorruptedEyes.png" id="22_dvu38"]
+[ext_resource type="Texture2D" uid="uid://bhla3u2n10pag" path="res://Assets/Others/HUD_Assets/BunnyCoin.png" id="23_1shhe"]
 [ext_resource type="Texture2D" uid="uid://b5le7dshj7l87" path="res://Assets/Others/Others/GameIcon.png" id="23_6rctg"]
+[ext_resource type="Texture2D" uid="uid://dymdg4cg88j8t" path="res://Assets/Bunnies/Animations/CorruptedMouth.png" id="23_k7yfq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xp22"]
 atlas = ExtResource("4_s8dlv")
@@ -641,6 +647,28 @@ animations = [{
 "speed": 42.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_us0dh"]
+atlas = ExtResource("17_k7yfq")
+region = Rect2(0, 0, 1581, 2044)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdcn2"]
+atlas = ExtResource("17_k7yfq")
+region = Rect2(1581, 0, 1581, 2044)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57qmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us0dh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdcn2")
+}],
+"loop": 1,
+"name": &"Corrupted",
+"speed": 9.0
+}]
+
 [sub_resource type="Animation" id="Animation_mjtuy"]
 resource_name = "ChangeItemShop"
 length = 0.2
@@ -655,6 +683,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.135, 0.825), Vector2(0.905, 1.14), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Corrupted:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033668973, 0.101006925, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1827957, 0.18279569), Vector2(0.193, 0.148), Vector2(0.153, 0.193), Vector2(0.1827957, 0.18279569)]
 }
 
 [sub_resource type="Animation" id="Animation_cuuv1"]
@@ -671,12 +711,29 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Corrupted:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1827957, 0.18279569)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yl1pv"]
 _data = {
 &"ChangeItemShop": SubResource("Animation_mjtuy"),
 &"RESET": SubResource("Animation_cuuv1")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1qjt"]
+bg_color = Color(0.6431373, 0.5019608, 0, 0.84705883)
+corner_radius_top_left = 23
+corner_radius_bottom_left = 25
 
 [sub_resource type="Animation" id="Animation_3mbjb"]
 resource_name = "FadeOut"
@@ -739,12 +796,146 @@ _data = {
 &"RESET": SubResource("Animation_k7yfq")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwak5"]
+atlas = ExtResource("22_dvu38")
+region = Rect2(0, 0, 1032, 752)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njmk8"]
+atlas = ExtResource("22_dvu38")
+region = Rect2(1032, 0, 1032, 752)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocemu"]
+atlas = ExtResource("22_dvu38")
+region = Rect2(0, 752, 1032, 752)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl1ft"]
+atlas = ExtResource("22_dvu38")
+region = Rect2(1032, 752, 1032, 752)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwak5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njmk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocemu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl1ft")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7p3u"]
+atlas = ExtResource("23_k7yfq")
+region = Rect2(0, 0, 1356, 706)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bju5g"]
+atlas = ExtResource("23_k7yfq")
+region = Rect2(1356, 0, 1356, 706)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjia7"]
+atlas = ExtResource("23_k7yfq")
+region = Rect2(0, 706, 1356, 706)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7p3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bju5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjia7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="Animation" id="Animation_nl1ft"]
+resource_name = "CorruptedFaceAppear"
+length = 3.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2666667, 3.0333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CorruptedMouth:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2666667, 3.0333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c7p3u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CorruptedMouth:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bju5g"]
+_data = {
+&"CorruptedFaceAppear": SubResource("Animation_nl1ft"),
+&"RESET": SubResource("Animation_c7p3u")
+}
+
 [node name="ShopNode" type="Node2D" unique_id=1018724071]
 script = ExtResource("1_ymrm4")
 
 [node name="ShopSFX" type="AudioStreamPlayer" parent="." unique_id=550996105]
 stream = ExtResource("2_cuuv1")
 volume_db = 3.0
+bus = &"SFX"
+
+[node name="ItemBuy" type="AudioStreamPlayer" parent="." unique_id=1527149263]
+stream = ExtResource("3_n1qjt")
+bus = &"SFX"
+
+[node name="ItemRefuse" type="AudioStreamPlayer" parent="." unique_id=1832544578]
+stream = ExtResource("4_ik0jt")
 bus = &"SFX"
 
 [node name="ShopMusic" type="AudioStreamPlayer" parent="." unique_id=150688681]
@@ -870,6 +1061,16 @@ offset_top = 684.0
 offset_right = 850.0
 offset_bottom = 1047.0
 
+[node name="Corrupted" type="AnimatedSprite2D" parent="PanelItemShop" unique_id=1673892631]
+visible = false
+position = Vector2(180, 359)
+scale = Vector2(0.1827957, 0.18279569)
+sprite_frames = SubResource("SpriteFrames_57qmd")
+animation = &"Corrupted"
+autoplay = "Corrupted"
+frame_progress = 0.06462121
+offset = Vector2(-10.941162, -979.23535)
+
 [node name="ItemShop" type="TextureButton" parent="PanelItemShop" unique_id=1745265972]
 layout_mode = 1
 anchors_preset = 8
@@ -892,15 +1093,15 @@ stretch_mode = 5
 libraries/ = SubResource("AnimationLibrary_yl1pv")
 
 [node name="PriceTag" type="Sprite2D" parent="PanelItemShop" unique_id=58341556]
-position = Vector2(229, 340)
-scale = Vector2(0.34000003, 0.34000003)
-texture = ExtResource("15_cuuv1")
+position = Vector2(225.99998, 331.99997)
+scale = Vector2(0.3900002, 0.3900002)
+texture = ExtResource("19_6rctg")
 
 [node name="Price" type="Label" parent="PanelItemShop/PriceTag" unique_id=1143696724]
-offset_left = -200.56989
-offset_top = -48.31308
-offset_right = 161.43011
-offset_bottom = 57.039948
+offset_left = -243.58963
+offset_top = -46.153847
+offset_right = 118.41037
+offset_bottom = 59.19918
 rotation = -0.06806784
 pivot_offset = Vector2(185.03271, 48.854004)
 theme_override_colors/font_color = Color(0.9098039, 0.70980394, 0, 1)
@@ -943,6 +1144,42 @@ offset_bottom = 1065.0
 theme_override_font_sizes/font_size = 39
 text = "Voltar Menu"
 
+[node name="BunnyCoins" type="Node2D" parent="." unique_id=272029192]
+position = Vector2(1572, 30)
+
+[node name="PretendColorRec___ToT" type="Button" parent="BunnyCoins" unique_id=1820147963]
+offset_left = -8.0
+offset_right = 274.0
+offset_bottom = 91.92
+theme_override_styles/disabled = SubResource("StyleBoxFlat_n1qjt")
+disabled = true
+
+[node name="BunnyCoin" type="Sprite2D" parent="BunnyCoins" unique_id=1999391188]
+position = Vector2(271, 42)
+scale = Vector2(0.48888886, 0.4888889)
+texture = ExtResource("23_1shhe")
+
+[node name="Price" type="Label" parent="BunnyCoins" unique_id=1954981114]
+anchors_preset = -1
+anchor_left = 0.777
+anchor_right = 0.96500003
+anchor_bottom = 0.11800001
+offset_left = 1.0
+offset_top = 24.0
+offset_right = 192.0
+offset_bottom = 73.0
+pivot_offset = Vector2(98, 46)
+theme_override_colors/font_color = Color(0.9019608, 0.6901961, 0.14117648, 1)
+theme_override_colors/font_shadow_color = Color(0.49803922, 0.28235295, 0.11764706, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("19_3mbjb")
+theme_override_font_sizes/font_size = 48
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=135317638]
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -956,6 +1193,29 @@ visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
+
+[node name="Corrupted" type="Node2D" parent="___" unique_id=656081334]
+position = Vector2(948, 636.99994)
+scale = Vector2(0.476, 0.476)
+
+[node name="CorruptedEyes" type="AnimatedSprite2D" parent="___/Corrupted" unique_id=378110112]
+position = Vector2(-61.64753, -547.5722)
+scale = Vector2(1.4362563, 1.4362564)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.54042625
+
+[node name="CorruptedMouth" type="AnimatedSprite2D" parent="___/Corrupted" unique_id=1060373563]
+position = Vector2(-61.647778, 99.81152)
+scale = Vector2(0.99999994, 1)
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+autoplay = "default"
+frame_progress = 0.12921327
+
+[node name="CorruptedFaceAppear" type="AnimationPlayer" parent="___" unique_id=2060295357]
+root_node = NodePath("../Corrupted/CorruptedEyes")
+libraries/ = SubResource("AnimationLibrary_bju5g")
+speed_scale = 0.1
 
 [connection signal="pressed" from="Items/CorruptedCore/CorruptedCore" to="." method="_on_corrupted_core_pressed"]
 [connection signal="pressed" from="ChangeSection" to="." method="change_section"]

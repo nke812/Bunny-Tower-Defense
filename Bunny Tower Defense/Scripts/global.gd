@@ -3,6 +3,8 @@ extends Node
 var title_screen: bool = false
 
 func _ready() -> void :
+    SaveManager.carregar_dados()
+    
     process_mode = Node.PROCESS_MODE_ALWAYS
 
 var cursor_point = load("res://Assets/Others/Others/CursorPoint.png")

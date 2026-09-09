@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cyx0rus3sqtsx" path="res://Assets/Bunnies/Animations/Skins/bunyAttackSpriteSheet.png" id="10_3mwti"]
 [ext_resource type="Texture2D" uid="uid://bw3salfmnpblp" path="res://Assets/Bunnies/Animations/Skins/Paths/buny01AttackSpriteSheet.png" id="11_xji2b"]
 [ext_resource type="Texture2D" uid="uid://cp85p33lm3s28" path="res://Assets/Bunnies/Animations/Skins/Paths/buny02AttackSpriteSheet.png" id="12_cfd32"]
+[ext_resource type="Texture2D" uid="uid://bugyjxq15yklv" path="res://Assets/Bunnies/Animations/Skins/DeliriumAttackSpriteSheet.png" id="13_7r0as"]
 [ext_resource type="Texture2D" uid="uid://c0cfxvyhvvig4" path="res://Assets/Bunnies/Animations/UpgradeAuraSpriteSheet.png" id="15_cfd32"]
 [ext_resource type="Animation" uid="uid://b1g85crk2yvfh" path="res://Others/ChangeSkin.res" id="15_fwte1"]
 
@@ -320,6 +321,46 @@ region = Rect2(1581, 4096, 1581, 2048)
 atlas = ExtResource("12_cfd32")
 region = Rect2(3162, 4096, 1581, 2048)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q46d"]
+atlas = ExtResource("13_7r0as")
+region = Rect2(0, 0, 914, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t20gp"]
+atlas = ExtResource("13_7r0as")
+region = Rect2(914, 0, 914, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ngk5"]
+atlas = ExtResource("13_7r0as")
+region = Rect2(1828, 0, 914, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k3hn"]
+atlas = ExtResource("13_7r0as")
+region = Rect2(2742, 0, 914, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj28q"]
+atlas = ExtResource("13_7r0as")
+region = Rect2(0, 627, 914, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne2qo"]
+atlas = ExtResource("13_7r0as")
+region = Rect2(914, 627, 914, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v27k"]
+atlas = ExtResource("13_7r0as")
+region = Rect2(1828, 627, 914, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pb2t"]
+atlas = ExtResource("13_7r0as")
+region = Rect2(2742, 627, 914, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnfnj"]
+atlas = ExtResource("13_7r0as")
+region = Rect2(0, 1254, 914, 627)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdp72"]
+atlas = ExtResource("13_7r0as")
+region = Rect2(914, 1254, 914, 627)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ted8"]
 animations = [{
 "frames": [{
@@ -549,6 +590,50 @@ animations = [{
 "loop": 0,
 "name": &"RookieSkin02",
 "speed": 67.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q46d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t20gp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ngk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k3hn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj28q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne2qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v27k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pb2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnfnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdp72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnfnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pb2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q46d")
+}],
+"loop": 0,
+"name": &"RookieSkinD",
+"speed": 42.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_55yyg"]
@@ -845,8 +930,8 @@ root_node = NodePath("../../../..")
 libraries/ = SubResource("AnimationLibrary_55yyg")
 
 [node name="RookieHands_Attack" type="AnimatedSprite2D" parent="Pega/Node2D" unique_id=179038366]
-position = Vector2(-9.290322, -353.03223)
-scale = Vector2(0.36539757, 0.3876178)
+position = Vector2(-9.29, -353)
+scale = Vector2(0.365, 0.388)
 sprite_frames = SubResource("SpriteFrames_2ted8")
 animation = &"Rookie"
 

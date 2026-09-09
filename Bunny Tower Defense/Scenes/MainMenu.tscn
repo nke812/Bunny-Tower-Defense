@@ -38,7 +38,9 @@
 [ext_resource type="Texture2D" uid="uid://dm2c8fmqvmfmb" path="res://Assets/Others/UI_Assets/Audio.png" id="23_ux20s"]
 [ext_resource type="Texture2D" uid="uid://djbm03fab8mc7" path="res://Assets/Others/UI_Assets/NewsScreen.png" id="25_fipmv"]
 [ext_resource type="Texture2D" uid="uid://cedo6utiaw60" path="res://Assets/Others/UI_Assets/Fullscreen.png" id="27_3u44c"]
+[ext_resource type="Texture2D" uid="uid://bhla3u2n10pag" path="res://Assets/Others/HUD_Assets/BunnyCoin.png" id="27_r4k1l"]
 [ext_resource type="Texture2D" uid="uid://dtuir6bgm4ixu" path="res://Mods/PINK/PINK.png" id="28_pbfag"]
+[ext_resource type="FontFile" uid="uid://c4oqjtn2jr35r" path="res://FontText/Candy Planet.ttf" id="28_qwpoy"]
 [ext_resource type="Texture2D" uid="uid://cf2cntmbqd0oe" path="res://Assets/Others/Menu_Assets/Maps/MapSandyStreets_Sel.png" id="31_f3d0c"]
 
 [sub_resource type="Animation" id="Animation_jvcv6"]
@@ -373,8 +375,14 @@ _data = {
 &"RESET": SubResource("Animation_7xub0")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.6431373, 0.5019608, 0, 0.84705883)
+corner_radius_top_left = 23
+corner_radius_bottom_left = 25
+
 [sub_resource type="Animation" id="Animation_rrcx7"]
 resource_name = "MenuGoLeft"
+length = 1.4333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -386,6 +394,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 0.4061262, 1),
 "update": 0,
 "values": [Vector2(0, 27), Vector2(28.94, 27), Vector2(-2057.07, 27)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BunnyCoins:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.01, 1.3333334, 1.4333333),
+"transitions": PackedFloat32Array(0.5, 0.5, 1.5),
+"update": 0,
+"values": [Vector2(-468, -126), Vector2(-468, 38.695), Vector2(-468, 22.08)]
 }
 
 [sub_resource type="Animation" id="Animation_fh7cp"]
@@ -401,6 +421,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 27)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../BunnyCoins:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-468, 26)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8e205"]
@@ -1153,6 +1185,42 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_7467j")
 [node name="TitleScreenStartAnim" type="AnimationPlayer" parent="TitleScreenStart" unique_id=993989154]
 libraries/ = SubResource("AnimationLibrary_7xub0")
 autoplay = &"Anim"
+
+[node name="BunnyCoins" type="Node2D" parent="." unique_id=1786968820]
+position = Vector2(-468, 26)
+
+[node name="PretendColorRec___ToT" type="Button" parent="BunnyCoins" unique_id=1065733870]
+offset_left = -8.0
+offset_right = 274.0
+offset_bottom = 91.92
+theme_override_styles/disabled = SubResource("StyleBoxFlat_g4v7s")
+disabled = true
+
+[node name="BunnyCoin" type="Sprite2D" parent="BunnyCoins" unique_id=2035501121]
+position = Vector2(271, 42)
+scale = Vector2(0.48888886, 0.4888889)
+texture = ExtResource("27_r4k1l")
+
+[node name="Price" type="Label" parent="BunnyCoins" unique_id=522859515]
+anchors_preset = -1
+anchor_left = 0.777
+anchor_right = 0.96500003
+anchor_bottom = 0.11800001
+offset_left = 1.0
+offset_top = 24.0
+offset_right = 192.0
+offset_bottom = 73.0
+pivot_offset = Vector2(98, 46)
+theme_override_colors/font_color = Color(0.9019608, 0.6901961, 0.14117648, 1)
+theme_override_colors/font_shadow_color = Color(0.49803922, 0.28235295, 0.11764706, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("28_qwpoy")
+theme_override_font_sizes/font_size = 48
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1713408079]
 position = Vector2(980, 513)

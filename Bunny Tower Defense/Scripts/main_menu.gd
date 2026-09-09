@@ -12,6 +12,9 @@ var map2 = "res://Scenes/Mapas/Map_2.tscn"
 
 
 func _ready() -> void:
+    SaveManager.carregar_dados()
+    $BunnyCoins/Price.text = str(SaveManager.BunnyCoins)
+    
     if Global.title_screen == true:
         $"Bunny???".position = Vector2(-505, -40)
         $Camera2D.offset = Vector2(-2057, 27)

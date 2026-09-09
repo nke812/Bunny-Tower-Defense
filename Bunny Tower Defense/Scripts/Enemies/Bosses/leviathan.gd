@@ -5,6 +5,7 @@ extends CharacterBody2D
 var speed_base = 100
 
 
+
 var goo_stun = false
 
 
