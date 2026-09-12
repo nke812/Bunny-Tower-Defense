@@ -18,15 +18,18 @@
 [ext_resource type="Texture2D" uid="uid://cnjmgb4ou6umi" path="res://Assets/Others/Menu_Assets/Shop/ArrowSelected.png" id="9_5xp22"]
 [ext_resource type="Texture2D" uid="uid://cyn1lms6k0n25" path="res://Assets/Resources/GlimmerRoads/GlimmerRock.png" id="9_mjtuy"]
 [ext_resource type="Texture2D" uid="uid://cwg1grx61mprd" path="res://Assets/Resources/NeoCity/CorruptedCore.png" id="11_mjtuy"]
-[ext_resource type="Texture2D" uid="uid://bxdm41k1j4a2m" path="res://Assets/Bunnies/Skins/Void.png" id="13_1sjcd"]
 [ext_resource type="AudioStream" uid="uid://bxxfvhbqya3lh" path="res://Assets/SFXs/CorruptedCoreShop.wav" id="13_m13ki"]
 [ext_resource type="Texture2D" uid="uid://kkfxx07kuik6" path="res://Assets/Bunnies/Animations/CorruptedBunnyIdle.png" id="17_k7yfq"]
+[ext_resource type="Texture2D" uid="uid://b5le7dshj7l87" path="res://Assets/Others/Others/GameIcon.png" id="18_xv2t3"]
 [ext_resource type="FontFile" uid="uid://c4oqjtn2jr35r" path="res://FontText/Candy Planet.ttf" id="19_3mbjb"]
 [ext_resource type="Texture2D" uid="uid://bcoy4q1yvehe" path="res://Assets/Others/HUD_Assets/CoinPriceTag.png" id="19_6rctg"]
+[ext_resource type="Shader" uid="uid://briiakm7u3aca" path="res://Others/shop.gdshader" id="19_xv2t3"]
+[ext_resource type="Texture2D" uid="uid://dmfwaotuoifff" path="res://Assets/Bunnies/Scrappy.png" id="20_lkkvn"]
 [ext_resource type="Texture2D" uid="uid://s0yr0b137hpl" path="res://Assets/Bunnies/Animations/CorruptedEyes.png" id="22_dvu38"]
 [ext_resource type="Texture2D" uid="uid://bhla3u2n10pag" path="res://Assets/Others/HUD_Assets/BunnyCoin.png" id="23_1shhe"]
-[ext_resource type="Texture2D" uid="uid://b5le7dshj7l87" path="res://Assets/Others/Others/GameIcon.png" id="23_6rctg"]
 [ext_resource type="Texture2D" uid="uid://dymdg4cg88j8t" path="res://Assets/Bunnies/Animations/CorruptedMouth.png" id="23_k7yfq"]
+[ext_resource type="Texture2D" uid="uid://csii6gxypsa4o" path="res://Assets/Others/Menu_Assets/Shop/Return.png" id="25_lkkvn"]
+[ext_resource type="Texture2D" uid="uid://bae58n1whs2bo" path="res://Assets/Others/Menu_Assets/Shop/ReturnSelected.png" id="26_xv2t3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xp22"]
 atlas = ExtResource("4_s8dlv")
@@ -647,6 +650,10 @@ animations = [{
 "speed": 42.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lkkvn"]
+shader = ExtResource("19_xv2t3")
+shader_parameter/ativo = false
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_us0dh"]
 atlas = ExtResource("17_k7yfq")
 region = Rect2(0, 0, 1581, 2044)
@@ -668,6 +675,10 @@ animations = [{
 "name": &"Corrupted",
 "speed": 9.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("19_xv2t3")
+shader_parameter/ativo = false
 
 [sub_resource type="Animation" id="Animation_mjtuy"]
 resource_name = "ChangeItemShop"
@@ -1045,15 +1056,6 @@ sprite_frames = SubResource("SpriteFrames_rignr")
 position = Vector2(960, 540)
 texture = ExtResource("4_ymrm4")
 
-[node name="ChangeSection" type="TextureButton" parent="." unique_id=1022510504]
-offset_left = 201.0
-offset_top = 675.0
-offset_right = 279.3688
-offset_bottom = 750.0
-texture_normal = ExtResource("23_6rctg")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="PanelItemShop" type="Panel" parent="." unique_id=1810449480]
 self_modulate = Color(1, 1, 1, 0)
 offset_left = 487.0
@@ -1061,8 +1063,19 @@ offset_top = 684.0
 offset_right = 850.0
 offset_bottom = 1047.0
 
+[node name="ChangeSection" type="TextureButton" parent="PanelItemShop" unique_id=408969085]
+layout_mode = 0
+offset_left = -296.0
+offset_top = -14.0
+offset_right = -207.0
+offset_bottom = 75.0
+texture_normal = ExtResource("18_xv2t3")
+ignore_texture_size = true
+stretch_mode = 4
+
 [node name="Corrupted" type="AnimatedSprite2D" parent="PanelItemShop" unique_id=1673892631]
 visible = false
+material = SubResource("ShaderMaterial_lkkvn")
 position = Vector2(180, 359)
 scale = Vector2(0.1827957, 0.18279569)
 sprite_frames = SubResource("SpriteFrames_57qmd")
@@ -1072,6 +1085,7 @@ frame_progress = 0.06462121
 offset = Vector2(-10.941162, -979.23535)
 
 [node name="ItemShop" type="TextureButton" parent="PanelItemShop" unique_id=1745265972]
+material = SubResource("ShaderMaterial_g4v7s")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1085,7 +1099,7 @@ offset_bottom = 177.57977
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(133.5, 330.07977)
-texture_normal = ExtResource("13_1sjcd")
+texture_normal = ExtResource("20_lkkvn")
 ignore_texture_size = true
 stretch_mode = 5
 
@@ -1110,7 +1124,7 @@ theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 5
 theme_override_fonts/font = ExtResource("19_3mbjb")
 theme_override_font_sizes/font_size = 84
-text = "5.500"
+text = "Aramba"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1136,13 +1150,15 @@ ignore_texture_size = true
 stretch_mode = 0
 flip_h = true
 
-[node name="Exit" type="Button" parent="." unique_id=847975384]
-offset_left = 1490.0
-offset_top = 915.0
-offset_right = 1904.0
-offset_bottom = 1065.0
-theme_override_font_sizes/font_size = 39
-text = "Voltar Menu"
+[node name="Exit" type="TextureButton" parent="." unique_id=1608404758]
+offset_left = 1621.0
+offset_top = 793.0
+offset_right = 1901.0
+offset_bottom = 1073.0
+texture_normal = ExtResource("25_lkkvn")
+texture_hover = ExtResource("26_xv2t3")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="BunnyCoins" type="Node2D" parent="." unique_id=272029192]
 position = Vector2(1572, 30)
@@ -1179,6 +1195,12 @@ text = "0
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HAPPYMOD" type="TextureButton" parent="." unique_id=608753494]
+offset_left = 1811.0
+offset_top = 37.0
+offset_right = 1910.0
+offset_bottom = 134.0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=135317638]
 offset_right = 1920.0
@@ -1218,8 +1240,9 @@ libraries/ = SubResource("AnimationLibrary_bju5g")
 speed_scale = 0.1
 
 [connection signal="pressed" from="Items/CorruptedCore/CorruptedCore" to="." method="_on_corrupted_core_pressed"]
-[connection signal="pressed" from="ChangeSection" to="." method="change_section"]
+[connection signal="pressed" from="PanelItemShop/ChangeSection" to="." method="change_section"]
 [connection signal="pressed" from="PanelItemShop/ItemShop" to="." method="_on_item_shop_pressed"]
 [connection signal="pressed" from="ArrowSelectLeft" to="." method="Item_shop_anterior"]
 [connection signal="pressed" from="ArrowSelectRight" to="." method="Item_shop_seguinte"]
 [connection signal="pressed" from="Exit" to="." method="Voltar_Menu"]
+[connection signal="pressed" from="HAPPYMOD" to="." method="_on_texture_button_pressed"]

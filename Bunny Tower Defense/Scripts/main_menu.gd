@@ -206,3 +206,7 @@ func _on_shop_btn_pressed() -> void:
     await $ColorRect/FadeIn.animation_finished
     
     get_tree().change_scene_to_file("res://Scenes/shop.tscn")
+
+
+func _on_texture_button_pressed() -> void:
+    SaveManager.reset_save()

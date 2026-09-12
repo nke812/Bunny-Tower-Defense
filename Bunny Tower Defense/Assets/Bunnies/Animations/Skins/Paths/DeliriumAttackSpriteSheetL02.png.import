@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bugyjxq15yklv"
-path="res://.godot/imported/DeliriumAttackSpriteSheet.png-bd839adde7d185b525ea72bbd47607fa.ctex"
+uid="uid://vslwa1qbv2ew"
+path="res://.godot/imported/DeliriumAttackSpriteSheetL02.png-bd3049e0bd22c91a0ba77c7ad6acf4b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Bunnies/Animations/Skins/DeliriumAttackSpriteSheet.png"
-dest_files=["res://.godot/imported/DeliriumAttackSpriteSheet.png-bd839adde7d185b525ea72bbd47607fa.ctex"]
+source_file="res://Assets/Bunnies/Animations/Skins/Paths/DeliriumAttackSpriteSheetL02.png"
+dest_files=["res://.godot/imported/DeliriumAttackSpriteSheetL02.png-bd3049e0bd22c91a0ba77c7ad6acf4b4.ctex"]
 
 [params]
 

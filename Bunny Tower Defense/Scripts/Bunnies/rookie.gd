@@ -17,6 +17,16 @@ var dmg_Rookie = 1
 
 var dmg_total = dmg_Rookie + dmg_Mystical
 
+@onready var hands = [
+    $Pega/Node2D/RookieHands_Attack,
+    $Pega/Node2D/Delirium_AttackR,
+    $Pega/Node2D/Delirium_AttackL
+]
+
+func tocar_ataque() -> void:
+    for no in hands:
+        no.play()
+
 var focus = false
 
 var path1 = 0
@@ -58,7 +68,7 @@ func verificar_e_atacar():
 func atacar(alvo):
     if alvo.has_method("DMGED"):
         $Pega/Node2D/Rookie/AnimationPlayer.play("RookieAttack")
-        $Pega/Node2D/RookieHands_Attack.play()
+        tocar_ataque()
         
         var sons_hit = [$Hit, $Hit2, $Hit3]
         var som_sorteado = sons_hit[randi() % sons_hit.size()]

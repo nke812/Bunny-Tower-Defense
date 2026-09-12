@@ -11,12 +11,22 @@ var ScrappyUnlocked: bool = false
 var GhoulishUnlocked: bool = false
 var MysticalUnlocked: bool = false
 var CorruptedUnlocked: bool = false
+var AlienUnlocked: bool = false
+var DollUnlocked: bool = false
+var MoltenUnlocked: bool = false
+var ToastyUnlocked: bool = false
+var VoodoUnlocked: bool = false
 
 var bunyUnlocked: bool = false
 var CanelaUnlocked: bool = false
 var CatharsisUnlocked: bool = false
 var VoidUnlocked: bool = false
 var ZeRonUnlocked: bool = false
+var DeliriumUnlocked: bool = false
+var BunnyPoolUnlocked: bool = false
+var GirUnlocked: bool = false
+
+var RookieSkinSelected = ""
 
 func _ready() -> void:
     carregar_dados()
@@ -38,12 +48,22 @@ func carregar_dados() -> void:
     GhoulishUnlocked = config.get_value("Bunnies", "Ghoulish", false)
     MysticalUnlocked = config.get_value("Bunnies", "Mystical", false)
     CorruptedUnlocked = config.get_value("Bunnies", "Corrupted", false)
+    AlienUnlocked = config.get_value("Bunnies", "Alien", false)
+    DollUnlocked = config.get_value("Bunnies", "Doll", false)
+    MoltenUnlocked = config.get_value("Bunnies", "Molten", false)
+    ToastyUnlocked = config.get_value("Bunnies", "Toasty", false)
+    VoodoUnlocked = config.get_value("Bunnies", "Voodo", false)
     
     bunyUnlocked = config.get_value("Skins", "buny", false)
     CanelaUnlocked = config.get_value("Skins", "Canela", false)
     CatharsisUnlocked = config.get_value("Skins", "Catharsis", false)
     VoidUnlocked = config.get_value("Skins", "Void", false)
     ZeRonUnlocked = config.get_value("Skins", "Zé Ron", false)
+    GirUnlocked = config.get_value("Skins", "Gir", false)
+    BunnyPoolUnlocked = config.get_value("Skins", "Bunny Pool", false)
+    DeliriumUnlocked = config.get_value("Skins", "Delirium", false)
+    
+    RookieSkinSelected = config.get_value("SkinSelected", "RookieSkin", "")
     
 func guardar_dados() -> void:
     var config = ConfigFile.new()
@@ -57,12 +77,22 @@ func guardar_dados() -> void:
     config.set_value("Bunnies", "Ghoulish", GhoulishUnlocked)
     config.set_value("Bunnies", "Mystical", MysticalUnlocked)
     config.set_value("Bunnies", "Corrupted", CorruptedUnlocked)
+    config.set_value("Bunnies", "Alien", AlienUnlocked)
+    config.set_value("Bunnies", "Doll", DollUnlocked)
+    config.set_value("Bunnies", "Molten", MoltenUnlocked)
+    config.set_value("Bunnies", "Toasty", ToastyUnlocked)
+    config.set_value("Bunnies", "Voodo", VoodoUnlocked)
     
     config.set_value("Skins", "buny", bunyUnlocked)
     config.set_value("Skins", "Canela", CanelaUnlocked)
     config.set_value("Skins", "Catharsis", CatharsisUnlocked)
     config.set_value("Skins", "Void", VoidUnlocked)
     config.set_value("Skins", "Zé Ron", ZeRonUnlocked)
+    config.set_value("Skins", "Gir", GirUnlocked)
+    config.set_value("Skins", "Delirium", DeliriumUnlocked)
+    config.set_value("Skins", "Bunny Pool", BunnyPoolUnlocked)
+    
+    config.set_value("SkinSelected", "RookieSkin", RookieSkinSelected)
     
     config.save(SAVE_PATH)
 
@@ -75,21 +105,39 @@ func unlock_corrupted() -> void:
 func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("Reset"):
         reset_save()
+    
+    if event.is_action_pressed("SaveLoad"):
+        guardar_dados()
+        carregar_dados()
+        
+    
 
 func reset_save() -> void:
-    if Input.is_action_just_pressed("Reset"):
-        BunnyCoins = 500
-        autoplay = false
-        CorruptedVisible = false
-        ScrappyUnlocked = false
-        GhoulishUnlocked = false
-        MysticalUnlocked = false
-        CorruptedUnlocked = false
-        bunyUnlocked = false
-        CanelaUnlocked = false
-        CatharsisUnlocked = false
-        VoidUnlocked = false
-        ZeRonUnlocked = false
+    BunnyCoins = 500
+    autoplay = false
+    CorruptedVisible = false
         
-        guardar_dados()
-        get_tree().reload_current_scene()
+    ScrappyUnlocked = false
+    GhoulishUnlocked = false
+    MysticalUnlocked = false
+    CorruptedUnlocked = false
+    AlienUnlocked = false
+    DollUnlocked = false
+    MoltenUnlocked = false
+    ToastyUnlocked = false
+    VoodoUnlocked = false
+
+    bunyUnlocked = false
+    CanelaUnlocked = false
+    CatharsisUnlocked = false
+    VoidUnlocked = false
+    ZeRonUnlocked = false
+    DeliriumUnlocked = false
+    BunnyPoolUnlocked = false
+    GirUnlocked = false
+    
+    
+    RookieSkinSelected = ""
+        
+    guardar_dados()
+    get_tree().reload_current_scene()

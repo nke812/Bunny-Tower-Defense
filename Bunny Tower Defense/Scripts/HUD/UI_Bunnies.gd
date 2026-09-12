@@ -34,7 +34,24 @@ func _ready() -> void:
     SaveManager.carregar_dados()
     
     if SaveManager.CorruptedUnlocked == true: $ScrollContainer/GridContainer/Corrupted_BG_stun.visible = true
-    else: $ScrollContainer/GridContainer/Corrupted_BG_stun.visible = false   
+    else: $ScrollContainer/GridContainer/Corrupted_BG_stun.visible = false
+    if SaveManager.ScrappyUnlocked == true: $ScrollContainer/GridContainer/Scrappy_BG_stun.visible = true
+    else: $ScrollContainer/GridContainer/Scrappy_BG_stun.visible = false
+    if SaveManager.GhoulishUnlocked == true: $ScrollContainer/GridContainer/Ghoulish_BG_stun.visible = true
+    else: $ScrollContainer/GridContainer/Ghoulish_BG_stun.visible = false
+    if SaveManager.MysticalUnlocked == true: $ScrollContainer/GridContainer/Mystical_BG_support.visible = true
+    else: $ScrollContainer/GridContainer/Mystical_BG_support.visible = false
+    if SaveManager.AlienUnlocked == true: $ScrollContainer/GridContainer/Alien_BG_dps.visible = true
+    else: $ScrollContainer/GridContainer/Alien_BG_dps.visible = false
+    if SaveManager.ToastyUnlocked == true: $ScrollContainer/GridContainer/Toasty_BG_dps.visible = true
+    else: $ScrollContainer/GridContainer/Toasty_BG_dps.visible = false
+    if SaveManager.VoodoUnlocked == true: $ScrollContainer/GridContainer/Voodo_BG_stun.visible = true
+    else: $ScrollContainer/GridContainer/Voodo_BG_stun.visible = false
+    if SaveManager.MoltenUnlocked == true: $ScrollContainer/GridContainer/Molten_BG_dps.visible = true
+    else: $ScrollContainer/GridContainer/Molten_BG_dps.visible = false
+    if SaveManager.DollUnlocked == true: $ScrollContainer/GridContainer/Doll_BG_stun.visible = true
+    else: $ScrollContainer/GridContainer/Doll_BG_stun.visible = false
+    
     
     atualizar_loja_botoes()
 
