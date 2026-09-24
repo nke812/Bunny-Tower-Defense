@@ -26,6 +26,9 @@ var coelhos_no_raio: Array = []
 # Guardamos o raio inicial para podermos multiplicar corretamente nos upgrades do Path 2
 var raio_base: float = 0.0
 
+# No script mystical.gd
+var nivel_mystical: int = 0
+
 func _ready() -> void:
     posicionado = true
     

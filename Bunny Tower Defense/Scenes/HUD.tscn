@@ -2277,7 +2277,7 @@ libraries/ = SubResource("AnimationLibrary_pimpp")
 
 [node name="MenuSettings" type="Sprite2D" parent="HUD/UI_Selection/Victory" unique_id=493482756]
 modulate = Color(0.8862745, 0.8862745, 0.8862745, 1)
-position = Vector2(969.0001, 496.00006)
+position = Vector2(966.0001, 527.00006)
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("3_yrvoj")
 
@@ -2287,10 +2287,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1614.0393
-offset_top = -678.08875
-offset_right = -743.41986
-offset_bottom = -403.8628
+offset_left = -571.1688
+offset_top = -281.55844
+offset_right = -164.67526
+offset_bottom = -181.35846
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.59832734, 0.36597556, 0.7490196)
@@ -2298,19 +2298,19 @@ theme_override_colors/font_pressed_color = Color(0.97512275, 0.4593264, 3.85046e
 theme_override_colors/font_hover_color = Color(1, 0.82651573, 0.73310596, 0.7490196)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("9")
-theme_override_font_sizes/font_size = 66
+theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("72_k3q0p")
 theme_override_styles/pressed = ExtResource("73_cgiap")
 theme_override_styles/hover = ExtResource("74_ki85q")
-text = "Voltar ao Menu"
+text = "Back to Menu"
 
 [node name="Label" type="Label" parent="HUD/UI_Selection/Victory/MenuSettings" unique_id=1901669782]
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -2.845049
-offset_top = -657.187
-offset_right = -1471.845
-offset_bottom = -537.7659
+offset_left = -431.16882
+offset_top = -144.15584
+offset_right = -645.1688
+offset_bottom = -24.734756
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7019608)
@@ -2318,28 +2318,31 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0.4392157)
 theme_override_fonts/font = ExtResource("4")
 theme_override_font_sizes/font_size = 107
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ornx7")
-text = "VITÓRIA!"
+text = "VICTORY!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="HUD/UI_Selection/Victory/MenuSettings/Label" unique_id=1628716608]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = -768.14087
-offset_top = 412.5199
-offset_right = -72.14093
-offset_bottom = 661.5199
-grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7019608)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 0.4392157)
+[node name="BunnyCoinsEarn" type="Label" parent="HUD/UI_Selection/Victory" unique_id=1469173054]
+layout_mode = 0
+offset_left = 694.00006
+offset_top = 511.00006
+offset_right = 932.0001
+offset_bottom = 617.00006
 theme_override_fonts/font = ExtResource("4")
-theme_override_font_sizes/font_size = 107
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ornx7")
-text = "Obrigado por jogar
-Bunny Tower Defense!"
+theme_override_font_sizes/font_size = 48
+text = "You earn:"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coins" type="Label" parent="HUD/UI_Selection/Victory" unique_id=736645048]
+layout_mode = 0
+offset_left = 935.0001
+offset_top = 541.00006
+offset_right = 1133.0001
+offset_bottom = 594.00006
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 48
+text = "56"
 vertical_alignment = 1
 
 [node name="VictorySFX" type="AudioStreamPlayer" parent="HUD/UI_Selection" unique_id=1913920607]
@@ -2759,6 +2762,7 @@ text = "VOLTAR"
 expand_icon = true
 
 [node name="Seta" type="Button" parent="Debug Menu/Panel" unique_id=218959555]
+visible = false
 layout_mode = 0
 offset_left = 274.0
 offset_top = 310.83

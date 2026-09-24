@@ -19,7 +19,6 @@ extends Node2D
 
 @onready var Undead_Ghostling = load("res://Scenes/Enemies/Ghostling/undead_ghostling.tscn")
 
-
 var rodada_atual = 1
 var inimigos_vivos = 0
 var vaga_atual = []
@@ -29,13 +28,12 @@ var moedas_fim_ronda = 115
 var moedas_fim_ronda_bonus = 0
 var moedas_fim_ronda_total = moedas_fim_ronda + moedas_fim_ronda_bonus
 
-
 func _ready() -> void:
     atualizar_contador_rondas()
 
 func _process(_delta):
     var botao_start = get_tree().get_first_node_in_group("start_button")
-    if botao_start:
+    if botao_start and has_node("Timer"):
         if inimigos_vivos > 0 or not $Timer.is_stopped():
             botao_start.disabled = true
         else:
@@ -44,11 +42,12 @@ func _process(_delta):
 func iniciar_vaga():
     var hud = get_tree().get_first_node_in_group("HUD")
     ronda_a_decorrer = true
-     
+    
     match rodada_atual:
         1: 
             vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling, Ghostling]
-            $"../StarRound".play()
+            if has_node("../StarRound"):
+                $"../StarRound".play()
             
         2: vaga_atual = [Ghostling, Ghostling, Ghostling, Ghostling, Ghazt, Ghazt, Ghostling, Ghostling, Ghazt, Ghazt]
         3: vaga_atual = [Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt, Ghazt]
@@ -59,8 +58,7 @@ func iniciar_vaga():
         8: vaga_atual = [Ghaztling, Ghazt, Ghazt, Ghaztling, Ghazt, Ghazt, Ghaztling, Ghazt, Ghazt]
         9: vaga_atual = [Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghostling, Ghostling, Ghostling, Ghostling, Ghoul, Ghoul]
         10: vaga_atual = [Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling, Ghaztling]
-    
-        # --- [11 a 20] ERUPÇÃO DE MINI-FANTASMAS (Ghaztlings Rápidos) ---
+
         11: vaga_atual = [Ghostling, Ghazt, Ghostling, Ghazt, Ghoul]
         12: vaga_atual = [Ghazt, Ghazt, Ghaztling, Ghaztling, Ghazt]
         13: vaga_atual = [Ghoul, Ghoul, Ghostling, Ghostling, Ghaztling, Ghaztling]
@@ -72,7 +70,6 @@ func iniciar_vaga():
         19: vaga_atual = [Ghaztling, Ghaztling, Ghoul, Ghoul, Ghoul, Ghoul]
         20: vaga_atual = [Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul, Ghoul]
 
-        # --- [21 a 30] TRANSIÇÃO PARA AVANÇADOS (Introdução de Ghazely - Imune a Stun) ---
         21: vaga_atual = [Ghoul, Ghoul, Ghazely]
         22: vaga_atual = [Ghazt, Ghazt, Ghazely, Ghostling, Ghostling]
         23: vaga_atual = [Ghaztling, Ghaztling, Ghazely, Ghazely]
@@ -84,7 +81,6 @@ func iniciar_vaga():
         29: vaga_atual = [Ghazt, Ghazely, Ghazely, Ghazely, Ghazt, Ghaztling]
         30: vaga_atual = [Ghazely, Ghazely, Ghazely, Ghazely, Ghazely, Ghazely, Ghazely, Ghazely]
 
-        # --- [31 a 40] ENTRADA DE ALVOS PESADOS (Enhanced_Ghaztling e Enhanced_Ghoul) ---
         31: vaga_atual = [Ghazely, Ghazely, Enhanced_Ghaztling]
         32: vaga_atual = [Ghoul, Ghoul, Enhanced_Ghaztling, Enhanced_Ghaztling]
         33: vaga_atual = [Ghaztling, Ghaztling, Enhanced_Ghaztling, Ghazely, Ghazely]
@@ -96,28 +92,24 @@ func iniciar_vaga():
         39: vaga_atual = [Ghazely, Enhanced_Ghaztling, Enhanced_Ghoul, Ghazely]
         40: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul]
 
-        # --- [41 a 49] PRESSÃO PRÉ-BOSS ---
         41: vaga_atual = [Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghoul, Enhanced_Ghoul]
         42: vaga_atual = [Ghazely, Ghazely, Ghazely, Enhanced_Ghoul, Enhanced_Ghoul]
         43: vaga_atual = [Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghoul, Enhanced_Ghoul]
         44: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul]
         45: 
             vaga_atual = [Ghazely, Ghazely, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling]
-            
-            hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
-            await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
-            
-            hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
+            if hud and hud.has_node("HUD_Shop/EventSign/Placa"):
+                hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
+                await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
+                hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
             
         46: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghaztling, Enhanced_Ghaztling]
         47: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul]
         48: vaga_atual = [Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling]
         49: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling]
 
-        # --- [50] PRIMEIRO CHEFE ---
         50: vaga_atual = [Leviathan]
 
-        # --- [51 a 60] LEVIATHAN TORNA-SE COMUM + NASCIMENTO DOS BRUTES ---
         51: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul]
         52: vaga_atual = [Brute, Enhanced_Ghaztling, Enhanced_Ghaztling]
         53: vaga_atual = [Brute, Enhanced_Ghoul, Enhanced_Ghoul]
@@ -129,32 +121,26 @@ func iniciar_vaga():
         59: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Brute, Unholy_Phantasm]
         60: vaga_atual = [Brute, Brute, Brute, Brute]
 
-        # --- [61 a 69] CAOS DE BRUTES ---
         61: vaga_atual = [Brute, Brute, Leviathan]
         62: vaga_atual = [Enhanced_Ghaztling, Enhanced_Ghaztling, Enhanced_Ghaztling, Brute, Brute]
         63: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Enhanced_Ghoul, Brute, Brute]
         64: vaga_atual = [Leviathan, Brute, Leviathan]
         65: 
             vaga_atual = [Brute, Brute, Brute, Enhanced_Ghaztling, Enhanced_Ghaztling]
-            
-            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = load("res://Assets/Enemies/Bosses/Azazel.png")
-            hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 70:"
-            
-            hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
-            await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
-            
-            hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
-            
+            if hud and hud.has_node("HUD_Shop/EventSign/Placa"):
+                hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = load("res://Assets/Enemies/Bosses/Azazel.png")
+                hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 70:"
+                hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
+                await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
+                hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
             
         66: vaga_atual = [Enhanced_Ghoul, Enhanced_Ghoul, Brute, Brute, Brute]
         67: vaga_atual = [Leviathan, Leviathan, Brute]
         68: vaga_atual = [Brute, Brute, Brute, Brute, Brute]
         69: vaga_atual = [Brute, Brute, Leviathan, Leviathan, Enhanced_Ghoul]
 
-        # --- [70] SEGUNDO CHEFE ---
         70: vaga_atual = [Azazel]
 
-        # --- [71 a 84] INJEÇÃO DE AZAZEL E LEVIATHAN NAS VAGAS ---
         71: vaga_atual = [Brute, Brute, Azazel]
         72: vaga_atual = [Leviathan, Leviathan, Azazel]
         73: vaga_atual = [Brute, Brute, Brute, Leviathan, Leviathan]
@@ -166,24 +152,20 @@ func iniciar_vaga():
         79: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Leviathan]
         80: 
             vaga_atual = [Azazel, Brute, Brute, Leviathan, Enhanced_Ghoul]
-            
-            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = load("res://Assets/Enemies/Bosses/Belzebu.png")
-            hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 85:"
-            
-            hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
-            await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
-            
-            hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
+            if hud and hud.has_node("HUD_Shop/EventSign/Placa"):
+                hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = load("res://Assets/Enemies/Bosses/Belzebu.png")
+                hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 85:"
+                hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
+                await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
+                hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
             
         81: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Brute, Brute]
         82: vaga_atual = [Azazel, Leviathan, Azazel]
         83: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute]
         84: vaga_atual = [Azazel, Azazel, Brute, Brute]
 
-        # --- [85] TERCEIRO CHEFE ---
         85: vaga_atual = [Belzebu]
 
-        # --- [86 a 99] INTRODUÇÃO DE UNHOLY PHANTASM (MUTAÇÕES RÁPIDAS) ---
         86: vaga_atual = [Brute, Brute, Unholy_Phantasm]
         87: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm]
         88: vaga_atual = [Belzebu, Unholy_Phantasm]
@@ -199,7 +181,6 @@ func iniciar_vaga():
         98: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Belzebu, Unholy_Phantasm, Unholy_Phantasm]
         99: vaga_atual = [Belzebu, Azazel, Leviathan]
 
-        # --- [100 a 109] APOCALIPSE ANTES DO QUARTO BOSS ---
         100: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute, Brute]
         101: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Belzebu]
         102: vaga_atual = [Belzebu, Belzebu, Brute, Brute]
@@ -207,24 +188,20 @@ func iniciar_vaga():
         104: vaga_atual = [Azazel, Azazel, Belzebu]
         105: 
             vaga_atual = [Brute, Brute, Brute, Brute, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm]
-            
-            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = load("res://Assets/Enemies/Bosses/Fenrir.png")
-            hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 110:"
-            
-            hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
-            await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
-            
-            hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
+            if hud and hud.has_node("HUD_Shop/EventSign/Placa"):
+                hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = load("res://Assets/Enemies/Bosses/Fenrir.png")
+                hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 110:"
+                hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
+                await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
+                hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
             
         106: vaga_atual = [Belzebu, Belzebu, Belzebu]
         107: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm]
         108: vaga_atual = [Brute, Brute, Brute, Brute, Brute, Belzebu, Belzebu]
         109: vaga_atual = [Belzebu, Azazel, Belzebu, Azazel]
 
-        # --- [110] QUARTO CHEFE (Vem em matilha de 3!) ---
         110: vaga_atual = [Fenrir, Fenrir, Fenrir]
 
-        # --- [111 a 125] MATILHAS DE FENRIRS MISTURADAS NAS RONDAS ---
         111: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Fenrir, Fenrir, Fenrir]
         112: vaga_atual = [Brute, Brute, Fenrir, Fenrir, Fenrir, Fenrir]
         113: vaga_atual = [Belzebu, Fenrir, Fenrir, Fenrir]
@@ -241,7 +218,6 @@ func iniciar_vaga():
         124: vaga_atual = [Brute, Brute, Brute, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
         125: vaga_atual = [Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
 
-        # --- [126 a 139] ENTRADA DE COMBINAÇÕES TRIPLAS DE BOSSES ---
         126: vaga_atual = [Leviathan, Azazel, Belzebu]
         127: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Fenrir, Fenrir, Fenrir]
         128: vaga_atual = [Belzebu, Belzebu, Fenrir, Fenrir, Fenrir, Fenrir]
@@ -257,7 +233,6 @@ func iniciar_vaga():
         138: vaga_atual = [Azazel, Azazel, Belzebu, Belzebu, Fenrir, Fenrir, Fenrir]
         139: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Belzebu, Belzebu, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
 
-        # --- [140 a 149] RETA FINAL: O PURGATÓRIO ---
         140: vaga_atual = [Belzebu, Belzebu, Belzebu, Belzebu, Belzebu]
         141: vaga_atual = [Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
         142: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm]
@@ -265,30 +240,30 @@ func iniciar_vaga():
         144: vaga_atual = [Azazel, Azazel, Azazel, Azazel, Azazel]
         145: 
             vaga_atual = [Belzebu, Belzebu, Belzebu, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
-            
-            hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = load("res://Assets/Enemies/Bosses/Lucifer.png")
-            hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 150:"
-            
-            hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
-            await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
-            
-            hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
+            if hud and hud.has_node("HUD_Shop/EventSign/Placa"):
+                hud.get_node("HUD_Shop/EventSign/Sprite2D").texture = load("res://Assets/Enemies/Bosses/Lucifer.png")
+                hud.get_node("HUD_Shop/EventSign/Label").text = "Ronda 150:"
+                hud.get_node("HUD_Shop/EventSign/Placa").play("Placa")
+                await hud.get_node("HUD_Shop/EventSign/Placa").animation_finished
+                hud.get_node("HUD_Shop/EventSign/Placa").play_backwards("Placa")
         146: vaga_atual = [Leviathan, Leviathan, Azazel, Azazel, Belzebu, Belzebu, Fenrir, Fenrir, Fenrir, Fenrir]
         147: vaga_atual = [Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Unholy_Phantasm, Brute, Brute, Brute, Brute, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
         148: vaga_atual = [Belzebu, Belzebu, Belzebu, Belzebu, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
         149: vaga_atual = [Azazel, Azazel, Belzebu, Belzebu, Belzebu, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir, Fenrir]
 
-        # --- [150] O CHEFE FINAL DO JOGO ---
         150: vaga_atual = [Lucifer]
 
-    $Timer.start()
+    if has_node("Timer"):
+        $Timer.start()
 
 func _on_timer_timeout():
     if vaga_atual.size() > 0:
         var cena_do_inimigo = vaga_atual.pop_front()
         var novo_fantasma = cena_do_inimigo.instantiate()
-        get_node("../Path2D").add_child(novo_fantasma)
-        inimigos_vivos += 1
+        var path = get_node_or_null("../Path2D")
+        if path:
+            path.add_child(novo_fantasma)
+            inimigos_vivos += 1
     else:
         $Timer.stop()
 
@@ -302,7 +277,7 @@ func inimigo_morreu():
         ronda_a_decorrer = false
         
         if rodada_atual == 150:
-            if hud:
+            if hud and hud.has_method("victory"):
                 hud.victory()
             return
         
@@ -313,7 +288,7 @@ func inimigo_morreu():
         rodada_atual += 1
         atualizar_contador_rondas()
         
-        if SaveManager.autoplay == true:
+        if typeof(SaveManager) != TYPE_NIL and "autoplay" in SaveManager and SaveManager.autoplay == true:
             iniciar_vaga()
 
 func atualizar_contador_rondas() -> void:

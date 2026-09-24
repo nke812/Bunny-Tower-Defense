@@ -6,7 +6,7 @@ var speed_base = 200
 
 var goo_stun = false
 
-func _physics_process(delta):
+func _process(delta):
     var pf = get_parent() as PathFollow2D
     pf.progress += speed * delta
 
@@ -16,7 +16,7 @@ func _physics_process(delta):
         var spawner_no = get_tree().get_first_node_in_group("spawner")
         spawner_no.inimigo_morreu()
         get_parent().queue_free()
-
+    
 func DMGED(quantidade):
     var moedas = get_tree().current_scene.find_child("Moedas")
     var valor_atual = int(moedas.text)
