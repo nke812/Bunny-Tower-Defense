@@ -1,48 +1,106 @@
-# Bunny Tower Defense
+<div align="center">
 
-<img width="2880" height="2160" alt="GameLogo" src="https://github.com/user-attachments/assets/bfd7808d-faa2-438f-9ce3-842d9fbea578" />
+# ⚡ BUNNY BLITZ DEFENSE ⚡
 
-![Versão](https://img.shields.io/badge/Versão-Alpha-orange)
-![Engine](https://img.shields.io/badge/Engine-Godot_4.x-blue)
+**A fast-paced, high-contrast arcade defense game.**
 
-**Bunny Tower Defense** é um jogo de estratégia inspirado em clássicos como BTD6, onde a fofura dos Bunnies enfrenta o terror dos Ghostlings. Com eventos aleatórios e uma progressão profunda, cada partida oferece um desafio único.
+*Developed by **nke812** & **T0MS***
 
----
-
-## O Jogo
-<img width="1500" height="500" alt="Bunnies" src="https://github.com/user-attachments/assets/7f39d67d-3ab2-4cc1-88be-9df94d799084" />
-
-Em um mundo onde o etéreo invade o tangível, os **Bunnies** são a última linha de defesa. 
-* **Defesa Estratégica:** 10 Bunnies jogáveis com classes e árvores de upgrades distintas.
-* **Ameaça Espectral:** 10 tipos de Ghostlings e 5 Bosses Demônios com habilidades únicas.
-* **Economia de Cenouras:** Gestão de recursos crítica para sobrevivência.
-* **Caos Aleatório:** Eventos de gameplay que mudam as regras a meio da partida.
-
-
-## Stack Técnica & Equipa
-<img width="1500" height="500" alt="Ghosts" src="https://github.com/user-attachments/assets/21f04d57-f89d-4710-a555-29ca17123256" />
-
-* **Motor:** Godot Engine (v4.x)
-* **Artes/Som:** Criados especificamente para o projeto (Krita/FL Studio).
-
-### A Equipa
-* **Dinis Oliveira:** Programador & Diretor (Arquitetura e Lógica).
-* **Tomás Bolas:** Artista, Designer & Músico (Assets, Sound Design e UI).
+[![License](https://img.shields.io/badge/License-EULA_&_Terms-brightgreen.svg)](#-end-user-license--terms-of-service)
+[![Platform](https://img.shields.io/badge/Platform-PC_Windows-blue.svg)]()
+[![Genre](https://img.shields.io/badge/Genre-Arcade_Defense-orange.svg)]()
 
 ---
 
-## Guia de Desenvolvimento
+</div>
 
-Para manter o fluxo de trabalho entre a equipa:
+## 📌 About The Game
 
-1.  **Sincronização:** Sempre realizar `Fetch` e `Pull` no GitHub Desktop antes de abrir o Godot.
-2.  **Assets:** Todo o conteúdo bruto deve ir para `/assets` antes da importação.
-3.  **Segurança:** O `.gitignore` está ativo para proteger o repositório de lixo binário (`.godot/`).
+**Bunny Blitz Defense** is an intense, high-energy arcade defense experience built with vibrant visuals and rapid wave progression. Prepare for fast-paced action, sudden difficulty spikes, and highly addictive gameplay loops!
 
-🔗 **Recursos Úteis:**
-* [Game Design Document (GDD)](https://docs.google.com/document/d/1cuCqTdBamEB11B5yerB3ozmm3zI4_PhSoup3T6cm2KQ/edit?tab=t.nxxqdn61obvq)
-* [Documentação Godot](https://docs.godotengine.org/en/stable/)
-* [Pagina da Itch.Io](https://t0ms9.itch.io/bunny-tower-defense)
+* **Creators:** nke812 & T0MS
+* **Status:** Active Development
+* **Target Platform:** PC
 
 ---
-*Desenvolvido com por Dinis Oliveira e Tomás Bolas (2025/26).*
+
+## ⚠ Health & Gameplay Warnings
+
+### 🎨 High Contrast & Vivid Visuals
+The game features highly saturated color palettes, vibrant visual styles, and high-contrast effects designed for dynamic feedback.
+
+### ⚡ Fast-Paced Action
+Expect rapid wave clearing, high-speed movement, and intense screen activity.
+
+### 👁 Photosensitivity & Epilepsy Notice
+Flashing lights, rapid sprite animations, and high-contrast visuals may trigger discomfort or seizures in individuals with photosensitive epilepsy or visual sensitivity.
+
+* **Take regular breaks** during extended play sessions.
+* **Play in a well-lit environment**.
+* **Stop playing immediately** if you experience dizziness, nausea, eye strain, or discomfort.
+
+---
+
+## 📜 End User License & Terms of Service (EULA)
+
+```text
+===============================================================================
+           BUNNY BLITZ DEFENSE - END USER LICENSE & TERMS OF SERVICE
+===============================================================================
+Project Name   : Bunny Blitz Defense
+Creators       : nke812 & T0MS
+Last Updated   : 2026
+License Type   : Proprietary / All Rights Reserved (With Community Exemptions)
+===============================================================================
+
+1. CREATORS & INTELLECTUAL PROPERTY
+-------------------------------------------------------------------------------
+1.1. "Bunny Blitz Defense"—including all source code, gameplay mechanics, 
+     character designs, visual art, animations, UI elements, audio assets, 
+     and official branding—is the co-created intellectual property of 
+     nke812 and T0MS ("The Creators").
+
+1.2. All rights are reserved under applicable international copyright laws. 
+     Claiming authorship, re-uploading raw assets, or extracting code snippets 
+     from this project for unauthorized redistribution is strictly prohibited.
+
+2. COMMUNITY MODIFICATIONS & FAN CONTENT
+-------------------------------------------------------------------------------
+2.1. MODS & FAN ART: We fully support community creativity! You are welcome to 
+     create fan art, custom level modifications, or fan content based on 
+     "Bunny Blitz Defense".
+
+2.2. MONETIZATION RESTRICTIONS: Directly selling mods, charging fees for gameplay 
+     assets, or placing re-packaged versions of the game behind a paywall is 
+     strictly forbidden. 
+
+2.3. VOLUNTARY DONATIONS: Creators of community mods may accept voluntary 
+     donations on personal pages (e.g., Ko-fi, Patreon, PayPal), provided that 
+     access to the mod itself remains 100% free for everyone.
+
+3. CONTENT CREATION, STREAMING & MEDIA
+-------------------------------------------------------------------------------
+3.1. You are 100% free to record, stream, review, and monetize video content 
+     or gameplays of "Bunny Blitz Defense" on platforms like YouTube, Twitch, 
+     TikTok, or similar channels without requiring prior written approval.
+
+4. DISTRIBUTION & COPIES
+-------------------------------------------------------------------------------
+4.1. "Bunny Blitz Defense" is distributed digitally via official project channels. 
+
+4.2. Re-hosting executable files on unauthorized third-party platforms without 
+     proper attribution or without redirecting users to the official release 
+     pages is strictly prohibited.
+
+5. DISCLAIMER OF LIABILITY
+-------------------------------------------------------------------------------
+5.1. "Bunny Blitz Defense" is provided "as is", without warranties of any kind, 
+     express or implied. 
+
+5.2. The Creators (nke812 & T0MS) shall not be held liable for lost time, 
+     unwashed dishes, forgotten homework, or any direct or indirect software 
+     issues resulting from playing the game.
+
+===============================================================================
+Copyright (c) 2026 nke812 & T0MS. All Rights Reserved.
+===============================================================================
