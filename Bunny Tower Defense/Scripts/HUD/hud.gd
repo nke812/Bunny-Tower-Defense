@@ -8,6 +8,7 @@ var UpgradeCheck = load("res://Assets/Others/HUD_Assets/UpgradeCarrot.png")
 var LastUpgradeCheck = load("res://Assets/Others/HUD_Assets/UpgradeCrown.png")
 
 var GameOver : bool = false
+var BunnyCoinsMatch : int = 0
 
 @onready var moedas_label = $Moedas
 @onready var moedas_barra = $PGB_M
@@ -86,6 +87,8 @@ func _on_options_pressed():
 func _on_back_menu_pressed():
     get_tree().paused = false
     Engine.time_scale = 1.0
+    SaveManager.BunnyCoins = SaveManager.BunnyCoins + BunnyCoinsMatch
+    SaveManager.guardar_dados()
     get_tree().change_scene_to_file("res://Scenes/loading_Menu.tscn")
 
 
@@ -493,3 +496,8 @@ func victory():
         
     Engine.time_scale = 1.0
     $Pause.visible = false
+    
+func trigger() -> void:
+        var spawner_no = get_tree().get_first_node_in_group("spawner")
+        spawner_no.inimigo_morreu()
+        print(BunnyCoinsMatch)

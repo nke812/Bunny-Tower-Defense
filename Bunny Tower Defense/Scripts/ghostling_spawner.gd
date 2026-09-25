@@ -269,6 +269,13 @@ func _on_timer_timeout():
 
 func inimigo_morreu():
     var hud = get_tree().get_first_node_in_group("HUD")
+    
+    var gacha = randi_range(1, 25)
+    var AmountCoins = randi_range(25, 70)
+    
+    if gacha == 1:
+        hud.BunnyCoinsMatch = int(hud.BunnyCoinsMatch) + AmountCoins
+    
     inimigos_vivos -= 1
     if inimigos_vivos < 0:
         inimigos_vivos = 0
